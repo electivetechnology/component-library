@@ -13,7 +13,6 @@ type Props = {
   width?: number
   icon?: any
   href?: string
-  target?: string
   hasChildren?: boolean
   btnWidth?: string
   borderRadius?: string
@@ -91,7 +90,6 @@ const ButtonComponent: FunctionComponent<Props> = ({
   width,
   icon,
   href,
-  target,
   children,
   hasChildren,
   btnWidth,
@@ -111,8 +109,7 @@ const ButtonComponent: FunctionComponent<Props> = ({
 
   return (
     <Button
-      data-qa={'ButtonComponent'}
-      data-testid="ButtonComponent"
+      data-testid="Button"
       variant={variant}
       disabled={disabled}
       className={classes.component}
