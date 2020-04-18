@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Snackbar from '@material-ui/core/Snackbar'
 import { resetAlert, getAlert } from './alertReducer'
+import SnackbarContent from 'atoms/SnackbarContent/SnackbarContent'
+import { CloseWrapper } from 'atoms/Alert/styles'
 
 const Alert = () => {
   const { alertType, message } = useSelector(getAlert)
@@ -20,7 +22,11 @@ const Alert = () => {
       ContentProps={{
         'aria-describedby': 'message-id',
       }}>
-      <span>{message}</span>
+      {!!alertType ? (
+        <SnackbarContent variant={alertType} message={message} onClose={onCloseAlert}/>
+      ) : (
+        <CloseWrapper />
+      )}
     </Snackbar>
   )
 }
