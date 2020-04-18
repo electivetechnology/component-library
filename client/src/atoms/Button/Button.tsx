@@ -1,8 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import styled from 'styled-components'
-import Button from '@material-ui/core/Button'
-import { theme } from 'styles/theme'
+import MaterialButton from '@material-ui/core/Button'
+import { betaStyles, primaryStyles, secondaryStyles, useStyles, Wrapper, Icon } from 'atoms/Button/styles'
 
 type Props = {
   text: any
@@ -19,69 +17,7 @@ type Props = {
   textTransform?: any
 }
 
-const primaryStyles = {
-  backgroundColor: `${theme.primaryColorValencia} !important`,
-  color: `${theme.white} !important`,
-  '&:hover': {
-    backgroundColor: `${theme.primaryColorValenciaDark} !important`,
-  },
-}
-
-const secondaryStyles = {
-  backgroundColor: `${theme.white} !important`,
-  color: `${theme.primaryColorValencia} !important`,
-}
-
-const betaStyles = {
-  backgroundColor: `${theme.grayComment} !important`,
-  color: `${theme.white} !important`,
-  boxShadow:
-    '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
-  '&:hover': {
-    backgroundColor: `${theme.grayCommentDark} !important`,
-    color: `${theme.white} !important`,
-  },
-}
-
-const useStyles = makeStyles({
-  component: (props: any) => ({
-    ...props.themeStyle,
-    width: `${props.width}px`,
-  }),
-})
-
-type WrapperProps = {
-  icon?: any
-  hasChildren?: boolean
-}
-
-const Wrapper = styled.div<WrapperProps>`
-  display: grid;
-  grid-template-columns: 1fr;
-  color: ${theme.white}
-    ${props =>
-      props.icon &&
-      `
-    align-content: center;
-    padding-right: 8px;
-        grid-template-columns: 30px 1fr;
-    `};
-  ${props =>
-    props.hasChildren &&
-    `
-    align-content: center;
-    padding-right: 8px;
-        grid-template-columns: 30px 1fr;
-    `};
-`
-
-const Icon = styled.div`
-  padding-right: 8px;
-  display: grid;
-  align-items: center;
-`
-
-const ButtonComponent: FunctionComponent<Props> = ({
+const Button: FunctionComponent<Props> = ({
   text,
   theme = 'primary',
   disabled = false,
@@ -108,7 +44,7 @@ const ButtonComponent: FunctionComponent<Props> = ({
   const classes = useStyles({ themeStyle, width })
 
   return (
-    <Button
+    <MaterialButton
       data-testid="Button"
       variant={variant}
       disabled={disabled}
@@ -126,8 +62,8 @@ const ButtonComponent: FunctionComponent<Props> = ({
         {children}
         {text}
       </Wrapper>
-    </Button>
+    </MaterialButton>
   )
 }
 
-export default ButtonComponent
+export default Button
