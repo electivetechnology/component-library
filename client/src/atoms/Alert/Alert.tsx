@@ -12,7 +12,7 @@ const Alert = () => {
 
   return (
     <Snackbar
-      data-qa={'Alert'}
+      data-testid="Alert"
       autoHideDuration={6000}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       open={!!alertType}
