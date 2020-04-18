@@ -1,0 +1,28 @@
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Snackbar from '@material-ui/core/Snackbar'
+import { resetAlert, getAlert } from './alertReducer'
+
+const Alert = () => {
+  const { alertType, message } = useSelector(getAlert)
+  const dispatch = useDispatch()
+  const onCloseAlert = () => {
+    dispatch(resetAlert())
+  }
+
+  return (
+    <Snackbar
+      data-qa={'Alert'}
+      autoHideDuration={6000}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      open={!!alertType}
+      onClose={onCloseAlert}
+      ContentProps={{
+        'aria-describedby': 'message-id',
+      }}>
+      <span>{message}</span>
+    </Snackbar>
+  )
+}
+
+export default Alert
