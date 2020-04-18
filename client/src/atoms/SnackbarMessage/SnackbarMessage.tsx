@@ -4,7 +4,6 @@ import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
 import WarningIcon from '@material-ui/icons/Warning'
 import { useStyles } from './styles'
-import MaterialSnackbarContent from '@material-ui/core/SnackbarContent'
 
 const variantIcon: any = {
   success: CheckCircleIcon,
