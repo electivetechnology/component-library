@@ -4,7 +4,6 @@ import MaterialSnackbarContent from '@material-ui/core/SnackbarContent'
 import SnackbarAction from 'atoms/CloseButton/CloseButton'
 import SnackbarMessage from 'atoms/SnackbarMessage/SnackbarMessage'
 import { AlertTypeConst } from 'atoms/Alert/alertType'
-import MaterialButton from '@material-ui/core/Button'
 
 type Props = {
   variant: string
