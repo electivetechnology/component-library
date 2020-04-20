@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import { useStyles } from './styles'
-import MaterialSnackbarContent from '@material-ui/core/SnackbarContent'
+import SnackbarContent from '@material-ui/core/SnackbarContent'
 import SnackbarAction from 'atoms/CloseButton/CloseButton'
-import SnackbarMessage from 'atoms/SnackbarMessage/SnackbarMessage'
+import AlertMessage from 'atoms/Alert/AlertMessage'
 import { AlertTypeConst } from 'atoms/Alert/alertType'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   onClose: Function
 }
 
-const SnackbarContent: FunctionComponent<Props> = ({
+const AlertContent: FunctionComponent<Props> = ({
   variant = AlertTypeConst.SUCCESS,
   message = '',
   onClose,
@@ -19,14 +19,14 @@ const SnackbarContent: FunctionComponent<Props> = ({
   const classes: any = useStyles()
 
   return (
-    <MaterialSnackbarContent
-      data-testid="SnackbarContent"
+    <SnackbarContent
+      data-testid="AlertContent"
       className={classes[variant]}
       aria-describedby="client-snackbar"
-      message={<SnackbarMessage variant={variant} message={message}/>}
+      message={<AlertMessage variant={variant} message={message}/>}
       action={<SnackbarAction onClose={onClose}/>}
     />
   )
 }
 
-export default SnackbarContent
+export default AlertContent
