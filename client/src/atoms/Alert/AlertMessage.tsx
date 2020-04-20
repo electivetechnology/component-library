@@ -17,7 +17,7 @@ type Props = {
   message: string
 }
 
-const SnackbarMessage: FunctionComponent<Props> = ({
+const AlertMessage: FunctionComponent<Props> = ({
   variant = 'success',
   message = '',
 }) => {
@@ -25,11 +25,11 @@ const SnackbarMessage: FunctionComponent<Props> = ({
   const Icon: any = variantIcon[variant]
 
   return (
-    <span data-testid="SnackbarMessage" id="client-snackbar" className={classes.message}>
+    <span data-testid="AlertMessage" id="client-snackbar" className={classes.message}>
       <Icon className={`${classes.icon} ${classes.iconVariant}`} />
       {message}
     </span>
   )
 }
 
-export default SnackbarMessage
+export default AlertMessage
