@@ -19,7 +19,7 @@ const Avatar: FunctionComponent<Props> = ({
 }) => {
   const classes = useStyles({ color, fontWeight, height, width })
 
-  return <MaterialAvatar className={classes.component}>{children}</MaterialAvatar>
+  return <MaterialAvatar data-testid="Avatar" className={classes.component}>{children}</MaterialAvatar>
 }
 
 export default Avatar
