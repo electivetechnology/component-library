@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+const App: FunctionComponent = () => {
   return (
-    <div className="App">
+    <div className="App" data-testid="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,7 +21,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
