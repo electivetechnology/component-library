@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "docker-test": "react-scripts test --env=jsdom --forceExit --colors --detectOpenHandles --runInBand --coverage"
+    "docker-test": "react-scripts test --env=jsdom --forceExit --colors --detectOpenHandles --runInBand"
   },
   "eslintConfig": {
     "extends": "react-app"
