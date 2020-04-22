@@ -1,4 +1,4 @@
-import { AlertType } from 'atoms/Alert/alertType'
+import { AlertType } from 'components/molecules/Alert/alertType'
 
 export interface Schema {
   alert: AlertType

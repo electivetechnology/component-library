@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import { useStyles } from './styles'
+import { useStyles } from 'components/molecules/Alert/styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
-import SnackbarAction from 'atoms/CloseButton/CloseButton'
-import AlertMessage from 'atoms/Alert/AlertMessage'
-import { AlertTypeConst } from 'atoms/Alert/alertType'
+import SnackbarAction from 'components/atoms/CloseButton/CloseButton'
+import AlertMessage from 'components/molecules/Alert/AlertMessage'
+import { AlertTypeConst } from 'components/molecules/Alert/alertType'
 
 type Props = {
   variant: string
