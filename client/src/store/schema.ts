@@ -1,6 +1,6 @@
 import { AlertType } from 'atoms/Alert/alertType'
 export const alert: AlertType = {
-  alertType: false,
+  alertType: '',
   message: '',
 }
 
