@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Snackbar from '@material-ui/core/Snackbar'
-import { resetAlert, getAlert } from './alertReducer'
-import AlertContent from 'atoms/Alert/AlertContent'
-import { CloseWrapper } from 'atoms/Alert/styles'
+import { resetAlert, getAlert } from 'components/molecules/Alert/alertReducer'
+import AlertContent from 'components/molecules/Alert/AlertContent'
+import { CloseWrapper } from 'components/molecules/Alert/styles'
 
 const Alert = () => {
   const { alertType, message } = useSelector(getAlert)

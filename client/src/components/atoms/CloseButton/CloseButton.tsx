@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { CloseWrapper, useStyles } from './styles'
+import { CloseWrapper, useStyles } from 'components/atoms/CloseButton/styles'
 import CloseIcon from '@material-ui/icons/Close'
 
 type Props = {

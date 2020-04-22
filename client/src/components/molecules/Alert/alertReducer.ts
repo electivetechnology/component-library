@@ -2,7 +2,7 @@ import schema from 'store/schema'
 import { Schema } from 'store/schemaType'
 import { Reducer } from 'redux'
 import { resetAction, setAction, withItem } from 'utils/baseReducer'
-import { AlertActionTypes, AlertConst, AlertType } from './alertType'
+import { AlertActionTypes, AlertConst, AlertType } from 'components/molecules/Alert/alertType'
 
 // ACTION CREATORS
 export const setAlert = (

@@ -1,12 +1,12 @@
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Alert from './Alert'
+import Alert from 'components/molecules/Alert/Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
 import { SchemaConst } from 'utils/baseSchema'
-import { AlertTypeConst } from './alertType'
-import AlertMessage from './AlertMessage'
-import AlertContent from './AlertContent'
+import { AlertTypeConst } from 'components/molecules/Alert/alertType'
+import AlertMessage from 'components/molecules/Alert/AlertMessage'
+import AlertContent from 'components/molecules/Alert/AlertContent'
 
 afterEach(cleanup)
 
