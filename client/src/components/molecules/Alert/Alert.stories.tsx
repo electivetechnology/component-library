@@ -2,10 +2,10 @@ import React from 'react'
 import Alert from './Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
 import { SchemaConst } from 'utils/baseSchema'
-import { AlertTypeConst } from 'components/molecules/Alert/alertType'
-import AlertContent from 'components/molecules/Alert/AlertContent'
+import { AlertTypeConst } from './alertType'
+import AlertContent from './AlertContent'
 import { action } from '@storybook/addon-actions'
-import AlertMessage from 'components/molecules/Alert/AlertMessage'
+import AlertMessage from './AlertMessage'
 
 export default {
   title: 'Alert',

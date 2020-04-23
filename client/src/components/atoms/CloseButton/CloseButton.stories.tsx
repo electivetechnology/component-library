@@ -1,5 +1,5 @@
 import React from 'react';
-import CloseButton from 'components/atoms/CloseButton/CloseButton';
+import CloseButton from './CloseButton';
 import { action } from '@storybook/addon-actions'
 
 export default {

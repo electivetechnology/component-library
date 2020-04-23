@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Button from 'components/atoms/Button/Button';
+import Button from './Button';
 import Save from '@material-ui/icons/Save'
 
 export default {
