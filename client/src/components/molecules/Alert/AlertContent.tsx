@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import { useStyles } from './styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
-import SnackbarAction from 'atoms/CloseButton/CloseButton'
-import AlertMessage from 'atoms/Alert/AlertMessage'
-import { AlertTypeConst } from 'atoms/Alert/alertType'
+import { CloseButton } from 'components/atoms'
+import AlertMessage from './AlertMessage'
+import { AlertTypeConst } from './alertType'
 
 type Props = {
   variant: string
@@ -23,8 +23,8 @@ const AlertContent: FunctionComponent<Props> = ({
       data-testid="AlertContent"
       className={classes[variant]}
       aria-describedby="client-snackbar"
-      message={<AlertMessage variant={variant} message={message}/>}
-      action={<SnackbarAction onClose={onClose}/>}
+      message={<AlertMessage variant={variant} message={message} />}
+      action={<CloseButton onClose={onClose} />}
     />
   )
 }

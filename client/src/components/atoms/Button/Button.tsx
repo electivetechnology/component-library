@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import MaterialButton from '@material-ui/core/Button'
-import { betaStyles, primaryStyles, secondaryStyles, useStyles, Wrapper, Icon } from 'atoms/Button/styles'
+import { betaStyles, primaryStyles, secondaryStyles, useStyles, Wrapper, Icon } from './styles'
 
 type Props = {
   text: any
