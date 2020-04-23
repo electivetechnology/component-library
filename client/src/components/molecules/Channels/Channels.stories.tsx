@@ -1,5 +1,5 @@
 import React from 'react';
-import Channels from 'components/molecules/Channels/Channels'
+import Channels from './Channels'
 
 export default {
   title: 'Channels',
