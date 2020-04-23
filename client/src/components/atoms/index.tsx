@@ -1,9 +1,3 @@
-import Avatar from 'components/atoms/Avatar/Avatar'
-import Button from 'components/atoms/Button/Button'
-import CloseButton from 'components/atoms/CloseButton/CloseButton'
-
-export {
-  Avatar,
-  Button,
-  CloseButton
-}
+export { default as Avatar } from './Avatar/Avatar'
+export { default as Button } from './Button/Button'
+export { default as CloseButton } from './CloseButton/CloseButton'

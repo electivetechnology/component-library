@@ -1,11 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+export { Avatar } from 'components/atoms'
+export { Button } from 'components/atoms'
+export { CloseButton } from 'components/atoms'
+export { Alert } from 'components/molecules'
+export { Channels } from 'components/molecules'

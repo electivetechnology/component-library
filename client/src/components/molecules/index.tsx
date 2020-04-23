@@ -1,7 +1,3 @@
-import Alert from 'components/molecules/Alert/Alert'
-import Channels from 'components/molecules/Channels/Channels'
+export { default as Alert } from './Alert/Alert'
+export { default as Channels } from './Channels/Channels'
 
-export {
-  Alert,
-  Channels,
-}
