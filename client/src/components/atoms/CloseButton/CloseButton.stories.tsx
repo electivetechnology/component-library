@@ -3,7 +3,7 @@ import CloseButton from './CloseButton';
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'CloseButton',
+  title: 'atoms/CloseButton',
   component: CloseButton,
 };
 

@@ -8,7 +8,7 @@ import { action } from '@storybook/addon-actions'
 import AlertMessage from './AlertMessage'
 
 export default {
-  title: 'Alert',
+  title: 'molecules/Alert',
   component: Alert,
 }
 

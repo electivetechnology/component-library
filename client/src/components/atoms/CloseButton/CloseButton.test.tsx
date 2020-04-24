@@ -7,8 +7,8 @@ afterEach(cleanup)
 
 const onClose = jest.fn()
 
-const { getAllByTestId } = render(<CloseButton onClose={onClose} />)
+const { getByTestId } = render(<CloseButton onClose={onClose} />)
 
 test('renders CloseButton', () => {
-  expect(getAllByTestId('CloseButton')).toBeDefined
+  expect(getByTestId('CloseButton')).toBeDefined
 })
