@@ -4,7 +4,7 @@ import Button from './Button';
 import Save from '@material-ui/icons/Save'
 
 export default {
-  title: 'Button',
+  title: 'atoms/Button',
   component: Button,
 };
 

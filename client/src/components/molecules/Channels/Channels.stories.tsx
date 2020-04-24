@@ -2,7 +2,7 @@ import React from 'react';
 import Channels from './Channels'
 
 export default {
-  title: 'Channels',
+  title: 'molecules/Channels',
   component: Channels,
 };
 

@@ -3,7 +3,7 @@ import Avatar from './Avatar';
 import { theme } from 'styles/theme'
 
 export default {
-  title: 'Avatar',
+  title: 'atoms/Avatar',
   component: Avatar,
 };
 
