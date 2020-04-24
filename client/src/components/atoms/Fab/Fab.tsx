@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import Fab from '@material-ui/core/Fab'
+import MaterialFab from '@material-ui/core/Fab'
 import { IconWrapper, useStyles } from './styles'
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
   isHelpPage?: boolean
 }
 
-const FabComponent: FunctionComponent<Props> = ({
+const Fab: FunctionComponent<Props> = ({
   icon,
   isActive,
   isHelpPage = false,
@@ -16,10 +16,10 @@ const FabComponent: FunctionComponent<Props> = ({
   const classes = useStyles()
   const styles = isHelpPage ? classes.helpFab : classes.component;
   return (
-    <Fab data-testid="Fab" color="primary" className={styles}>
+    <MaterialFab data-testid="Fab" color="primary" className={styles}>
       <IconWrapper isActive={isActive}>{icon}</IconWrapper>
-    </Fab>
+    </MaterialFab>
   )
 }
 
-export default FabComponent
+export default Fab
