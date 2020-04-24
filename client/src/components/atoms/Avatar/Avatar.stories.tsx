@@ -7,7 +7,7 @@ export default {
   component: Avatar,
 };
 
-export const None = () => <Avatar/>
+export const Default = () => <Avatar/>
 export const Initial = () => <Avatar>C</Avatar>
 export const ColourPrimary = () => <Avatar color={theme.primaryColorValencia}/>
 export const FontWeight = () => <Avatar fontWeight={200}>C</Avatar>

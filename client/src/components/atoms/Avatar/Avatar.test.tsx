@@ -5,8 +5,8 @@ import Avatar from './Avatar'
 
 afterEach(cleanup)
 
-const { getAllByTestId } = render(<Avatar />)
+const { getByTestId } = render(<Avatar />)
 
 test('renders Avatar', () => {
-  expect(getAllByTestId('Avatar')).toBeDefined
+  expect(getByTestId('Avatar')).toBeDefined
 })

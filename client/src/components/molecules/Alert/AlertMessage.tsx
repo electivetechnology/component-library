@@ -13,7 +13,7 @@ const variantIcon: any = {
 }
 
 type Props = {
-  variant: any
+  variant: string
   message: string
 }
 

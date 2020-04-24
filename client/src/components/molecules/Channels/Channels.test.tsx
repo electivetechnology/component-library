@@ -5,8 +5,8 @@ import Channels from './Channels'
 
 afterEach(cleanup)
 
-const { getAllByTestId } = render(<Channels />)
+const { getByTestId } = render(<Channels sms={true} webChat={true} phone={true} />)
 
 test('renders Channels', () => {
-  expect(getAllByTestId('Channels')).toBeDefined
+  expect(getByTestId('Channels')).toBeDefined
 })

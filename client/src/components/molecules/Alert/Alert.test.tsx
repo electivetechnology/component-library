@@ -16,17 +16,17 @@ const store = [
 const onClose = jest.fn()
 
 test('renders Alert', () => {
-  const { getAllByTestId } = render(<ProviderWrapper store={store}><Alert/></ProviderWrapper>)
-  expect(getAllByTestId('Alert')).toBeDefined
+  const { getByTestId } = render(<ProviderWrapper store={store}><Alert/></ProviderWrapper>)
+  expect(getByTestId('Alert')).toBeDefined
 })
 
 test('renders AlertContent', () => {
-  const { getAllByTestId } = render(<AlertContent variant={AlertTypeConst.SUCCESS} message={''} onClose={onClose}/>)
-  expect(getAllByTestId('AlertContent')).toBeDefined
+  const { getByTestId } = render(<AlertContent variant={AlertTypeConst.SUCCESS} message={''} onClose={onClose}/>)
+  expect(getByTestId('AlertContent')).toBeDefined
 })
 
 test('renders AlertMessage', () => {
-  const { getAllByTestId } = render(<AlertMessage variant={AlertTypeConst.SUCCESS} message={''}/>)
-  expect(getAllByTestId('AlertMessage')).toBeDefined
+  const { getByTestId } = render(<AlertMessage variant={AlertTypeConst.SUCCESS} message={''}/>)
+  expect(getByTestId('AlertMessage')).toBeDefined
 })
 

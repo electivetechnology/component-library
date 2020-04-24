@@ -8,6 +8,8 @@ export default {
   component: Button,
 };
 
+export const Default = () => <Button text={'Primary'} theme={'primary'}/>;
+
 export const Primary = () => <Button text={'Primary'} theme={'primary'} onClick={action('clicked')}/>;
 
 export const Secondary = () => <Button text={'Secondary'} theme={'secondary'} onClick={action('clicked')}/>;
