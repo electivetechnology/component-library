@@ -5,6 +5,6 @@ import Checkbox from './Checkbox'
 
 const { getByTestId } = render(<Checkbox onChange={undefined} />)
 
-test('displays label', () => {
-  expect(getByTestId('FormCheckbox')).toBeDefined
+test('displays Checkbox', () => {
+  expect(getByTestId('Checkbox')).toBeDefined
 })

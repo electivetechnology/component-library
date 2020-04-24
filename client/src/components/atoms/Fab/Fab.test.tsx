@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Fab from 'components/atoms/Fab/Fab'
+import Fab from './Fab'
 
 afterEach(cleanup)
 
