@@ -7,7 +7,7 @@ type Props = {
 }
 
 const CloseButton: FunctionComponent<Props> = ({ onClose }) => {
-  const classes: any = useStyles()
+  const classes = useStyles()
 
   return (
     <CloseWrapper data-testid="CloseButton">

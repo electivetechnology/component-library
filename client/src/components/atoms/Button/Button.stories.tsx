@@ -8,7 +8,7 @@ export default {
   component: Button,
 };
 
-export const Default = () => <Button text={'Primary'} theme={'primary'}/>;
+export const Default = () => <Button text={''} theme={''}/>;
 
 export const Primary = () => <Button text={'Primary'} theme={'primary'} onClick={action('clicked')}/>;
 

@@ -21,7 +21,7 @@ const AlertMessage: FunctionComponent<Props> = ({
   variant = 'success',
   message = '',
 }) => {
-  const classes: any = useStyles()
+  const classes = useStyles()
   const Icon: any = variantIcon[variant]
 
   return (
