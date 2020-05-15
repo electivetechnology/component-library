@@ -16,7 +16,7 @@ const AlertContent: FunctionComponent<Props> = ({
   message = '',
   onClose,
 }) => {
-  const classes: any = useStyles()
+  const classes = useStyles()
 
   return (
     <SnackbarContent
