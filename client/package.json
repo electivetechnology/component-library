@@ -22,6 +22,7 @@
     "immer": "^6.0.3",
     "moment": "^2.24.0",
     "react": "^16.13.1",
+    "@types/react": "^16.9.4",
     "react-csv-downloader": "^1.8.0",
     "react-moment": "^0.9.7",
     "react-redux": "^7.2.0",
@@ -29,10 +30,6 @@
     "redux": "^4.0.5",
     "styled-components": "^5.1.0",
     "typescript": "^3.8.3"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1",
-    "@types/react": "^16.9.4"
   },
   "scripts": {
     "test": "react-scripts test",
