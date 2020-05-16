@@ -44,7 +44,7 @@ const Checkbox: FunctionComponent<Props> = ({
   }, [value])
 
   return (
-    <CheckboxContainerStyled data-testid="FormCheckbox">
+    <CheckboxContainerStyled data-testid="Checkbox">
       <CheckboxStyled
         id={`label-${label}`}
         checked={isChecked}

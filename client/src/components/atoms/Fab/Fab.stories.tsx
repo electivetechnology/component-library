@@ -1,5 +1,5 @@
 import React from 'react';
-import Fab from 'components/atoms/Fab/Fab';
+import Fab from './Fab';
 import Save from '@material-ui/icons/Save'
 
 export default {
