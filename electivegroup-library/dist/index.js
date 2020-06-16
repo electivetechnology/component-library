@@ -1,13 +1,8 @@
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var React = require('react');
-var styles = _interopDefault(require('src/styles.module.css'));
 
 var ExampleComponent = function ExampleComponent(_ref) {
   var text = _ref.text;
-  return React.createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
+  return React.createElement("div", null, "Example Component: ", text);
 };
 
 exports.ExampleComponent = ExampleComponent;
