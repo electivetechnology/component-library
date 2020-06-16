@@ -8,7 +8,7 @@ import { AlertTypeConst } from './alertType'
 type Props = {
   variant: string
   message: string
-  onClose: Function
+  onClose: Event
 }
 
 const AlertContent: FunctionComponent<Props> = ({
