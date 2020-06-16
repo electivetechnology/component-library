@@ -1,6 +1,5 @@
-import { remove } from 'lodash'
+import { remove, merge } from 'lodash'
 import { produce } from 'immer'
-import { merge } from 'lodash'
 
 // GLOBAL ACTION CREATORS
 export const setAction = (item: any, itemConstant: any) => ({

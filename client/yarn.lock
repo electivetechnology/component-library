@@ -5586,11 +5586,6 @@ ejs@^2.7.4:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
-electivegroup-library@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/electivegroup-library/-/electivegroup-library-1.0.1.tgz#885edf14cfa0ec46595a9e30e1d524dbdec2da12"
-  integrity sha512-bht+vVRBE7h3xEo51ke5HXdIgBThmxDfn2OckI9kt3MSkV5R1/Iki6ceCbdgGWF0l2FENd4Dxp3zGw2/iQvxeg==
-
 electron-to-chromium@^1.3.247:
   version "1.3.474"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.474.tgz#161af012e11f96795eade84bf03b8ddc039621b9"

@@ -1,12 +1,5 @@
-export enum AlertTypeConst {
-  SUCCESS = 'success',
-  WARNING = 'warning',
-  INFO = 'info',
-  ERROR = 'error',
-}
-
 export interface AlertType {
-  alertType: string
+  alertType: 'success' | 'warning' | 'info' | 'error' | ''
   message: string
 }
 
