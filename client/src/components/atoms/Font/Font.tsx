@@ -21,7 +21,7 @@ const Font: FunctionComponent<Props> = ({
   gutterBottom = false,
   children,
   align = 'left',
-  inline = false,
+  inline = 'false',
   color,
   overflow = false,
   fontWeight,

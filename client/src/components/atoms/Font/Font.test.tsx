@@ -5,7 +5,7 @@ import Font from './Font'
 
 afterEach(cleanup)
 
-const { getByTestId } = render(<Font variant={''} />)
+const { getByTestId } = render(<Font variant={'h1'} />)
 
 test('renders Font', () => {
   expect(getByTestId('Font')).toBeDefined
