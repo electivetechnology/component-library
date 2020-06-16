@@ -1,0 +1,6 @@
+{
+  "extends": "electivegroup-library/tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs"
+  }
+}
