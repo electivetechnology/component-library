@@ -3,16 +3,15 @@ import { useStyles } from './styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
 import { CloseButton } from 'components/atoms'
 import AlertMessage from './AlertMessage'
-import { AlertTypeConst } from './alertType'
 
 type Props = {
   variant: string
   message: string
-  onClose: Function
+  onClose: any
 }
 
 const AlertContent: FunctionComponent<Props> = ({
-  variant = AlertTypeConst.SUCCESS,
+  variant = 'success',
   message = '',
   onClose,
 }) => {
@@ -21,7 +20,7 @@ const AlertContent: FunctionComponent<Props> = ({
   return (
     <SnackbarContent
       data-testid="AlertContent"
-      className={classes[variant]}
+      // className={classes[variant]}
       aria-describedby="client-snackbar"
       message={<AlertMessage variant={variant} message={message} />}
       action={<CloseButton onClose={onClose} />}
