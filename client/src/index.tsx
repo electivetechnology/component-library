@@ -8,3 +8,4 @@ export { CsvDownloader } from 'components/atoms'
 // molecules
 export { Alert } from 'components/molecules'
 export { Channels } from 'components/molecules'
+export { PopUp } from 'components/molecules'
