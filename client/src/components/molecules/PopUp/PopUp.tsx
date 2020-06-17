@@ -24,6 +24,7 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
 
   return (
     <Dialog
+      data-testid="PopUp"
       open={!!popUpType}
       classes={{ paper: classes.dialogPaper }}
       onClose={handleClose}
