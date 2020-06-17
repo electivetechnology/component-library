@@ -1,5 +1,9 @@
+export const ALERT = 'alert'
+
+export type TypeType =  'success' | 'warning' | 'info' | 'error' | ''
+
 export interface AlertType {
-  alertType: 'success' | 'warning' | 'info' | 'error' | ''
+  type: TypeType
   message: string
 }
 
@@ -16,6 +20,10 @@ interface SetAlertAction {
 
 interface ResetAlertAction {
   type: typeof AlertConst.RESET
+}
+
+export interface Schema {
+  [ALERT]: AlertType
 }
 
 export type AlertActionTypes = SetAlertAction | ResetAlertAction

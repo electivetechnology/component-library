@@ -1,12 +1,12 @@
-import schema from './schema'
 import { Reducer } from 'redux'
+import schema from './schema'
 import { resetAction, setAction, withItem } from 'utils/baseReducer'
 import {
   PopUpActionTypes,
   PopUpConst,
   PopUpType,
   Schema,
-} from 'components/molecules/PopUp/popUpType'
+} from './types'
 
 // ACTION CREATORS
 export const setPopUp = (

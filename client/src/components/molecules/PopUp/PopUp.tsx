@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { resetPopUp, getPopUp } from './popUpReducer'
+import { resetPopUp, getPopUp } from './reducer'
 import Dialog from '@material-ui/core/Dialog'
 import {
   HeaderWrapperStyled,
@@ -9,14 +9,14 @@ import {
   popUpStyles,
   PopUpWrapperStyled,
 } from './styles'
-import PopUpClose from 'components/molecules/PopUp/PopUpClose'
+import PopUpClose from './PopUpClose'
 
 type Props = {
   classes?: any
 }
 const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
   const dispatch = useDispatch()
-  const { popUpType } = useSelector(getPopUp)
+  const { type } = useSelector(getPopUp)
 
   const handleClose = () => {
     dispatch(resetPopUp())
@@ -25,7 +25,7 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
   return (
     <Dialog
       data-testid="PopUp"
-      open={!!popUpType}
+      open={!!type}
       classes={{ paper: classes.dialogPaper }}
       onClose={handleClose}
       disableBackdropClick={true}
