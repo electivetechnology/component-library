@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetPopUp, getPopUp } from './reducer'
@@ -8,6 +8,7 @@ import {
   PopUpContentWrapperStyled,
   popUpStyles,
   PopUpWrapperStyled,
+  Overlay
 } from './styles'
 import PopUpClose from './PopUpClose'
 
@@ -22,10 +23,11 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
     dispatch(resetPopUp())
   }
 
-  return (
+  return !!type ? <Fragment>
+    <Overlay onClick={handleClose}/>
     <Dialog
       data-testid="PopUp"
-      open={!!type}
+      open={true}
       classes={{ paper: classes.dialogPaper }}
       onClose={handleClose}
       disableBackdropClick={true}
@@ -39,7 +41,7 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
         </PopUpContentWrapperStyled>
       </PopUpWrapperStyled>
     </Dialog>
-  )
+  </Fragment> : null
 }
 
 export default withStyles(popUpStyles)(PopUp)
