@@ -1,43 +1,29 @@
-import React from 'react'
+import React  from 'react'
 import Alert from './Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
 import { SchemaConst } from 'utils/baseSchema'
 import AlertContent from './AlertContent'
 import { action } from '@storybook/addon-actions'
 import AlertMessage from './AlertMessage'
+import { AlertType } from './alertType'
 
 export default {
   title: 'molecules/Alert',
-  component: Alert,
+  component: Alert
 }
 
-const successStore = [
+const alertStore = (value: AlertType) => [
   {
     key: SchemaConst.ALERT,
-    value: { alertType: 'success', message: 'Success Alert' },
-  },
+    value
+  }
 ]
 
-const warningStore = [
-  {
-    key: SchemaConst.ALERT,
-    value: { alertType: 'warning', message: 'Warning Alert' },
-  },
-]
-
-const infoStore = [
-  {
-    key: SchemaConst.ALERT,
-    value: { alertType: 'info', message: 'Info Alert' },
-  },
-]
-
-const errorStore = [
-  {
-    key: SchemaConst.ALERT,
-    value: { alertType: 'error', message: 'Error Alert' },
-  },
-]
+const successStore = alertStore({ type: 'success', message: 'Success Alert' })
+const warningStore = alertStore({ type: 'warning', message: 'Warning Alert' })
+const infoStore = alertStore({ type: 'info', message: 'Info Alert' })
+const errorStore = alertStore({ type: 'error', message: 'Error Alert' })
+const emptyStore = alertStore({ type: '', message: '' })
 
 export const SuccessAlert = () => (
   <ProviderWrapper store={successStore}>
@@ -56,6 +42,11 @@ export const InfoAlert = () => (
 )
 export const ErrorAlert = () => (
   <ProviderWrapper store={errorStore}>
+    <Alert />
+  </ProviderWrapper>
+)
+export const EmptyAlert = () => (
+  <ProviderWrapper store={emptyStore}>
     <Alert />
   </ProviderWrapper>
 )
