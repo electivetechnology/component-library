@@ -3,14 +3,14 @@ import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Alert from './Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
-import { SchemaConst } from 'utils/baseSchema'
 import AlertMessage from './AlertMessage'
 import AlertContent from './AlertContent'
+import { ALERT } from './alertType'
 
 afterEach(cleanup)
 
 const store = [
-  { key: SchemaConst.ALERT, value: {alertType: 'success', message: 'Success Message'} },
+  { key: ALERT, value: {alertType: 'success', message: 'Success Message'} },
 ]
 const onClose = jest.fn()
 

@@ -1,5 +1,5 @@
-import schema from './schema'
 import { Reducer } from 'redux'
+import schema from './schema'
 import { resetAction, setAction, withItem } from 'utils/baseReducer'
 import {
   PopUpActionTypes,

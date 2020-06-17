@@ -1,7 +1,7 @@
-import { AlertType } from 'components/molecules/Alert/alertType'
+import { AlertType } from './alertType'
 export const alert: AlertType = {
   type: '',
-  message: '',
+  message: ''
 }
 
 const schema = {

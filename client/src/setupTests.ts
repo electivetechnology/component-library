@@ -1,9 +1,5 @@
 import configureMockStore from 'redux-mock-store'
-import { createDefaultState } from 'utils/baseSchema'
-import schema from 'store/schema'
-
-export const initialState = createDefaultState(schema)
-export const store = configureMockStore()(initialState)
+export const initialState:any = {}
 
 interface Store {
   key: string

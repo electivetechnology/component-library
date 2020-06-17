@@ -1,5 +1,7 @@
+export const POPUP = 'popUp'
+
 export interface PopUpType {
-  popUpType: string
+  type: string
 }
 
 export enum PopUpConst {
@@ -17,7 +19,7 @@ interface ResetPopUpAction {
 }
 
 export interface Schema {
-  popUp: PopUpType
+  [POPUP]: PopUpType
 }
 
 export type PopUpActionTypes = SetPopUpAction | ResetPopUpAction
