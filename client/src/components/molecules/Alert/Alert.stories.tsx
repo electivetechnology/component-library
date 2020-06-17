@@ -1,11 +1,10 @@
 import React  from 'react'
 import Alert from './Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
-import { SchemaConst } from 'utils/baseSchema'
 import AlertContent from './AlertContent'
 import { action } from '@storybook/addon-actions'
 import AlertMessage from './AlertMessage'
-import { AlertType } from './alertType'
+import { AlertType, ALERT } from './alertType'
 
 export default {
   title: 'molecules/Alert',
@@ -14,7 +13,7 @@ export default {
 
 const alertStore = (value: AlertType) => [
   {
-    key: SchemaConst.ALERT,
+    key: ALERT,
     value
   }
 ]

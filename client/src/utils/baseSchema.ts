@@ -1,7 +1,3 @@
-export enum SchemaConst {
-  ALERT = 'alert',
-}
-
 export function createDefaultState(schema: any) {
   return Object.keys(schema).reduce((sum: any, key) => {
     sum[key] = isCollection(schema[key]) ? {} : schema[key]

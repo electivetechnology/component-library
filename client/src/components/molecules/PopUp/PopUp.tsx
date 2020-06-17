@@ -16,7 +16,7 @@ type Props = {
 }
 const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
   const dispatch = useDispatch()
-  const { popUpType } = useSelector(getPopUp)
+  const { type } = useSelector(getPopUp)
 
   const handleClose = () => {
     dispatch(resetPopUp())
@@ -24,7 +24,7 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
 
   return (
     <Dialog
-      open={!!popUpType}
+      open={!!type}
       classes={{ paper: classes.dialogPaper }}
       onClose={handleClose}
       disableBackdropClick={true}
