@@ -59,7 +59,7 @@ export const popUpStyles = {
     borderRadius: '0',
     width: '100%',
     maxWidth: '100%',
-    ['@media screen and (min-width: 750px)']: {
+    '@media screen and (min-width: 750px)': {
       margin: '48px',
       maxHeight: 'calc(100% - 96px);',
       borderRadius: '4px',
