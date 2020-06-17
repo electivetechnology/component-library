@@ -1,5 +1,7 @@
+export type TypeType =  'success' | 'warning' | 'info' | 'error' | ''
+
 export interface AlertType {
-  alertType: 'success' | 'warning' | 'info' | 'error' | ''
+  type: TypeType
   message: string
 }
 

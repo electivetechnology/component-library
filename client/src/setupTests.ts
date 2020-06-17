@@ -7,7 +7,7 @@ export const store = configureMockStore()(initialState)
 
 interface Store {
   key: string
-  value: any
+  value: object
 }
 
 export const createInitialStore = (newStates: Array<Store>) => {
