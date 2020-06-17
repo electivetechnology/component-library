@@ -1,17 +1,14 @@
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import PopUp from 'components/molecules/PopUp/PopUp'
+import PopUp from './PopUp'
 import ProviderWrapper from 'utils/ProviderWrapper'
+import { refreshStore } from './mocks'
 
 afterEach(cleanup)
 
-const store = [
-  { key: 'popUp', value: {popUpType: 'refresh'} },
-]
-
 test('renders PopUp', () => {
-  const { getByTestId } = render(<ProviderWrapper store={store}><PopUp/></ProviderWrapper>)
+  const { getByTestId } = render(<ProviderWrapper store={refreshStore}><PopUp/></ProviderWrapper>)
   expect(getByTestId('PopUp')).toBeDefined
 })
 

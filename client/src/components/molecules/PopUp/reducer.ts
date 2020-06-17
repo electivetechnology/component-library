@@ -6,7 +6,7 @@ import {
   PopUpConst,
   PopUpType,
   Schema,
-} from 'components/molecules/PopUp/popUpType'
+} from './types'
 
 // ACTION CREATORS
 export const setPopUp = (

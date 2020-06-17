@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { useDispatch, useSelector } from 'react-redux'
-import { resetPopUp, getPopUp } from './popUpReducer'
+import { resetPopUp, getPopUp } from './reducer'
 import Dialog from '@material-ui/core/Dialog'
 import {
   HeaderWrapperStyled,
@@ -9,7 +9,7 @@ import {
   popUpStyles,
   PopUpWrapperStyled,
 } from './styles'
-import PopUpClose from 'components/molecules/PopUp/PopUpClose'
+import PopUpClose from './PopUpClose'
 
 type Props = {
   classes?: any

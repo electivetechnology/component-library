@@ -1,28 +1,21 @@
-import React  from 'react'
+import React from 'react'
 import Alert from './Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
 import AlertContent from './AlertContent'
 import { action } from '@storybook/addon-actions'
 import AlertMessage from './AlertMessage'
-import { AlertType, ALERT } from './alertType'
+import {
+  successStore,
+  warningStore,
+  infoStore,
+  errorStore,
+  emptyStore
+} from './mocks'
 
 export default {
   title: 'molecules/Alert',
   component: Alert
 }
-
-const alertStore = (value: AlertType) => [
-  {
-    key: ALERT,
-    value
-  }
-]
-
-const successStore = alertStore({ type: 'success', message: 'Success Alert' })
-const warningStore = alertStore({ type: 'warning', message: 'Warning Alert' })
-const infoStore = alertStore({ type: 'info', message: 'Info Alert' })
-const errorStore = alertStore({ type: 'error', message: 'Error Alert' })
-const emptyStore = alertStore({ type: '', message: '' })
 
 export const SuccessAlert = () => (
   <ProviderWrapper store={successStore}>

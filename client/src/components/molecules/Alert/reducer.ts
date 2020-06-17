@@ -1,7 +1,7 @@
 import { Reducer } from 'redux'
 import schema from './schema'
 import { resetAction, setAction, withItem } from 'utils/baseReducer'
-import { AlertActionTypes, AlertConst, AlertType, Schema } from './alertType'
+import { AlertActionTypes, AlertConst, AlertType, Schema } from './types'
 
 // ACTION CREATORS
 export const setAlert = (

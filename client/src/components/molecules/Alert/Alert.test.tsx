@@ -5,17 +5,14 @@ import Alert from './Alert'
 import ProviderWrapper from 'utils/ProviderWrapper'
 import AlertMessage from './AlertMessage'
 import AlertContent from './AlertContent'
-import { ALERT } from './alertType'
+import { successStore } from './mocks'
 
 afterEach(cleanup)
 
-const store = [
-  { key: ALERT, value: {alertType: 'success', message: 'Success Message'} },
-]
 const onClose = jest.fn()
 
 test('renders Alert', () => {
-  const { getByTestId } = render(<ProviderWrapper store={store}><Alert/></ProviderWrapper>)
+  const { getByTestId } = render(<ProviderWrapper store={successStore}><Alert/></ProviderWrapper>)
   expect(getByTestId('Alert')).toBeDefined
 })
 

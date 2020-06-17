@@ -1,4 +1,4 @@
-import { AlertType } from './alertType'
+import { AlertType } from './types'
 export const alert: AlertType = {
   type: '',
   message: ''

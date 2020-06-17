@@ -1,4 +1,4 @@
-import { PopUpType } from './popUpType'
+import { PopUpType } from './types'
 export const popUp: PopUpType = {
   type: '',
 }
