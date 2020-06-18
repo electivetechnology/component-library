@@ -1,6 +1,6 @@
 import { AlertType } from './types'
 export const alert: AlertType = {
-  type: '',
+  alertType: '',
   message: ''
 }
 
