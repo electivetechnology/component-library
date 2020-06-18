@@ -11,8 +11,8 @@ import {
 // ACTION CREATORS
 export const setPopUp = (
   popUpType: string,
-  message: string
-): PopUpActionTypes => setAction({ popUpType, message }, PopUpConst)
+  isCloseable = true
+): PopUpActionTypes => setAction({ popUpType, isCloseable }, PopUpConst)
 
 export const resetPopUp = (): PopUpActionTypes => resetAction(PopUpConst)
 

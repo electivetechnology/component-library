@@ -1,6 +1,6 @@
 import { PopUpType } from './types'
 export const popUp: PopUpType = {
-  type: '',
+  popUpType: '',
 }
 
 const schema = {

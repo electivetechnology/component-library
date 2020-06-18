@@ -1,7 +1,8 @@
 export const POPUP = 'popUp'
 
 export interface PopUpType {
-  type: string
+  popUpType: string
+  isCloseable?: boolean
 }
 
 export enum PopUpConst {
@@ -12,6 +13,7 @@ export enum PopUpConst {
 interface SetPopUpAction {
   type: typeof PopUpConst.SET
   popUpType: string
+  isCloseable?: boolean
 }
 
 interface ResetPopUpAction {
