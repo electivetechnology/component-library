@@ -15,7 +15,7 @@ export const popUpSchema: PopUpType = {
 // ACTION CREATORS
 export const setPopUp = (
   popUpType: string,
-  isCloseable = true
+  isCloseable = false
 ): PopUpActionTypes => setAction({ popUpType, isCloseable }, PopUpConst)
 
 export const resetPopUp = (): PopUpActionTypes => resetAction(PopUpConst)
