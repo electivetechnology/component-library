@@ -6,6 +6,7 @@ export { Checkbox } from 'components/atoms'
 export { CsvDownloader } from 'components/atoms'
 
 // molecules
-export { Alert } from 'components/molecules'
-export { Channels } from 'components/molecules'
-export { PopUp } from 'components/molecules'
+export { default as Alert } from 'components/molecules/Alert/Alert'
+export { default as Channels } from 'components/molecules/Channels/Channels'
+export { default as PopUp } from 'components/molecules/PopUp/PopUp'
+export { default as popUpReducer, setPopUp, getPopUp, resetPopUp, popUpSchema } from 'components/molecules/PopUp/reducer'
