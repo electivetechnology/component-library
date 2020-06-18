@@ -3,10 +3,10 @@ import { useStyles } from './styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
 import { CloseButton } from 'components/atoms'
 import AlertMessage from './AlertMessage'
-import { TypeType } from './types'
+import { AlertTypeType } from './types'
 
 type Props = {
-  variant: TypeType
+  variant: AlertTypeType
   message: string
   onClose: any
 }
