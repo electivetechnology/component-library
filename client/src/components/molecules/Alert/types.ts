@@ -1,9 +1,9 @@
 export const ALERT = 'alert'
 
-export type TypeType =  'success' | 'warning' | 'info' | 'error' | ''
+export type AlertTypeType =  'success' | 'warning' | 'info' | 'error' | ''
 
 export interface AlertType {
-  type: TypeType
+  alertType: AlertTypeType
   message: string
 }
 

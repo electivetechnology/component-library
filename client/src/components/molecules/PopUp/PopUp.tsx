@@ -17,13 +17,13 @@ type Props = {
 }
 const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
   const dispatch = useDispatch()
-  const { type } = useSelector(getPopUp)
+  const { popUpType, isCloseable } = useSelector(getPopUp)
 
   const handleClose = () => {
     dispatch(resetPopUp())
   }
 
-  return !!type ? <Fragment>
+  return !!popUpType ? <Fragment>
     <Overlay onClick={handleClose}/>
     <Dialog
       data-testid="PopUp"
@@ -34,7 +34,7 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
       disableEscapeKeyDown={true}>
       <PopUpWrapperStyled>
         <HeaderWrapperStyled>
-          <PopUpClose handleClose={handleClose} />
+          {isCloseable && <PopUpClose handleClose={handleClose} />}
         </HeaderWrapperStyled>
         <PopUpContentWrapperStyled popUpHeight={'100vH'}>
           {children}

@@ -7,8 +7,8 @@ const alertStore = (value: AlertType) => [
   }
 ]
 
-export const successStore = alertStore({ type: 'success', message: 'Success Alert' })
-export const warningStore = alertStore({ type: 'warning', message: 'Warning Alert' })
-export const infoStore = alertStore({ type: 'info', message: 'Info Alert' })
-export const errorStore = alertStore({ type: 'error', message: 'Error Alert' })
-export const emptyStore = alertStore({ type: '', message: '' })
+export const successStore = alertStore({ alertType: 'success', message: 'Success Alert' })
+export const warningStore = alertStore({ alertType: 'warning', message: 'Warning Alert' })
+export const infoStore = alertStore({ alertType: 'info', message: 'Info Alert' })
+export const errorStore = alertStore({ alertType: 'error', message: 'Error Alert' })
+export const emptyStore = alertStore({ alertType: '', message: '' })
