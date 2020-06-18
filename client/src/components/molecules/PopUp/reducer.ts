@@ -1,5 +1,4 @@
 import { Reducer } from 'redux'
-import schema from './schema'
 import { resetAction, setAction, withItem } from 'utils/baseReducer'
 import {
   PopUpActionTypes,
@@ -7,6 +6,11 @@ import {
   PopUpType,
   Schema,
 } from './types'
+
+// SCHEMA
+export const popUpSchema: PopUpType = {
+  popUpType: '',
+}
 
 // ACTION CREATORS
 export const setPopUp = (
@@ -17,9 +21,9 @@ export const setPopUp = (
 export const resetPopUp = (): PopUpActionTypes => resetAction(PopUpConst)
 
 // REDUCER
-const popUp: Reducer<PopUpType> = (state = schema.popUp) => state
+const popUp: Reducer<PopUpType> = (state = popUpSchema) => state
 
 // BASE SELECTORS
 export const getPopUp = (state: Schema) => state.popUp
 
-export default withItem(PopUpConst, popUp, schema.popUp)
+export default withItem(PopUpConst, popUp, popUpSchema)
