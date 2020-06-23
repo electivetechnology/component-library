@@ -1,9 +1,7 @@
 import React, { FunctionComponent, Fragment } from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import { useSelector } from 'react-redux'
 import { getPopUp } from './reducer'
 import {
-  popUpStyles,
   PopUpWrapperStyled,
   Overlay,
   PopupClosedStyled,
@@ -33,4 +31,4 @@ const PopUp: FunctionComponent = ({ children }) => {
   ) : null
 }
 
-export default withStyles(popUpStyles)(PopUp)
+export default PopUp

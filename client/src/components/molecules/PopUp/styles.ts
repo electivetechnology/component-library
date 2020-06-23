@@ -48,24 +48,6 @@ export const PopupClosedStyled = styled.div`
   padding-top: 16px;
 `
 
-export const popUpStyles = {
-  dialogPaper: {
-    height: '100vh',
-    margin: '0',
-    maxHeight: '100%',
-    borderRadius: '0',
-    width: '100%',
-    maxWidth: '100%',
-    '@media screen and (min-width: 750px)': {
-      margin: '48px',
-      maxHeight: 'calc(100% - 96px);',
-      borderRadius: '4px',
-      height: 'auto',
-      maxWidth: '600px'
-    }
-  }
-}
-
 export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0);
   transition: 0.4s;
