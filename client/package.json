@@ -1,6 +1,6 @@
 {
   "name": "electivegroup-component-library",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": ">=10"
   },
@@ -11,7 +11,7 @@
   "author": "Chris Dixon <chrisd@recii.io>",
   "license": "UNLICENSED",
   "repository": {
-    "url": "https://gitlab.et-ns.net/connect/style-guide",
+    "url": "https://gitlab.et-ns.net/connect/component-library",
     "type": "git"
   },
   "scripts": {
