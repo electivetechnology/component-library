@@ -2,8 +2,20 @@ import styled from 'styled-components'
 import { theme, zindex } from 'styles/theme'
 
 export const PopUpWrapperStyled = styled.div`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
+
+export const PopupContainer = styled.div`
+  padding: 16px;
+  position: absolute;
+  background-color: white;
+  z-index: 100;
+  top: 30%;
+  border-radius: 8px;
+`
+
 export const CloseIconStyled = styled.div`
   display: none;
   @media screen and (min-width: 750px) {
@@ -32,40 +44,9 @@ export const HeaderWrapperStyled = styled.div`
   }
 `
 
-type WrapperProp = {
-  popUpHeight?: string
-}
-
-export const PopUpContentWrapperStyled = styled.div<WrapperProp>`
-  display: block;
-  height: auto;
-  padding: 16px;
-  text-align: center;
-`
-
-export const ContentContainer = styled.div``
-
 export const PopupClosedStyled = styled.div`
   padding-top: 16px;
 `
-
-export const popUpStyles = {
-  dialogPaper: {
-    height: '100vh',
-    margin: '0',
-    maxHeight: '100%',
-    borderRadius: '0',
-    width: '100%',
-    maxWidth: '100%',
-    '@media screen and (min-width: 750px)': {
-      margin: '48px',
-      maxHeight: 'calc(100% - 96px);',
-      borderRadius: '4px',
-      height: 'auto',
-      maxWidth: '600px'
-    }
-  }
-}
 
 export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0);

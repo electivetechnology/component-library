@@ -1,22 +1,15 @@
 import React, { FunctionComponent, Fragment } from 'react'
-import { withStyles } from '@material-ui/core/styles'
-import { useDispatch, useSelector } from 'react-redux'
-import { resetPopUp, getPopUp } from './reducer'
-import Dialog from '@material-ui/core/Dialog'
+import { useSelector, useDispatch } from 'react-redux'
+import { getPopUp, resetPopUp } from './reducer'
 import {
-  PopUpContentWrapperStyled,
-  popUpStyles,
   PopUpWrapperStyled,
   Overlay,
-  ContentContainer,
-  PopupClosedStyled
+  PopupClosedStyled,
+  PopupContainer
 } from './styles'
 import PopUpClose from './PopUpClose'
 
-type Props = {
-  classes?: any
-}
-const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
+const PopUp: FunctionComponent = ({ children }) => {
   const dispatch = useDispatch()
   const { popUpType, isCloseable } = useSelector(getPopUp)
 
@@ -26,28 +19,19 @@ const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
 
   return !!popUpType ? (
     <Fragment>
-      <Overlay onClick={handleClose} />
-      <Dialog
-        data-testid='PopUp'
-        open={true}
-        classes={{ paper: classes.dialogPaper }}
-        onClose={handleClose}
-        disableBackdropClick={true}
-        disableEscapeKeyDown={true}
-      >
-        <PopUpWrapperStyled>
-          <PopUpContentWrapperStyled popUpHeight={'100vH'}>
-            <ContentContainer>{children}</ContentContainer>
-            {isCloseable && (
-              <PopupClosedStyled>
-                <PopUpClose handleClose={handleClose} />
-              </PopupClosedStyled>
-            )}
-          </PopUpContentWrapperStyled>
-        </PopUpWrapperStyled>
-      </Dialog>
+      <Overlay />
+      <PopUpWrapperStyled data-testid='PopUp'>
+        <PopupContainer>
+          {children}
+          {isCloseable && (
+            <PopupClosedStyled>
+              <PopUpClose handleClose={handleClose} />
+            </PopupClosedStyled>
+          )}
+        </PopupContainer>
+      </PopUpWrapperStyled>
     </Fragment>
   ) : null
 }
 
-export default withStyles(popUpStyles)(PopUp)
+export default PopUp
