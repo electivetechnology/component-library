@@ -2,10 +2,7 @@ import styled from 'styled-components'
 import { theme, zindex } from 'styles/theme'
 
 export const PopUpWrapperStyled = styled.div`
-  display: grid;
-  @media screen and (min-width: 750px) {
-    padding: 0;
-  }
+  display: block;
 `
 export const CloseIconStyled = styled.div`
   display: none;
@@ -40,15 +37,16 @@ type WrapperProp = {
 }
 
 export const PopUpContentWrapperStyled = styled.div<WrapperProp>`
-  display: grid;
-  @media screen and (min-width: 750px) {
-    grid-template-columns: 1fr 158px;
-    ${(props) =>
-      props.popUpHeight &&
-      `
-      height: ${props.popUpHeight};
-    `}
-  }
+  display: block;
+  height: auto;
+  padding: 16px;
+  text-align: center;
+`
+
+export const ContentContainer = styled.div``
+
+export const PopupClosedStyled = styled.div`
+  padding-top: 16px;
 `
 
 export const popUpStyles = {
@@ -64,9 +62,9 @@ export const popUpStyles = {
       maxHeight: 'calc(100% - 96px);',
       borderRadius: '4px',
       height: 'auto',
-      maxWidth: '600px',
-    },
-  },
+      maxWidth: '600px'
+    }
+  }
 }
 
 export const Overlay = styled.div`
@@ -75,7 +73,7 @@ export const Overlay = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   top: 0;
   left: 0;
