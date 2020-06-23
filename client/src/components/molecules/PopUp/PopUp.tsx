@@ -1,6 +1,6 @@
 import React, { FunctionComponent, Fragment } from 'react'
-import { useSelector } from 'react-redux'
-import { getPopUp } from './reducer'
+import { useSelector, useDispatch } from 'react-redux'
+import { getPopUp, resetPopUp } from './reducer'
 import {
   PopUpWrapperStyled,
   Overlay,
@@ -10,9 +10,12 @@ import {
 import PopUpClose from './PopUpClose'
 
 const PopUp: FunctionComponent = ({ children }) => {
+  const dispatch = useDispatch()
   const { popUpType, isCloseable } = useSelector(getPopUp)
 
-  const handleClose = () => {}
+  const handleClose = () => {
+    dispatch(resetPopUp())
+  }
 
   return !!popUpType ? (
     <Fragment>
