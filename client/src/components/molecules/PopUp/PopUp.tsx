@@ -1,47 +1,36 @@
 import React, { FunctionComponent, Fragment } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import { useDispatch, useSelector } from 'react-redux'
-import { resetPopUp, getPopUp } from './reducer'
-import Dialog from '@material-ui/core/Dialog'
+import { useSelector } from 'react-redux'
+import { getPopUp } from './reducer'
 import {
-  HeaderWrapperStyled,
-  PopUpContentWrapperStyled,
   popUpStyles,
   PopUpWrapperStyled,
-  Overlay
+  Overlay,
+  PopupClosedStyled,
+  PopupContainer
 } from './styles'
 import PopUpClose from './PopUpClose'
 
-type Props = {
-  classes?: any
-}
-const PopUp: FunctionComponent<Props> = ({ children, classes }) => {
-  const dispatch = useDispatch()
+const PopUp: FunctionComponent = ({ children }) => {
   const { popUpType, isCloseable } = useSelector(getPopUp)
 
-  const handleClose = () => {
-    dispatch(resetPopUp())
-  }
+  const handleClose = () => {}
 
-  return !!popUpType ? <Fragment>
-    <Overlay onClick={handleClose}/>
-    <Dialog
-      data-testid="PopUp"
-      open={true}
-      classes={{ paper: classes.dialogPaper }}
-      onClose={handleClose}
-      disableBackdropClick={true}
-      disableEscapeKeyDown={true}>
+  return !!popUpType ? (
+    <Fragment>
+      <Overlay />
       <PopUpWrapperStyled>
-        <HeaderWrapperStyled>
-          {isCloseable && <PopUpClose handleClose={handleClose} />}
-        </HeaderWrapperStyled>
-        <PopUpContentWrapperStyled popUpHeight={'100vH'}>
+        <PopupContainer>
           {children}
-        </PopUpContentWrapperStyled>
+          {isCloseable && (
+            <PopupClosedStyled>
+              <PopUpClose handleClose={handleClose} />
+            </PopupClosedStyled>
+          )}
+        </PopupContainer>
       </PopUpWrapperStyled>
-    </Dialog>
-  </Fragment> : null
+    </Fragment>
+  ) : null
 }
 
 export default withStyles(popUpStyles)(PopUp)

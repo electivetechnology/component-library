@@ -2,11 +2,20 @@ import styled from 'styled-components'
 import { theme, zindex } from 'styles/theme'
 
 export const PopUpWrapperStyled = styled.div`
-  display: grid;
-  @media screen and (min-width: 750px) {
-    padding: 0;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
+
+export const PopupContainer = styled.div`
+  padding: 16px;
+  position: absolute;
+  background-color: white;
+  z-index: 100;
+  top: 30%;
+  border-radius: 8px;
+`
+
 export const CloseIconStyled = styled.div`
   display: none;
   @media screen and (min-width: 750px) {
@@ -35,20 +44,8 @@ export const HeaderWrapperStyled = styled.div`
   }
 `
 
-type WrapperProp = {
-  popUpHeight?: string
-}
-
-export const PopUpContentWrapperStyled = styled.div<WrapperProp>`
-  display: grid;
-  @media screen and (min-width: 750px) {
-    grid-template-columns: 1fr 158px;
-    ${(props) =>
-      props.popUpHeight &&
-      `
-      height: ${props.popUpHeight};
-    `}
-  }
+export const PopupClosedStyled = styled.div`
+  padding-top: 16px;
 `
 
 export const popUpStyles = {
@@ -64,9 +61,9 @@ export const popUpStyles = {
       maxHeight: 'calc(100% - 96px);',
       borderRadius: '4px',
       height: 'auto',
-      maxWidth: '600px',
-    },
-  },
+      maxWidth: '600px'
+    }
+  }
 }
 
 export const Overlay = styled.div`
@@ -75,7 +72,7 @@ export const Overlay = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   top: 0;
   left: 0;
