@@ -19,7 +19,7 @@ const PopUp: FunctionComponent = ({ children }) => {
   return !!popUpType ? (
     <Fragment>
       <Overlay />
-      <PopUpWrapperStyled>
+      <PopUpWrapperStyled data-testid='PopUp'>
         <PopupContainer>
           {children}
           {isCloseable && (
