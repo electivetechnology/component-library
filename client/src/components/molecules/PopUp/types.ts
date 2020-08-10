@@ -3,6 +3,7 @@ export const POPUP = 'popUp'
 export interface PopUpType {
   popUpType: string
   isCloseable?: boolean
+  pageData?: object
 }
 
 export enum PopUpConst {
