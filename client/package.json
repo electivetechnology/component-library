@@ -25,7 +25,8 @@
     "test:watch": "react-scripts test --env=jsdom",
     "storybook": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll",
-    "docker-test": "react-scripts test --env=jsdom --forceExit --colors --detectOpenHandles --runInBand --watchAll=false"
+    "docker-test": "react-scripts test --env=jsdom --forceExit --colors --detectOpenHandles --runInBand --watchAll=false",
+    "format": "yarn run prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "peerDependencies": {
     "react": "^17.0.x",

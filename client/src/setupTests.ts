@@ -1,5 +1,5 @@
 import configureMockStore from 'redux-mock-store'
-export const initialState:any = {}
+export const initialState: any = {}
 
 interface Store {
   key: string

@@ -7,7 +7,9 @@ afterEach(cleanup)
 
 const onClick = jest.fn()
 
-const { getByTestId } = render(<Button text={'text'} onClick={onClick} theme={'primary'} />)
+const { getByTestId } = render(
+  <Button text={'text'} onClick={onClick} theme={'primary'} />
+)
 
 test('renders Button', () => {
   expect(getByTestId('Button')).toBeDefined

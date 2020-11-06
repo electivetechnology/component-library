@@ -13,7 +13,7 @@ export const theme = {
   Gray: '#BBBBBB',
   secondaryBlue: '#00ACC1',
   secondaryGray: '#AAAAAA',
-  secondaryYellow: '#F9A825',
+  secondaryYellow: '#F9A825'
 }
 
 export const zindex = {
@@ -23,5 +23,5 @@ export const zindex = {
   selectOverlay: 12,
   selectWrapper: 13, // only when active
   notificationOverlay: 10,
-  notificationWrapper: 12,
+  notificationWrapper: 12
 }
