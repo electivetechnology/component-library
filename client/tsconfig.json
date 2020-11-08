@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "jsx": "preserve",
+    "jsx": "react",
     "module": "esnext",
     "sourceMap": true,
     "inlineSources": true,
@@ -16,7 +16,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": ["node_modules"],
   "include": ["src"]
