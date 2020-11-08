@@ -14,16 +14,21 @@ const Alert = () => {
 
   return (
     <Snackbar
-      data-testid="Alert"
+      data-testid='Alert'
       autoHideDuration={6000}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       open={!!alertType}
       onClose={onCloseAlert}
       ContentProps={{
-        'aria-describedby': 'message-id',
-      }}>
+        'aria-describedby': 'message-id'
+      }}
+    >
       {!!alertType ? (
-        <AlertContent variant={alertType} message={message} onClose={onCloseAlert}/>
+        <AlertContent
+          variant={alertType}
+          message={message}
+          onClose={onCloseAlert}
+        />
       ) : (
         <CloseWrapper />
       )}

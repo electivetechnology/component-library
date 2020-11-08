@@ -6,6 +6,6 @@ export const useStyles = makeStyles({
     textTransform: 'uppercase',
     fontWeight: props.fontWeight,
     height: props.height,
-    width: props.width,
-  }),
+    width: props.width
+  })
 })

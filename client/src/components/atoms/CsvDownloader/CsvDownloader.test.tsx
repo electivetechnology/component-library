@@ -6,7 +6,13 @@ import { columnsMock, datasMock } from './mocks'
 
 afterEach(cleanup)
 
-const { getByText } = render(<CsvDownloader datas={datasMock} fileName={'file_name'} columns={columnsMock} />)
+const { getByText } = render(
+  <CsvDownloader
+    datas={datasMock}
+    fileName={'file_name'}
+    columns={columnsMock}
+  />
+)
 
 test('renders CsvDownloader', () => {
   expect(getByText('Download')).toBeDefined

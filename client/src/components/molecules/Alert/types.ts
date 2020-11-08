@@ -1,6 +1,6 @@
 export const ALERT = 'alert'
 
-export type AlertTypeType =  'success' | 'warning' | 'info' | 'error' | ''
+export type AlertTypeType = 'success' | 'warning' | 'info' | 'error' | ''
 
 export interface AlertType {
   alertType: AlertTypeType
@@ -9,7 +9,7 @@ export interface AlertType {
 
 export enum AlertConst {
   SET = '@@alert/SET',
-  RESET = '@@alert/RESET',
+  RESET = '@@alert/RESET'
 }
 
 interface SetAlertAction {

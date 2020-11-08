@@ -11,13 +11,12 @@ export const CheckboxLabelStyled = styled.div`
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 `
 
-
 export const CheckboxWithStyled = {
   root: {
     '&$checked': {
-      color: theme.primaryColorValencia,
+      color: theme.primaryColorValencia
     },
-    padding: '8px 8px 8px 0',
+    padding: '8px 8px 8px 0'
   },
-  checked: {},
+  checked: {}
 }

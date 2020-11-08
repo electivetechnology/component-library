@@ -14,7 +14,7 @@ const Channels: FunctionComponent<Props> = ({ sms, phone, webChat }) => {
   const classes = iconStyles({ sms, phone, webChat })
 
   return (
-    <InlineStyle data-testid="Channels">
+    <InlineStyle data-testid='Channels'>
       <IconOutlineStyled isActive={phone}>
         <PhoneOutlined className={classes.phoneIcon} />
       </IconOutlineStyled>

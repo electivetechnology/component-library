@@ -4,14 +4,14 @@ import styled from 'styled-components'
 
 export const iconStyles = makeStyles({
   messageIcon: (props: any) => ({
-    fill: props.sms ? theme.white : theme.secondaryGray,
+    fill: props.sms ? theme.white : theme.secondaryGray
   }),
   phoneIcon: (props: any) => ({
-    fill: props.phone ? theme.white : theme.secondaryGray,
+    fill: props.phone ? theme.white : theme.secondaryGray
   }),
   webIcon: (props: any) => ({
-    fill: props.webchat ? theme.white : theme.secondaryGray,
-  }),
+    fill: props.webchat ? theme.white : theme.secondaryGray
+  })
 })
 
 type IconProps = {
@@ -27,9 +27,9 @@ export const IconOutlineStyled = styled.div<IconProps>`
   justify-content: center;
   align-items: center;
   margin: 0 0 0 8px;
-  ${props =>
-  props.isActive &&
-  `
+  ${(props) =>
+    props.isActive &&
+    `
         background-color: ${theme.primaryColorValencia};
         border: 1px solid ${theme.primaryColorValencia};
     `};
@@ -39,4 +39,3 @@ export const InlineStyle = styled.div`
   display: inline-flex;
   margin-left: auto;
 `
-

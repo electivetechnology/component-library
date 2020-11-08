@@ -11,15 +11,16 @@ const CsvDownloaderComponent: FunctionComponent<Props> = ({
   datas,
   fileName,
   columns,
-  children,
+  children
 }) => (
   <CsvDownloader
-    data-testid="CsvDownloader"
+    data-testid='CsvDownloader'
     datas={datas}
     filename={fileName}
     columns={columns}
     prefix={false}
-    suffix={false}>
+    suffix={false}
+  >
     {children}
   </CsvDownloader>
 )

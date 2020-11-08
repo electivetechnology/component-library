@@ -15,11 +15,15 @@ const Avatar: FunctionComponent<Props> = ({
   color = theme.grayComment,
   fontWeight = 100,
   height,
-  width,
+  width
 }) => {
   const classes = useStyles({ color, fontWeight, height, width })
 
-  return <MaterialAvatar data-testid="Avatar" className={classes.component}>{children}</MaterialAvatar>
+  return (
+    <MaterialAvatar data-testid='Avatar' className={classes.component}>
+      {children}
+    </MaterialAvatar>
+  )
 }
 
 export default Avatar

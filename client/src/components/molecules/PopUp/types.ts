@@ -8,7 +8,7 @@ export interface PopUpType {
 
 export enum PopUpConst {
   SET = '@@popUp/SET',
-  RESET = '@@popUp/RESET',
+  RESET = '@@popUp/RESET'
 }
 
 interface SetPopUpAction {

@@ -4,34 +4,34 @@ import { produce } from 'immer'
 // GLOBAL ACTION CREATORS
 export const setAction = (item: any, itemConstant: any) => ({
   type: itemConstant.SET,
-  item,
+  item
 })
 
 export const updateAction = (id: string, item: any, itemConstant: any) => ({
   type: itemConstant.UPDATE,
   id,
-  item,
+  item
 })
 
 export const removeAction = (id: string, itemConstant: any) => ({
   type: itemConstant.REMOVE,
-  id,
+  id
 })
 
 export const resetAction = (itemConstant: any) => ({
-  type: itemConstant.RESET,
+  type: itemConstant.RESET
 })
 
 // COLLECTION ACTION CREATORS
 export const addCollection = (id: any, item: any, itemConstant: any) => ({
   type: itemConstant.ADD,
   id,
-  item,
+  item
 })
 
 export const addManyCollection = (item: any, itemConstant: any) => ({
   type: itemConstant.ADD_MANY,
-  item,
+  item
 })
 
 export const updateCollectionField = (
@@ -43,13 +43,13 @@ export const updateCollectionField = (
   type: itemConstant.UPDATE_FIELD,
   id,
   field,
-  value,
+  value
 })
 
 // LIST ACTION CREATORS
 export const addList = (id: any, itemConstant: any) => ({
   type: itemConstant.ADD,
-  id,
+  id
 })
 
 export const withCollection = (itemConstant: any, reducer: any) => (
@@ -119,7 +119,7 @@ export const withList = (itemConstant: any, reducer: any) => (
         }
         break
       case itemConstant.REMOVE:
-        remove(draftState, function(id) {
+        remove(draftState, function (id) {
           return id === action.id
         })
         break
