@@ -30,6 +30,5 @@ build_image:
     - build
   script:
     - docker pull $CONTAINER_IMAGE:$CI_COMMIT_SHA || true
-    - cp ./client/src/config/config.dist.ts ./client/src/config/config.ts
     - docker build --cache-from $CONTAINER_IMAGE:$CI_COMMIT_SHA --tag $CONTAINER_IMAGE:$CI_COMMIT_SHA .
     - docker push $CONTAINER_IMAGE:$CI_COMMIT_SHA
