@@ -5,7 +5,7 @@ export const useStyles = makeStyles({
     fontSize: 15,
     '& > span': {
       marginRight: 10,
-      fontSize: 18,
-    },
-  },
-});
+      fontSize: 18
+    }
+  }
+})

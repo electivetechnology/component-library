@@ -9,7 +9,7 @@ const variantIcon: any = {
   success: CheckCircleIcon,
   warning: WarningIcon,
   error: ErrorIcon,
-  info: InfoIcon,
+  info: InfoIcon
 }
 
 type Props = {
@@ -19,13 +19,17 @@ type Props = {
 
 const AlertMessage: FunctionComponent<Props> = ({
   variant = 'success',
-  message = '',
+  message = ''
 }) => {
   const classes = useStyles()
   const Icon: any = variantIcon[variant]
 
   return (
-    <span data-testid="AlertMessage" id="client-snackbar" className={classes.message}>
+    <span
+      data-testid='AlertMessage'
+      id='client-snackbar'
+      className={classes.message}
+    >
       <Icon className={`${classes.icon} ${classes.iconVariant}`} />
       {message}
     </span>

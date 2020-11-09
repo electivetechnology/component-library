@@ -2,14 +2,14 @@ import React, {
   FunctionComponent,
   useState,
   useEffect,
-  ChangeEvent,
+  ChangeEvent
 } from 'react'
 import MaterialCheckbox, { CheckboxProps } from '@material-ui/core/Checkbox'
 import { withStyles } from '@material-ui/core/styles'
 import {
   CheckboxContainerStyled,
   CheckboxLabelStyled,
-  CheckboxWithStyled,
+  CheckboxWithStyled
 } from './styles'
 
 type Props = {
@@ -23,7 +23,7 @@ type Props = {
 
 const CheckboxStyled = withStyles(
   CheckboxWithStyled
-)((props: CheckboxProps) => <MaterialCheckbox color="default" {...props} />)
+)((props: CheckboxProps) => <MaterialCheckbox color='default' {...props} />)
 
 const Checkbox: FunctionComponent<Props> = ({
   label,
@@ -31,7 +31,7 @@ const Checkbox: FunctionComponent<Props> = ({
   onBlur,
   value,
   disabled,
-  fontSize,
+  fontSize
 }) => {
   const [isChecked, setCheckbox] = useState(value)
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -44,13 +44,13 @@ const Checkbox: FunctionComponent<Props> = ({
   }, [value])
 
   return (
-    <CheckboxContainerStyled data-testid="Checkbox">
+    <CheckboxContainerStyled data-testid='Checkbox'>
       <CheckboxStyled
         id={`label-${label}`}
         checked={isChecked}
         onChange={handleChange}
         inputProps={{
-          'aria-label': 'primary checkbox',
+          'aria-label': 'primary checkbox'
         }}
         onBlur={onBlur}
         disabled={disabled}

@@ -7,16 +7,16 @@ export const useStyles = makeStyles({
     color: theme.white,
     backgroundColor: theme.primaryColorValencia,
     '&:hover': {
-      backgroundColor: theme.primaryColorValenciaDark,
-    },
+      backgroundColor: theme.primaryColorValenciaDark
+    }
   },
   helpFab: {
     color: theme.white,
     backgroundColor: theme.grayComment,
     '&:hover': {
-      backgroundColor: theme.grayComment,
-    },
-  },
+      backgroundColor: theme.grayComment
+    }
+  }
 })
 
 type IconProps = {
@@ -27,8 +27,8 @@ export const IconWrapper = styled.div<IconProps>`
   transition: 0.7s;
   padding-top: 4px;
   ${(props) =>
-  props.isActive &&
-  `
+    props.isActive &&
+    `
         transform: rotate(45deg);
     `};
 `

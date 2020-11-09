@@ -14,15 +14,15 @@ type Props = {
 const AlertContent: FunctionComponent<Props> = ({
   variant = 'success',
   message = '',
-  onClose,
+  onClose
 }) => {
   const classes = useStyles()
 
   return (
     <SnackbarContent
-      data-testid="AlertContent"
+      data-testid='AlertContent'
       className={!!variant ? classes[variant] : ''}
-      aria-describedby="client-snackbar"
+      aria-describedby='client-snackbar'
       message={<AlertMessage variant={variant} message={message} />}
       action={<CloseButton onClose={onClose} />}
     />

@@ -10,27 +10,27 @@ export const CloseWrapper = styled.div`
 
 export const useStyles = makeStyles({
   success: {
-    backgroundColor: theme.secondaryBlue,
+    backgroundColor: theme.secondaryBlue
   },
   error: {
-    backgroundColor: theme.primaryColorValencia,
+    backgroundColor: theme.primaryColorValencia
   },
   info: {
-    backgroundColor: theme.secondaryGray,
+    backgroundColor: theme.secondaryGray
   },
   warning: {
-    backgroundColor: theme.secondaryYellow,
+    backgroundColor: theme.secondaryYellow
   },
   icon: {
-    fontSize: 20,
+    fontSize: 20
   },
   iconVariant: {
     opacity: 0.9,
-    marginRight: 8,
+    marginRight: 8
   },
   message: {
     display: 'flex',
     alignItems: 'center',
-    maxWidth: '400px',
-  },
+    maxWidth: '400px'
+  }
 })

@@ -5,7 +5,9 @@ import Channels from './Channels'
 
 afterEach(cleanup)
 
-const { getByTestId } = render(<Channels sms={true} webChat={true} phone={true} />)
+const { getByTestId } = render(
+  <Channels sms={true} webChat={true} phone={true} />
+)
 
 test('renders Channels', () => {
   expect(getByTestId('Channels')).toBeDefined

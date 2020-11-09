@@ -1,9 +1,9 @@
-import React from 'react';
-import MainLoader from './MainLoader';
+import React from 'react'
+import MainLoader from './MainLoader'
 
 export default {
   title: 'atoms/MainLoader',
-  component: MainLoader,
-};
+  component: MainLoader
+}
 
-export const Default = () => <MainLoader/>
+export const Default = () => <MainLoader />

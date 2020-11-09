@@ -9,6 +9,6 @@ export const CloseWrapper = styled.div`
 
 export const useStyles = makeStyles({
   icon: {
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 })

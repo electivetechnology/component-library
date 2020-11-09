@@ -5,21 +5,17 @@ import { noCloseStore, closeStore } from './mocks'
 
 export default {
   title: 'molecules/PopUp',
-  component: PopUp,
+  component: PopUp
 }
 
 export const NoClosePopUp = () => (
   <ProviderWrapper store={noCloseStore}>
-    <PopUp>
-      Do not allow close
-    </PopUp>
+    <PopUp>Do not allow close</PopUp>
   </ProviderWrapper>
 )
 
 export const ClosePopUp = () => (
   <ProviderWrapper store={closeStore}>
-    <PopUp>
-      Allow close
-    </PopUp>
+    <PopUp>Allow close</PopUp>
   </ProviderWrapper>
 )

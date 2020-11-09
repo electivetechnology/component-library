@@ -1,6 +1,13 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import MaterialButton from '@material-ui/core/Button'
-import { betaStyles, primaryStyles, secondaryStyles, useStyles, Wrapper, Icon } from './styles'
+import {
+  betaStyles,
+  primaryStyles,
+  secondaryStyles,
+  useStyles,
+  Wrapper,
+  Icon
+} from './styles'
 
 type Props = {
   text: string
@@ -17,7 +24,7 @@ type Props = {
   textTransform?: any
 }
 
-const Button: FunctionComponent<Props> = ({
+const Button: React.FC<Props> = ({
   text,
   theme = 'primary',
   disabled = false,
@@ -30,7 +37,7 @@ const Button: FunctionComponent<Props> = ({
   hasChildren,
   btnWidth,
   borderRadius,
-  textTransform,
+  textTransform
 }) => {
   const variant = theme === 'primary' ? 'contained' : 'outlined'
   const themeStyle =
@@ -45,7 +52,7 @@ const Button: FunctionComponent<Props> = ({
 
   return (
     <MaterialButton
-      data-testid="Button"
+      data-testid='Button'
       variant={variant}
       disabled={disabled}
       className={classes.component}
@@ -55,8 +62,9 @@ const Button: FunctionComponent<Props> = ({
       style={{
         width: btnWidth,
         borderRadius: borderRadius,
-        textTransform: textTransform,
-      }}>
+        textTransform: textTransform
+      }}
+    >
       <Wrapper icon={icon} hasChildren={hasChildren}>
         {icon ? <Icon>{icon}</Icon> : ''}
         {children}

@@ -26,25 +26,26 @@ const Font: FunctionComponent<Props> = ({
   overflow = false,
   fontWeight,
   uppercase = false,
-  multilineOverflow,
+  multilineOverflow
 }) => {
   const classes = useStyles({
     color,
     uppercase,
     overflow,
     fontWeight,
-    multilineOverflow,
+    multilineOverflow
   })
 
   return (
     <Typography
-      data-testid="Font"
+      data-testid='Font'
       variant={variant}
       component={component}
       gutterBottom={gutterBottom}
       align={align}
       inline={inline}
-      className={`${classes.component}`}>
+      className={`${classes.component}`}
+    >
       {children}
     </Typography>
   )

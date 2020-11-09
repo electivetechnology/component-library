@@ -5,7 +5,7 @@ import { columnsMock, datasMock } from './mocks'
 
 export default {
   title: 'atoms/CsvDownloader',
-  component: CsvDownloader,
+  component: CsvDownloader
 }
 
 export const Default = () => (
@@ -18,6 +18,6 @@ export const Default = () => (
 
 export const WithChildButton = () => (
   <CsvDownloader datas={datasMock} fileName={'file_name'} columns={columnsMock}>
-    <Button theme="primary" text="Download" />
+    <Button theme='primary' text='Download' />
   </CsvDownloader>
 )

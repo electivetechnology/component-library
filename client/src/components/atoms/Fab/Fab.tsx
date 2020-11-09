@@ -11,12 +11,12 @@ type Props = {
 const Fab: FunctionComponent<Props> = ({
   icon,
   isActive,
-  isHelpPage = false,
+  isHelpPage = false
 }) => {
   const classes = useStyles()
-  const styles = isHelpPage ? classes.helpFab : classes.component;
+  const styles = isHelpPage ? classes.helpFab : classes.component
   return (
-    <MaterialFab data-testid="Fab" color="primary" className={styles}>
+    <MaterialFab data-testid='Fab' color='primary' className={styles}>
       <IconWrapper isActive={isActive}>{icon}</IconWrapper>
     </MaterialFab>
   )

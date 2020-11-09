@@ -5,7 +5,7 @@ import Fab from './Fab'
 
 afterEach(cleanup)
 
-const { getByTestId } = render(<Fab icon={'text'}/>)
+const { getByTestId } = render(<Fab icon={'text'} />)
 
 test('renders Fab', () => {
   expect(getByTestId('Fab')).toBeDefined

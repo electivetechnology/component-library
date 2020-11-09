@@ -7,5 +7,11 @@ const popUpStore = (value: PopUpType) => [
   }
 ]
 
-export const noCloseStore = popUpStore({ popUpType: 'refresh', isCloseable: false })
-export const closeStore = popUpStore({ popUpType: 'privacy', isCloseable: true })
+export const noCloseStore = popUpStore({
+  popUpType: 'refresh',
+  isCloseable: false
+})
+export const closeStore = popUpStore({
+  popUpType: 'privacy',
+  isCloseable: true
+})

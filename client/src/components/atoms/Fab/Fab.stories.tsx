@@ -1,22 +1,24 @@
-import React from 'react';
-import Fab from './Fab';
+import React from 'react'
+import Fab from './Fab'
 import Save from '@material-ui/icons/Save'
 
 export default {
   title: 'atoms/Fab',
-  component: Fab,
-};
+  component: Fab
+}
 
-export const Default = () => <Fab icon={''}/>;
+export const Default = () => <Fab icon={''} />
 
-export const Icon = () => <Fab icon={<Save/>}/>;
+export const Icon = () => <Fab icon={<Save />} />
 
-export const Active = () => <Fab icon={<Save/>} isActive={true}/>;
+export const Active = () => <Fab icon={<Save />} isActive={true} />
 
-export const InActive = () => <Fab icon={<Save/>} isActive={false}/>;
+export const InActive = () => <Fab icon={<Save />} isActive={false} />
 
-export const HelperPage = () => <Fab icon={<Save/>} isHelpPage={true}/>;
+export const HelperPage = () => <Fab icon={<Save />} isHelpPage={true} />
 
-export const NotHelperPage = () => <Fab icon={<Save/>} isHelpPage={false}/>;
+export const NotHelperPage = () => <Fab icon={<Save />} isHelpPage={false} />
 
-export const ActiveHelper = () => <Fab icon={<Save/>} isActive={true} isHelpPage={true}/>;
+export const ActiveHelper = () => (
+  <Fab icon={<Save />} isActive={true} isHelpPage={true} />
+)

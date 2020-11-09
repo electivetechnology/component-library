@@ -10,7 +10,7 @@ const CloseButton: FunctionComponent<Props> = ({ onClose }) => {
   const classes = useStyles()
 
   return (
-    <CloseWrapper data-testid="CloseButton">
+    <CloseWrapper data-testid='CloseButton'>
       <CloseIcon className={classes.icon} onClick={onClose} />
     </CloseWrapper>
   )

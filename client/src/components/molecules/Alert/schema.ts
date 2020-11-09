@@ -5,7 +5,7 @@ export const alert: AlertType = {
 }
 
 const schema = {
-  alert,
+  alert
 }
 
 export default schema

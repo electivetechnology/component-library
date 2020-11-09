@@ -9,4 +9,10 @@ export { CsvDownloader } from 'components/atoms'
 export { default as Alert } from 'components/molecules/Alert/Alert'
 export { default as Channels } from 'components/molecules/Channels/Channels'
 export { default as PopUp } from 'components/molecules/PopUp/PopUp'
-export { default as popUpReducer, setPopUp, getPopUp, resetPopUp, popUpSchema } from 'components/molecules/PopUp/reducer'
+export {
+  default as popUpReducer,
+  setPopUp,
+  getPopUp,
+  resetPopUp,
+  popUpSchema
+} from 'components/molecules/PopUp/reducer'

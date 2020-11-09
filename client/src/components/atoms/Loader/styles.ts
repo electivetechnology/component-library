@@ -5,11 +5,11 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 
-export const LinearProgressWithStyled =  {
+export const LinearProgressWithStyled = {
   colorPrimary: {
-    backgroundColor: theme.primaryColorValenciaLight,
+    backgroundColor: theme.primaryColorValenciaLight
   },
   barColorPrimary: {
-    backgroundColor: theme.primaryColorValencia,
-  },
+    backgroundColor: theme.primaryColorValencia
+  }
 }

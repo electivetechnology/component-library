@@ -30,12 +30,12 @@ const AutoComplete: FunctionComponent<Props> = ({
   noOptionsMessage = 'No more options',
   isMulti = false,
   disableClearable = true,
-  onInputChange = undefined,
+  onInputChange = undefined
 }) => {
   const classes = useStyles()
 
   return (
-    <div style={{ width: '100%' }} data-testid="AutoComplete">
+    <div style={{ width: '100%' }} data-testid='AutoComplete'>
       <MaterialAutocomplete
         options={options}
         noOptionsText={noOptionsMessage}
@@ -43,10 +43,10 @@ const AutoComplete: FunctionComponent<Props> = ({
         defaultValue={defaultValue}
         getOptionLabel={(option: any) => option.label}
         renderInput={(params) => (
-          <TextField {...params} label={label} variant="standard" fullWidth />
+          <TextField {...params} label={label} variant='standard' fullWidth />
         )}
         value={value}
-        onChange={(event:any, newValue:any) => {
+        onChange={(event: any, newValue: any) => {
           onChange(event, newValue)
         }}
         onBlur={() => (onBlur ? onBlur() : '')}
