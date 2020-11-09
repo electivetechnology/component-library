@@ -15,7 +15,7 @@ export const secondaryStyles = {
   color: `${theme.primaryColorValencia} !important`
 }
 
-export const betaStyles = {
+export const tertiaryStyles = {
   backgroundColor: `${theme.grayComment} !important`,
   color: `${theme.white} !important`,
   boxShadow:
@@ -24,6 +24,22 @@ export const betaStyles = {
     backgroundColor: `${theme.grayCommentDark} !important`,
     color: `${theme.white} !important`
   }
+}
+
+export const mobileStyles = {
+
+}
+
+export const actionStyles = {
+
+}
+
+export const togglePrimaryStyles = {
+
+}
+
+export const toggleSecondaryStyles = {
+
 }
 
 export const useStyles = makeStyles({
@@ -35,7 +51,6 @@ export const useStyles = makeStyles({
 
 type WrapperProps = {
   icon?: any
-  hasChildren?: boolean
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -45,13 +60,6 @@ export const Wrapper = styled.div<WrapperProps>`
     ${(props) =>
       props.icon &&
       `
-    align-content: center;
-    padding-right: 8px;
-        grid-template-columns: 30px 1fr;
-    `};
-  ${(props) =>
-    props.hasChildren &&
-    `
     align-content: center;
     padding-right: 8px;
         grid-template-columns: 30px 1fr;

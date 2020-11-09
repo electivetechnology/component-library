@@ -1,54 +1,27 @@
 import React from 'react'
 import MaterialButton from '@material-ui/core/Button'
-import {
-  betaStyles,
-  primaryStyles,
-  secondaryStyles,
-  useStyles,
-  Wrapper,
-  Icon
-} from './styles'
-
-type Props = {
-  text: string
-  theme: string
-  disabled?: boolean
-  onClick?: any
-  fullWidth?: boolean
-  width?: number
-  icon?: any
-  href?: string
-  hasChildren?: boolean
-  btnWidth?: string
-  borderRadius?: string
-  textTransform?: any
-}
+import { useStyles, Wrapper, Icon } from './styles'
+import { Props, getVariant, getThemeStyles } from './base'
 
 const Button: React.FC<Props> = ({
-  text,
+  label,
   theme = 'primary',
   disabled = false,
-  onClick = null,
-  fullWidth = false,
-  width,
+  onClick ,
   icon,
   href,
-  children,
-  hasChildren,
-  btnWidth,
-  borderRadius,
-  textTransform
+  fullWidth = false,
+  width
 }) => {
-  const variant = theme === 'primary' ? 'contained' : 'outlined'
-  const themeStyle =
-    theme === 'primary'
-      ? primaryStyles
-      : theme === 'secondary'
-      ? secondaryStyles
-      : theme === 'beta'
-      ? betaStyles
-      : {}
-  const classes = useStyles({ themeStyle, width })
+  const variant = getVariant(theme)
+  const themeStyles = getThemeStyles(theme)
+
+  const classes = useStyles({ themeStyles, width })
+
+  // TODO: what is needed for these?
+  const btnWidth = undefined
+  const borderRadius = undefined
+  const textTransform = undefined
 
   return (
     <MaterialButton
@@ -65,10 +38,9 @@ const Button: React.FC<Props> = ({
         textTransform: textTransform
       }}
     >
-      <Wrapper icon={icon} hasChildren={hasChildren}>
-        {icon ? <Icon>{icon}</Icon> : ''}
-        {children}
-        {text}
+      <Wrapper icon={icon}>
+        {icon && <Icon>{icon}</Icon>}
+        {label}
       </Wrapper>
     </MaterialButton>
   )
