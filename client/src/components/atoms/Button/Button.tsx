@@ -1,48 +1,33 @@
 import React from 'react'
-import MaterialButton from '@material-ui/core/Button'
-import { useStyles, Wrapper, Icon } from './styles'
-import { Props, getVariant, getThemeStyles } from './base'
+import {
+  Wrapper,
+  Icon,
+  mobileStyles,
+  ButtonLabel,
+  ButtonComponent
+} from './styles'
+import { Props } from './base'
 
 const Button: React.FC<Props> = ({
   label,
   theme = 'primary',
   disabled = false,
-  onClick ,
+  onClick,
   icon,
-  href,
-  fullWidth = false,
-  width
+  href
 }) => {
-  const variant = getVariant(theme)
-  const themeStyles = getThemeStyles(theme)
-
-  const classes = useStyles({ themeStyles, width })
-
-  // TODO: what is needed for these?
-  const btnWidth = undefined
-  const borderRadius = undefined
-  const textTransform = undefined
-
   return (
-    <MaterialButton
+    <ButtonComponent
       data-testid='Button'
-      variant={variant}
-      disabled={disabled}
-      className={classes.component}
       onClick={onClick}
-      fullWidth={fullWidth}
-      href={href}
-      style={{
-        width: btnWidth,
-        borderRadius: borderRadius,
-        textTransform: textTransform
-      }}
+      variant={theme}
+      disabled={disabled}
     >
-      <Wrapper icon={icon}>
-        {icon && <Icon>{icon}</Icon>}
-        {label}
+      <Wrapper icon={icon} variant={theme}>
+        {icon && <Icon variant={theme}>{icon}</Icon>}
+        <ButtonLabel variant={theme}>{label}</ButtonLabel>
       </Wrapper>
-    </MaterialButton>
+    </ButtonComponent>
   )
 }
 
