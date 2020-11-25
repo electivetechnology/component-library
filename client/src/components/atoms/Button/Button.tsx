@@ -1,11 +1,6 @@
-import React from 'react'
-import {
-  Wrapper,
-  Icon,
-  mobileStyles,
-  ButtonLabel,
-  ButtonComponent
-} from './styles'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import { Wrapper, Icon, ButtonLabel, ButtonComponent } from './styles'
 import { Props } from './base'
 
 const Button: React.FC<Props> = ({
@@ -16,10 +11,21 @@ const Button: React.FC<Props> = ({
   icon,
   href
 }) => {
+  const [redirect, setRedirect] = useState(false)
+
+  if (redirect) {
+    return <Redirect to={{ pathname: href }} />
+  }
+
+  const handleClick = (event: any) => {
+    onClick(event)
+    setRedirect(true)
+  }
+
   return (
     <ButtonComponent
       data-testid='Button'
-      onClick={onClick}
+      onClick={handleClick}
       variant={theme}
       disabled={disabled}
     >

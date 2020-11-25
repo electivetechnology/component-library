@@ -20,8 +20,3 @@ export type Props = {
   width?: number
   fullWidth?: boolean
 }
-
-export const getVariant = (theme: ThemeType) => {
-  const outlined = ['secondary', 'toggleSecondary']
-  return outlined.includes(theme) ? 'outlined' : 'contained'
-}
