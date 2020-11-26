@@ -1,48 +1,39 @@
-import React from 'react'
-import MaterialButton from '@material-ui/core/Button'
-import { useStyles, Wrapper, Icon } from './styles'
-import { Props, getVariant, getThemeStyles } from './base'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import { Wrapper, Icon, ButtonLabel, ButtonComponent } from './styles'
+import { Props } from './base'
 
 const Button: React.FC<Props> = ({
   label,
   theme = 'primary',
   disabled = false,
-  onClick ,
+  onClick,
   icon,
-  href,
-  fullWidth = false,
-  width
+  href
 }) => {
-  const variant = getVariant(theme)
-  const themeStyles = getThemeStyles(theme)
+  const [redirect, setRedirect] = useState(false)
 
-  const classes = useStyles({ themeStyles, width })
+  if (redirect) {
+    return <Redirect to={{ pathname: href }} />
+  }
 
-  // TODO: what is needed for these?
-  const btnWidth = undefined
-  const borderRadius = undefined
-  const textTransform = undefined
+  const handleClick = (event: any) => {
+    onClick(event)
+    setRedirect(true)
+  }
 
   return (
-    <MaterialButton
+    <ButtonComponent
       data-testid='Button'
-      variant={variant}
+      onClick={handleClick}
+      variant={theme}
       disabled={disabled}
-      className={classes.component}
-      onClick={onClick}
-      fullWidth={fullWidth}
-      href={href}
-      style={{
-        width: btnWidth,
-        borderRadius: borderRadius,
-        textTransform: textTransform
-      }}
     >
-      <Wrapper icon={icon}>
-        {icon && <Icon>{icon}</Icon>}
-        {label}
+      <Wrapper icon={icon} variant={theme}>
+        {icon && <Icon variant={theme}>{icon}</Icon>}
+        <ButtonLabel variant={theme}>{label}</ButtonLabel>
       </Wrapper>
-    </MaterialButton>
+    </ButtonComponent>
   )
 }
 

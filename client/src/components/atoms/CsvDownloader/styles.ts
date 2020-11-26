@@ -1,19 +1,5 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
-import { makeStyles } from '@material-ui/core/styles'
-
-export const primaryStyles = {
-  backgroundColor: `${theme.primaryColorValencia} !important`,
-  color: `${theme.white} !important`,
-  '&:hover': {
-    backgroundColor: `${theme.primaryColorValenciaDark} !important`
-  }
-}
-
-export const secondaryStyles = {
-  backgroundColor: `${theme.white} !important`,
-  color: `${theme.primaryColorValencia} !important`
-}
 
 export const betaStyles = {
   backgroundColor: `${theme.grayComment} !important`,
@@ -25,13 +11,6 @@ export const betaStyles = {
     color: `${theme.white} !important`
   }
 }
-
-export const useStyles = makeStyles({
-  component: (props: any) => ({
-    ...props.themeStyle,
-    width: `${props.width}px`
-  })
-})
 
 type WrapperProps = {
   icon?: any
