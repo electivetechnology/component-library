@@ -7,7 +7,7 @@ export const theme = {
   grayComment: '#5B637A', // darkest
   grayCommentDark: '#474e68', // grey / black
   pickledBlueWood: '#313950',
-  grayGeyser: '#DCE1E8', // grey / blue
+  grayGeyser: '#DCE1E8', // grey / blue / border
   grayAthens: '#F6F7F9', // lightest
   blackText: 'rgba(0,0,0,0.87)',
   Gray: '#BBBBBB', // disabled colour
