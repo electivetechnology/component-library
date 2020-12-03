@@ -6,15 +6,19 @@ export type Props = {
   children: any
   toolTipText: string
   placement: any
+  selected: boolean
+  onClick: any
 }
 
 const IconContainer: React.FC<Props> = ({
   children,
   toolTipText,
-  placement
+  placement,
+  selected,
+  onClick
 }) => {
   return (
-    <IconStyled>
+    <IconStyled selected={selected} onClick={onClick}>
       <Tooltip title={toolTipText} placement={placement}>
         {children}
       </Tooltip>
