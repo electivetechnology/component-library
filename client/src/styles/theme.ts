@@ -8,12 +8,23 @@ export const theme = {
   grayCommentDark: '#474e68', // grey / black
   pickledBlueWood: '#313950',
   grayGeyser: '#DCE1E8', // grey / blue / border
-  grayAthens: '#F6F7F9', // lightest
+  grayAthens: '#F6F7F9', // lightest / background colour
   blackText: 'rgba(0,0,0,0.87)',
   Gray: '#BBBBBB', // disabled colour
   secondaryBlue: '#00ACC1',
   secondaryGray: '#AAAAAA',
-  secondaryYellow: '#F9A825'
+  secondaryYellow: '#F9A825',
+  primaryGrey: '#5B6379', // selected / font grey / icon fill
+  borderGrey: '#CCCCCC',
+  primaryRed: '#D53947', // title
+  primaryBlue: '#1F78B4', // font blue
+  grey: '#95989A', // sub-heading
+  primaryTurquoise: '#00ABC1',
+  dividerGrey: '#DBE1E7', // hover
+  darkBlue: '#397CE1',
+  lightBlue: '#92BBF9',
+  mustard: '#F9A725',
+  navGrey: '#343B53' // main nav bar
 }
 
 export const zindex = {
