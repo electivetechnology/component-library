@@ -18,6 +18,6 @@ export const Default = () => (
 
 export const WithChildButton = () => (
   <CsvDownloader datas={datasMock} fileName={'file_name'} columns={columnsMock}>
-    <Button theme='primary' text='Download' />
+    <Button theme='primary' label='Download' onClick={() => {}} />
   </CsvDownloader>
 )
