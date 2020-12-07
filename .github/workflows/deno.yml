@@ -1,55 +1,26 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+# .github/workflows/chromatic.yml
 
-# This workflow will install Deno and runname: CI
-on: [push, pull_request]
+# Workflow name
+name: 'Chromatic Deployment'
+
+# Event for the workflow
+on: push
+
+# List of jobs
 jobs:
-  build:
+  chromatic-deployment:
+    # Operating System
     runs-on: ubuntu-latest
+    # Job steps
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1.0.0
-      - name: Install
+      - uses: actions/checkout@v1
+      - name: Install dependencies
         run: yarn
-      - name: Percy Test
-        uses: percy/exec-action@v0.3.1
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Deploy to Chromatic
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
         with:
-          command: "cypress run"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
- tests across stable and nightly builds on Windows, Ubuntu and macOS.
-# For more information see: https://github.com/denolib/setup-deno
-
-name: Deno
-
-on:
-  push:
-    branches: [develop]
-  pull_request:
-    branches: [develop]
-
-jobs:
-  test:
-    runs-on: ${{ matrix.os }} # runs a test on Ubuntu, Windows and macOS
-
-    strategy:
-      matrix:
-        deno: ["v1.x", "nightly"]
-        os: [macOS-latest, windows-latest, ubuntu-latest]
-
-    steps:
-      - name: Setup repo
-        uses: actions/checkout@v2
-
-      - name: Setup Deno
-        uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
-        with:
-          deno-version: ${{ matrix.deno }} # tests across multiple Deno versions
-
-      - name: Cache Dependencies
-        run: deno cache deps.ts
-
-      - name: Run Tests
-        run: deno test -A --unstable
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
