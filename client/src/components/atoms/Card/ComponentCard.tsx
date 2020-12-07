@@ -10,13 +10,12 @@ import Font from '../Font/Font'
 type Props = {
   theme: string
   hover: boolean
-  content?: any
   footer?: string
   header?: string
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
-  content,
+  children,
   theme = 'Primary',
   footer = false,
   header = false
@@ -40,7 +39,7 @@ const ComponentCard: React.FC<Props> = ({
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
       ) : null}
-      {content}
+      {children}
       {footer ? (
         <ComponentCardFooterStyled>
           <CardBorderStyled />
