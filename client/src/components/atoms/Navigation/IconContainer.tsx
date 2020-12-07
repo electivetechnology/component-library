@@ -1,26 +1,42 @@
-import React from 'react'
+import React, { cloneElement, useState, FC } from 'react'
 import Tooltip from '@material-ui/core/Tooltip'
 import { IconStyled } from './styles'
+import {makeStyles} from "@material-ui/core/styles";
+import {theme} from "styles/theme";
 
-export type Props = {
-  children: any
+type Props = {
+  children: JSX.Element
   toolTipText: string
   placement: any
-  selected: boolean
-  onClick: any
 }
 
-const IconContainer: React.FC<Props> = ({
+export const iconStyles = makeStyles({
+  Icon: (props: any) => ({
+    fill: props.selected ? theme.white : theme.primaryGrey,
+    margin: 'auto'
+  }),
+})
+
+const IconContainer: FC<Props> = ({
   children,
   toolTipText,
   placement,
-  selected,
-  onClick
 }) => {
+  const [selected, setSelected] = useState(false)
+
+  const handleClick = () => {
+    setSelected(!selected)
+  }
+
+  const classes = iconStyles({ selected })
+
+  const childrenStyled =
+    cloneElement(children, { className:  classes.Icon })
+
   return (
-    <IconStyled selected={selected} onClick={onClick}>
+    <IconStyled selected={selected} onClick={handleClick}>
       <Tooltip title={toolTipText} placement={placement}>
-        {children}
+        {childrenStyled}
       </Tooltip>
     </IconStyled>
   )
