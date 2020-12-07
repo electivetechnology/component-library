@@ -1,26 +1,16 @@
-# .github/workflows/chromatic.yml
-
-# Workflow name
-name: 'Chromatic Deployment'
-
-# Event for the workflow
-on: push
-
-# List of jobs
+name: CI
+on: [push, pull_request]
 jobs:
-  chromatic-deployment:
-    # Operating System
+  build:
     runs-on: ubuntu-latest
-    # Job steps
     steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
+      - name: Checkout
+        uses: actions/checkout@v1.0.0
+      - name: Install
         run: yarn
-        # 👇 Adds Chromatic as a step in the workflow
-      - name: Deploy to Chromatic
-        uses: chromaui/action@v1
-        # Chromatic GitHub Action options
+      - name: Percy Test
+        uses: percy/exec-action@v0.3.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.6vtzo56j0w }}
+          command: "cypress run"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
