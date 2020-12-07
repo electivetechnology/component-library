@@ -48,28 +48,29 @@ Tertiary.args = {
 }
 
 // Action
-export const Action: any = Template.bind({})
+// export const Action: any = Template.bind({})
 
-Action.args = {
-  theme: 'action',
-  label: 'Action'
-}
+// Action.args = {
+//   theme: 'action',
+//   label: 'Action'
+// }
 
 // TogglePrimary
-export const TogglePrimary: any = Template.bind({})
+// TODO: LATER SPRINT
+// export const TogglePrimary: any = Template.bind({})
 
-TogglePrimary.args = {
-  theme: 'togglePrimary',
-  label: 'Toggle Primary'
-}
+// TogglePrimary.args = {
+//   theme: 'togglePrimary',
+//   label: 'Toggle Primary'
+// }
 
-// ToggleSecondary
-export const ToggleSecondary: any = Template.bind({})
+// // ToggleSecondary
+// export const ToggleSecondary: any = Template.bind({})
 
-ToggleSecondary.args = {
-  theme: 'toggleSecondary',
-  label: 'Toggle Secondary'
-}
+// ToggleSecondary.args = {
+//   theme: 'toggleSecondary',
+//   label: 'Toggle Secondary'
+// }
 
 // Disabled
 export const Disabled: any = Template.bind({})
