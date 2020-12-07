@@ -6,12 +6,16 @@ type Props = {
   onClick: any
   hover?: boolean
   selected?: boolean
+  width: string
+  height: string
 }
 const CardContainer: React.FC<Props> = ({
   children,
   onClick,
   hover,
   selected,
+  width,
+  height,
   theme = 'Primary'
 }) => {
   return (
@@ -20,6 +24,8 @@ const CardContainer: React.FC<Props> = ({
       selected={selected}
       hover={hover}
       theme={theme}
+      width={width}
+      height={height}
     >
       {children}
     </CardContainerStyled>

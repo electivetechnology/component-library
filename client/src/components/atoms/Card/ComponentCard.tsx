@@ -10,16 +10,19 @@ import Font from '../Font/Font'
 type Props = {
   theme: string
   hover: boolean
-  content?: any
   footer?: string
   header?: string
+  width: string
+  height: string
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
-  content,
+  children,
   theme = 'Primary',
   footer = false,
-  header = false
+  header = false,
+  width = '290px',
+  height = '215px'
 }) => {
   const [selected, setSelected] = useState(false)
   const onClick = () => {
@@ -31,6 +34,8 @@ const ComponentCard: React.FC<Props> = ({
       theme={theme}
       selected={selected}
       onClick={onClick}
+      width={width}
+      height={height}
     >
       {header ? (
         <ComponentCardHeaderStyled>
@@ -40,7 +45,7 @@ const ComponentCard: React.FC<Props> = ({
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
       ) : null}
-      {content}
+      {children}
       {footer ? (
         <ComponentCardFooterStyled>
           <CardBorderStyled />
