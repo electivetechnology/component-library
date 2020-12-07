@@ -80,6 +80,7 @@ export const ButtonLabel = styled.div<ButtonLabelProps>`
 type ButtonComponentProps = {
   variant: string
   disabled: boolean
+  fullWidth?: boolean
 }
 export const ButtonComponent = styled.button<ButtonComponentProps>`
   border: none;
@@ -93,8 +94,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       border-radius: 4px;
       box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
       &:hover {
-        background-color: ${theme.primaryColorValencia};
-        opacity: 88%;
+        background-color: ${theme.primaryHover};
         box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
       }
   `};
@@ -102,8 +102,8 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.variant === 'primary' &&
     props.disabled &&
     `
-      color: ${theme.secondaryGray};
-      background-color: ${theme.Gray};
+      background-color: ${theme.disabledGrey};
+      color: ${theme.disabledTextGrey};
       border-radius: 4px;
   `};
   ${(props) =>
@@ -115,9 +115,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       border-radius: 4px;
       background-color: ${theme.white};
       &:hover {
-        background-color: ${theme.primaryColorValencia};
-        opacity: 22%;
-        box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+        background-color: ${theme.secondaryHover};
       }
   `};
   ${(props) =>
@@ -137,9 +135,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       border-radius: 4px;
       background-color: ${theme.white};
       &:hover {
-        background-color: ${theme.primaryColorValencia};
-        opacity: 22%;
-        color: ${theme.primaryColorValencia};
+        background-color: ${theme.secondaryHover};
         box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
       }
   `};
@@ -161,7 +157,6 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
       &:hover {
         background-color: ${theme.primaryColorValencia};
-        opacity: 88%;
         box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
       }
   `};
@@ -183,7 +178,6 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
       &:hover {
         background-color: ${theme.primaryColorValencia};
-        opacity: 88%;
         box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
       }
   `};
@@ -192,5 +186,10 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.disabled &&
     `
       display: none;
+  `};
+  ${(props) =>
+    props.fullWidth &&
+    `
+      width: 100%;
   `};
 `

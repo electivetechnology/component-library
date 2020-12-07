@@ -17,6 +17,5 @@ export type Props = {
   onClick: MouseEventHandler<HTMLButtonElement>
   icon?: ReactElement<SvgIconProps>
   href?: string
-  width?: number
   fullWidth?: boolean
 }

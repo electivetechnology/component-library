@@ -9,7 +9,8 @@ const Button: React.FC<Props> = ({
   disabled = false,
   onClick,
   icon,
-  href
+  href,
+  fullWidth
 }) => {
   const [redirect, setRedirect] = useState(false)
 
@@ -28,6 +29,7 @@ const Button: React.FC<Props> = ({
       onClick={handleClick}
       variant={theme}
       disabled={disabled}
+      fullWidth={fullWidth}
     >
       <Wrapper icon={icon} variant={theme}>
         {icon && <Icon variant={theme}>{icon}</Icon>}
