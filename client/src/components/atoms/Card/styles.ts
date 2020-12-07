@@ -5,23 +5,15 @@ type CardContainerProps = {
   selected?: boolean
   hover?: boolean
   theme: string
-  width: string
-  height: string
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
+  min-width: 290px;
+  min-height: 215px;
+  width: fit-content;
+  height: fit-content;
   border-radius: 16px;
   position: relative;
-  ${(props) =>
-    props.width &&
-    `
-      width: ${props.width};
-    `};
-  ${(props) =>
-    props.height &&
-    `
-      height: ${props.height};
-    `};
   ${(props) =>
     props.theme === 'primary' &&
     props.theme &&

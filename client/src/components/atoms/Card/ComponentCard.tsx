@@ -12,17 +12,13 @@ type Props = {
   hover: boolean
   footer?: string
   header?: string
-  width: string
-  height: string
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
   children,
   theme = 'Primary',
   footer = false,
-  header = false,
-  width = '290px',
-  height = '215px'
+  header = false
 }) => {
   const [selected, setSelected] = useState(false)
   const onClick = () => {
@@ -34,8 +30,6 @@ const ComponentCard: React.FC<Props> = ({
       theme={theme}
       selected={selected}
       onClick={onClick}
-      width={width}
-      height={height}
     >
       {header ? (
         <ComponentCardHeaderStyled>
