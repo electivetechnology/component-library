@@ -9,6 +9,7 @@ export const NavigationContainerStyled = styled.div`
 
 export const NavigationContentStyled = styled.div`
   padding: 32px 0 0 0;
+  margin-left: 16px;
 `
 
 export const DeviderStyled = styled.div`
