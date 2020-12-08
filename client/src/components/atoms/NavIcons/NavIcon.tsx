@@ -1,9 +1,10 @@
 import React, { useContext, FC, cloneElement } from 'react'
 import { navContext } from './NavIcons'
+import { sectionContext } from './NavSection'
 import { IconStyled } from './styles'
 import Tooltip from '@material-ui/core/Tooltip'
 import { makeStyles } from '@material-ui/core/styles'
-import { theme } from '../../../styles/theme'
+import { theme } from 'styles/theme'
 
 export const iconStyles = makeStyles({
   Icon: (props: any) => ({
@@ -16,12 +17,13 @@ type Props = {
   children: any
   id: any
   toolTipText: any
-  placement: any
 }
 
-const NavIcon: FC<Props> = ({ children, id, toolTipText, placement }) => {
-  const { activeId, handleClick } = useContext(navContext)
-  function selectNav() {
+const NavIcon: FC<Props> = ({ children, id, toolTipText }) => {
+  const { activeId, handleClick } = useContext(sectionContext)
+  const { layout } = useContext(navContext)
+
+  const selectNav = () => {
     handleClick(id)
   }
 
@@ -30,6 +32,8 @@ const NavIcon: FC<Props> = ({ children, id, toolTipText, placement }) => {
   const classes = iconStyles({ selected })
 
   const childrenStyled = cloneElement(children, { className: classes.Icon })
+
+  const placement = layout === 'vertical' ? 'right' : 'bottom'
 
   return (
     <IconStyled selected={selected} onClick={selectNav}>

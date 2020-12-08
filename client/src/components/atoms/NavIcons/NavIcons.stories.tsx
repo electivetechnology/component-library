@@ -10,19 +10,19 @@ import CancelIcon from '@material-ui/icons/CancelOutlined'
 const Template = (args: any) => <NavIcons {...args} />
 
 // Nav
-export const InboxNav: any = Template.bind({})
+export const VerticalNav: any = Template.bind({})
 
-InboxNav.args = {
+VerticalNav.args = {
   layout: 'vertical',
   children: (
     <NavSection initial='b' divider='end'>
-      <NavIcon id='a' toolTipText='Inbox' placement='right'>
+      <NavIcon id='a' toolTipText='Inbox'>
         <InboxIcon />
       </NavIcon>
-      <NavIcon id='b' toolTipText='Accepted' placement='right'>
+      <NavIcon id='b' toolTipText='Accepted'>
         <CheckCircleIcon />
       </NavIcon>
-      <NavIcon id='c' toolTipText='Rejected' placement='right'>
+      <NavIcon id='c' toolTipText='Rejected'>
         <CancelIcon />
       </NavIcon>
     </NavSection>

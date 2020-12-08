@@ -12,7 +12,12 @@ export const NavigationContentStyled = styled.div`
   margin-left: 16px;
 `
 
-export const DeviderStyled = styled.div`
+export const VerticalDividerStyled = styled.div`
+  border: 1px solid ${theme.dividerGrey};
+  margin: 16px 0;
+`
+
+export const HorizontalDividerStyled = styled.div`
   border: 1px solid ${theme.dividerGrey};
   margin: 16px 0;
 `
