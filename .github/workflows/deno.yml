@@ -18,3 +18,9 @@ jobs:
         
       - name: Install dependencies
         run: yarn install
+        
+      - name: Deploy to Chromatic
+        uses: chromaui/action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
