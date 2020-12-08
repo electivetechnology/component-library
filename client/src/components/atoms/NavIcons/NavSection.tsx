@@ -6,10 +6,10 @@ const { Provider } = navContext
 
 type Props = {
   initial: any
-  position: 'start' | 'middle' | 'end'
+  divider: 'start' | 'both' | 'end'
 }
 
-const NavSection: FC<Props> = ({ children, initial, position }) => {
+const NavSection: FC<Props> = ({ children, initial, divider }) => {
   const [activeId, setActiveId] = useState(initial)
 
   const handleClick: any = (id: any) => {
@@ -18,9 +18,9 @@ const NavSection: FC<Props> = ({ children, initial, position }) => {
 
   return (
     <Provider value={{ activeId, handleClick }}>
-      {position === 'middle' || (position === 'end' && <DeviderStyled />)}
+      {(divider === 'both' || divider === 'start') && <DeviderStyled />}
       {children}
-      {position === 'middle' || (position === 'start' && <DeviderStyled />)}
+      {(divider === 'both' || divider === 'end') && <DeviderStyled />}
     </Provider>
   )
 }
