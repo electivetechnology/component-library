@@ -40,6 +40,5 @@ export const IconStyled = styled.div<IconStyledProps>`
     props.selected &&
     `
       background-color: ${theme.primaryGrey};
-      pointer-events: none;
     `};
 `

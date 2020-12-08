@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavigationContainerStyled, NavigationContentStyled } from './styles'
+import { NavigationContainerStyled, NavigationContentStyled } from 'components/molecules/NavIcons/styles'
+import { LayoutType } from 'components/molecules/NavIcons/base'
 
 export const navContext = React.createContext({
   layout: 'vertical'
@@ -8,7 +9,7 @@ export const navContext = React.createContext({
 const { Provider } = navContext
 
 type Props = {
-  layout: 'vertical' | 'horizontal'
+  layout: LayoutType
 }
 
 const NavIcons: React.FC<Props> = ({ children, layout }) => {

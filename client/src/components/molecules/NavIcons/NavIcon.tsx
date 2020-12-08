@@ -1,7 +1,7 @@
 import React, { useContext, FC, cloneElement } from 'react'
-import { navContext } from './NavIcons'
-import { sectionContext } from './NavSection'
-import { IconStyled } from './styles'
+import { navContext } from 'components/molecules/NavIcons/NavIcons'
+import { sectionContext } from 'components/molecules/NavIcons/NavSection'
+import { IconStyled } from 'components/molecules/NavIcons/styles'
 import Tooltip from '@material-ui/core/Tooltip'
 import { makeStyles } from '@material-ui/core/styles'
 import { theme } from 'styles/theme'
@@ -15,19 +15,14 @@ export const iconStyles = makeStyles({
 
 type Props = {
   children: any
-  id: any
-  toolTipText: any
+  name: string
 }
 
-const NavIcon: FC<Props> = ({ children, id, toolTipText }) => {
-  const { activeId, handleClick } = useContext(sectionContext)
+const NavIcon: FC<Props> = ({ children, name }) => {
+  const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
 
-  const selectNav = () => {
-    handleClick(id)
-  }
-
-  const selected = activeId === id
+  const selected = activeName === name || activeNames.includes(name)
 
   const classes = iconStyles({ selected })
 
@@ -36,8 +31,8 @@ const NavIcon: FC<Props> = ({ children, id, toolTipText }) => {
   const placement = layout === 'vertical' ? 'right' : 'bottom'
 
   return (
-    <IconStyled selected={selected} onClick={selectNav}>
-      <Tooltip title={toolTipText} placement={placement}>
+    <IconStyled selected={selected} onClick={handleClick(name)}>
+      <Tooltip title={name} placement={placement}>
         {childrenStyled}
       </Tooltip>
     </IconStyled>
