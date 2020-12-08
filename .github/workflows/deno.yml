@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
-      - working-directory: ./app/client
+      - working-directory: ./client
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: yarn
