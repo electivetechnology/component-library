@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { navContext } from './NavIcons'
-import { DeviderStyled } from '../Navigation/styles'
+import { DeviderStyled } from './styles'
 
 const { Provider } = navContext
 
