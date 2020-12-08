@@ -8,7 +8,7 @@ on: push
   
 defaults:
   run:
-    working-directory: ./client
+    working-directory: client
 
 jobs:
   chromatic-deployment:
