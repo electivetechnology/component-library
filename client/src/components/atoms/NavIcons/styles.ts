@@ -9,9 +9,15 @@ export const NavigationContainerStyled = styled.div`
 
 export const NavigationContentStyled = styled.div`
   padding: 32px 0 0 0;
+  margin-left: 16px;
 `
 
-export const DeviderStyled = styled.div`
+export const VerticalDividerStyled = styled.div`
+  border: 1px solid ${theme.dividerGrey};
+  margin: 16px 0;
+`
+
+export const HorizontalDividerStyled = styled.div`
   border: 1px solid ${theme.dividerGrey};
   margin: 16px 0;
 `
