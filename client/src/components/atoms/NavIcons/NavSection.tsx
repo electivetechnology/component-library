@@ -1,26 +1,20 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC, useContext, Fragment } from 'react'
 import { VerticalDividerStyled, HorizontalDividerStyled } from './styles'
 import { navContext } from './NavIcons'
+import { DividerType } from 'components/atoms/NavIcons/base'
 
 export const sectionContext = React.createContext({
   activeId: '',
-  handleClick: (id: any) => {}
+  activeIds: [''],
+  handleClick: (id: any) => () => {}
 })
 
-const { Provider } = sectionContext
-
 type Props = {
-  initial: any
-  divider: 'start' | 'both' | 'end'
+  divider: DividerType
 }
 
-const NavSection: FC<Props> = ({ children, initial, divider }) => {
+const NavSection: FC<Props> = ({ children, divider }) => {
   const { layout } = useContext(navContext)
-  const [activeId, setActiveId] = useState(initial)
-
-  const handleClick: any = (id: any) => {
-    setActiveId(id)
-  }
 
   const dividerStyled =
     layout === 'vertical' ? (
@@ -30,11 +24,11 @@ const NavSection: FC<Props> = ({ children, initial, divider }) => {
     )
 
   return (
-    <Provider value={{ activeId, handleClick }}>
+    <Fragment>
       {(divider === 'both' || divider === 'start') && dividerStyled}
       {children}
       {(divider === 'both' || divider === 'end') && dividerStyled}
-    </Provider>
+    </Fragment>
   )
 }
 

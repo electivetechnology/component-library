@@ -20,14 +20,10 @@ type Props = {
 }
 
 const NavIcon: FC<Props> = ({ children, id, toolTipText }) => {
-  const { activeId, handleClick } = useContext(sectionContext)
+  const { activeId, activeIds, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
 
-  const selectNav = () => {
-    handleClick(id)
-  }
-
-  const selected = activeId === id
+  const selected = activeId === id || activeIds.includes(id)
 
   const classes = iconStyles({ selected })
 
@@ -36,7 +32,7 @@ const NavIcon: FC<Props> = ({ children, id, toolTipText }) => {
   const placement = layout === 'vertical' ? 'right' : 'bottom'
 
   return (
-    <IconStyled selected={selected} onClick={selectNav}>
+    <IconStyled selected={selected} onClick={handleClick(id)}>
       <Tooltip title={toolTipText} placement={placement}>
         {childrenStyled}
       </Tooltip>
