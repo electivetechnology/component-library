@@ -16,9 +16,10 @@ export const iconStyles = makeStyles({
 type Props = {
   children: any
   name: string
+  handleUpdate: Function
 }
 
-const NavIcon: FC<Props> = ({ children, name }) => {
+const NavIcon: FC<Props> = ({ children, name, handleUpdate }) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
 
@@ -30,8 +31,13 @@ const NavIcon: FC<Props> = ({ children, name }) => {
 
   const placement = layout === 'vertical' ? 'right' : 'bottom'
 
+  const onClick = () => {
+    handleUpdate()
+    handleClick(name)
+  }
+
   return (
-    <IconStyled selected={selected} onClick={handleClick(name)}>
+    <IconStyled selected={selected} onClick={onClick}>
       <Tooltip title={name} placement={placement}>
         {childrenStyled}
       </Tooltip>

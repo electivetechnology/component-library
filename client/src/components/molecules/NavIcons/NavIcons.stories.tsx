@@ -8,15 +8,17 @@ import NavToggle from 'components/molecules/NavIcons/NavToggle'
 import NavMulti from 'components/molecules/NavIcons/NavMulti'
 import { DividerType } from 'components/molecules/NavIcons/base'
 
+const handleUpdate = () => {}
+
 const renderToggle = (divider: DividerType) => (
   <NavToggle initial='Inbox' divider={divider}>
-    <NavIcon name='Inbox'>
+    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted'>
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected'>
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavToggle>
@@ -24,13 +26,13 @@ const renderToggle = (divider: DividerType) => (
 
 const renderMulti = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox'>
+    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted'>
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected'>
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>

@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react'
-import NavSection, { sectionContext } from 'components/molecules/NavIcons/NavSection'
+import NavSection, {
+  sectionContext
+} from 'components/molecules/NavIcons/NavSection'
 import { DividerType } from 'components/molecules/NavIcons/base'
 
 const { Provider } = sectionContext
@@ -12,7 +14,7 @@ type Props = {
 const NavToggle: FC<Props> = ({ children, initial, divider }) => {
   const [activeName, setActiveName] = useState(initial)
 
-  const handleClick = (name: any) => () => {
+  const handleClick = (name: any) => {
     setActiveName(name)
   }
 

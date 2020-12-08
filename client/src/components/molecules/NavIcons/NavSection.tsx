@@ -1,12 +1,15 @@
 import React, { FC, useContext, Fragment } from 'react'
-import { VerticalDividerStyled, HorizontalDividerStyled } from 'components/molecules/NavIcons/styles'
+import {
+  VerticalDividerStyled,
+  HorizontalDividerStyled
+} from 'components/molecules/NavIcons/styles'
 import { navContext } from 'components/molecules/NavIcons/NavIcons'
 import { DividerType } from 'components/molecules/NavIcons/base'
 
 export const sectionContext = React.createContext({
   activeName: '',
   activeNames: [''],
-  handleClick: (name: any) => () => {}
+  handleClick: (name: any) => {}
 })
 
 type Props = {
