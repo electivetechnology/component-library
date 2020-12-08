@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavigationContainerStyled, NavigationContentStyled } from './styles'
-import { LayoutType } from 'components/atoms/NavIcons/base'
+import { NavigationContainerStyled, NavigationContentStyled } from 'components/molecules/NavIcons/styles'
+import { LayoutType } from 'components/molecules/NavIcons/base'
 
 export const navContext = React.createContext({
   layout: 'vertical'

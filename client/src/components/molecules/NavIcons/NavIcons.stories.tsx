@@ -1,36 +1,36 @@
 import React, { Fragment } from 'react'
-import NavIcons from './NavIcons'
-import NavIcon from './NavIcon'
+import NavIcons from 'components/molecules/NavIcons/NavIcons'
+import NavIcon from 'components/molecules/NavIcons/NavIcon'
 import InboxIcon from '@material-ui/icons/Inbox'
 import CheckCircleIcon from '@material-ui/icons/CheckCircleOutline'
 import CancelIcon from '@material-ui/icons/CancelOutlined'
-import NavToggle from 'components/atoms/NavIcons/NavToggle'
-import NavMulti from 'components/atoms/NavIcons/NavMulti'
-import { DividerType } from 'components/atoms/NavIcons/base'
+import NavToggle from 'components/molecules/NavIcons/NavToggle'
+import NavMulti from 'components/molecules/NavIcons/NavMulti'
+import { DividerType } from 'components/molecules/NavIcons/base'
 
 const renderToggle = (divider: DividerType) => (
-  <NavToggle initial='b' divider={divider}>
-    <NavIcon id='a' toolTipText='Inbox'>
+  <NavToggle initial='Inbox' divider={divider}>
+    <NavIcon name='Inbox'>
       <InboxIcon />
     </NavIcon>
-    <NavIcon id='b' toolTipText='Accepted'>
+    <NavIcon name='Accepted'>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon id='c' toolTipText='Rejected'>
+    <NavIcon name='Rejected'>
       <CancelIcon />
     </NavIcon>
   </NavToggle>
 )
 
 const renderMulti = (divider: DividerType) => (
-  <NavMulti initial={['a', 'b']} divider={divider}>
-    <NavIcon id='a' toolTipText='Inbox'>
+  <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
+    <NavIcon name='Inbox'>
       <InboxIcon />
     </NavIcon>
-    <NavIcon id='b' toolTipText='Accepted'>
+    <NavIcon name='Accepted'>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon id='c' toolTipText='Rejected'>
+    <NavIcon name='Rejected'>
       <CancelIcon />
     </NavIcon>
   </NavMulti>
