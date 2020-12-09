@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
               
-      - name: Install dependencies
+      - name: run chromatic
         run: yarn chromatic
 
       - name: Deploy to Chromatic
