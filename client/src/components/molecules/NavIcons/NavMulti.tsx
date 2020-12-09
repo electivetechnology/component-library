@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react'
-import NavSection, { sectionContext } from 'components/molecules/NavIcons/NavSection'
+import NavSection, {
+  sectionContext
+} from 'components/molecules/NavIcons/NavSection'
 import { produce } from 'immer'
 import { DividerType } from 'components/molecules/NavIcons/base'
 
@@ -13,7 +15,7 @@ type Props = {
 const NavMulti: FC<Props> = ({ children, initial, divider }) => {
   const [activeNames, setActiveNames] = useState(initial)
 
-  const handleClick = (name: any) => () => {
+  const handleClick = (name: any) => {
     const exists = activeNames.find((activeName) => activeName === name)
 
     const updated: any = produce(activeNames, (draft: any) => {
