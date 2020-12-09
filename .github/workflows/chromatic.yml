@@ -1,0 +1,25 @@
+# .github/workflows/chromatic.yml
+
+# Workflow name
+name: "Chromatic Deployment"
+
+# Event for the workflow
+on: push
+
+defaults:
+  run:
+    working-directory: client
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: yarn install
+
+      - name: run chromatic
+        run: yarn chromatic
