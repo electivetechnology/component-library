@@ -20,6 +20,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     `
       border: 1px solid ${theme.grayGeyser};
       box-shadow: 0px 1px 3px ${theme.grayGeyser};
+      background-color: ${theme.white};
     `};
   ${(props) =>
     props.theme === 'secondary' &&
