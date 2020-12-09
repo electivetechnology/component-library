@@ -85,6 +85,7 @@ type ButtonComponentProps = {
 export const ButtonComponent = styled.button<ButtonComponentProps>`
   border: none;
   padding: 8px;
+  cursor: pointer;
   ${(props) =>
     props.variant === 'primary' &&
     !props.disabled &&
