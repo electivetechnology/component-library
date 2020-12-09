@@ -1,16 +1,25 @@
-name: CI
-on: [push, pull_request]
+# .github/workflows/chromatic.yml
+
+# Workflow name
+name: "Chromatic Deployment"
+
+# Event for the workflow
+on: push
+
+defaults:
+  run:
+    working-directory: client
+
 jobs:
-  build:
+  chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1.0.0
-      - name: Install
-        run: yarn
-      - name: Percy Test
-        uses: percy/exec-action@v0.3.1
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          command: "cypress run"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          fetch-depth: 0
+      - name: Install dependencies
+        run: yarn install
+
+      - name: run chromatic
+        run: yarn chromatic
