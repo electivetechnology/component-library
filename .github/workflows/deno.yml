@@ -20,6 +20,9 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: yarn install
+              
+      - name: Install dependencies
+        run: yarn chromatic
 
       - name: Deploy to Chromatic
         uses: chromaui/action@v1
