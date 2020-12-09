@@ -23,8 +23,3 @@ jobs:
               
       - name: run chromatic
         run: yarn chromatic
-
-      - name: Deploy to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
