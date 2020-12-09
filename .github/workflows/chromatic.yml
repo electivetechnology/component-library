@@ -21,5 +21,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Run tests
+        run: yarn docker-test
+
       - name: run chromatic
         run: yarn chromatic
