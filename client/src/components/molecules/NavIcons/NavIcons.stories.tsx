@@ -38,6 +38,20 @@ const renderMulti = (divider: DividerType) => (
   </NavMulti>
 )
 
+const renderHorizontal = (divider: DividerType) => (
+  <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
+    <NavIcon name='Inbox' handleUpdate={handleUpdate} horizontal={true}>
+      <InboxIcon />
+    </NavIcon>
+    <NavIcon name='Accepted' handleUpdate={handleUpdate} horizontal={true}>
+      <CheckCircleIcon />
+    </NavIcon>
+    <NavIcon name='Rejected' handleUpdate={handleUpdate} horizontal={true}>
+      <CancelIcon />
+    </NavIcon>
+  </NavMulti>
+)
+
 const Template = (args: any) => <NavIcons {...args} />
 
 // Nav
@@ -71,12 +85,8 @@ export const NavHorizontalBoth: any = Template.bind({})
 
 NavHorizontalBoth.args = {
   layout: 'horizontal',
-  children: (
-    <Fragment>
-      {renderMulti('start')}
-      {renderToggle('both')}
-    </Fragment>
-  )
+  horizontal: true,
+  children: <Fragment>{renderHorizontal('start')}</Fragment>
 }
 
 export default {
