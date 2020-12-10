@@ -90,6 +90,6 @@ NavHorizontalBoth.args = {
 }
 
 export default {
-  title: 'atoms/NavIcons',
+  title: 'molecules/NavIcons',
   component: NavIcons
 }
