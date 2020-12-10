@@ -5,7 +5,7 @@ type Props = {
   input: any
 }
 
-const FormInputTypes: FunctionComponent<Props> = ({ input }) => {
+const FormInputs: FunctionComponent<Props> = ({ input }) => {
   const {
     name,
     type,
@@ -22,7 +22,6 @@ const FormInputTypes: FunctionComponent<Props> = ({ input }) => {
     return (
       <FormText
         type={type}
-        name={name}
         input={input}
         readOnly={false}
         textFieldType={textFieldType}
@@ -34,4 +33,4 @@ const FormInputTypes: FunctionComponent<Props> = ({ input }) => {
   return null
 }
 
-export default memo(FormInputTypes)
+export default memo(FormInputs)

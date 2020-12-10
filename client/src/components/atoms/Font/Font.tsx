@@ -15,7 +15,7 @@ type Props = {
   multilineOverflow?: boolean
 }
 
-const TextField: FunctionComponent<Props> = ({
+const Font: FunctionComponent<Props> = ({
   variant = 'body1',
   component,
   gutterBottom = false,

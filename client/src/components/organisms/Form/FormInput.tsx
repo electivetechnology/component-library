@@ -1,45 +1,28 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FunctionComponent, memo, useContext, useEffect } from 'react'
 import { InputContainerStyled } from './styles'
-import FormInputTypes from './FormInputTypes'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import { makeStyles } from '@material-ui/core/styles'
+import FormInputs from './FormInputs'
 import { FormContext } from './Form'
 
 type Props = {
   input: any
 }
 
-const useStyles = makeStyles({
-  root: {
-    marginTop: '0'
-  }
-})
-
 const FormInput: FunctionComponent<Props> = ({ input }) => {
-  const classes = useStyles()
-  const { isEmbeddedForm } = useContext(FormContext)
-  const { width, value, download, label, helperText, type } = input
+  const { dispatch } = useContext(FormContext)
+  const { width, value, label, type } = input
 
-  const isEmbeddedFormField = isEmbeddedForm && type !== 'title'
-  const isTitle = type === 'title'
+  useEffect(() => {
+    dispatch({ type: 'add', value, label })
+  }, [])
 
-  console.group('debug')
-  console.log(input)
-  console.groupEnd()
-
-  // render the FormInputTypes which handles all input types
-  // render delete, helper text and download components if applicable
   return (
     <InputContainerStyled
-      isTitle={isTitle}
+      isTitle={true}
       width={width}
-      isEmbeddedForm={isEmbeddedFormField}
+      isEmbeddedForm={true}
       textList={type === 'text' && width}
     >
-      <FormInputTypes input={input} />
-      {helperText && !width && type !== 'phone' && (
-        <FormHelperText className={classes.root}>{helperText}</FormHelperText>
-      )}
+      <FormInputs input={input} />
     </InputContainerStyled>
   )
 }
