@@ -1,14 +1,18 @@
-import React, { Fragment } from 'react'
-import { Form, FormInput } from 'components/organisms/Form'
+import React  from 'react'
+import { Form, FormInput, FormRow } from 'components/organisms/Form'
 
-const handleUpdate = () => {}
+const handleUpdate = (formData: any) => {
+  console.group('handleUpdate')
+  console.log(formData)
+  console.groupEnd()
+}
 
 const Template = (args: any) => <Form {...args} handleUpdate={handleUpdate} />
 
 // Form
-export const FormInputStory: any = Template.bind({})
+export const InputSingle: any = Template.bind({})
 
-FormInputStory.args = {
+InputSingle.args = {
   handleUpdate,
   children: (
     <FormInput
@@ -22,7 +26,33 @@ FormInputStory.args = {
   )
 }
 
+export const InputRow: any = Template.bind({})
+
+InputRow.args = {
+  handleUpdate,
+  children: (
+    <FormRow>
+      <FormInput
+        input={{
+          label: 'Name',
+          value: 'some name',
+          type: 'text',
+          required: true
+        }}
+      />
+      <FormInput
+        input={{
+          label: 'Desc',
+          value: 'some desc',
+          type: 'text',
+          required: true
+        }}
+      />
+    </FormRow>
+  )
+}
+
 export default {
-  title: 'molecules/Form',
+  title: 'organisms/Form',
   component: Form
 }

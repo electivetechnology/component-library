@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     width: '100%',
     maxWidth: props.maxWidth ? `${props.maxWidth}px` : '100%',
     zIndex: 0,
-    ['@media screen and (min-width: 750px)']: {
+    '@media screen and (min-width: 750px)': {
       top: props.isInline ? '21px' : 0
     }
   }),

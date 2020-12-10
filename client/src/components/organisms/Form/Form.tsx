@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react'
+import { useInputsReducer } from './hooks'
 
 // TODO: PERMISSIONS!!!
 
 // Default values used for FormContext
 const defaultForm: any = {
   onBlur: undefined,
-  dispatch: undefined
+  dispatch: undefined,
+  inputs: {}
 }
 export const FormContext = React.createContext(defaultForm)
 
@@ -14,24 +16,26 @@ type Props = {
 }
 
 const Form: FunctionComponent<Props> = ({ children, handleUpdate }) => {
-  // const onBlur = () => {
-  //   console.log('onBlur')
-  // }
-  // const dispatch = () => {
-  //   console.log('dispatch')
-  // }
+  const { newInputs, dispatch } = useInputsReducer()
 
-  return <section>{children}</section>
+  console.group('newInputs')
+  console.log(newInputs)
+  console.groupEnd()
 
-  // return (
-  //   <FormContext.Provider
-  //     value={{
-  //       onBlur,
-  //       dispatch,
-  //     }}>
-  //     {children}
-  //   </FormContext.Provider>
-  // )
+  const onBlur = (label: string) => {
+    const updateValue = newInputs[label]
+    handleUpdate && handleUpdate(updateValue)
+  }
+
+  return (
+    <FormContext.Provider
+      value={{
+        onBlur,
+        dispatch,
+      }}>
+      {children}
+    </FormContext.Provider>
+  )
 }
 
 export default Form

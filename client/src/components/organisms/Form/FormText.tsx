@@ -16,7 +16,6 @@ import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline'
 
 type Props = {
   input: FormTextType
-  name: string
   type?: string
   readOnly: boolean
   textFieldType?: string
@@ -25,7 +24,6 @@ type Props = {
 
 const FormText: FunctionComponent<Props> = ({
   input,
-  name,
   readOnly,
   textFieldType = 'standard',
   copy = false
@@ -37,7 +35,7 @@ const FormText: FunctionComponent<Props> = ({
 
   const { type, label, affix, multiline, width, value } = input
 
-  const inputHook = useFormInput(name, dispatch, input)
+  const inputHook = useFormInput(label, dispatch, value)
 
   const handleCopy = () => {
     navigator.clipboard.writeText(value)
@@ -62,7 +60,7 @@ const FormText: FunctionComponent<Props> = ({
       <TextField
         isInline={!!width}
         variant={textFieldType}
-        id={name}
+        id={label}
         label={label}
         handleBlur={onBlur}
         {...inputHook}
@@ -70,9 +68,9 @@ const FormText: FunctionComponent<Props> = ({
         multiline={multiline}
         disabled={readOnly}
         margin={width ? 'none' : 'normal'}
-        paddingBttm={textFieldType === 'standard' ? true : false}
+        paddingBttm={textFieldType === 'standard'}
       />
-      {copy ? (
+      {copy && (
         <div
           style={{ width: '48px', paddingLeft: '8px' }}
           onMouseEnter={(e) => handleMouseHover(e)}
@@ -96,22 +94,20 @@ const FormText: FunctionComponent<Props> = ({
             )}
           </CopyIconStyled>
         </div>
-      ) : null}
+      )}
     </FormTextContainerStyled>
   )
 
-  if (affix) {
-    return (
-      <FlexibilityWrapperStyled>
-        {textField}
-        <AffixStyled>
-          <Font variant='body1'>{affix}</Font>
-        </AffixStyled>
-      </FlexibilityWrapperStyled>
-    )
-  } else {
-    return textField
-  }
+  return affix ? (
+    <FlexibilityWrapperStyled>
+      {textField}
+      <AffixStyled>
+        <Font variant='body1'>{affix}</Font>
+      </AffixStyled>
+    </FlexibilityWrapperStyled>
+  ) : (
+    textField
+  )
 }
 
 export default memo(FormText)
