@@ -10,8 +10,8 @@ type CardContainerProps = {
 export const CardContainerStyled = styled.div<CardContainerProps>`
   min-width: 290px;
   min-height: 215px;
-  width: fit-content;
-  height: fit-content;
+  width: max-content;
+  height: max-content;
   border-radius: 16px;
   position: relative;
   ${(props) =>
