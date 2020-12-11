@@ -8,7 +8,6 @@ import {
 import { FormText } from 'components/organisms/Form'
 import {
   AffixStyled,
-  FlexibilityWrapperStyled
 } from 'components/organisms/Form/styles'
 import { Font } from 'components/atoms'
 
@@ -27,10 +26,10 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options
 }) => {
-  const { dispatch } = useContext(FormContext)
+  const { addInput, errors } = useContext(FormContext)
 
   useEffect(() => {
-    dispatch({ type: 'add', name, value })
+    addInput(name, value)
   }, [value])
 
   return (
@@ -42,6 +41,7 @@ const FormInput: FunctionComponent<Props> = ({
         options
       }}
     >
+      {errors && errors[name] && <section>There is an error!!!!</section>}
       {['text', 'number'].includes(type) && <FormText />}
       {options?.affix && (
         <AffixStyled>

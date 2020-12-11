@@ -1,21 +1,16 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
-import { Font, TextField } from 'components/atoms'
+import React, { FunctionComponent, memo, useContext, Fragment } from 'react'
 import { useFormInput } from './hooks'
-import {
-  FlexibilityWrapperStyled,
-  AffixStyled,
-  FormTextContainerStyled
-} from './styles'
+import { FormTextContainerStyled } from './styles'
 import { FormContext, InputContext } from 'components/organisms/Form/base'
 
 const FormText: FunctionComponent = () => {
   const { name, type, label, options } = useContext(InputContext)
 
-  const { onBlur, dispatch, inputs } = useContext(FormContext)
+  const { onBlur, inputs } = useContext(FormContext)
 
-  const value = inputs[name] ? inputs[name] : null
+  const inputValue = inputs[name] ? inputs[name] : null
 
-  const inputHook = useFormInput(name, dispatch, value)
+  const { value } = useFormInput(name, inputValue)
 
   const handleBlur = () => {
     onBlur(name)
@@ -23,15 +18,19 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled>
-      <TextField
-        id={label}
-        label={label}
-        handleBlur={handleBlur}
-        {...inputHook}
-        type={type}
-        multiline={options?.multiline}
-        variant='standard'
-      />
+      {options?.multiline ? (
+        <Fragment>
+          <label id={name}>{label}</label>
+          <textarea id={name} onBlur={handleBlur}>
+            {value}
+          </textarea>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <label id={name}>{label}</label>
+          <input id={name} type={type} onBlur={handleBlur} value={value} />
+        </Fragment>
+      )}
     </FormTextContainerStyled>
   )
 }

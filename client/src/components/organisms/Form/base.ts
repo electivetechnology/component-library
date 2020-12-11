@@ -23,12 +23,14 @@ export interface OptionType {
 
 export type FormProps = {
   handleUpdate?: Function
+  errors: object
 }
 
 export type FormContextType = {
   onBlur: Function
-  dispatch: Function
+  addInput: Function
   inputs: any
+  errors: any
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)

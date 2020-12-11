@@ -1,21 +1,22 @@
-import React, { FunctionComponent } from 'react'
-import { useInputsReducer } from './hooks'
+import React, { FunctionComponent, useEffect } from 'react'
+import { useInputs } from './hooks'
 import { FormProps, FormContext } from 'components/organisms/Form/base'
 
-const Form: FunctionComponent<FormProps> = ({ children, handleUpdate }) => {
-  const { inputs, dispatch } = useInputsReducer()
+const Form: FunctionComponent<FormProps> = ({ children, handleUpdate, errors }) => {
+  const { inputs, addInput } = useInputs()
 
   const onBlur = (name: string) => {
-    const updateValue = inputs[name]
-    handleUpdate && handleUpdate(updateValue)
+    const value = inputs[name]
+    handleUpdate && handleUpdate(name, value)
   }
 
   return (
     <FormContext.Provider
       value={{
         onBlur,
-        dispatch,
-        inputs
+        addInput,
+        inputs,
+        errors
       }}
     >
       {children}
