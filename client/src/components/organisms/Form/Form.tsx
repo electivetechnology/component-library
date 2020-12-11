@@ -16,14 +16,14 @@ type Props = {
 }
 
 const Form: FunctionComponent<Props> = ({ children, handleUpdate }) => {
-  const { newInputs, dispatch } = useInputsReducer()
+  const { inputs, dispatch } = useInputsReducer()
 
   console.group('newInputs')
-  console.log(newInputs)
+  console.log(inputs)
   console.groupEnd()
 
   const onBlur = (label: string) => {
-    const updateValue = newInputs[label]
+    const updateValue = inputs[label]
     handleUpdate && handleUpdate(updateValue)
   }
 
@@ -32,7 +32,9 @@ const Form: FunctionComponent<Props> = ({ children, handleUpdate }) => {
       value={{
         onBlur,
         dispatch,
-      }}>
+        inputs
+      }}
+    >
       {children}
     </FormContext.Provider>
   )

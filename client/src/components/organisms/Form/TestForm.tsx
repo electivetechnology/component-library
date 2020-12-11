@@ -5,7 +5,7 @@ const TestForm: FC = () => {
   const [name, setName] = useState('some name')
 
   const handleUpdate = (value: any) => {
-    setName(value)
+    setName('false name')
     console.group('handleUpdate')
     console.log(value)
     console.groupEnd()
@@ -13,14 +13,7 @@ const TestForm: FC = () => {
 
   return (
     <Form handleUpdate={handleUpdate}>
-      <FormInput
-        input={{
-          label: 'Name',
-          value: name,
-          type: 'text',
-          required: true
-        }}
-      />
+      <FormInput label='Name' name='name' value={name} type='text' />
     </Form>
   )
 }
