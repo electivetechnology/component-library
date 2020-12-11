@@ -1,5 +1,6 @@
 import { useReducer, useState } from 'react'
-import { produce, original } from 'immer'
+import { produce } from 'immer'
+import { useEffectAfterMount } from 'utils/base'
 
 export const useInputsReducer = () => {
   const initialInputs: any = {}
@@ -8,10 +9,10 @@ export const useInputsReducer = () => {
       produce(state, (draftState: any) => {
         switch (action.type) {
           case 'update':
-            draftState[action.label] = action.value
+            draftState[action.name] = action.value
             break
           case 'add':
-            draftState[action.label] = action.value
+            draftState[action.name] = action.value
             break
           default:
             return state
@@ -23,7 +24,7 @@ export const useInputsReducer = () => {
   const inputs: any = newInputs
 
   return {
-    newInputs : inputs,
+    inputs,
     dispatch
   }
 }
@@ -71,7 +72,7 @@ export const useInputsReducer = () => {
 //
 
 export const useFormInput = (
-  label: string,
+  name: string,
   dispatch: Function,
   initialValue: string
 ) => {
@@ -81,11 +82,15 @@ export const useFormInput = (
     // retrieve value from event and dispatch
     const value = event.target ? event.target.value : event
     setValue(value)
-    dispatch({ type: 'update', label, value })
+    dispatch({ type: 'update', name, value })
   }
+
+  useEffectAfterMount(() => {
+    setValue(initialValue)
+  }, [initialValue])
 
   return {
     value,
-    onChange: handleChange,
+    onChange: handleChange
   }
 }

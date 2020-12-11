@@ -1,29 +1,47 @@
 import React, { FunctionComponent, memo, useContext, useEffect } from 'react'
-import { InputContainerStyled } from './styles'
-import FormInputs from './FormInputs'
 import { FormContext } from './Form'
+import { InputType, OptionType } from 'components/organisms/Form/types'
+import { FormText } from 'components/organisms/Form/index'
+
+const defaultInput: any = {
+  name: '',
+  type: 'text',
+  options: {}
+}
+export const InputContext = React.createContext(defaultInput)
 
 type Props = {
-  input: any
+  label: string
+  name: string
+  value: any
+  type: InputType
+  options?: OptionType
 }
 
-const FormInput: FunctionComponent<Props> = ({ input }) => {
+const FormInput: FunctionComponent<Props> = ({
+  label,
+  name,
+  value,
+  type,
+  options
+}) => {
   const { dispatch } = useContext(FormContext)
-  const { width, value, label, type } = input
 
   useEffect(() => {
-    dispatch({ type: 'add', value, label })
-  }, [])
+    dispatch({ type: 'add', name, value })
+  }, [value])
 
   return (
-    <InputContainerStyled
-      isTitle={true}
-      width={width}
-      isEmbeddedForm={true}
-      textList={type === 'text' && width}
+    <InputContext.Provider
+      value={{
+        label,
+        name,
+        type,
+        options
+      }}
     >
-      <FormInputs input={input} />
-    </InputContainerStyled>
+      {['text', 'number'].includes(type) && <FormText />}
+    </InputContext.Provider>
   )
 }
 

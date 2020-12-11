@@ -9,33 +9,23 @@ import {
   ToastStyled,
   CopiedStyled
 } from './styles'
-import { FormTextType } from './types'
 import { FormContext } from './Form'
 import FileCopyOutlined from '@material-ui/icons/FileCopyOutlined'
 import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline'
+import { InputContext } from 'components/organisms/Form/FormInput'
 
-type Props = {
-  input: FormTextType
-  type?: string
-  readOnly: boolean
-  textFieldType?: string
-  copy?: boolean
-}
+const FormText: FunctionComponent = () => {
+  const { name, type, label, options } = useContext(InputContext)
+  const { affix, multiline, width, copy } = options || {}
 
-const FormText: FunctionComponent<Props> = ({
-  input,
-  readOnly,
-  textFieldType = 'standard',
-  copy = false
-}) => {
+  const { onBlur, dispatch, inputs } = useContext(FormContext)
+
+  const value = inputs ? inputs[name] : null
+
   const [isHovered, setIsHovered] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
 
-  const { onBlur, dispatch } = useContext(FormContext)
-
-  const { type, label, affix, multiline, width, value } = input
-
-  const inputHook = useFormInput(label, dispatch, value)
+  const inputHook = useFormInput(name, dispatch, value)
 
   const handleCopy = () => {
     navigator.clipboard.writeText(value)
@@ -55,20 +45,22 @@ const FormText: FunctionComponent<Props> = ({
     setIsHovered(false)
   }
 
+  const handleBlur = () => {
+    onBlur(label)
+  }
+
   const textField = (
     <FormTextContainerStyled>
       <TextField
         isInline={!!width}
-        variant={textFieldType}
         id={label}
         label={label}
-        handleBlur={onBlur}
+        handleBlur={handleBlur}
         {...inputHook}
         type={type}
         multiline={multiline}
-        disabled={readOnly}
         margin={width ? 'none' : 'normal'}
-        paddingBttm={textFieldType === 'standard'}
+        variant='standard'
       />
       {copy && (
         <div
