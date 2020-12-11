@@ -10,7 +10,6 @@ import { FormContext, InputContext } from 'components/organisms/Form/base'
 
 const FormText: FunctionComponent = () => {
   const { name, type, label, options } = useContext(InputContext)
-  const { affix, multiline } = options || {}
 
   const { onBlur, dispatch, inputs } = useContext(FormContext)
 
@@ -22,7 +21,7 @@ const FormText: FunctionComponent = () => {
     onBlur(name)
   }
 
-  const textField = (
+  return (
     <FormTextContainerStyled>
       <TextField
         id={label}
@@ -30,21 +29,10 @@ const FormText: FunctionComponent = () => {
         handleBlur={handleBlur}
         {...inputHook}
         type={type}
-        multiline={multiline}
+        multiline={options?.multiline}
         variant='standard'
       />
     </FormTextContainerStyled>
-  )
-
-  return affix ? (
-    <FlexibilityWrapperStyled>
-      {textField}
-      <AffixStyled>
-        <Font variant='body1'>{affix}</Font>
-      </AffixStyled>
-    </FlexibilityWrapperStyled>
-  ) : (
-    textField
   )
 }
 

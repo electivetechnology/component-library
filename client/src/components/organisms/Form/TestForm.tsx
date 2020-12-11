@@ -10,7 +10,13 @@ const TestForm: FC = () => {
 
   return (
     <Form handleUpdate={handleUpdate}>
-      <FormInput label='Name' name='name' value={name} type='text' />
+      <FormInput
+        label='Name'
+        name='name'
+        value={name}
+        type='text'
+        options={{ affix: 'affix me' }}
+      />
     </Form>
   )
 }
