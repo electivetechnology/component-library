@@ -1,14 +1,11 @@
 import React, { FunctionComponent, memo, useContext, useEffect } from 'react'
-import { FormContext } from './Form'
-import { InputType, OptionType } from 'components/organisms/Form/types'
-import { FormText } from 'components/organisms/Form/index'
-
-const defaultInput: any = {
-  name: '',
-  type: 'text',
-  options: {}
-}
-export const InputContext = React.createContext(defaultInput)
+import {
+  InputType,
+  OptionType,
+  FormContext,
+  InputContext
+} from 'components/organisms/Form/base'
+import { FormText } from 'components/organisms/Form'
 
 type Props = {
   label: string
