@@ -6,6 +6,11 @@ import {
   InputContext
 } from 'components/organisms/Form/base'
 import { FormText } from 'components/organisms/Form'
+import {
+  AffixStyled,
+  FlexibilityWrapperStyled
+} from 'components/organisms/Form/styles'
+import { Font } from 'components/atoms'
 
 type Props = {
   label: string
@@ -38,6 +43,11 @@ const FormInput: FunctionComponent<Props> = ({
       }}
     >
       {['text', 'number'].includes(type) && <FormText />}
+      {options?.affix && (
+        <AffixStyled>
+          <Font variant='body1'>{options?.affix}</Font>
+        </AffixStyled>
+      )}
     </InputContext.Provider>
   )
 }

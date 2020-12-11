@@ -29,48 +29,6 @@ export const useInputsReducer = () => {
   }
 }
 
-// export const formatSaveData = (inputs: any) => {
-//   let error = false
-//   const formattedData = Object.entries(inputs).reduce(
-//     (obj: any, input: any, index) => {
-//       let {
-//         value,
-//         selected,
-//         type,
-//         commaSeparated,
-//         required,
-//         isMulti,
-//       } = input[1]
-//
-//       if (type === 'select') {
-//         value = !isMulti ? selected.value : selected
-//       }
-//
-//       if (commaSeparated) {
-//         value = value.split(',')
-//       }
-//
-//       const checkString = ['text', 'select']
-//       if (required && checkString.includes(type) && value === '') {
-//         error = true
-//       }
-//
-//       // add form values to object
-//       const hideType = ['title', 'delete']
-//       if (!hideType.includes(type)) {
-//         obj[input[0]] = value
-//       }
-//       return obj
-//     },
-//     {}
-//   )
-//
-//   if (!error) {
-//     return formattedData
-//   }
-// }
-//
-
 export const useFormInput = (
   name: string,
   dispatch: Function,
