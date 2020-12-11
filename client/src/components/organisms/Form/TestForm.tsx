@@ -6,9 +6,6 @@ const TestForm: FC = () => {
 
   const handleUpdate = (value: any) => {
     setName('false name')
-    console.group('handleUpdate')
-    console.log(value)
-    console.groupEnd()
   }
 
   return (

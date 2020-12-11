@@ -1,29 +1,12 @@
 import React, { FunctionComponent } from 'react'
 import { useInputsReducer } from './hooks'
+import { FormProps, FormContext } from 'components/organisms/Form/base'
 
-// TODO: PERMISSIONS!!!
-
-// Default values used for FormContext
-const defaultForm: any = {
-  onBlur: undefined,
-  dispatch: undefined,
-  inputs: {}
-}
-export const FormContext = React.createContext(defaultForm)
-
-type Props = {
-  handleUpdate?: Function
-}
-
-const Form: FunctionComponent<Props> = ({ children, handleUpdate }) => {
+const Form: FunctionComponent<FormProps> = ({ children, handleUpdate }) => {
   const { inputs, dispatch } = useInputsReducer()
 
-  console.group('newInputs')
-  console.log(inputs)
-  console.groupEnd()
-
-  const onBlur = (label: string) => {
-    const updateValue = inputs[label]
+  const onBlur = (name: string) => {
+    const updateValue = inputs[name]
     handleUpdate && handleUpdate(updateValue)
   }
 
