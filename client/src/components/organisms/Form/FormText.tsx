@@ -10,7 +10,7 @@ const FormText: FunctionComponent = () => {
 
   const inputValue = inputs[name] ? inputs[name] : null
 
-  const { value } = useFormInput(name, inputValue)
+  const { value, onChange } = useFormInput(name, inputValue)
 
   const handleBlur = () => {
     onBlur(name)
@@ -21,14 +21,20 @@ const FormText: FunctionComponent = () => {
       {options?.multiline ? (
         <Fragment>
           <label id={name}>{label}</label>
-          <textarea id={name} onBlur={handleBlur}>
+          <textarea id={name} onChange={onChange} onBlur={handleBlur}>
             {value}
           </textarea>
         </Fragment>
       ) : (
         <Fragment>
           <label id={name}>{label}</label>
-          <input id={name} type={type} onBlur={handleBlur} value={value} />
+          <input
+            id={name}
+            onChange={onChange}
+            onBlur={handleBlur}
+            type={type}
+            value={value}
+          />
         </Fragment>
       )}
     </FormTextContainerStyled>
