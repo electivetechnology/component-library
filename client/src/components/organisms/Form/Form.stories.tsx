@@ -1,17 +1,16 @@
 import React from 'react'
 import {
   Form,
+  FormAction,
   FormInfo,
   FormInput,
   FormRow,
   FormTitle
 } from 'components/organisms/Form'
+import AddIcon from '@material-ui/icons/Add'
 
-const handleUpdate = (formData: any) => {
-  console.group('handleUpdate')
-  console.log(formData)
-  console.groupEnd()
-}
+const handleUpdate = () => {}
+const handleAction = () => {}
 
 const Template = (args: any) => <Form {...args} handleUpdate={handleUpdate} />
 
@@ -37,9 +36,9 @@ InputRow.args = {
 }
 
 // InputTitle
-export const InputTitle: any = Template.bind({})
+export const InputTitleInfo: any = Template.bind({})
 
-InputTitle.args = {
+InputTitleInfo.args = {
   handleUpdate,
   children: (
     <FormRow>
@@ -47,6 +46,19 @@ InputTitle.args = {
       <FormInput label='Name' name='name' value='some name' type='text' />
       <FormInput label='Desc' name='desc' value='some desc' type='text' />
       <FormInfo info={'Some Info'} />
+    </FormRow>
+  )
+}
+
+// InputAction
+export const InputAction: any = Template.bind({})
+
+InputAction.args = {
+  handleUpdate,
+  children: (
+    <FormRow>
+      <FormInput label='Name' name='name' value='some name' type='text' />
+      <FormAction label='Set Primary' handleAction={handleAction} icon={<AddIcon />}/>
     </FormRow>
   )
 }
