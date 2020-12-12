@@ -30,7 +30,7 @@ const FormInput: FunctionComponent<Props> = ({
 
   useEffect(() => {
     addInput(name, value)
-  }, [value])
+  }, [value, name, addInput])
 
   return (
     <InputContext.Provider
@@ -41,7 +41,7 @@ const FormInput: FunctionComponent<Props> = ({
         options
       }}
     >
-      {errors && errors[name] && <section>There is an error!!!!</section>}
+      {errors && errors[name] && <section>{errors[name]}</section>}
       {['text', 'number'].includes(type) && <FormText />}
       {options?.affix && (
         <AffixStyled>

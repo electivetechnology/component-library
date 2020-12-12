@@ -70,10 +70,13 @@ export const useFormError = () => {
       produce(state, (draftState: any) => {
         switch (action.type) {
           case ErrorConst.ADD:
-            draftState[action.name] = action.value
+            draftState[action.name] = action.message
             break
           case ErrorConst.REMOVE:
-            draftState[action.name] = action.value
+            Object.entries(draftState).filter((error: any) => {
+              return error[0] = action.name
+            })
+            draftState[action.name] = action.message
             break
           default:
             return state
@@ -82,8 +85,8 @@ export const useFormError = () => {
     {} as any
   )
 
-  const addError = (name: string) => {
-    dispatch({ type: ErrorConst.ADD, name })
+  const addError = (name: string, message: string) => {
+    dispatch({ type: ErrorConst.ADD, name, message })
   }
 
   const removeError = (name: string) => {

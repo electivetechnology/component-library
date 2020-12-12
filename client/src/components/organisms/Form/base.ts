@@ -23,7 +23,6 @@ export interface OptionType {
 
 export type FormProps = {
   handleUpdate?: Function
-  errors: object
 }
 
 export type FormContextType = {

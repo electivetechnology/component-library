@@ -1,13 +1,21 @@
-import React, { FunctionComponent, useEffect } from 'react'
-import { useInputs } from './hooks'
+import React, { FunctionComponent } from 'react'
+import { useFormError, useInputs } from './hooks'
 import { FormProps, FormContext } from 'components/organisms/Form/base'
 
-const Form: FunctionComponent<FormProps> = ({ children, handleUpdate, errors }) => {
+const Form: FunctionComponent<FormProps> = ({ children, handleUpdate }) => {
   const { inputs, addInput } = useInputs()
+  const { errors, addError, removeError } = useFormError()
 
   const onBlur = (name: string) => {
     const value = inputs[name]
-    handleUpdate && handleUpdate(name, value)
+
+    handleUpdate &&
+      handleUpdate(
+        name,
+        value,
+        addError,
+        removeError
+      )
   }
 
   return (
