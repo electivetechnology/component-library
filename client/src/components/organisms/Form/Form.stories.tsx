@@ -1,8 +1,10 @@
 import React from 'react'
 import {
   Form,
+  FormInfo,
   FormInput,
   FormRow,
+  FormTitle
 } from 'components/organisms/Form'
 
 const handleUpdate = (formData: any) => {
@@ -30,6 +32,21 @@ InputRow.args = {
     <FormRow>
       <FormInput label='Name' name='name' value='some name' type='text' />
       <FormInput label='Desc' name='desc' value='some desc' type='text' />
+    </FormRow>
+  )
+}
+
+// InputTitle
+export const InputTitle: any = Template.bind({})
+
+InputTitle.args = {
+  handleUpdate,
+  children: (
+    <FormRow>
+      <FormTitle label={'Some Header'} />
+      <FormInput label='Name' name='name' value='some name' type='text' />
+      <FormInput label='Desc' name='desc' value='some desc' type='text' />
+      <FormInfo info={'Some Info'} />
     </FormRow>
   )
 }

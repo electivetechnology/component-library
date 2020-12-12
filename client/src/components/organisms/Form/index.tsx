@@ -1,6 +1,7 @@
 import Form from './Form'
-import FormText from './FormText'
 import FormInput from './FormInput'
 import FormRow from './FormRow'
+import FormTitle from './FormTitle'
+import FormInfo from './FormInfo'
 
-export { Form, FormText, FormInput, FormRow }
+export { Form, FormInput, FormRow, FormTitle, FormInfo }
