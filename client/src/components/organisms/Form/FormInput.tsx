@@ -5,10 +5,8 @@ import {
   FormContext,
   InputContext
 } from 'components/organisms/Form/base'
-import { FormText } from 'components/organisms/Form'
-import {
-  AffixStyled,
-} from 'components/organisms/Form/styles'
+import FormText from './FormText'
+import { AffixStyled } from 'components/organisms/Form/styles'
 import { Font } from 'components/atoms'
 
 type Props = {
