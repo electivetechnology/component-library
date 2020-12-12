@@ -76,7 +76,7 @@ const TextInput: FunctionComponent<Props> = ({
 
   return (
     <TextField
-      data-qa='textField'
+      data-testid='TextField'
       id={id}
       label={label}
       onChange={onChange}
