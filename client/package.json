@@ -24,7 +24,7 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:watch": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "storybook": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll",
+    "build-storybook": "build-storybook --loglevel error",
     "docker-test": "react-scripts test --env=jest-environment-jsdom-sixteen --forceExit --colors --detectOpenHandles --runInBand --watchAll=false",
     "format": "yarn run prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "chromatic": "chromatic --project-token 6vtzo56j0w --exit-zero-on-changes"
