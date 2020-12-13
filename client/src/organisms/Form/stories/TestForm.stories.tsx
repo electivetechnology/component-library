@@ -7,6 +7,6 @@ const Template = (args: any) => <TestFormComponent {...args} />
 export const TestForm: any = Template.bind({})
 
 export default {
-  title: 'organisms/TestForm',
+  title: 'organisms/Form',
   component: Form
 }
