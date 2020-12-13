@@ -1,6 +1,16 @@
 import { createContext } from 'react'
 
-export type InputType = 'text'
+export type InputType =
+  | 'text'
+  | 'colorPicker'
+  | 'colour'
+  | 'select'
+  | 'number'
+  | 'checkbox'
+  | 'date'
+  | 'phone'
+  | 'textEditor'
+  | 'toggle'
 
 interface FormOptionType {
   label: string
@@ -27,7 +37,7 @@ export type FormProps = {
 
 export type FormContextType = {
   onBlur: Function
-  addInput: Function
+  updateInput: Function
   inputs: any
   errors: any
 }
@@ -38,6 +48,7 @@ export type InputContextType = {
   label: string
   name: string
   type: InputType
+  readOnly: boolean
   options?: OptionType
 }
 

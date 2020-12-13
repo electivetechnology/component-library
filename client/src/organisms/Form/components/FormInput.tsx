@@ -24,11 +24,15 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options
 }) => {
-  const { addInput, errors } = useContext(FormContext)
+  const { updateInput, errors } = useContext(FormContext)
 
   useEffect(() => {
-    addInput(name, value)
-  }, [value, name, addInput])
+    updateInput(name, value)
+  }, [value, name, updateInput])
+
+  // TODO: readOnly
+  // const disableInput =
+  //   readOnly || (disabled && !checkPermissions) || readOnlyForm
 
   return (
     <InputContext.Provider
@@ -36,7 +40,8 @@ const FormInput: FunctionComponent<Props> = ({
         label,
         name,
         type,
-        options
+        options,
+        readOnly: false
       }}
     >
       {errors && errors[name] && <section>{errors[name]}</section>}

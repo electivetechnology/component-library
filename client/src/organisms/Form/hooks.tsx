@@ -25,13 +25,13 @@ export const useInputs = () => {
 
   const inputs: any = newInputs
 
-  const addInput = (name: string, value: string) => {
+  const updateInput = (name: string, value: string) => {
     dispatch({ type: InputsConst.ADD, name, value })
   }
 
   return {
     inputs,
-    addInput,
+    updateInput,
   }
 }
 
@@ -39,14 +39,14 @@ export const useFormInput = (
   name: string,
   initialValue: string
 ) => {
-  const { addInput } = useContext(FormContext)
+  const { updateInput } = useContext(FormContext)
   const [value, setValue] = useState(initialValue || '')
 
   const handleChange = (event: any) => {
     // retrieve value from event and dispatch
     const value = event.target ? event.target.value : event
     setValue(value)
-    addInput(name, value)
+    updateInput(name, value)
   }
 
   useEffectAfterMount(() => {
