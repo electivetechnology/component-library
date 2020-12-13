@@ -3,7 +3,7 @@ import { useFormError, useInputs } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
 
 const Form: FunctionComponent<FormProps> = ({ children, handleUpdate }) => {
-  const { inputs, addInput } = useInputs()
+  const { inputs, updateInput } = useInputs()
   const { errors, addError, removeError } = useFormError()
 
   const onBlur = (name: string) => {
@@ -16,7 +16,7 @@ const Form: FunctionComponent<FormProps> = ({ children, handleUpdate }) => {
     <FormContext.Provider
       value={{
         onBlur,
-        addInput,
+        updateInput,
         inputs,
         errors
       }}
