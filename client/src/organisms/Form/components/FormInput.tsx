@@ -5,7 +5,7 @@ import {
   FormContext,
   InputContext
 } from 'organisms/Form/base'
-import FormText from 'organisms/Form/FormText'
+import FormText from 'organisms/Form/components/FormText'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 

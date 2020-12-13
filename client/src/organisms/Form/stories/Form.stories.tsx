@@ -58,7 +58,11 @@ InputAction.args = {
   children: (
     <FormRow>
       <FormInput label='Name' name='name' value='some name' type='text' />
-      <FormAction label='Set Primary' handleAction={handleAction} icon={<AddIcon />}/>
+      <FormAction
+        label='Set Primary'
+        handleAction={handleAction}
+        icon={<AddIcon />}
+      />
     </FormRow>
   )
 }

@@ -5,9 +5,7 @@ type Props = {
 }
 
 const FormRow: FunctionComponent<Props> = ({ children }) => {
-  return <Fragment>
-    {children}
-  </Fragment>
+  return <Fragment>{children}</Fragment>
 }
 
 export default memo(FormRow)

@@ -9,13 +9,7 @@ const Form: FunctionComponent<FormProps> = ({ children, handleUpdate }) => {
   const onBlur = (name: string) => {
     const value = inputs[name]
 
-    handleUpdate &&
-      handleUpdate(
-        name,
-        value,
-        addError,
-        removeError
-      )
+    handleUpdate && handleUpdate(name, value, addError, removeError)
   }
 
   return (
