@@ -19,7 +19,9 @@ const TestForm: FC = () => {
   const handleSave = (
     inputs: object,
   ) => {
-    // TODO: handle save
+    console.group('handleSave')
+    console.log(inputs)
+    console.groupEnd()
   }
 
   return (
