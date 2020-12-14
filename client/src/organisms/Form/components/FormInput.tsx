@@ -24,11 +24,18 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options
 }) => {
-  const { addInput, errors } = useContext(FormContext)
+  // TODO: controlled components error when deleting value
+  const { updateInput, statuses } = useContext(FormContext)
 
   useEffect(() => {
-    addInput(name, value)
-  }, [value, name, addInput])
+    updateInput(name, value)
+  }, [value])
+
+  // TODO: readOnly
+  // const disableInput =
+  //   readOnly || (disabled && !checkPermissions) || readOnlyForm
+
+  const status = statuses && statuses[name] ? statuses[name] : null
 
   return (
     <InputContext.Provider
@@ -36,10 +43,20 @@ const FormInput: FunctionComponent<Props> = ({
         label,
         name,
         type,
-        options
+        options,
+        readOnly: false
       }}
     >
-      {errors && errors[name] && <section>{errors[name]}</section>}
+      {/*TODO: timeout for success and pending? */}
+      {status && status.statusType === 'error' && (
+        <section>Input is error : {status.message}</section>
+      )}
+      {status && status.statusType === 'pending' && (
+        <section>Input is pending</section>
+      )}
+      {status && status.statusType === 'success' && (
+        <section>Input is success</section>
+      )}
       {['text', 'number'].includes(type) && <FormText />}
       {options?.affix && (
         <AffixStyled>

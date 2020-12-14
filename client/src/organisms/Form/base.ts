@@ -1,6 +1,18 @@
 import { createContext } from 'react'
 
-export type InputType = 'text'
+export type InputType =
+  | 'text'
+  | 'colorPicker'
+  | 'colour'
+  | 'select'
+  | 'number'
+  | 'checkbox'
+  | 'date'
+  | 'phone'
+  | 'textEditor'
+  | 'toggle'
+
+export type StatusType = 'pending' | 'error' | 'success'
 
 interface FormOptionType {
   label: string
@@ -21,15 +33,21 @@ export interface OptionType {
   copy?: boolean
 }
 
+export type AddStatusType = (
+  statusType: StatusType,
+  name: string,
+  message?: string
+) => void
+
 export type FormProps = {
-  handleUpdate?: Function
+  handleUpdate?: (name: string, value: string, addStatus: AddStatusType) => void
 }
 
 export type FormContextType = {
   onBlur: Function
-  addInput: Function
+  updateInput: Function
   inputs: any
-  errors: any
+  statuses: any
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)
@@ -38,6 +56,7 @@ export type InputContextType = {
   label: string
   name: string
   type: InputType
+  readOnly: boolean
   options?: OptionType
 }
 
