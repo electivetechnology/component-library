@@ -4,33 +4,30 @@ import { useEffectAfterMount } from 'utils/base'
 import { FormContext, StatusType } from 'organisms/Form/base'
 
 export enum InputsConst {
-  ADD = 'ADD'
+  UPDATE = 'UPDATE'
 }
 
 export const useInputs = () => {
-  const initialInputs: any = {}
-  const [newInputs, dispatch] = useReducer(
+  const [inputs, dispatch] = useReducer(
     (state: any, action: any) =>
       produce(state, (draftState: any) => {
         switch (action.type) {
-          case InputsConst.ADD:
+          case InputsConst.UPDATE:
             draftState[action.name] = action.value
             break
           default:
             return state
         }
       }),
-    initialInputs
+    {} as any
   )
 
-  const inputs: any = newInputs
-
   const updateInput = (name: string, value: string) => {
-    dispatch({ type: InputsConst.ADD, name, value })
+    dispatch({ type: InputsConst.UPDATE, name, value })
   }
 
   return {
-    inputs,
+    inputs: inputs as any,
     updateInput
   }
 }

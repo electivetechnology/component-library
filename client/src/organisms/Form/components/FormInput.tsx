@@ -24,11 +24,12 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options
 }) => {
+  // TODO: controlled components error when deleting value
   const { updateInput, statuses } = useContext(FormContext)
 
   useEffect(() => {
     updateInput(name, value)
-  }, [value, name, updateInput])
+  }, [value])
 
   // TODO: readOnly
   // const disableInput =
