@@ -9,7 +9,7 @@ const FormTemplate: FunctionComponent<FormProps> = ({ children }) => {
         onBlur: () => {},
         updateInput: () => {},
         inputs: {colorPicker : '#D63948'},
-        errors: {}
+        statuses: {}
       }}
     >
       <InputContext.Provider

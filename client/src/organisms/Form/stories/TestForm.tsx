@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
+import { AddStatusType } from 'organisms/Form/base'
 
 const TestForm: FC = () => {
   const [name, setName] = useState('some name')
@@ -8,12 +9,12 @@ const TestForm: FC = () => {
   const handleUpdate = (
     name: string,
     value: string,
-    addError: Function,
-    removeError: Function
+    addStatus: AddStatusType,
   ) => {
-    addError(name, "there' been a terrible mistake")
-    removeError(name)
-    setName(`${value} with error`)
+    // setName('updated by test')
+    addStatus('pending', name)
+    addStatus('error', name, "there' been a terrible mistake")
+    addStatus('success', name)
   }
 
   const handleSave = (
