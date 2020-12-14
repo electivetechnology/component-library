@@ -11,6 +11,7 @@ const TestForm: FC = () => {
     value: string,
     addStatus: AddStatusType,
   ) => {
+    // setName('updated by test')
     addStatus('pending', name)
     addStatus('error', name, "there' been a terrible mistake")
     addStatus('success', name)

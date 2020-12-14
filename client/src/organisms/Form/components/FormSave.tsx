@@ -2,6 +2,9 @@ import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { FormAction } from 'organisms/Form'
 import { FormContext } from 'organisms/Form/base'
+import isNull from 'lodash/isNull'
+import isUndefined from 'lodash/isUndefined'
+import isEmpty from 'lodash/isEmpty'
 
 interface Props {
   label: string
@@ -12,7 +15,11 @@ const FormSave: FunctionComponent<Props> = ({ label, handleSave, icon }) => {
   const { inputs } = useContext(FormContext)
 
   const handleAction = () => {
-    handleSave(inputs)
+    const hasEmpty = Object.values(inputs).find((input: any) => {
+      return isEmpty(input) || isNull(input)
+    })
+
+    handleSave(isUndefined(hasEmpty) ? inputs : false)
   }
 
   return <FormAction label={label} handleAction={handleAction} icon={icon} />

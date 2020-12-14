@@ -28,7 +28,7 @@ const FormInput: FunctionComponent<Props> = ({
 
   useEffect(() => {
     updateInput(name, value)
-  }, [value, name, updateInput])
+  }, [value])
 
   // TODO: readOnly
   // const disableInput =
