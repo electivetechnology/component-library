@@ -24,6 +24,7 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options
 }) => {
+  // TODO: controlled components error when deleting value
   const { updateInput, statuses } = useContext(FormContext)
 
   useEffect(() => {
