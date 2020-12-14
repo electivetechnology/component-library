@@ -8,17 +8,17 @@ export { CardContainer } from 'components/atoms'
 export { Header } from 'components/atoms'
 
 // molecules
-export { default as Alert } from 'components/molecules/Alert/Alert'
-export { default as Channels } from 'components/molecules/Channels/Channels'
-export { default as NavIcons } from 'components/molecules/NavIcons/NavIcons'
-export { default as NavToggle } from 'components/molecules/NavIcons/NavToggle'
-export { default as NavMulti } from 'components/molecules/NavIcons/NavMulti'
-export { default as NavIcon } from 'components/molecules/NavIcons/NavIcon'
-export { default as PopUp } from 'components/molecules/PopUp/PopUp'
+export { default as Alert } from 'molecules/Alert/Alert'
+export { default as Channels } from 'molecules/Channels/Channels'
+export { default as NavIcons } from 'molecules/NavIcons/NavIcons'
+export { default as NavToggle } from 'molecules/NavIcons/NavToggle'
+export { default as NavMulti } from 'molecules/NavIcons/NavMulti'
+export { default as NavIcon } from 'molecules/NavIcons/NavIcon'
+export { default as PopUp } from 'molecules/PopUp/PopUp'
 export {
   default as popUpReducer,
   setPopUp,
   getPopUp,
   resetPopUp,
   popUpSchema
-} from 'components/molecules/PopUp/reducer'
+} from 'molecules/PopUp/reducer'
