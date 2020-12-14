@@ -1,7 +1,7 @@
 import { useContext, useReducer, useState } from 'react'
 import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
-import { FormContext } from 'organisms/Form/base'
+import { FormContext, StatusType } from 'organisms/Form/base'
 
 export enum InputsConst {
   ADD = 'ADD'
@@ -31,14 +31,11 @@ export const useInputs = () => {
 
   return {
     inputs,
-    updateInput,
+    updateInput
   }
 }
 
-export const useFormInput = (
-  name: string,
-  initialValue: string
-) => {
+export const useFormInput = (name: string, initialValue: string) => {
   const { updateInput } = useContext(FormContext)
   const [value, setValue] = useState(initialValue || '')
 
@@ -59,24 +56,26 @@ export const useFormInput = (
   }
 }
 
-export enum ErrorConst {
+export enum StatusConst {
   ADD = 'ADD',
   REMOVE = 'REMOVE'
 }
 
-export const useFormError = () => {
-  const [errors, dispatch] = useReducer(
+export const useInputStatus = () => {
+  const [statuses, dispatch] = useReducer(
     (state: any, action: any) =>
       produce(state, (draftState: any) => {
         switch (action.type) {
-          case ErrorConst.ADD:
-            draftState[action.name] = action.message
+          case StatusConst.ADD:
+            draftState[action.name] = {
+              statusType: action.statusType,
+              message: action.message
+            }
             break
-          case ErrorConst.REMOVE:
-            Object.entries(draftState).filter((error: any) => {
-              return error[0] = action.name
+          case StatusConst.REMOVE:
+            Object.entries(draftState).filter((status: any) => {
+              return (status[0] = action.name)
             })
-            draftState[action.name] = action.message
             break
           default:
             return state
@@ -85,17 +84,17 @@ export const useFormError = () => {
     {} as any
   )
 
-  const addError = (name: string, message: string) => {
-    dispatch({ type: ErrorConst.ADD, name, message })
+  const addStatus = (statusType : StatusType, name: string, message?: string) => {
+    dispatch({ type: StatusConst.ADD, statusType, name, message })
   }
 
-  const removeError = (name: string) => {
-    dispatch({ type: ErrorConst.REMOVE, name })
+  const removeStatus = (name: string) => {
+    dispatch({ type: StatusConst.REMOVE, name })
   }
 
   return {
-    errors,
-    addError,
-    removeError
+    statuses,
+    addStatus,
+    removeStatus
   }
 }

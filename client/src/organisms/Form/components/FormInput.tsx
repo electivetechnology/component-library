@@ -24,7 +24,7 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options
 }) => {
-  const { updateInput, errors } = useContext(FormContext)
+  const { updateInput, statuses } = useContext(FormContext)
 
   useEffect(() => {
     updateInput(name, value)
@@ -33,6 +33,8 @@ const FormInput: FunctionComponent<Props> = ({
   // TODO: readOnly
   // const disableInput =
   //   readOnly || (disabled && !checkPermissions) || readOnlyForm
+
+  const status = statuses && statuses[name] ? statuses[name] : null
 
   return (
     <InputContext.Provider
@@ -44,7 +46,10 @@ const FormInput: FunctionComponent<Props> = ({
         readOnly: false
       }}
     >
-      {errors && errors[name] && <section>{errors[name]}</section>}
+      {/*TODO: timeout for success and pending? */}
+      {status && status.statusType === 'error' && <section>Input is error : {status.message}</section>}
+      {status && status.statusType === 'pending' && <section>Input is pending</section>}
+      {status && status.statusType === 'success' && <section>Input is success</section>}
       {['text', 'number'].includes(type) && <FormText />}
       {options?.affix && (
         <AffixStyled>

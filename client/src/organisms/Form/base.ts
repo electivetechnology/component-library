@@ -12,6 +12,11 @@ export type InputType =
   | 'textEditor'
   | 'toggle'
 
+export type StatusType =
+  | 'pending'
+  | 'error'
+  | 'success'
+
 interface FormOptionType {
   label: string
   value: string
@@ -31,15 +36,17 @@ export interface OptionType {
   copy?: boolean
 }
 
+export type AddStatusType = (statusType : StatusType, name: string, message?: string) => void
+
 export type FormProps = {
-  handleUpdate?: Function
+  handleUpdate?: (name: string, value: string, addStatus: AddStatusType) => void
 }
 
 export type FormContextType = {
   onBlur: Function
   updateInput: Function
   inputs: any
-  errors: any
+  statuses: any
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)
