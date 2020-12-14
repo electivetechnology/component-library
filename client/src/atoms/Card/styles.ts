@@ -5,15 +5,23 @@ type CardContainerProps = {
   selected?: boolean
   hover?: boolean
   theme: string
+  padding?: boolean
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
   min-width: 290px;
   min-height: 215px;
-  width: fit-content;
-  height: fit-content;
+  width: max-content;
+  height: max-content;
   border-radius: 16px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${(props) =>
+    props.padding &&
+    `
+      padding: 12px 24px;
+    `};
   ${(props) =>
     props.theme === 'primary' &&
     props.theme &&
@@ -49,9 +57,8 @@ export const CardBorderStyled = styled.div`
 
 // Component card
 export const ComponentCardFooterStyled = styled.div`
-  position: absolute;
-  bottom: 0;
-  position: absolute;
+  // position: absolute;
+  // bottom: 0;
   width: 100%;
 `
 

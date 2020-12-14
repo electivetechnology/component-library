@@ -33,6 +33,18 @@ Card.args = {
   hover: true
 }
 
+// CardWithPadding
+export const CardWithPadding: any = CardTemplate.bind({})
+
+CardWithPadding.args = {
+  text: 'Card with padding',
+  theme: 'primary',
+  hover: false,
+  footer: 'Footer',
+  header: 'Label',
+  padding: true
+}
+
 export default {
   title: 'atoms/Card',
   component: CardContainer
