@@ -6,6 +6,7 @@ type CardContainerProps = {
   hover?: boolean
   theme: string
   padding?: boolean
+  fullWidth?: boolean
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
@@ -17,6 +18,11 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${(props) =>
+    props.fullWidth &&
+    `
+      width: 100%;
+    `};
   ${(props) =>
     props.padding &&
     `
