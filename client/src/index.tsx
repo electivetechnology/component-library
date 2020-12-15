@@ -5,6 +5,7 @@ export { CloseButton } from 'atoms'
 export { Checkbox } from 'atoms'
 export { CsvDownloader } from 'atoms'
 export { CardContainer } from 'atoms'
+export { Header } from 'atoms'
 
 // molecules
 export { default as Alert } from 'molecules/Alert/Alert'
