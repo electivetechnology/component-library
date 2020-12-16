@@ -27,9 +27,11 @@ const Header: React.FC<Props> = ({ title, children }) => {
       <div>
         {title ? (
           <HeaderContentStyled>
-            <Font variant='body1' color={theme.grey} fontWeight={600}>
-              {title}
-            </Font>
+            <div style={{ paddingBottom: '4px' }}>
+              <Font variant='body1' color={theme.grey} fontWeight={600}>
+                {title}
+              </Font>
+            </div>
             {showSection ? (
               <ExpandLessIcon
                 style={expandIconStyles}
