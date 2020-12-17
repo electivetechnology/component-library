@@ -27,7 +27,7 @@ const Header: React.FC<Props> = ({ title, children }) => {
       <div>
         {title ? (
           <HeaderContentStyled>
-            <div style={{ paddingBottom: '4px' }}>
+            <div style={{ paddingTop: '4px' }}>
               <Font variant='body1' color={theme.grey} fontWeight={600}>
                 {title}
               </Font>
