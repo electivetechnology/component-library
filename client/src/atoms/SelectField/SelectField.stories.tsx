@@ -4,14 +4,23 @@ import SelectField from './SelectField'
 
 const SelectTemplate = (args: any) => <SelectField {...args} />
 
-// Normal
-export const Normal: any = SelectTemplate.bind({})
+// Dark
+export const Dark: any = SelectTemplate.bind({})
 
-Normal.args = {
+Dark.args = {
   label: 'Label',
-  options: []
+  options: [],
+  theme: 'dark'
 }
 
+// Light
+export const Light: any = SelectTemplate.bind({})
+
+Light.args = {
+  label: 'Label',
+  options: [],
+  theme: 'light'
+}
 // Disabled
 export const Disabled: any = SelectTemplate.bind({})
 

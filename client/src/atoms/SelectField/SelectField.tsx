@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import { Font } from 'atoms'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import { theme } from 'styles/theme'
 import Autocomplete from '@material-ui/lab/Autocomplete'
+import { AutoCompleteContainerStyled } from './style'
 
 type Props = {
   label?: string
@@ -11,17 +11,25 @@ type Props = {
   value?: { value: string; label: string } | Array<any>
   options: Array<{ value: string; label: string }>
   noOptionsMessage?: string
+  theme?: string
 }
 
 const useStyles = makeStyles({
   input: (props: any) => ({
-    fontSize: '14px !important'
+    fontSize: '14px !important',
+    '&:focused': {
+      color: 'yellow'
+    }
   }),
   label: (props: any) => ({
-    color: theme.grey,
-    fontSize: '14px !important'
+    color: props.theme === 'light' ? theme.white : theme.grey,
+    fontSize: '14px !important',
+    '&:focused': {
+      color: 'red'
+    }
   }),
-  inputRoot: {
+  inputRoot: (props: any) => ({
+    color: props.theme === 'light' ? theme.white : theme.grey,
     '&::after': {
       borderBottom: `2px solid ${theme.dividerGrey}`
     },
@@ -31,7 +39,7 @@ const useStyles = makeStyles({
     '&:hover:not(.Mui-disabled):before': {
       borderBottom: `2px solid ${theme.grey}`
     }
-  },
+  }),
   popupIndicator: {
     color: theme.dividerGrey
   },
@@ -46,12 +54,13 @@ const SelectField: FunctionComponent<Props> = ({
   disabled,
   value,
   options,
-  noOptionsMessage = 'No options'
+  noOptionsMessage = 'No options',
+  theme = 'dark'
 }) => {
-  const classes = useStyles()
+  const classes = useStyles({ theme })
 
   return (
-    <div>
+    <AutoCompleteContainerStyled theme={theme}>
       <Autocomplete
         options={options}
         classes={classes}
@@ -75,7 +84,7 @@ const SelectField: FunctionComponent<Props> = ({
         )}
         value={value}
       />
-    </div>
+    </AutoCompleteContainerStyled>
   )
 }
 
