@@ -10,6 +10,7 @@ type Props = {
   disabled?: boolean
   value?: { value: string; label: string } | Array<any>
   options: Array<{ value: string; label: string }>
+  noOptionsMessage?: string
 }
 
 const useStyles = makeStyles({
@@ -44,7 +45,8 @@ const SelectField: FunctionComponent<Props> = ({
   label,
   disabled,
   value,
-  options
+  options,
+  noOptionsMessage = 'No options'
 }) => {
   const classes = useStyles()
 
@@ -54,6 +56,7 @@ const SelectField: FunctionComponent<Props> = ({
         options={options}
         classes={classes}
         disabled={disabled}
+        noOptionsText={noOptionsMessage}
         getOptionLabel={(option: any) => option.label}
         // open={true} // constantly show dropdown menu
         renderInput={(params: any) => (
