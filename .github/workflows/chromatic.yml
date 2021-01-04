@@ -14,19 +14,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests
+        run: yarn docker-test
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Run tests
-        run: yarn docker-test
-  chromatic:
-    runs-on: ubuntu-latest
-    needs: test
-    if: github.ref == 'refs/heads/master'
-    steps:
       - name: run chromatic
+        if: github.ref == 'refs/heads/master'
         run: yarn chromatic
