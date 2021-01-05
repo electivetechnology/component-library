@@ -14,7 +14,7 @@ export type InputType =
 
 export type StatusType = 'pending' | 'error' | 'success'
 
-interface FormOptionType {
+export interface FormOptionType {
   label: string
   value: string
 }
@@ -26,7 +26,7 @@ export interface OptionType {
   helperText?: string
   width?: number
   selected?: FormOptionType
-  options?: Array<FormOptionType>
+  selectOptions?: Array<FormOptionType>
   noOptionsMessage?: string
   isMulti?: boolean
   isDynamic?: boolean
@@ -46,6 +46,7 @@ export type AddStatusType = (
 
 export type FormProps = {
   handleUpdate?: (object: {[key: string]: string}, handleStatus: HandleStatusType) => void
+  readOnlyForm?: boolean
 }
 
 export type FormContextType = {
@@ -53,6 +54,7 @@ export type FormContextType = {
   updateInput: Function
   inputs: any
   statuses: any
+  readOnlyForm: boolean
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)
@@ -61,7 +63,7 @@ export type InputContextType = {
   label: string
   name: string
   type: InputType
-  readOnly: boolean
+  disabled: boolean
   options?: OptionType
 }
 
