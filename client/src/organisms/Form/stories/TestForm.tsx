@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { HandleStatusType } from 'organisms/Form/base'
-import { candidateStatusOptions, selectedOption } from 'organisms/Form/mock'
+import { candidateStatusOptions } from 'organisms/Form/mock'
 
 const TestForm: FC = () => {
   const [name, setName] = useState('some name')
@@ -32,6 +32,7 @@ const TestForm: FC = () => {
   return (
     <Form
       handleUpdate={handleUpdate}
+      darkMode={true}
     >
       <FormInput
         label='Name'
@@ -43,7 +44,7 @@ const TestForm: FC = () => {
       <FormInput
         label='Candidate'
         name='candidate'
-        value={status}
+        value={null}
         type='select'
         options={{ selectOptions: candidateStatusOptions }}
       />

@@ -217,7 +217,6 @@ export const ToastStyled = styled.div`
   top: 2px;
 `
 
-
 export const useSelectStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
@@ -225,15 +224,8 @@ export const useSelectStyles = makeStyles({
       color: 'yellow'
     }
   }),
-  label: (props: any) => ({
-    color: props.theme === 'light' ? theme.white : theme.grey,
-    fontSize: '14px !important',
-    '&:focused': {
-      color: 'red'
-    }
-  }),
   inputRoot: (props: any) => ({
-    color: props.theme === 'light' ? theme.white : theme.grey,
+    color: props.darkMode ? theme.white : theme.grey,
     '&::after': {
       borderBottom: `2px solid ${theme.dividerGrey}`
     },
@@ -252,3 +244,19 @@ export const useSelectStyles = makeStyles({
     borderRadius: '2px'
   }
 })
+
+type AutoCompleteContainerProps = {
+  darkMode: boolean
+}
+
+export const AutoCompleteContainerStyled = styled.div<AutoCompleteContainerProps>`
+  ${(props) =>
+    props.darkMode &&
+    `
+        background-image: linear-gradient(
+          ${theme.gradientBlue},
+          ${theme.gradientRed}
+        );
+        height: 100px;
+    `};
+`

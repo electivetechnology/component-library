@@ -3,7 +3,12 @@ import { useInputStatus, useInputs } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
 import { FormWrapperStyled } from 'organisms/Form/styles'
 
-const Form: FunctionComponent<FormProps> = ({ children, handleUpdate, readOnlyForm = false }) => {
+const Form: FunctionComponent<FormProps> = ({
+  children,
+  handleUpdate,
+  readOnlyForm = false,
+  darkMode = false
+}) => {
   const { inputs, updateInput } = useInputs()
   const { statuses, addStatus } = useInputStatus()
 
@@ -24,10 +29,11 @@ const Form: FunctionComponent<FormProps> = ({ children, handleUpdate, readOnlyFo
         updateInput,
         inputs,
         statuses,
-        readOnlyForm
+        readOnlyForm,
+        darkMode
       }}
     >
-      <FormWrapperStyled isEmbeddedForm={false}>{children}</FormWrapperStyled>
+      {children}
     </FormContext.Provider>
   )
 }
