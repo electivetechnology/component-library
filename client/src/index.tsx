@@ -29,11 +29,5 @@ export {
 // Form
 export {
   Form,
-  FormAction,
-  FormInfo,
   FormInput,
-  FormRow,
-  FormSave,
-  FormText,
-  FormTitle
 } from 'organisms/Form'
