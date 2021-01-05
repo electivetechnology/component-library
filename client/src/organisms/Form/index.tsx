@@ -1,9 +1,8 @@
-import Form from 'organisms/Form/components/Form'
-import FormInput from 'organisms/Form/components/FormInput'
-import FormRow from 'organisms/Form/components/FormRow'
-import FormTitle from 'organisms/Form/components/FormTitle'
-import FormInfo from 'organisms/Form/components/FormInfo'
-import FormAction from 'organisms/Form/components/FormAction'
-import FormSave from 'organisms/Form/components/FormSave'
-
-export { Form, FormInput, FormRow, FormTitle, FormInfo, FormAction, FormSave }
+export { default as Form } from 'organisms/Form/components/Form'
+export { default as FormAction } from 'organisms/Form/components/FormAction'
+export { default as FormInfo } from 'organisms/Form/components/FormInfo'
+export { default as FormInput } from 'organisms/Form/components/FormInput'
+export { default as FormRow } from 'organisms/Form/components/FormRow'
+export { default as FormSave } from 'organisms/Form/components/FormSave'
+export { default as FormText } from 'organisms/Form/components/FormText'
+export { default as FormTitle } from 'organisms/Form/components/FormTitle'
