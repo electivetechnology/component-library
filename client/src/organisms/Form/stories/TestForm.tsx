@@ -1,20 +1,19 @@
 import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
-import { AddStatusType } from 'organisms/Form/base'
+import { HandleStatusType } from 'organisms/Form/base'
 
 const TestForm: FC = () => {
   const [name, setName] = useState('some name')
 
   const handleUpdate = (
-    name: string,
-    value: string,
-    addStatus: AddStatusType,
+    candidate: {[key: string]: string},
+    addStatus: HandleStatusType,
   ) => {
     // setName('updated by test')
-    addStatus('pending', name)
-    addStatus('error', name, "there' been a terrible mistake")
-    addStatus('success', name)
+    addStatus('pending')
+    addStatus('error', "there' been a terrible mistake")
+    addStatus('success')
   }
 
   const handleSave = (

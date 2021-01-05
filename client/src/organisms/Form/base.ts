@@ -12,10 +12,7 @@ export type InputType =
   | 'textEditor'
   | 'toggle'
 
-export type StatusType =
-  | 'pending'
-  | 'error'
-  | 'success'
+export type StatusType = 'pending' | 'error' | 'success'
 
 interface FormOptionType {
   label: string
@@ -36,10 +33,19 @@ export interface OptionType {
   copy?: boolean
 }
 
-export type AddStatusType = (statusType : StatusType, name: string, message?: string) => void
+export type HandleStatusType = (
+  statusType: StatusType,
+  message?: string
+) => void
+
+export type AddStatusType = (
+  statusType: StatusType,
+  name: string,
+  message?: string
+) => void
 
 export type FormProps = {
-  handleUpdate?: (name: string, value: string, addStatus: AddStatusType) => void
+  handleUpdate?: (object: {[key: string]: string}, handleStatus: HandleStatusType) => void
 }
 
 export type FormContextType = {

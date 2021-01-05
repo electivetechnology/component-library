@@ -1,6 +1,6 @@
 import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import { FormAction } from 'organisms/Form'
+import FormAction from './FormAction'
 import { FormContext } from 'organisms/Form/base'
 import isNull from 'lodash/isNull'
 import isUndefined from 'lodash/isUndefined'
@@ -25,4 +25,4 @@ const FormSave: FunctionComponent<Props> = ({ label, handleSave, icon }) => {
   return <FormAction label={label} handleAction={handleAction} icon={icon} />
 }
 
-export default memo(FormSave)
+export default FormSave
