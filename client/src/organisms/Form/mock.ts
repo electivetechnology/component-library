@@ -63,3 +63,25 @@ export const basicFormMock = {
     type: 'delete'
   }
 }
+
+export function selectedOption(options: any, value: any) {
+  const found = options.find(function(option: any) {
+    const selectedValue =
+      typeof value === 'string' ? value.toLowerCase() : value
+    const optionValue =
+      typeof option.value === 'string'
+        ? option.value.toLowerCase()
+        : option.value
+
+    return optionValue === selectedValue
+  })
+
+  return found ? found : { value, label: '' }
+}
+
+export const candidateStatusOptions = [
+  { label: 'Available', value: 'available' },
+  { label: 'Not looking', value: 'notLooking' },
+  { label: 'Archive', value: 'archive' },
+  { label: 'Removed', value: 'removed' },
+]

@@ -3,18 +3,21 @@ import {
   InputType,
   OptionType,
   FormContext,
-  InputContext
+  InputContext, FormOptionType
 } from 'organisms/Form/base'
 import FormText from 'organisms/Form/components/FormText'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
+import FormSelect from 'organisms/Form/components/FormSelect'
 
 type Props = {
   label: string
   name: string
   value: any
   type: InputType
+  selectOptions?: Array<FormOptionType>
   options?: OptionType
+  readOnly?: boolean
 }
 
 const FormInput: FunctionComponent<Props> = ({
@@ -22,20 +25,15 @@ const FormInput: FunctionComponent<Props> = ({
   name,
   value,
   type,
-  options
+  options,
+  readOnly
 }) => {
   // TODO: controlled components error when deleting value
-  const { updateInput, statuses } = useContext(FormContext)
+  const { updateInput, readOnlyForm } = useContext(FormContext)
 
   useEffect(() => {
     updateInput(name, value)
-  }, [value])
-
-  // TODO: readOnly
-  // const disableInput =
-  //   readOnly || (disabled && !checkPermissions) || readOnlyForm
-
-  const status = statuses && statuses[name] ? statuses[name] : null
+  }, [name, value, updateInput])
 
   return (
     <InputContext.Provider
@@ -44,14 +42,13 @@ const FormInput: FunctionComponent<Props> = ({
         name,
         type,
         options,
-        readOnly: false
+        disabled: readOnly || readOnlyForm
       }}
     >
-      {/*TODO: timeout for success and pending? */}
-      {status && status.statusType === 'error' && <section>Input is error : {status.message}</section>}
-      {status && status.statusType === 'pending' && <section>Input is pending</section>}
-      {status && status.statusType === 'success' && <section>Input is success</section>}
+
       {['text', 'number'].includes(type) && <FormText />}
+      {type === 'select' && <FormSelect />}
+
       {options?.affix && (
         <AffixStyled>
           <Font variant='body1'>{options?.affix}</Font>

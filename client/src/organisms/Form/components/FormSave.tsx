@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
+import React, { FunctionComponent, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import FormAction from './FormAction'
 import { FormContext } from 'organisms/Form/base'
