@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import { theme } from 'styles/theme'
 import Autocomplete from '@material-ui/lab/Autocomplete'
-import { AutoCompleteContainerStyled } from './style'
 
 type Props = {
   label?: string
@@ -14,18 +13,21 @@ type Props = {
   theme?: string
 }
 
-const useStyles = makeStyles({
-  input: (props: any) => ({
-    fontSize: '14px !important',
-    '&:focused': {
-      color: 'yellow'
-    }
-  }),
+const useInputStyles = makeStyles({
   label: (props: any) => ({
     color: props.theme === 'light' ? theme.white : theme.grey,
     fontSize: '14px !important',
     '&:focused': {
       color: 'red'
+    }
+  })
+})
+
+const useStyles = makeStyles({
+  input: (props: any) => ({
+    fontSize: '14px !important',
+    '&:focused': {
+      color: 'yellow'
     }
   }),
   inputRoot: (props: any) => ({
@@ -40,9 +42,6 @@ const useStyles = makeStyles({
       borderBottom: `2px solid ${theme.grey}`
     }
   }),
-  popupIndicator: {
-    color: theme.dividerGrey
-  },
   paper: {
     boxShadow: `0px 9px 13px ${theme.borderGrey}`,
     borderRadius: '2px'
@@ -58,33 +57,31 @@ const SelectField: FunctionComponent<Props> = ({
   theme = 'dark'
 }) => {
   const classes = useStyles({ theme })
+  const inputClasses = useInputStyles({ theme })
 
   return (
-    <AutoCompleteContainerStyled theme={theme}>
-      <Autocomplete
-        options={options}
-        classes={classes}
-        disabled={disabled}
-        noOptionsText={noOptionsMessage}
-        getOptionLabel={(option: any) => option.label}
-        // open={true} // constantly show dropdown menu
-        renderInput={(params: any) => (
-          <TextField
-            {...params}
-            variant='standard'
-            label={label}
-            fullWidth
-            InputLabelProps={{
-              classes: {
-                root: classes.label,
-                popupIndicator: classes.popupIndicator
-              }
-            }}
-          />
-        )}
-        value={value}
-      />
-    </AutoCompleteContainerStyled>
+    <Autocomplete
+      options={options}
+      classes={classes}
+      disabled={disabled}
+      noOptionsText={noOptionsMessage}
+      getOptionLabel={(option: any) => option.label}
+      // open={true} // constantly show dropdown menu
+      renderInput={(params: any) => (
+        <TextField
+          {...params}
+          variant='standard'
+          label={label}
+          fullWidth
+          InputLabelProps={{
+            classes: {
+              root: inputClasses.label
+            }
+          }}
+        />
+      )}
+      value={value}
+    />
   )
 }
 
