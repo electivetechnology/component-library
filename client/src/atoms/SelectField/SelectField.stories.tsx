@@ -1,8 +1,15 @@
 import React from 'react'
 import TextField from 'atoms/TextField/TextField'
 import SelectField from './SelectField'
+import { AutoCompleteContainerStyled } from './style'
 
 const SelectTemplate = (args: any) => <SelectField {...args} />
+
+const SelectLightThemeTemplate = (args: any) => (
+  <AutoCompleteContainerStyled>
+    <SelectField {...args} />
+  </AutoCompleteContainerStyled>
+)
 
 // Dark
 export const Dark: any = SelectTemplate.bind({})
@@ -14,7 +21,7 @@ Dark.args = {
 }
 
 // Light
-export const Light: any = SelectTemplate.bind({})
+export const Light: any = SelectLightThemeTemplate.bind({})
 
 Light.args = {
   label: 'Label',
