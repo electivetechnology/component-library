@@ -32,7 +32,7 @@ const TestForm: FC = () => {
   return (
     <Form
       handleUpdate={handleUpdate}
-      darkMode={true}
+      darkMode={false}
     >
       <FormInput
         label='Name'
