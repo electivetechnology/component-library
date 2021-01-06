@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { useInputStatus, useInputs } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
-import { FormWrapperStyled } from 'organisms/Form/styles'
 
 const Form: FunctionComponent<FormProps> = ({
   children,

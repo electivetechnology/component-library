@@ -3,20 +3,16 @@ import React, {
   memo,
   useContext,
   useEffect,
-  useRef
+  useRef,
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
-import Autocomplete from '@material-ui/lab/Autocomplete'
-import TextField from '@material-ui/core/TextField'
-import { useSelectStyles, AutoCompleteContainerStyled } from 'organisms/Form/styles'
 import { selectedOption } from 'organisms/Form/mock'
+import { SelectField } from 'atoms'
 
 const FormText: FunctionComponent = () => {
   const { name, label, options, disabled } = useContext(InputContext)
   const { onBlur, inputs, updateInput, darkMode } = useContext(FormContext)
   const valueRef = useRef()
-
-  const classes = useSelectStyles({ darkMode })
 
   const inputValue = inputs[name] ? inputs[name] : null
 
@@ -29,7 +25,7 @@ const FormText: FunctionComponent = () => {
 
   const selected = options ? selectedOption(selectOptions, inputValue) : null
 
-  const handleChange = (newValue: any) => {
+  const handleChange = (event: any, newValue: any) => {
     valueRef.current = newValue
     updateInput(name, newValue ? newValue.value : null)
   }
@@ -39,24 +35,14 @@ const FormText: FunctionComponent = () => {
   }, [valueRef.current])
 
   return (
-    <Autocomplete
+    <SelectField
+      label={label}
       value={selected}
       options={selectOptions}
-      classes={classes}
       disabled={disabled}
-      noOptionsText={
-        options && options.noOptionsMessage
-          ? options.noOptionsMessage
-          : 'No Options'
-      }
-      onChange={(event, newValue) => handleChange(newValue)}
-      getOptionLabel={(option: any) => option.label}
-      renderInput={(params: any) => (
-        <TextField {...params} variant='standard' label={label} fullWidth />
-      )}
-      disableClearable={true}
+      onChange={handleChange}
+      darkMode={darkMode}
     />
   )
 }
-// TODO: InputLabelProps && class.label
 export default memo(FormText)

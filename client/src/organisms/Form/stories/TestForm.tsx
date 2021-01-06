@@ -44,7 +44,7 @@ const TestForm: FC = () => {
       <FormInput
         label='Candidate'
         name='candidate'
-        value={null}
+        value={status}
         type='select'
         options={{ selectOptions: candidateStatusOptions }}
       />

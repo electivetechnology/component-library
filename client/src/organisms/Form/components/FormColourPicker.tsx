@@ -12,7 +12,7 @@ import { Font } from 'atoms'
 import { InputContext, FormContext } from 'organisms/Form/base'
 
 const FormColourPicker: FunctionComponent = () => {
-  const { name, label, readOnly, options } = useContext(InputContext)
+  const { name, label, disabled } = useContext(InputContext)
 
   const { updateInput, onBlur, inputs } = useContext(FormContext)
 
@@ -31,7 +31,7 @@ const FormColourPicker: FunctionComponent = () => {
   }
 
   const handleOnClick = () => {
-    if (!readOnly) {
+    if (!disabled) {
       setShowPicker(!showPicker)
     }
   }

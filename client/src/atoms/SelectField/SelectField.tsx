@@ -9,13 +9,14 @@ type Props = {
   disabled?: boolean
   value?: { value: string; label: string } | Array<any>
   options: Array<{ value: string; label: string }>
+  onChange?: (event: React.ChangeEvent<{}>, value: string) => void
   noOptionsMessage?: string
-  theme?: string
+  darkMode?: boolean
 }
 
 const useInputStyles = makeStyles({
   label: (props: any) => ({
-    color: props.theme === 'light' ? theme.white : theme.grey,
+    color: props.darkMode ? theme.white : theme.grey,
     fontSize: '14px !important',
     '&:focused': {
       color: 'red'
@@ -24,14 +25,14 @@ const useInputStyles = makeStyles({
 })
 
 const useStyles = makeStyles({
-  input: (props: any) => ({
+  input: () => ({
     fontSize: '14px !important',
     '&:focused': {
       color: 'yellow'
     }
   }),
   inputRoot: (props: any) => ({
-    color: props.theme === 'light' ? theme.white : theme.grey,
+    color: props.darkMode ? theme.white : theme.grey,
     '&::after': {
       borderBottom: `2px solid ${theme.dividerGrey}`
     },
@@ -53,20 +54,22 @@ const SelectField: FunctionComponent<Props> = ({
   disabled,
   value,
   options,
+  onChange,
   noOptionsMessage = 'No options',
-  theme = 'dark'
+  darkMode = false
 }) => {
-  const classes = useStyles({ theme })
-  const inputClasses = useInputStyles({ theme })
+  const classes = useStyles({ darkMode })
+  const inputClasses = useInputStyles({ darkMode })
 
   return (
     <Autocomplete
+      value={value}
       options={options}
+      onChange={onChange}
       classes={classes}
       disabled={disabled}
       noOptionsText={noOptionsMessage}
       getOptionLabel={(option: any) => option.label}
-      // open={true} // constantly show dropdown menu
       renderInput={(params: any) => (
         <TextField
           {...params}
@@ -80,7 +83,7 @@ const SelectField: FunctionComponent<Props> = ({
           }}
         />
       )}
-      value={value}
+      disableClearable={true}
     />
   )
 }
