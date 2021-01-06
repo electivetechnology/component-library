@@ -23,6 +23,9 @@ jobs:
 
       - name: Run tests
         run: yarn docker-test
+              
+      - name: Build storybook
+        run: yarn build-storybook
 
       - name: run chromatic
         if: github.ref == 'refs/heads/master'
