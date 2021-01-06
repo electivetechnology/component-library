@@ -1,7 +1,7 @@
 # .github/workflows/chromatic.yml
 
 # Workflow name
-name: "Test and Chromatic Deployment"
+name: "Chromatic Deployment"
 
 # Event for the workflow
 on: push
@@ -11,7 +11,7 @@ defaults:
     working-directory: client
 
 jobs:
-  test:
+  chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -23,10 +23,7 @@ jobs:
 
       - name: Run tests
         run: yarn docker-test
-  chromatic:
-    runs-on: ubuntu-latest
-    needs: test
-    if: github.ref == 'refs/heads/master'
-    steps:
+
       - name: run chromatic
+        if: github.ref == 'refs/heads/master'
         run: yarn chromatic

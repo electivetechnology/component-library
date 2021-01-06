@@ -1,18 +1,24 @@
 import React, { FunctionComponent } from 'react'
 import { useInputStatus, useInputs } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
-import { FormWrapperStyled } from 'organisms/Form/styles'
 
 const Form: FunctionComponent<FormProps> = ({
   children,
   handleUpdate,
+  readOnlyForm = false,
+  darkMode = false
 }) => {
   const { inputs, updateInput } = useInputs()
   const { statuses, addStatus } = useInputStatus()
 
   const onBlur = (name: string) => {
     const value = inputs[name]
-    handleUpdate && handleUpdate(name, value, addStatus)
+
+    const handleStatus = (statusType: any, message: any) => {
+      addStatus(statusType, name, message)
+    }
+
+    handleUpdate && handleUpdate({ [name]: value }, handleStatus)
   }
 
   return (
@@ -21,12 +27,12 @@ const Form: FunctionComponent<FormProps> = ({
         onBlur,
         updateInput,
         inputs,
-        statuses
+        statuses,
+        readOnlyForm,
+        darkMode
       }}
     >
-      <FormWrapperStyled isEmbeddedForm={false}>
-        {children}
-      </FormWrapperStyled>
+      {children}
     </FormContext.Provider>
   )
 }
