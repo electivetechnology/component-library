@@ -33,7 +33,7 @@ const FormInput: FunctionComponent<Props> = ({
 
   useEffect(() => {
     updateInput(name, value)
-  }, [value])
+  }, [name, value, updateInput])
 
   return (
     <InputContext.Provider

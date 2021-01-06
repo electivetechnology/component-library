@@ -23,7 +23,7 @@ const FormColourPicker: FunctionComponent = () => {
 
   useEffect(() => {
     chosenColor && onBlur()
-  }, [chosenColor])
+  }, [chosenColor, onBlur])
 
   const handleOnChange = (color: any) => {
     updateInput(name, color.hex)
