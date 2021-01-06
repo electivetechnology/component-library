@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import { theme } from 'styles/theme'
 import Autocomplete from '@material-ui/lab/Autocomplete'
-import { AutoCompleteContainerStyled } from './style'
 
 type Props = {
   label?: string
@@ -61,30 +60,28 @@ const SelectField: FunctionComponent<Props> = ({
   const inputClasses = useInputStyles({ theme })
 
   return (
-    <AutoCompleteContainerStyled theme={theme}>
-      <Autocomplete
-        options={options}
-        classes={classes}
-        disabled={disabled}
-        noOptionsText={noOptionsMessage}
-        getOptionLabel={(option: any) => option.label}
-        // open={true} // constantly show dropdown menu
-        renderInput={(params: any) => (
-          <TextField
-            {...params}
-            variant='standard'
-            label={label}
-            fullWidth
-            InputLabelProps={{
-              classes: {
-                root: inputClasses.label
-              }
-            }}
-          />
-        )}
-        value={value}
-      />
-    </AutoCompleteContainerStyled>
+    <Autocomplete
+      options={options}
+      classes={classes}
+      disabled={disabled}
+      noOptionsText={noOptionsMessage}
+      getOptionLabel={(option: any) => option.label}
+      // open={true} // constantly show dropdown menu
+      renderInput={(params: any) => (
+        <TextField
+          {...params}
+          variant='standard'
+          label={label}
+          fullWidth
+          InputLabelProps={{
+            classes: {
+              root: inputClasses.label
+            }
+          }}
+        />
+      )}
+      value={value}
+    />
   )
 }
 
