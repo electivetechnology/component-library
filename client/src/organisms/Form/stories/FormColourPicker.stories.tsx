@@ -18,7 +18,7 @@ const FormTemplate: FunctionComponent<FormProps> = ({ children }) => {
           name: 'colorPicker',
           type: 'colorPicker',
           options: {},
-          readOnly: false
+          disabled: false
         }}
       >
         {children}
