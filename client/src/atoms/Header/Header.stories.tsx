@@ -23,7 +23,8 @@ export const Secondary: any = HearderTemplate.bind({})
 
 Secondary.args = {
   title: 'DASHBOARD',
-  children: content()
+  children: content(),
+  headerTheme: 'secondary'
 }
 
 // Simple
