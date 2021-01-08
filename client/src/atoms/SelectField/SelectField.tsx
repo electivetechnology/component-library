@@ -18,8 +18,8 @@ const useInputStyles = makeStyles({
   label: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
     fontSize: '14px !important',
-    '&:focused': {
-      color: 'red'
+    '&.Mui-focused': {
+      color: props.darkMode ? theme.white : theme.grey
     }
   })
 })
@@ -27,21 +27,28 @@ const useInputStyles = makeStyles({
 const useStyles = makeStyles({
   input: () => ({
     fontSize: '14px !important',
-    '&:focused': {
-      color: 'yellow'
-    }
+    color: theme.black
   }),
   inputRoot: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
     '&::after': {
-      borderBottom: `2px solid ${theme.dividerGrey}`
+      borderBottom: props.darkMode
+        ? `2px solid ${theme.grey}`
+        : `2px solid ${theme.dividerGrey}`
     },
     '&::before': {
-      borderBottom: `2px solid ${theme.dividerGrey}`
+      borderBottom: props.darkMode
+        ? `2px solid ${theme.grey}`
+        : `2px solid ${theme.dividerGrey}`
     },
     '&:hover:not(.Mui-disabled):before': {
-      borderBottom: `2px solid ${theme.grey}`
+      borderBottom: props.darkMode
+        ? `2px solid ${theme.white}`
+        : `2px solid ${theme.grey}`
     }
+  }),
+  popupIndicator: (props: any) => ({
+    color: props.darkMode ? `${theme.white}` : `${theme.grey}`
   }),
   paper: {
     boxShadow: `0px 9px 13px ${theme.borderGrey}`,
