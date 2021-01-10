@@ -1,91 +1,46 @@
 import React, { FunctionComponent } from 'react'
-import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
+import { Font } from 'atoms'
 import { theme } from 'styles/theme'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import {
+  ActionBarContainerStyled,
+  ActionLeftTitleStyled,
+  ActionRightTitleStyled,
+  ActionBarItemsStyled
+} from './styles'
 
 type Props = {
-  label?: string
-  disabled?: boolean
-  value?: { value: string; label: string } | Array<any>
-  options: Array<{ value: string; label: string }>
-  onChange?: (event: React.ChangeEvent<{}>, value: string) => void
-  noOptionsMessage?: string
-  darkMode?: boolean
+  leftTitle?: string
+  rightTitle?: string
+  labelItems?: any
+  actionItems?: any
 }
 
-const useInputStyles = makeStyles({
-  label: (props: any) => ({
-    color: props.darkMode ? theme.white : theme.grey,
-    fontSize: '14px !important',
-    '&:focused': {
-      color: 'red'
-    }
-  })
-})
-
-const useStyles = makeStyles({
-  input: () => ({
-    fontSize: '14px !important',
-    '&:focused': {
-      color: 'yellow'
-    }
-  }),
-  inputRoot: (props: any) => ({
-    color: props.darkMode ? theme.white : theme.grey,
-    '&::after': {
-      borderBottom: `2px solid ${theme.dividerGrey}`
-    },
-    '&::before': {
-      borderBottom: `2px solid ${theme.dividerGrey}`
-    },
-    '&:hover:not(.Mui-disabled):before': {
-      borderBottom: `2px solid ${theme.grey}`
-    }
-  }),
-  paper: {
-    boxShadow: `0px 9px 13px ${theme.borderGrey}`,
-    borderRadius: '2px'
-  }
-})
-
-const SelectField: FunctionComponent<Props> = ({
-  label,
-  disabled,
-  value,
-  options,
-  onChange,
-  noOptionsMessage = 'No options',
-  darkMode = false
+const ActionBar: FunctionComponent<Props> = ({
+  leftTitle,
+  rightTitle,
+  labelItems,
+  actionItems
 }) => {
-  const classes = useStyles({ darkMode })
-  const inputClasses = useInputStyles({ darkMode })
-
   return (
-    <Autocomplete
-      value={value}
-      options={options}
-      onChange={onChange}
-      classes={classes}
-      disabled={disabled}
-      noOptionsText={noOptionsMessage}
-      getOptionLabel={(option: any) => option.label}
-      renderInput={(params: any) => (
-        <TextField
-          {...params}
-          variant='standard'
-          label={label}
-          fullWidth
-          InputLabelProps={{
-            classes: {
-              root: inputClasses.label
-            }
-          }}
-        />
-      )}
-      disableClearable={true}
-    />
+    <ActionBarContainerStyled>
+      <ActionBarItemsStyled>
+        <ActionLeftTitleStyled>
+          <Font variant='subtitle2' color={theme.grey}>
+            {leftTitle}
+          </Font>
+        </ActionLeftTitleStyled>
+        {labelItems}
+      </ActionBarItemsStyled>
+      <ActionBarItemsStyled>
+        <ActionRightTitleStyled>
+          <Font variant='subtitle2' color={theme.grey}>
+            {rightTitle}
+          </Font>
+        </ActionRightTitleStyled>
+        {actionItems}
+      </ActionBarItemsStyled>
+    </ActionBarContainerStyled>
   )
 }
 
-export default SelectField
+export default ActionBar

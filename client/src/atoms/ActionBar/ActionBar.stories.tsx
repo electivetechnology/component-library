@@ -1,22 +1,60 @@
 import React from 'react'
-import { SelectField, TextField } from 'atoms'
-import { AutoCompleteContainerStyled } from 'atoms/SelectField/style'
+import { TextField } from 'atoms'
+import ActionBar from './ActionBar'
+import FolderSharedOutlined from '@material-ui/icons/FolderSharedOutlined'
+import MeetingRoomOutlined from '@material-ui/icons/MeetingRoomOutlined'
+import DomainOutlined from '@material-ui/icons/DomainOutlined'
+import WorkOffOutlined from '@material-ui/icons/WorkOffOutlined'
+import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined'
+import VisibilityOutlined from '@material-ui/icons/VisibilityOutlined'
+import NavIcon from 'molecules/NavIcons/NavIcon'
+import NavToggle from 'molecules/NavIcons/NavToggle'
 
-const SelectTemplate = (args: any) => <SelectField {...args} />
+const ActionBarTemplate = (args: any) => <ActionBar {...args} />
 
-const SelectLightThemeTemplate = (args: any) => (
-  <AutoCompleteContainerStyled>
-    <SelectField {...args} />
-  </AutoCompleteContainerStyled>
+// Standard
+export const Standard: any = ActionBarTemplate.bind({})
+
+const iconLeftStyle = {
+  height: '30px',
+  width: '30px'
+}
+
+const handleUpdate = () => {}
+
+const renderLabels = () => (
+  <NavToggle initial='Shortlist' style={{ display: 'inline-flex' }}>
+    <NavIcon name='Shortlist' handleUpdate={handleUpdate} actionBar>
+      <FolderSharedOutlined style={iconLeftStyle} />
+    </NavIcon>
+    <NavIcon name='Meeting' handleUpdate={handleUpdate} actionBar>
+      <MeetingRoomOutlined />
+    </NavIcon>
+    <NavIcon name='WithClient' handleUpdate={handleUpdate} actionBar>
+      <DomainOutlined />
+    </NavIcon>
+    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} actionBar>
+      <WorkOffOutlined />
+    </NavIcon>
+  </NavToggle>
 )
 
-// Dark
-export const Dark: any = SelectTemplate.bind({})
+const renderActions = () => (
+  <NavToggle initial='' style={{ display: 'inline-flex' }}>
+    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon actionBar>
+      <ArchiveOutlined style={iconLeftStyle} />
+    </NavIcon>
+    <NavIcon name='Seen' handleUpdate={handleUpdate} roundIcon actionBar>
+      <VisibilityOutlined style={iconLeftStyle} />
+    </NavIcon>
+  </NavToggle>
+)
 
-Dark.args = {
-  label: 'Label',
-  options: [],
-  theme: 'dark'
+Standard.args = {
+  leftTitle: 'Labels:',
+  rightTitle: 'Actions',
+  labelItems: renderLabels(),
+  actionItems: renderActions()
 }
 
 export default {

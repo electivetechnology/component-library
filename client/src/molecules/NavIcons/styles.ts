@@ -47,6 +47,8 @@ export const HorizontalDividerStyled = styled.div`
 type IconStyledProps = {
   selected: boolean
   horizontal?: boolean
+  actionBar?: boolean
+  roundIcon?: boolean
 }
 
 export const IconStyled = styled.div<IconStyledProps>`
@@ -69,5 +71,25 @@ export const IconStyled = styled.div<IconStyledProps>`
     `
       margin: auto 8px auto 0;
       justify-content: unset;
+    `};
+  ${(props) =>
+    props.actionBar &&
+    `
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 0;
+      &:hover {
+        background-color: ${theme.hoverBlue};
+      }
+    `};
+  ${(props) =>
+    props.roundIcon &&
+    `
+      border-radius: 24px;
+      border: 1px solid ${theme.primaryGrey};
+      margin: 0 8px 0 0;
+      &:hover {
+        background-color: ${theme.hoverBlue};
+      }
     `};
 `

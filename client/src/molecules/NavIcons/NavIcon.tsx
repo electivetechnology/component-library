@@ -18,9 +18,20 @@ type Props = {
   name: string
   handleUpdate: Function
   horizontal?: boolean
+  tooltip?: boolean
+  actionBar?: boolean
+  roundIcon?: boolean
 }
 
-const NavIcon: FC<Props> = ({ children, name, handleUpdate, horizontal }) => {
+const NavIcon: FC<Props> = ({
+  children,
+  name,
+  handleUpdate,
+  horizontal,
+  tooltip,
+  actionBar,
+  roundIcon
+}) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
 
@@ -38,8 +49,14 @@ const NavIcon: FC<Props> = ({ children, name, handleUpdate, horizontal }) => {
   }
 
   return (
-    <IconStyled selected={selected} onClick={onClick} horizontal={horizontal}>
-      <Tooltip title={name} placement={placement}>
+    <IconStyled
+      selected={selected}
+      onClick={onClick}
+      actionBar={actionBar}
+      horizontal={horizontal}
+      roundIcon={roundIcon}
+    >
+      <Tooltip title={tooltip ? name : ''} placement={placement}>
         {childrenStyled}
       </Tooltip>
     </IconStyled>
