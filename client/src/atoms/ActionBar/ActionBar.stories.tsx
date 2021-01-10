@@ -24,16 +24,16 @@ const handleUpdate = () => {}
 
 const renderLabels = () => (
   <NavToggle initial='Shortlist' style={{ display: 'inline-flex' }}>
-    <NavIcon name='Shortlist' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='Shortlist' handleUpdate={handleUpdate} tooltip actionBar>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
-    <NavIcon name='Meeting' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='Meeting' handleUpdate={handleUpdate} actionBar tooltip>
       <MeetingRoomOutlined />
     </NavIcon>
-    <NavIcon name='WithClient' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='WithClient' handleUpdate={handleUpdate} actionBar tooltip>
       <DomainOutlined />
     </NavIcon>
-    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} actionBar tooltip>
       <WorkOffOutlined />
     </NavIcon>
   </NavToggle>

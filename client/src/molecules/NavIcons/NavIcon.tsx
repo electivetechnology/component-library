@@ -56,7 +56,10 @@ const NavIcon: FC<Props> = ({
       horizontal={horizontal}
       roundIcon={roundIcon}
     >
-      <Tooltip title={tooltip ? name : ''} placement={placement}>
+      <Tooltip
+        title={tooltip ? name : ''}
+        placement={actionBar ? 'bottom' : placement}
+      >
         {childrenStyled}
       </Tooltip>
     </IconStyled>
