@@ -23,7 +23,7 @@ const iconLeftStyle = {
 const handleUpdate = () => {}
 
 const renderLabels = () => (
-  <NavToggle initial='Shortlist' style={{ display: 'inline-flex' }}>
+  <NavToggle initial='Shortlist'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate} tooltip actionBar>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
@@ -40,7 +40,7 @@ const renderLabels = () => (
 )
 
 const renderActions = () => (
-  <NavToggle initial='' style={{ display: 'inline-flex' }}>
+  <NavToggle initial=''>
     <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon actionBar>
       <ArchiveOutlined style={iconLeftStyle} />
     </NavIcon>
