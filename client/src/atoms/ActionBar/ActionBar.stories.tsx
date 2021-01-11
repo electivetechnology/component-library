@@ -51,8 +51,8 @@ const renderActions = () => (
 )
 
 Standard.args = {
-  leftTitle: 'Labels:',
-  rightTitle: 'Actions',
+  labelTitle: 'Labels:',
+  actionTitle: 'Actions',
   labelItems: renderLabels(),
   actionItems: renderActions()
 }

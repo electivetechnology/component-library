@@ -9,15 +9,15 @@ import {
 } from './styles'
 
 type Props = {
-  leftTitle?: string
-  rightTitle?: string
+  labelTitle?: string
+  actionTitle?: string
   labelItems?: any
   actionItems?: any
 }
 
 const ActionBar: FunctionComponent<Props> = ({
-  leftTitle,
-  rightTitle,
+  labelTitle,
+  actionTitle,
   labelItems,
   actionItems
 }) => {
@@ -26,7 +26,7 @@ const ActionBar: FunctionComponent<Props> = ({
       <ActionBarItemsStyled>
         <ActionLeftTitleStyled>
           <Font variant='subtitle2' color={theme.grey}>
-            {leftTitle}
+            {labelTitle}
           </Font>
         </ActionLeftTitleStyled>
         {labelItems}
@@ -34,7 +34,7 @@ const ActionBar: FunctionComponent<Props> = ({
       <ActionBarItemsStyled>
         <ActionRightTitleStyled>
           <Font variant='subtitle2' color={theme.grey}>
-            {rightTitle}
+            {actionTitle}
           </Font>
         </ActionRightTitleStyled>
         {actionItems}
