@@ -7,6 +7,7 @@ import {
   ActionRightTitleStyled,
   ActionBarItemsStyled
 } from './styles'
+import NavIcons from 'molecules/NavIcons/NavIcons'
 
 type Props = {
   labelTitle?: string
@@ -22,7 +23,7 @@ const ActionBar: FunctionComponent<Props> = ({
   actionItems
 }) => {
   return (
-    <ActionBarContainerStyled>
+    <NavIcons horizontal={true} actionBar={true} layout='horizontal'>
       <ActionBarItemsStyled>
         <ActionLeftTitleStyled>
           <Font variant='subtitle2' color={theme.grey}>
@@ -39,7 +40,7 @@ const ActionBar: FunctionComponent<Props> = ({
         </ActionRightTitleStyled>
         {actionItems}
       </ActionBarItemsStyled>
-    </ActionBarContainerStyled>
+    </NavIcons>
   )
 }
 
