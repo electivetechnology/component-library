@@ -12,6 +12,7 @@ type Props = {
   onChange?: (event: React.ChangeEvent<{}>, value: string) => void
   noOptionsMessage?: string
   darkMode?: boolean
+  border?: boolean
 }
 
 const useInputStyles = makeStyles({
@@ -24,6 +25,30 @@ const useInputStyles = makeStyles({
   })
 })
 
+export const inputBorder = (border: boolean, darkMode: boolean) => {
+  if (border) {
+    if (darkMode) {
+      return `2px solid ${theme.grey}`
+    } else {
+      return `2px solid ${theme.dividerGrey}`
+    }
+  } else {
+    return 'none'
+  }
+}
+
+export const inputBorderHover = (border: boolean, darkMode: boolean) => {
+  if (border) {
+    if (darkMode) {
+      return `2px solid ${theme.white}`
+    } else {
+      return `2px solid ${theme.grey}`
+    }
+  } else {
+    return 'none'
+  }
+}
+
 const useStyles = makeStyles({
   input: () => ({
     fontSize: '14px !important',
@@ -32,19 +57,13 @@ const useStyles = makeStyles({
   inputRoot: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
     '&::after': {
-      borderBottom: props.darkMode
-        ? `2px solid ${theme.grey}`
-        : `2px solid ${theme.dividerGrey}`
+      borderBottom: inputBorder(props.border, props.darkMode)
     },
     '&::before': {
-      borderBottom: props.darkMode
-        ? `2px solid ${theme.grey}`
-        : `2px solid ${theme.dividerGrey}`
+      borderBottom: inputBorder(props.border, props.darkMode)
     },
     '&:hover:not(.Mui-disabled):before': {
-      borderBottom: props.darkMode
-        ? `2px solid ${theme.white}`
-        : `2px solid ${theme.grey}`
+      borderBottom: inputBorderHover(props.border, props.darkMode)
     }
   }),
   popupIndicator: (props: any) => ({
@@ -63,9 +82,10 @@ const SelectField: FunctionComponent<Props> = ({
   options,
   onChange,
   noOptionsMessage = 'No options',
-  darkMode = false
+  darkMode = false,
+  border = true
 }) => {
-  const classes = useStyles({ darkMode })
+  const classes = useStyles({ darkMode, border })
   const inputClasses = useInputStyles({ darkMode })
 
   return (
