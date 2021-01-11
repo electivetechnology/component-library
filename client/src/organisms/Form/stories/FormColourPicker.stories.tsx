@@ -9,7 +9,9 @@ const FormTemplate: FunctionComponent<FormProps> = ({ children }) => {
         onBlur: () => {},
         updateInput: () => {},
         inputs: {colorPicker : '#D63948'},
-        statuses: {}
+        statuses: {},
+        readOnlyForm: false,
+        darkMode: false
       }}
     >
       <InputContext.Provider
@@ -18,7 +20,7 @@ const FormTemplate: FunctionComponent<FormProps> = ({ children }) => {
           name: 'colorPicker',
           type: 'colorPicker',
           options: {},
-          readOnly: false
+          disabled: false
         }}
       >
         {children}

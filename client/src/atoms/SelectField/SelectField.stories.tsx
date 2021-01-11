@@ -11,22 +11,21 @@ const SelectLightThemeTemplate = (args: any) => (
   </AutoCompleteContainerStyled>
 )
 
+// Light
+export const Light: any = SelectTemplate.bind({})
+
+Light.args = {
+  label: 'Label',
+  options: []
+}
+
 // Dark
-export const Dark: any = SelectTemplate.bind({})
+export const Dark: any = SelectLightThemeTemplate.bind({})
 
 Dark.args = {
   label: 'Label',
   options: [],
-  theme: 'dark'
-}
-
-// Light
-export const Light: any = SelectLightThemeTemplate.bind({})
-
-Light.args = {
-  label: 'Label',
-  options: [],
-  theme: 'light'
+  darkMode: true
 }
 // Disabled
 export const Disabled: any = SelectTemplate.bind({})

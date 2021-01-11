@@ -12,14 +12,22 @@ import { theme } from 'styles/theme'
 
 type Props = {
   title?: string
+  headerTheme?: string
 }
 
-const Header: React.FC<Props> = ({ title, children }) => {
+const Header: React.FC<Props> = ({
+  title,
+  children,
+  headerTheme = 'primary'
+}) => {
   const [showSection, setShowSection] = useState(false)
 
   const handleShowSection = () => {
     setShowSection(!showSection)
   }
+
+  const fontColor =
+    headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
   return (
     <div>
       <HeaderBorder />
@@ -27,7 +35,7 @@ const Header: React.FC<Props> = ({ title, children }) => {
         {title ? (
           <HeaderContentStyled>
             <div style={{ paddingTop: '4px' }}>
-              <Font variant='body1' color={theme.grey} fontWeight={600}>
+              <Font variant='body1' color={fontColor} fontWeight={600}>
                 {title}
               </Font>
             </div>
