@@ -25,7 +25,7 @@ const iconLeftStyle = {
 const handleUpdate = () => {}
 
 const renderLabels = () => (
-  <NavToggle initial='Shortlist' title='Label' divider='end'>
+  <NavToggle initial='Shortlist' title='Label' divider='end' >
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
@@ -42,7 +42,7 @@ const renderLabels = () => (
 )
 
 const renderActions = () => (
-  <NavToggle initial='' title='Actions'>
+  <NavToggle initial='' title='Actions' position='end'>
     <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon>
       <ArchiveOutlined style={iconLeftStyle} />
     </NavIcon>
