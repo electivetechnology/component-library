@@ -24,16 +24,16 @@ const handleUpdate = () => {}
 
 const renderLabels = () => (
   <NavToggle initial='Shortlist'>
-    <NavIcon name='Shortlist' handleUpdate={handleUpdate} tooltip actionBar>
+    <NavIcon name='Shortlist' handleUpdate={handleUpdate} actionBar>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
-    <NavIcon name='Meeting' handleUpdate={handleUpdate} actionBar tooltip>
+    <NavIcon name='Meeting' handleUpdate={handleUpdate} actionBar>
       <MeetingRoomOutlined />
     </NavIcon>
-    <NavIcon name='WithClient' handleUpdate={handleUpdate} actionBar tooltip>
+    <NavIcon name='WithClient' handleUpdate={handleUpdate} actionBar>
       <DomainOutlined />
     </NavIcon>
-    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} actionBar tooltip>
+    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} actionBar>
       <WorkOffOutlined />
     </NavIcon>
   </NavToggle>
@@ -58,6 +58,6 @@ Standard.args = {
 }
 
 export default {
-  title: 'atoms/ActionBar',
+  title: 'molecules/ActionBar',
   component: TextField
 }
