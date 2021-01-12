@@ -60,7 +60,7 @@ export type FormContextType = {
   statuses: any
   readOnlyForm: boolean
   darkMode: boolean
-  border: boolean
+  border?: boolean
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)

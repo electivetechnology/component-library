@@ -11,7 +11,7 @@ import { SelectField } from 'atoms'
 
 const FormText: FunctionComponent = () => {
   const { name, label, options, disabled } = useContext(InputContext)
-  const { onBlur, inputs, updateInput, darkMode, border } = useContext(
+  const { onBlur, inputs, updateInput, darkMode, border = true } = useContext(
     FormContext
   )
   const valueRef = useRef()
