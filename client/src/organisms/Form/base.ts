@@ -59,8 +59,6 @@ export type FormContextType = {
   inputs: any
   statuses: any
   readOnlyForm: boolean
-  darkMode: boolean
-  border?: boolean
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)
@@ -71,6 +69,8 @@ export type InputContextType = {
   type: InputType
   disabled: boolean
   options?: OptionType
+  darkMode?: boolean
+  border?: boolean
 }
 
 export const InputContext = createContext<InputContextType>(
