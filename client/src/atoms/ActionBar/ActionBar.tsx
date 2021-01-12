@@ -24,19 +24,9 @@ const ActionBar: FunctionComponent<Props> = ({
   return (
     <NavIcons layout='horizontal'>
       <ActionBarItemsStyled>
-        <ActionLeftTitleStyled>
-          <Font variant='subtitle2' color={theme.grey}>
-            {labelTitle}
-          </Font>
-        </ActionLeftTitleStyled>
         {labelItems}
       </ActionBarItemsStyled>
       <ActionBarItemsStyled>
-        <ActionRightTitleStyled>
-          <Font variant='subtitle2' color={theme.grey}>
-            {actionTitle}
-          </Font>
-        </ActionRightTitleStyled>
         {actionItems}
       </ActionBarItemsStyled>
     </NavIcons>
