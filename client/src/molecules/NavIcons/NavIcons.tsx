@@ -13,19 +13,13 @@ const { Provider } = navContext
 
 type Props = {
   layout: LayoutType
-  horizontal?: boolean
-  actionBar?: boolean
 }
 
-const NavIcons: React.FC<Props> = ({
-  children,
-  layout,
-  horizontal = false,
-  actionBar = false
-}) => {
+const NavIcons: React.FC<Props> = ({ children, layout }) => {
+  const horizontal = layout === 'horizontal'
   return (
     <Provider value={{ layout }}>
-      <NavigationContainerStyled horizontal={horizontal} actionBar={actionBar}>
+      <NavigationContainerStyled horizontal={horizontal}>
         <NavigationContentStyled horizontal={horizontal}>
           {children}
         </NavigationContentStyled>

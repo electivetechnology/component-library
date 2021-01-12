@@ -91,7 +91,6 @@ export const NavHorizontalBoth: any = Template.bind({})
 
 NavHorizontalBoth.args = {
   layout: 'horizontal',
-  horizontal: true,
   children: <Fragment>{renderHorizontal('start')}</Fragment>
 }
 

@@ -17,21 +17,13 @@ type Props = {
   children: any
   name: string
   handleUpdate: Function
-  horizontal?: boolean
-  actionBar?: boolean
   roundIcon?: boolean
 }
 
-const NavIcon: FC<Props> = ({
-  children,
-  name,
-  handleUpdate,
-  horizontal,
-  actionBar,
-  roundIcon
-}) => {
+const NavIcon: FC<Props> = ({ children, name, handleUpdate, roundIcon }) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
+  const horizontal = layout === 'horizontal'
 
   const selected = activeName === name || activeNames.includes(name)
 
@@ -39,7 +31,7 @@ const NavIcon: FC<Props> = ({
 
   const childrenStyled = cloneElement(children, { className: classes.Icon })
 
-  const placement = layout === 'vertical' ? 'right' : 'bottom'
+  const placement = horizontal ? 'bottom' : 'right'
 
   const onClick = () => {
     handleUpdate()
@@ -50,14 +42,10 @@ const NavIcon: FC<Props> = ({
     <IconStyled
       selected={selected}
       onClick={onClick}
-      actionBar={actionBar}
       horizontal={horizontal}
       roundIcon={roundIcon}
     >
-      <Tooltip
-        title={name}
-        placement={actionBar ? 'bottom' : placement}
-      >
+      <Tooltip title={name} placement={placement}>
         {childrenStyled}
       </Tooltip>
     </IconStyled>
