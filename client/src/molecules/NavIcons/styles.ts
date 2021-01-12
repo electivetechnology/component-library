@@ -1,5 +1,15 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { makeStyles } from '@material-ui/core/styles'
+
+export const iconStyles = makeStyles({
+  Icon: (props: any) => ({
+    fill: props.selected ? theme.white : theme.primaryGrey,
+    margin: props.horizontal ? 'unset' : 'auto',
+    height: '24px',
+    width: '24px'
+  })
+})
 
 type NavigationContainerProps = {
   horizontal?: boolean
