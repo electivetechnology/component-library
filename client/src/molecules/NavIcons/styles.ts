@@ -84,16 +84,11 @@ export const IconStyled = styled.div<IconStyledProps>`
     `
       margin: auto 8px auto 0;
       justify-content: unset;
-    `};
-  ${(props) =>
-    props.actionBar &&
-    `
       padding: 8px;
       border-radius: 8px;
       margin-bottom: 0;
       &:hover {
         background-color: ${theme.hoverBlue};
-      }
     `};
   ${(props) =>
     props.roundIcon &&
