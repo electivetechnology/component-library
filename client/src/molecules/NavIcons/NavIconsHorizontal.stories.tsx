@@ -18,14 +18,14 @@ import CancelIcon from '@material-ui/icons/CancelOutlined'
 const Template = (args: any) => <NavIcons {...args} />
 
 const iconLeftStyle = {
-  height: '30px',
-  width: '30px'
+  height: '24px',
+  width: '24px'
 }
 
 const handleUpdate = () => {}
 
 const renderLabels = () => (
-  <NavToggle initial='Shortlist' title='Label' divider='end'>
+  <NavToggle initial='Shortlist' title='Label'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
@@ -42,7 +42,7 @@ const renderLabels = () => (
 )
 
 const renderActions = () => (
-  <NavToggle initial='' title='Actions'>
+  <NavToggle initial='' title='Actions' position='end'>
     <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon>
       <ArchiveOutlined style={iconLeftStyle} />
     </NavIcon>
@@ -57,16 +57,10 @@ const renderHorizontal = (divider: DividerType) => (
     <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon
-      name='Accepted'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon
-      name='Rejected'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>
@@ -91,7 +85,6 @@ Both.args = {
   layout: 'horizontal',
   children: <Fragment>{renderHorizontal('start')}</Fragment>
 }
-
 
 export default {
   title: 'molecules/NavIcons/Horizontal',

@@ -1,14 +1,13 @@
 import React, { FC, useContext, Fragment } from 'react'
 import {
   VerticalDividerStyled,
-  HorizontalDividerStyled
+  HorizontalDividerStyled,
+  HorizontalBarItemsStyled,
+  HorizontalLeftTitleStyled,
+  HorizontalRightTitleStyled
 } from 'molecules/NavIcons/styles'
 import { navContext } from 'molecules/NavIcons/NavIcons'
-import { DividerType } from 'molecules/NavIcons/base'
-import {
-  ActionBarItemsStyled,
-  ActionLeftTitleStyled
-} from 'atoms/ActionBar/styles'
+import { DividerType, PositionType } from 'molecules/NavIcons/base'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
 
@@ -21,9 +20,10 @@ export const sectionContext = React.createContext({
 type Props = {
   title?: string
   divider?: DividerType
+  position?: PositionType
 }
 
-const NavSection: FC<Props> = ({ children, title, divider }) => {
+const NavSection: FC<Props> = ({ children, title, divider, position }) => {
   const { layout } = useContext(navContext)
   const horizontal = layout === 'horizontal'
 
@@ -48,10 +48,11 @@ const NavSection: FC<Props> = ({ children, title, divider }) => {
   )
 
   return horizontal ? (
-    <ActionBarItemsStyled>
-      <ActionLeftTitleStyled>{renderTitle}</ActionLeftTitleStyled>
+    <HorizontalBarItemsStyled>
+      {position === 'start' &&  <HorizontalLeftTitleStyled>{renderTitle}</HorizontalLeftTitleStyled>}
+      {position === 'end' &&  <HorizontalRightTitleStyled>{renderTitle}</HorizontalRightTitleStyled>}
       {renderChildren}
-    </ActionBarItemsStyled>
+    </HorizontalBarItemsStyled>
   ) : (
     <Fragment>
       {renderTitle}
