@@ -20,10 +20,15 @@ const FormText: FunctionComponent = () => {
     <FormTextContainerStyled>
       {options?.multiline ? (
         <Fragment>
-          <label id={name}>{label}</label>
-          <textarea id={name} onChange={onChange} onBlur={handleBlur}>
-            {value}
-          </textarea>
+          <label htmlFor={name}>{label}</label>
+          <textarea
+            id={name}
+            onChange={onChange}
+            onBlur={handleBlur}
+            value={value}
+            rows={4}
+            cols={50}
+          />
         </Fragment>
       ) : (
         <Fragment>
