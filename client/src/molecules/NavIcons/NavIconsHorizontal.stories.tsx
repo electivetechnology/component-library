@@ -25,7 +25,7 @@ const iconLeftStyle = {
 const handleUpdate = () => {}
 
 const renderLabels = () => (
-  <NavToggle initial='Shortlist' title='Label' divider='end' >
+  <NavToggle initial='Shortlist' title='Label' divider='end'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
@@ -57,16 +57,10 @@ const renderHorizontal = (divider: DividerType) => (
     <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon
-      name='Accepted'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon
-      name='Rejected'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>
@@ -91,7 +85,6 @@ Both.args = {
   layout: 'horizontal',
   children: <Fragment>{renderHorizontal('start')}</Fragment>
 }
-
 
 export default {
   title: 'molecules/NavIcons/Horizontal',
