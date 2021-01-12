@@ -22,7 +22,7 @@ const ActionBar: FunctionComponent<Props> = ({
   actionItems
 }) => {
   return (
-    <NavIcons horizontal={true} actionBar={true} layout='horizontal'>
+    <NavIcons layout='horizontal'>
       <ActionBarItemsStyled>
         <ActionLeftTitleStyled>
           <Font variant='subtitle2' color={theme.grey}>
