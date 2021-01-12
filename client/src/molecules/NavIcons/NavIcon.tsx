@@ -9,7 +9,9 @@ import { theme } from 'styles/theme'
 export const iconStyles = makeStyles({
   Icon: (props: any) => ({
     fill: props.selected ? theme.white : theme.primaryGrey,
-    margin: 'auto'
+    margin: props.horizontal ? 'unset' : 'auto',
+    height: '24px',
+    width: '24px'
   })
 })
 
@@ -27,7 +29,7 @@ const NavIcon: FC<Props> = ({ children, name, handleUpdate, roundIcon }) => {
 
   const selected = activeName === name || activeNames.includes(name)
 
-  const classes = iconStyles({ selected })
+  const classes = iconStyles({ selected, horizontal })
 
   const childrenStyled = cloneElement(children, { className: classes.Icon })
 
