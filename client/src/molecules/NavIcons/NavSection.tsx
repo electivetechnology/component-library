@@ -13,7 +13,7 @@ export const sectionContext = React.createContext({
 })
 
 type Props = {
-  divider: DividerType
+  divider?: DividerType
 }
 
 const NavSection: FC<Props> = ({ children, divider }) => {

@@ -45,7 +45,10 @@ export type AddStatusType = (
 ) => void
 
 export type FormProps = {
-  handleUpdate?: (object: {[key: string]: string}, handleStatus: HandleStatusType) => void
+  handleUpdate?: (
+    object: { [key: string]: string },
+    handleStatus: HandleStatusType
+  ) => void
   readOnlyForm?: boolean
   darkMode?: boolean
 }
@@ -57,6 +60,7 @@ export type FormContextType = {
   statuses: any
   readOnlyForm: boolean
   darkMode: boolean
+  border?: boolean
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)

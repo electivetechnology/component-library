@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 type NavigationContainerProps = {
   horizontal?: boolean
+  actionBar?: boolean
 }
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100vh;
@@ -13,6 +14,18 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
     `
       width: 100%;
       height: 60px;
+    `};
+  ${(props) =>
+    props.actionBar &&
+    `
+      background-color: ${theme.grayAthens};
+      box-shadow: 0px 1px 3px ${theme.borderGrey};
+      border-radius: 12px;
+      padding: 4px 24px;
+      display: grid;
+      grid-template-columns: auto auto;
+      width: revert;
+      height: 100%;
     `};
 `
 
@@ -47,6 +60,8 @@ export const HorizontalDividerStyled = styled.div`
 type IconStyledProps = {
   selected: boolean
   horizontal?: boolean
+  actionBar?: boolean
+  roundIcon?: boolean
 }
 
 export const IconStyled = styled.div<IconStyledProps>`
@@ -69,5 +84,25 @@ export const IconStyled = styled.div<IconStyledProps>`
     `
       margin: auto 8px auto 0;
       justify-content: unset;
+    `};
+  ${(props) =>
+    props.actionBar &&
+    `
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 0;
+      &:hover {
+        background-color: ${theme.hoverBlue};
+      }
+    `};
+  ${(props) =>
+    props.roundIcon &&
+    `
+      border-radius: 24px;
+      border: 1px solid ${theme.primaryGrey};
+      margin: 0 8px 0 0;
+      &:hover {
+        background-color: ${theme.hoverBlue};
+      }
     `};
 `

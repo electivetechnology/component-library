@@ -27,6 +27,17 @@ Dark.args = {
   options: [],
   darkMode: true
 }
+
+// NoBorder
+export const NoBorder: any = SelectLightThemeTemplate.bind({})
+
+NoBorder.args = {
+  label: 'Label',
+  options: [],
+  darkMode: true,
+  border: false
+}
+
 // Disabled
 export const Disabled: any = SelectTemplate.bind({})
 

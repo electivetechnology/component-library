@@ -3,7 +3,7 @@ import React, {
   memo,
   useContext,
   useEffect,
-  useRef,
+  useRef
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
@@ -11,7 +11,9 @@ import { SelectField } from 'atoms'
 
 const FormText: FunctionComponent = () => {
   const { name, label, options, disabled } = useContext(InputContext)
-  const { onBlur, inputs, updateInput, darkMode } = useContext(FormContext)
+  const { onBlur, inputs, updateInput, darkMode, border = true } = useContext(
+    FormContext
+  )
   const valueRef = useRef()
 
   const inputValue = inputs[name] ? inputs[name] : null
@@ -42,6 +44,7 @@ const FormText: FunctionComponent = () => {
       disabled={disabled}
       onChange={handleChange}
       darkMode={darkMode}
+      border={border}
     />
   )
 }

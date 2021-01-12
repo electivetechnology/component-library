@@ -12,13 +12,13 @@ const handleUpdate = () => {}
 
 const renderToggle = (divider: DividerType) => (
   <NavToggle initial='Inbox' divider={divider}>
-    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
+    <NavIcon name='Inbox' tooltip handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
+    <NavIcon name='Accepted' tooltip handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
+    <NavIcon name='Rejected' tooltip handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavToggle>
@@ -26,13 +26,13 @@ const renderToggle = (divider: DividerType) => (
 
 const renderMulti = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
+    <NavIcon name='Inbox' tooltip handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
+    <NavIcon name='Accepted' tooltip handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
+    <NavIcon name='Rejected' tooltip handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>
@@ -40,13 +40,23 @@ const renderMulti = (divider: DividerType) => (
 
 const renderHorizontal = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' handleUpdate={handleUpdate} horizontal={true}>
+    <NavIcon name='Inbox' tooltip handleUpdate={handleUpdate} horizontal={true}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted' handleUpdate={handleUpdate} horizontal={true}>
+    <NavIcon
+      name='Accepted'
+      tooltip
+      handleUpdate={handleUpdate}
+      horizontal={true}
+    >
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected' handleUpdate={handleUpdate} horizontal={true}>
+    <NavIcon
+      name='Rejected'
+      tooltip
+      handleUpdate={handleUpdate}
+      horizontal={true}
+    >
       <CancelIcon />
     </NavIcon>
   </NavMulti>

@@ -1,14 +1,12 @@
 import React, { FC, useState } from 'react'
-import NavSection, {
-  sectionContext
-} from 'molecules/NavIcons/NavSection'
+import NavSection, { sectionContext } from 'molecules/NavIcons/NavSection'
 import { DividerType } from 'molecules/NavIcons/base'
 
 const { Provider } = sectionContext
 
 type Props = {
   initial: string
-  divider: DividerType
+  divider?: DividerType
 }
 
 const NavToggle: FC<Props> = ({ children, initial, divider }) => {
