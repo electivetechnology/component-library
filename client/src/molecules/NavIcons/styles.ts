@@ -96,3 +96,28 @@ export const IconStyled = styled.div<IconStyledProps>`
       }
     `};
 `
+
+
+export const HorizontalBarContainerStyled = styled.div`
+  background-color: ${theme.grayAthens};
+  box-shadow: 0px 1px 3px ${theme.borderGrey};
+  border-radius: 12px;
+  padding: 4px 24px;
+  display: grid;
+  grid-template-columns: auto auto;
+`
+
+export const HorizontalLeftTitleStyled = styled.div`
+  padding-right: 8px;
+  margin: auto 0;
+`
+
+export const HorizontalRightTitleStyled = styled.div`
+  padding-right: 8px;
+  margin: auto 0;
+  margin-left: auto;
+`
+
+export const HorizontalBarItemsStyled = styled.div`
+  display: inline-flex;
+`

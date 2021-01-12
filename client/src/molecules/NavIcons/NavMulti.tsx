@@ -3,16 +3,17 @@ import NavSection, {
   sectionContext
 } from 'molecules/NavIcons/NavSection'
 import { produce } from 'immer'
-import { DividerType } from 'molecules/NavIcons/base'
+import { DividerType, PositionType } from 'molecules/NavIcons/base'
 
 const { Provider } = sectionContext
 
 type Props = {
   initial: Array<string>
   divider: DividerType
+  position?: PositionType
 }
 
-const NavMulti: FC<Props> = ({ children, initial, divider }) => {
+const NavMulti: FC<Props> = ({ children, initial, divider, position= 'start' }) => {
   const [activeNames, setActiveNames] = useState(initial)
 
   const handleClick = (name: any) => {
@@ -31,7 +32,7 @@ const NavMulti: FC<Props> = ({ children, initial, divider }) => {
 
   return (
     <Provider value={{ activeName: '', activeNames, handleClick }}>
-      <NavSection divider={divider}>{children}</NavSection>
+      <NavSection divider={divider} position={position}>{children}</NavSection>
     </Provider>
   )
 }
