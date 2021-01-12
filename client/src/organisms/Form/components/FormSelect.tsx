@@ -10,10 +10,15 @@ import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
 
 const FormText: FunctionComponent = () => {
-  const { name, label, options, disabled } = useContext(InputContext)
-  const { onBlur, inputs, updateInput, darkMode, border = true } = useContext(
-    FormContext
-  )
+  const {
+    name,
+    label,
+    options,
+    disabled,
+    darkMode,
+    border = true
+  } = useContext(InputContext)
+  const { onBlur, inputs, updateInput } = useContext(FormContext)
   const valueRef = useRef()
 
   const inputValue = inputs[name] ? inputs[name] : null

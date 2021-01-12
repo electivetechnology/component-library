@@ -3,7 +3,8 @@ import {
   InputType,
   OptionType,
   FormContext,
-  InputContext, FormOptionType
+  InputContext,
+  FormOptionType
 } from 'organisms/Form/base'
 import FormText from 'organisms/Form/components/FormText'
 import { AffixStyled } from 'organisms/Form/styles'
@@ -18,6 +19,8 @@ type Props = {
   selectOptions?: Array<FormOptionType>
   options?: OptionType
   readOnly?: boolean
+  darkMode?: boolean
+  border?: boolean
 }
 
 const FormInput: FunctionComponent<Props> = ({
@@ -26,7 +29,9 @@ const FormInput: FunctionComponent<Props> = ({
   value,
   type,
   options,
-  readOnly
+  readOnly,
+  darkMode = false,
+  border = true
 }) => {
   // TODO: controlled components error when deleting value
   const { updateInput, readOnlyForm } = useContext(FormContext)
@@ -42,10 +47,11 @@ const FormInput: FunctionComponent<Props> = ({
         name,
         type,
         options,
-        disabled: readOnly || readOnlyForm
+        disabled: readOnly || readOnlyForm,
+        darkMode,
+        border
       }}
     >
-
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
 

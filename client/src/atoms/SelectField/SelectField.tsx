@@ -50,9 +50,9 @@ export const inputBorderHover = (border: boolean, darkMode: boolean) => {
 }
 
 const useStyles = makeStyles({
-  input: () => ({
+  input: (props: any) => ({
     fontSize: '14px !important',
-    color: theme.black
+    color: props.darkMode ? theme.white : theme.black
   }),
   inputRoot: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
