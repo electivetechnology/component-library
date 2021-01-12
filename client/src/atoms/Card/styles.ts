@@ -22,6 +22,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     props.fullWidth &&
     `
       width: 100%;
+      overflow: scroll;
     `};
   ${(props) =>
     props.padding &&
@@ -63,8 +64,6 @@ export const CardBorderStyled = styled.div`
 
 // Component card
 export const ComponentCardFooterStyled = styled.div`
-  // position: absolute;
-  // bottom: 0;
   width: 100%;
 `
 
