@@ -61,23 +61,23 @@ const renderHorizontal = (divider: DividerType) => (
 const Template = (args: any) => <NavIcons {...args} />
 
 // Nav
-export const NavVerticalToggle: any = Template.bind({})
+export const Toggle: any = Template.bind({})
 
-NavVerticalToggle.args = {
+Toggle.args = {
   layout: 'vertical',
   children: renderToggle('end')
 }
 
-export const NavVerticalMulti: any = Template.bind({})
+export const Multi: any = Template.bind({})
 
-NavVerticalMulti.args = {
+Multi.args = {
   layout: 'vertical',
   children: renderMulti('end')
 }
 
-export const NavVerticalBoth: any = Template.bind({})
+export const Both: any = Template.bind({})
 
-NavVerticalBoth.args = {
+Both.args = {
   layout: 'vertical',
   children: (
     <Fragment>
@@ -87,14 +87,7 @@ NavVerticalBoth.args = {
   )
 }
 
-export const NavHorizontalBoth: any = Template.bind({})
-
-NavHorizontalBoth.args = {
-  layout: 'horizontal',
-  children: <Fragment>{renderHorizontal('start')}</Fragment>
-}
-
 export default {
-  title: 'molecules/NavIcons',
+  title: 'molecules/NavIcons/Vertical',
   component: NavIcons
 }
