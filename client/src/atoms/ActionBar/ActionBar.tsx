@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
 import {
-  ActionBarContainerStyled,
   ActionLeftTitleStyled,
   ActionRightTitleStyled,
   ActionBarItemsStyled
