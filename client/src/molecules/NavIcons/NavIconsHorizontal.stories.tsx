@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { TextField } from 'atoms'
 import FolderSharedOutlined from '@material-ui/icons/FolderSharedOutlined'
 import MeetingRoomOutlined from '@material-ui/icons/MeetingRoomOutlined'
 import DomainOutlined from '@material-ui/icons/DomainOutlined'
@@ -17,17 +16,12 @@ import CancelIcon from '@material-ui/icons/CancelOutlined'
 
 const Template = (args: any) => <NavIcons {...args} />
 
-const iconLeftStyle = {
-  height: '24px',
-  width: '24px'
-}
-
 const handleUpdate = () => {}
 
 const renderLabels = () => (
   <NavToggle initial='Shortlist' title='Label'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
-      <FolderSharedOutlined style={iconLeftStyle} />
+      <FolderSharedOutlined />
     </NavIcon>
     <NavIcon name='Meeting' handleUpdate={handleUpdate}>
       <MeetingRoomOutlined />
@@ -44,10 +38,10 @@ const renderLabels = () => (
 const renderActions = () => (
   <NavToggle initial='' title='Actions' position='end'>
     <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon>
-      <ArchiveOutlined style={iconLeftStyle} />
+      <ArchiveOutlined />
     </NavIcon>
     <NavIcon name='Seen' handleUpdate={handleUpdate} roundIcon>
-      <VisibilityOutlined style={iconLeftStyle} />
+      <VisibilityOutlined />
     </NavIcon>
   </NavToggle>
 )
