@@ -24,16 +24,16 @@ const handleUpdate = () => {}
 
 const renderLabels = () => (
   <NavToggle initial='Shortlist'>
-    <NavIcon name='Shortlist' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
       <FolderSharedOutlined style={iconLeftStyle} />
     </NavIcon>
-    <NavIcon name='Meeting' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='Meeting' handleUpdate={handleUpdate}>
       <MeetingRoomOutlined />
     </NavIcon>
-    <NavIcon name='WithClient' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='WithClient' handleUpdate={handleUpdate}>
       <DomainOutlined />
     </NavIcon>
-    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} actionBar>
+    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate}>
       <WorkOffOutlined />
     </NavIcon>
   </NavToggle>
@@ -41,10 +41,10 @@ const renderLabels = () => (
 
 const renderActions = () => (
   <NavToggle initial=''>
-    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon actionBar>
+    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon>
       <ArchiveOutlined style={iconLeftStyle} />
     </NavIcon>
-    <NavIcon name='Seen' handleUpdate={handleUpdate} roundIcon actionBar>
+    <NavIcon name='Seen' handleUpdate={handleUpdate} roundIcon>
       <VisibilityOutlined style={iconLeftStyle} />
     </NavIcon>
   </NavToggle>
