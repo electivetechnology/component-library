@@ -1,19 +1,8 @@
 import React, { useContext, FC, cloneElement } from 'react'
 import { navContext } from 'molecules/NavIcons/NavIcons'
 import { sectionContext } from 'molecules/NavIcons/NavSection'
-import { IconStyled } from 'molecules/NavIcons/styles'
+import { IconStyled, iconStyles } from 'molecules/NavIcons/styles'
 import Tooltip from '@material-ui/core/Tooltip'
-import { makeStyles } from '@material-ui/core/styles'
-import { theme } from 'styles/theme'
-
-export const iconStyles = makeStyles({
-  Icon: (props: any) => ({
-    fill: props.selected ? theme.white : theme.primaryGrey,
-    margin: props.horizontal ? 'unset' : 'auto',
-    height: '24px',
-    width: '24px'
-  })
-})
 
 type Props = {
   children: any
