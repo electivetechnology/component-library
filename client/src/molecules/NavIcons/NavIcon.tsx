@@ -18,7 +18,6 @@ type Props = {
   name: string
   handleUpdate: Function
   horizontal?: boolean
-  tooltip?: boolean
   actionBar?: boolean
   roundIcon?: boolean
 }
@@ -28,7 +27,6 @@ const NavIcon: FC<Props> = ({
   name,
   handleUpdate,
   horizontal,
-  tooltip,
   actionBar,
   roundIcon
 }) => {
@@ -57,7 +55,7 @@ const NavIcon: FC<Props> = ({
       roundIcon={roundIcon}
     >
       <Tooltip
-        title={tooltip ? name : ''}
+        title={name}
         placement={actionBar ? 'bottom' : placement}
       >
         {childrenStyled}
