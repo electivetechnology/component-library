@@ -5,11 +5,12 @@ import { DividerType } from 'molecules/NavIcons/base'
 const { Provider } = sectionContext
 
 type Props = {
+  title?: string
   initial: string
   divider?: DividerType
 }
 
-const NavToggle: FC<Props> = ({ children, initial, divider }) => {
+const NavToggle: FC<Props> = ({ children,title, initial, divider }) => {
   const [activeName, setActiveName] = useState(initial)
 
   const handleClick = (name: any) => {
@@ -18,7 +19,7 @@ const NavToggle: FC<Props> = ({ children, initial, divider }) => {
 
   return (
     <Provider value={{ activeName, activeNames: [''], handleClick }}>
-      <NavSection divider={divider}>{children}</NavSection>
+      <NavSection title={title} divider={divider}>{children}</NavSection>
     </Provider>
   )
 }
