@@ -12,13 +12,13 @@ const handleUpdate = () => {}
 
 const renderToggle = (divider: DividerType) => (
   <NavToggle initial='Inbox' divider={divider}>
-    <NavIcon name='Inbox' tooltip handleUpdate={handleUpdate}>
+    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted' tooltip handleUpdate={handleUpdate}>
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected' tooltip handleUpdate={handleUpdate}>
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavToggle>
@@ -26,13 +26,13 @@ const renderToggle = (divider: DividerType) => (
 
 const renderMulti = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' tooltip handleUpdate={handleUpdate}>
+    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon name='Accepted' tooltip handleUpdate={handleUpdate}>
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon name='Rejected' tooltip handleUpdate={handleUpdate}>
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>
@@ -40,22 +40,18 @@ const renderMulti = (divider: DividerType) => (
 
 const renderHorizontal = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' tooltip handleUpdate={handleUpdate} horizontal={true}>
+    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
     <NavIcon
       name='Accepted'
-      tooltip
       handleUpdate={handleUpdate}
-      horizontal={true}
     >
       <CheckCircleIcon />
     </NavIcon>
     <NavIcon
       name='Rejected'
-      tooltip
       handleUpdate={handleUpdate}
-      horizontal={true}
     >
       <CancelIcon />
     </NavIcon>
@@ -65,23 +61,23 @@ const renderHorizontal = (divider: DividerType) => (
 const Template = (args: any) => <NavIcons {...args} />
 
 // Nav
-export const NavVerticalToggle: any = Template.bind({})
+export const Toggle: any = Template.bind({})
 
-NavVerticalToggle.args = {
+Toggle.args = {
   layout: 'vertical',
   children: renderToggle('end')
 }
 
-export const NavVerticalMulti: any = Template.bind({})
+export const Multi: any = Template.bind({})
 
-NavVerticalMulti.args = {
+Multi.args = {
   layout: 'vertical',
   children: renderMulti('end')
 }
 
-export const NavVerticalBoth: any = Template.bind({})
+export const Both: any = Template.bind({})
 
-NavVerticalBoth.args = {
+Both.args = {
   layout: 'vertical',
   children: (
     <Fragment>
@@ -91,15 +87,7 @@ NavVerticalBoth.args = {
   )
 }
 
-export const NavHorizontalBoth: any = Template.bind({})
-
-NavHorizontalBoth.args = {
-  layout: 'horizontal',
-  horizontal: true,
-  children: <Fragment>{renderHorizontal('start')}</Fragment>
-}
-
 export default {
-  title: 'molecules/NavIcons',
+  title: 'molecules/NavIcons/Vertical',
   component: NavIcons
 }
