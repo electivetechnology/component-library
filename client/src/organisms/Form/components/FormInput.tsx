@@ -10,6 +10,7 @@ import FormText from 'organisms/Form/components/FormText'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import FormSelect from 'organisms/Form/components/FormSelect'
+import isUndefined from 'lodash/isUndefined'
 
 type Props = {
   label: string
@@ -19,8 +20,7 @@ type Props = {
   selectOptions?: Array<FormOptionType>
   options?: OptionType
   readOnly?: boolean
-  darkMode?: boolean
-  border?: boolean
+  outlined?: boolean
 }
 
 const FormInput: FunctionComponent<Props> = ({
@@ -30,15 +30,18 @@ const FormInput: FunctionComponent<Props> = ({
   type,
   options,
   readOnly,
-  darkMode = false,
-  border = true
+  outlined
 }) => {
-  // TODO: controlled components error when deleting value
-  const { updateInput, readOnlyForm } = useContext(FormContext)
+  const { updateInput, readOnlyForm, outlineInputs } = useContext(FormContext)
 
   useEffect(() => {
     updateInput(name, value)
   }, [value])
+
+  const noOutlineBoth = !outlined && !outlineInputs
+  const noOutlineInput = !isUndefined(outlined) && !outlined
+
+  let applyOutline = !(noOutlineBoth || noOutlineInput)
 
   return (
     <InputContext.Provider
@@ -48,8 +51,7 @@ const FormInput: FunctionComponent<Props> = ({
         type,
         options,
         disabled: readOnly || readOnlyForm,
-        darkMode,
-        border
+        outlined: applyOutline
       }}
     >
       {['text', 'number'].includes(type) && <FormText />}

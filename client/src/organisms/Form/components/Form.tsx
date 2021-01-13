@@ -6,7 +6,8 @@ const Form: FunctionComponent<FormProps> = ({
   children,
   handleUpdate,
   readOnlyForm = false,
-  darkMode = false
+  darkMode = false,
+  outlineInputs = true
 }) => {
   const { inputs, updateInput } = useInputs()
   const { statuses, addStatus } = useInputStatus()
@@ -29,7 +30,8 @@ const Form: FunctionComponent<FormProps> = ({
         inputs,
         statuses,
         readOnlyForm,
-        darkMode
+        darkMode,
+        outlineInputs
       }}
     >
       {children}
