@@ -204,6 +204,12 @@ export const CopiedStyled = styled.div`
   left: 2px;
 `
 
+// FORM COPY
+export const CopyElementStyled = styled.div`
+  width: 48px;
+  padding-left: 8px;
+`
+
 export const ToastStyled = styled.div`
   border: 1px solid ${theme.secondaryGray};
   border-radius: 4px;
