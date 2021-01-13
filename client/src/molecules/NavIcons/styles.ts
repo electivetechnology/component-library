@@ -74,6 +74,7 @@ export const IconStyled = styled.div<IconStyledProps>`
   border-radius: 4px;
   display: flex;
   justify-content: center;
+  margin: 6px 0;
   &:hover {
     background-color: ${theme.dividerGrey};
   }
@@ -91,7 +92,7 @@ export const IconStyled = styled.div<IconStyledProps>`
       justify-content: center;
       padding: 8px;
       border-radius: 8px;
-      margin-bottom: 0;
+      margin: 0 3px;
       &:hover {
         background-color: ${theme.hoverBlue};
       }
