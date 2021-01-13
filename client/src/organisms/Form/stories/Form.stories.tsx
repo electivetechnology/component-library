@@ -33,6 +33,7 @@ Text.args = {
   )
 }
 
+// FormDownload
 export const DownloadText: any = Template.bind({})
 
 DownloadText.args = {
@@ -58,6 +59,7 @@ DownloadText.args = {
   )
 }
 
+// FormCopy
 export const CopyText: any = Template.bind({})
 
 CopyText.args = {
