@@ -58,6 +58,30 @@ DownloadText.args = {
   )
 }
 
+export const CopyText: any = Template.bind({})
+
+CopyText.args = {
+  handleUpdate,
+  children: (
+    <Fragment>
+      <FormInput
+        label='Text Area'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{ multiline: true, copy: true }}
+      />
+      <FormInput
+        label='Text Input'
+        name='text'
+        value='some text'
+        type='text'
+        options={{ copy: true }}
+      />
+    </Fragment>
+  )
+}
+
 // FormInfo
 export const Info: any = Template.bind({})
 
