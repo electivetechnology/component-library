@@ -34,6 +34,7 @@ const TestForm: FC = () => {
         name='text'
         value='some textarea'
         type='text'
+        download={true}
         options={{ multiline: true }}
       />
       <FormInput

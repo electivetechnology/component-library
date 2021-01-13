@@ -21,8 +21,6 @@ export interface FormOptionType {
 
 export interface OptionType {
   multiline?: boolean
-  affix?: string
-  helperText?: string
   width?: number
   selected?: FormOptionType
   selectOptions?: Array<FormOptionType>
@@ -66,6 +64,7 @@ export type FormContextType = {
 export const FormContext = createContext<FormContextType>({} as FormContextType)
 
 export type InputContextType = {
+  inputValue: any
   label: string
   name: string
   type: InputType
