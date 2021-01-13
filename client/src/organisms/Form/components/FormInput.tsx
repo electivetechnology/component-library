@@ -6,12 +6,11 @@ import {
   InputContext,
   FormOptionType
 } from 'organisms/Form/base'
-import FormText from 'organisms/Form/components/FormText'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
-import FormSelect from 'organisms/Form/components/FormSelect'
 import isUndefined from 'lodash/isUndefined'
 import FormDownload from 'organisms/Form/components/FormDownload'
+import { FormColourPicker, FormText, FormSelect } from 'organisms/Form'
 
 type Props = {
   label: string
@@ -64,8 +63,10 @@ const FormInput: FunctionComponent<Props> = ({
         outlined: applyOutline
       }}
     >
+
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
+      {type === 'colourPicker' && <FormColourPicker />}
 
       {affix && (
         <AffixStyled>

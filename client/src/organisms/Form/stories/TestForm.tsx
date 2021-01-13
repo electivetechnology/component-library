@@ -28,7 +28,7 @@ const TestForm: FC = () => {
   }
 
   return (
-    <Form handleUpdate={handleUpdate} darkMode={false}>
+    <Form handleUpdate={handleUpdate}>
       <FormInput
         label='Text Area Input'
         name='text'

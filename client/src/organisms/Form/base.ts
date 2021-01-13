@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 export type InputType =
   | 'text'
-  | 'colorPicker'
+  | 'colourPicker'
   | 'colour'
   | 'select'
   | 'number'
