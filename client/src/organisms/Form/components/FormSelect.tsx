@@ -11,16 +11,15 @@ import { SelectField } from 'atoms'
 
 const FormSelect: FunctionComponent = () => {
   const {
+    inputValue,
     name,
     label,
     options,
     disabled,
     outlined
   } = useContext(InputContext)
-  const { onBlur, inputs, updateInput, darkMode } = useContext(FormContext)
+  const { onBlur, updateInput, darkMode } = useContext(FormContext)
   const valueRef = useRef()
-
-  const inputValue = inputs[name] ? inputs[name] : null
 
   const handleBlur = () => {
     onBlur(name)

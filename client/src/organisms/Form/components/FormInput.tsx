@@ -11,12 +11,16 @@ import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import FormSelect from 'organisms/Form/components/FormSelect'
 import isUndefined from 'lodash/isUndefined'
+import FormDownload from 'organisms/Form/components/FormDownload'
 
 type Props = {
   label: string
   name: string
   value: any
   type: InputType
+  affix?: string
+  helperText?: string
+  download?: boolean
   selectOptions?: Array<FormOptionType>
   options?: OptionType
   readOnly?: boolean
@@ -28,11 +32,16 @@ const FormInput: FunctionComponent<Props> = ({
   name,
   value,
   type,
+  affix,
+  helperText,
+  download,
   options,
   readOnly,
   outlined
 }) => {
-  const { updateInput, readOnlyForm, outlineInputs } = useContext(FormContext)
+  const { updateInput, readOnlyForm, outlineInputs, inputs } = useContext(
+    FormContext
+  )
 
   useEffect(() => {
     updateInput(name, value)
@@ -46,6 +55,7 @@ const FormInput: FunctionComponent<Props> = ({
   return (
     <InputContext.Provider
       value={{
+        inputValue: inputs[name] ? inputs[name] : '',
         label,
         name,
         type,
@@ -57,11 +67,19 @@ const FormInput: FunctionComponent<Props> = ({
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
 
-      {options?.affix && (
+      {affix && (
         <AffixStyled>
-          <Font variant='body1'>{options?.affix}</Font>
+          <Font variant='body1'>{affix}</Font>
         </AffixStyled>
       )}
+
+      {helperText && (
+        <AffixStyled>
+          <Font variant='body1'>{helperText}</Font>
+        </AffixStyled>
+      )}
+
+      {download && <FormDownload label={label} value={value} />}
     </InputContext.Provider>
   )
 }
