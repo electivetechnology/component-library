@@ -21,8 +21,9 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ${(props) =>
     props.fullWidth &&
     `
-      width: 100%;
+      color: red; // used for testing
       overflow: scroll;
+      width: 100%;
     `};
   ${(props) =>
     props.padding &&
