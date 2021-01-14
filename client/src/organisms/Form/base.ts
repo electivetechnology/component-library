@@ -20,7 +20,6 @@ export interface FormOptionType {
 }
 
 export interface OptionType {
-  readOnly?: boolean
   multiline?: boolean
   affix?: string
   helperText?: string
@@ -51,6 +50,7 @@ export type FormProps = {
   ) => void
   readOnlyForm?: boolean
   darkMode?: boolean
+  outlineInputs?: boolean
 }
 
 export type FormContextType = {
@@ -60,6 +60,7 @@ export type FormContextType = {
   statuses: any
   readOnlyForm: boolean
   darkMode?: boolean
+  outlineInputs?: boolean
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)
@@ -70,8 +71,7 @@ export type InputContextType = {
   type: InputType
   disabled: boolean
   options?: OptionType
-  darkMode?: boolean
-  border?: boolean
+  outlined?: boolean
 }
 
 export const InputContext = createContext<InputContextType>(
