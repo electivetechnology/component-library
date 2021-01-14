@@ -16,6 +16,7 @@ const FormTemplate: FunctionComponent<FormProps> = ({ children }) => {
     >
       <InputContext.Provider
         value={{
+          inputValue: null,
           label: 'Colour Picker',
           name: 'colorPicker',
           type: 'colorPicker',
