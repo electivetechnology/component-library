@@ -5,11 +5,11 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 
 const FormText: FunctionComponent = () => {
-  const { name, type, label, options, outlined } = useContext(InputContext)
+  const { inputValue, name, type, label, options, outlined } = useContext(
+    InputContext
+  )
 
-  const { onBlur, inputs } = useContext(FormContext)
-
-  const inputValue = inputs[name] ? inputs[name] : ''
+  const { onBlur } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
