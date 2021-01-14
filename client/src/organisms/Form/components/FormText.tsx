@@ -2,6 +2,7 @@ import React, { FunctionComponent, memo, useContext, Fragment } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import { FormTextContainerStyled } from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
+import FormTextArea from 'organisms/Form/components/FormTextArea'
 
 const FormText: FunctionComponent = () => {
   const { name, type, label, options } = useContext(InputContext)
@@ -18,16 +19,16 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled>
-      {options?.multiline ? (
-        <Fragment>
-          <label id={name}>{label}</label>
-          <textarea id={name} onChange={onChange} onBlur={handleBlur}>
-            {value}
-          </textarea>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <label id={name}>{label}</label>
+      <Fragment>
+        <label htmlFor={name}>{label}</label>
+        {options?.multiline ? (
+          <FormTextArea
+            name={name}
+            onChange={onChange}
+            handleBlur={handleBlur}
+            value={value}
+          />
+        ) : (
           <input
             id={name}
             onChange={onChange}
@@ -35,8 +36,8 @@ const FormText: FunctionComponent = () => {
             type={type}
             value={value}
           />
-        </Fragment>
-      )}
+        )}
+      </Fragment>
     </FormTextContainerStyled>
   )
 }

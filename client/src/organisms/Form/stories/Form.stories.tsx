@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {
   Form,
   FormAction,
@@ -13,6 +13,25 @@ const handleUpdate = () => {}
 const handleAction = () => {}
 
 const Template = (args: any) => <Form {...args} handleUpdate={handleUpdate} />
+
+// TextInput
+export const TextInput: any = Template.bind({})
+
+TextInput.args = {
+  handleUpdate,
+  children: (
+    <Fragment>
+      <FormInput
+        label='Text Area'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{ multiline: true }}
+      />
+      <FormInput label='Text Input' name='text' value='some text' type='text' />
+    </Fragment>
+  )
+}
 
 // InputSingle
 export const InputSingle: any = Template.bind({})

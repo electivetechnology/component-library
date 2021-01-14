@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, Fragment, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { HandleStatusType } from 'organisms/Form/base'
@@ -35,11 +35,11 @@ const TestForm: FC = () => {
       darkMode={false}
     >
       <FormInput
-        label='Name'
-        name='name'
-        value={name}
+        label='Text Area'
+        name='textarea'
+        value='some textarea'
         type='text'
-        options={{ affix: 'affix me' }}
+        options={{ multiline: true }}
       />
       <FormInput
         label='Candidate'
