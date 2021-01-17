@@ -2,17 +2,13 @@ import React, { useState } from 'react'
 import TextField from 'atoms/TextField/TextField'
 import Toggle from './Toggle'
 
-const TooltipDefaultTemplate = (args: any) => {
+const TooltipTemplate = (args: any) => {
   const [isToggle, setIsToggled] = useState(false)
-  return (
-    <div style={{ marginTop: '30px' }}>
-      <Toggle isActive={isToggle} setIsActive={setIsToggled} {...args} />
-    </div>
-  )
+  return <Toggle isActive={isToggle} setIsActive={setIsToggled} {...args} />
 }
 
 // Default
-export const Default: any = TooltipDefaultTemplate.bind({})
+export const Default: any = TooltipTemplate.bind({})
 
 Default.args = {
   label: 'Label',
@@ -21,13 +17,13 @@ Default.args = {
 }
 
 // NoText
-export const NoText: any = TooltipDefaultTemplate.bind({})
+export const NoText: any = TooltipTemplate.bind({})
 
 NoText.args = {
   label: 'Label'
 }
 
 export default {
-  title: 'atoms/Toogle',
+  title: 'atoms/Toggle',
   component: TextField
 }

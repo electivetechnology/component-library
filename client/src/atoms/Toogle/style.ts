@@ -10,23 +10,11 @@ export const ToggleLabelStyled = styled.div`
 `
 
 export const SwitchContainerStyled = styled.div`
-  height: 30px;
-  width: 70px;
-  background-color: transparent;
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 0 auto;
-  margin: 0 0 10px;
-  overflow: hidden;
-  padding: 0;
   position: relative;
 `
 
 export const SwitchStyled = styled.label`
   cursor: pointer;
-  margin: 0;
-  padding: 0;
-  width: 100%;
 `
 
 export const SwitchInputStyled = styled.input`
@@ -45,7 +33,6 @@ export const SwitchTextContainerStyled = styled.span<SwitchTextProp>`
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  margin: 0;
   position: absolute;
   top: 0;
   border: 1px solid ${theme.toggleGrey};
