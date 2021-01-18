@@ -9,20 +9,18 @@ type Props = {
 const Tooltip: FunctionComponent<Props> = ({ label, placement, children }) => {
   const [isHovered, setIsHovered] = useState(false)
 
-  const handleMouseHover = (e: any) => {
-    e.preventDefault()
+  const handleMouseHover = () => {
     setIsHovered(true)
   }
 
-  const handleMouseLeave = (e: any) => {
-    e.preventDefault()
+  const handleMouseLeave = () => {
     setIsHovered(false)
   }
 
   return (
     <TooltipContainerStyled
-      onMouseEnter={(e) => handleMouseHover(e)}
-      onMouseLeave={(e) => handleMouseLeave(e)}
+      onMouseEnter={handleMouseHover}
+      onMouseLeave={handleMouseLeave}
     >
       {children}
       <TooltipStyled showTooltip={isHovered} placement={placement}>
