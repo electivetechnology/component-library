@@ -11,6 +11,8 @@ export const ToggleLabelStyled = styled.div`
 
 export const SwitchContainerStyled = styled.div`
   position: relative;
+  width: 46px;
+  margin-left: auto;
 `
 
 export const SwitchStyled = styled.label`
