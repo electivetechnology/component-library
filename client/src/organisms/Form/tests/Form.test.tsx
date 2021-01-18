@@ -1,39 +1,61 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import { Form } from 'components/common/Form'
-import { basicFormMock } from 'components/common/Form/mock'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { store } from 'setupTests'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { Form, FormAction, FormInfo, FormInput, FormTitle } from 'organisms/Form'
+import AddIcon from '@material-ui/icons/Add'
 
-const {
-  getAllByTestId,
-  getByLabelText,
-  getByText,
-  getByPlaceholderText,
-} = screen
+const { getAllByTestId, getByLabelText, getByText, getByTestId } = screen
 
-const renderForm = (formMock: any) => {
+const handleUpdate = jest.fn()
+const handleAction = jest.fn()
+
+const renderForm = () => {
   return render(
-    <Router>
-      <Provider store={store}>
-        <Form inputs={formMock} />
-      </Provider>
-    </Router>
+    <Form handleUpdate={handleUpdate}>
+      <FormTitle label='FormTitle' />
+      <FormInput label='Form Text' name='text' value='' type='text' />
+      <FormInput
+        label='Form TextArea'
+        name='textarea'
+        value=''
+        type='text'
+        options={{ multiline: true }}
+      />
+      <FormInput
+        label='Form Select'
+        name='select'
+        value={status}
+        type='select'
+        options={{ selectOptions: [{ value: '', label: '' }] }}
+      />
+      <FormInput
+        label='Form Colour'
+        name='name'
+        value='#DCE1E8'
+        type='colourPicker'
+      />
+      <FormInfo info='Form Info' />
+      <FormAction
+        label='Set Primary'
+        handleAction={handleAction}
+        icon={<AddIcon />}
+      />
+    </Form>
   )
 }
 
 test('renders basic form', () => {
-  renderForm(basicFormMock)
+  renderForm()
   expect(getAllByTestId('FormTitle')).toBeDefined
   expect(getByLabelText('Form Text')).toBeDefined
+  expect(getByLabelText('Form TextArea')).toBeDefined
   expect(getByLabelText('Form Select')).toBeDefined
-  expect(getByLabelText('Form Text Number')).toBeDefined
-  expect(getByText('Form Date')).toBeDefined
-  expect(getAllByTestId('FormCheckbox')).toBeDefined
-  expect(getByPlaceholderText('Form Phone')).toBeDefined
-  expect(getByLabelText('Form Colour')).toBeDefined
+  expect(getByText('Form Colour')).toBeDefined
   expect(getByText('Form Info')).toBeDefined
-  expect(getByText('25/03/2019 14:39')).toBeDefined
-  expect(getAllByTestId('FormDelete')).toBeDefined
+  expect(getByTestId('FormAction')).toBeDefined
+})
+
+test('handles handleAction', () => {
+  renderForm()
+  fireEvent.click(getByTestId(`FormAction`))
+  expect(handleAction).toBeCalled()
 })
