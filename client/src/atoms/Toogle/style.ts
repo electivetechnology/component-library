@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const ToggleContainerStyled = styled.div`
   display: inline-flex;
+  margin-left: auto;
 `
 
 export const ToggleLabelStyled = styled.div`
@@ -12,7 +13,6 @@ export const ToggleLabelStyled = styled.div`
 export const SwitchContainerStyled = styled.div`
   position: relative;
   width: 46px;
-  margin-left: auto;
 `
 
 export const SwitchStyled = styled.label`
