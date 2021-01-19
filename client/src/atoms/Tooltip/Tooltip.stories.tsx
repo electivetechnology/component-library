@@ -46,6 +46,21 @@ Right.args = {
   placement: 'right'
 }
 
+// Highlighted
+export const Highlighted: any = TooltipTemplate.bind({})
+
+Highlighted.args = {
+  label: 'Label',
+  tooltipText: 'Tooltip bottom',
+  placement: 'bottom',
+  labelStyle: {
+    color: '#311b91',
+    border: 'solid 1px #311b91',
+    borderRadius: '8px',
+    padding: ' 0 4px'
+  }
+}
+
 export default {
   title: 'atoms/Tooltip',
   component: TextField

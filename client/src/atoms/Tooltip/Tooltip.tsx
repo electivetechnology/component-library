@@ -6,17 +6,23 @@ type Props = {
   placement?: string
   labelSize?: string
   tooltipText?: string
+  labelStyle?: any
 }
 
 const Tooltip: FunctionComponent<Props> = ({
   label,
   placement = 'top',
   tooltipText,
-  labelSize
+  labelSize,
+  labelStyle
 }) => {
   return (
     <TooltipStyled data-text={tooltipText} placement={placement}>
-      <TooltipLabelStyled data-html='true' fontSize={labelSize}>
+      <TooltipLabelStyled
+        data-html='true'
+        fontSize={labelSize}
+        style={labelStyle}
+      >
         {label}
       </TooltipLabelStyled>
     </TooltipStyled>
