@@ -1,32 +1,25 @@
-import React, { FunctionComponent, useState } from 'react'
-import { TooltipContainerStyled, TooltipStyled } from './styles'
+import React, { FunctionComponent } from 'react'
+import { TooltipStyled, TooltipLabelStyled } from './styles'
 
 type Props = {
   label?: string
-  placement: string
+  placement?: string
+  labelSize?: string
+  tooltipText?: string
 }
 
-const Tooltip: FunctionComponent<Props> = ({ label, placement, children }) => {
-  const [isHovered, setIsHovered] = useState(false)
-
-  const handleMouseHover = () => {
-    setIsHovered(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-  }
-
+const Tooltip: FunctionComponent<Props> = ({
+  label,
+  placement = 'top',
+  tooltipText,
+  labelSize
+}) => {
   return (
-    <TooltipContainerStyled
-      onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseLeave}
-    >
-      {children}
-      <TooltipStyled showTooltip={isHovered} placement={placement}>
+    <TooltipStyled data-text={tooltipText} placement={placement}>
+      <TooltipLabelStyled data-html='true' fontSize={labelSize}>
         {label}
-      </TooltipStyled>
-    </TooltipContainerStyled>
+      </TooltipLabelStyled>
+    </TooltipStyled>
   )
 }
 
