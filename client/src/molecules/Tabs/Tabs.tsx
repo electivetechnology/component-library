@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabBarContainer, TabScroll } from 'molecules/Tabs/styles'
+import { TabsStyled, TabScrollStyled } from 'molecules/Tabs/styles'
 
 export const tabContext = React.createContext({ active: 0 })
 
@@ -12,9 +12,9 @@ type Props = {
 const Tabs: React.FC<Props> = ({ children, active }) => {
   return (
     <Provider value={{ active }}>
-      <TabBarContainer>
-        <TabScroll>{children}</TabScroll>
-      </TabBarContainer>
+      <TabsStyled>
+        <TabScrollStyled>{children}</TabScrollStyled>
+      </TabsStyled>
     </Provider>
   )
 }
