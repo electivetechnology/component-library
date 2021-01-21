@@ -8,6 +8,7 @@ type Props = {
   selected?: boolean
   padding?: boolean
   fullWidth?: boolean
+  fullHeight?: boolean
 }
 const CardContainer: React.FC<Props> = ({
   children,
@@ -16,7 +17,8 @@ const CardContainer: React.FC<Props> = ({
   selected,
   theme = 'Primary',
   padding = false,
-  fullWidth = false
+  fullWidth = false,
+  fullHeight = false
 }) => {
   return (
     <CardContainerStyled
@@ -26,6 +28,7 @@ const CardContainer: React.FC<Props> = ({
       theme={theme}
       padding={padding}
       fullWidth={fullWidth}
+      fullHeight={fullHeight}
     >
       {children}
     </CardContainerStyled>
