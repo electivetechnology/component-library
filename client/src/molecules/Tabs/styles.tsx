@@ -12,6 +12,8 @@ export const TabScrollStyled = styled.div`
 
 export const TabStyled = styled.div`
   border: 1px solid ${theme.blue};
+  cursor: pointer;
+  padding: 5px;
 `
 
 export const TabsStyled = styled.div`
