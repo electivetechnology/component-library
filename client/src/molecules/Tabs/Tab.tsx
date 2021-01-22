@@ -1,4 +1,4 @@
-import React, { useContext, FC, cloneElement } from 'react'
+import React, { useContext, FC, useEffect } from 'react'
 import { tabContext } from 'molecules/Tabs/Tabs'
 import { TabStyled } from 'molecules/Tabs/styles'
 
@@ -10,15 +10,24 @@ interface Props {
   readOnly?: boolean
 }
 
-const Tab: FC<Props> = ({ name, isActive, onClick, onHover,readOnly }) => {
-  const { tabsActive, tabsReadOnly } = useContext(tabContext)
+const Tab: FC<Props> = ({ name, isActive, onClick, onHover, readOnly }) => {
+  const { tabsActive, setTabsActive, tabsReadOnly } = useContext(tabContext)
 
-  const active = tabsActive === name || isActive ? 'active' : 'inactive'
+  useEffect(() => {
+    isActive && setTabsActive(name)
+  }, [])
+
+  const active = tabsActive === name ? 'active' : 'inactive'
 
   const disabled = tabsReadOnly || readOnly ? 'disabled' : 'enabled'
 
+  const handleClick = () => {
+    setTabsActive(name)
+    onClick && onClick()
+  }
+
   return (
-    <TabStyled onClick={onClick} onMouseEnter={onHover}>
+    <TabStyled onClick={handleClick} onMouseEnter={onHover}>
       <h4>{name}</h4>
       <p>isActive: {active}</p>
       <p>readOnly: {disabled}</p>
