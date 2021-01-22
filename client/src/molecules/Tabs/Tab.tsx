@@ -3,17 +3,25 @@ import { tabContext } from 'molecules/Tabs/Tabs'
 import { TabStyled } from 'molecules/Tabs/styles'
 
 interface Props {
-  label: string
+  name: string
+  isActive?: boolean
   onClick?: any
+  onHover?: any
   readOnly?: boolean
 }
 
-const Tab: FC<Props> = ({ label, onClick, readOnly }) => {
-  const { active } = useContext(tabContext)
+const Tab: FC<Props> = ({ name, isActive, onClick, onHover,readOnly }) => {
+  const { tabsActive, tabsReadOnly } = useContext(tabContext)
+
+  const active = tabsActive === name || isActive ? 'active' : 'inactive'
+
+  const disabled = tabsReadOnly || readOnly ? 'disabled' : 'enabled'
 
   return (
-    <TabStyled onClick={onClick}>
-      {label} - isActive {active}
+    <TabStyled onClick={onClick} onMouseEnter={onHover}>
+      <h4>{name}</h4>
+      <p>isActive: {active}</p>
+      <p>readOnly: {disabled}</p>
     </TabStyled>
   )
 }

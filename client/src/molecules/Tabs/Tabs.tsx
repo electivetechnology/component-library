@@ -1,17 +1,18 @@
 import React from 'react'
 import { TabsStyled, TabScrollStyled } from 'molecules/Tabs/styles'
 
-export const tabContext = React.createContext({ active: 0 })
+export const tabContext = React.createContext({ tabsActive: '', tabsReadOnly: false })
 
 const { Provider } = tabContext
 
 type Props = {
-  active: number
+  active?: string
+  readOnly?: boolean
 }
 
-const Tabs: React.FC<Props> = ({ children, active }) => {
+const Tabs: React.FC<Props> = ({ children, active = '', readOnly = false }) => {
   return (
-    <Provider value={{ active }}>
+    <Provider value={{ tabsActive: active, tabsReadOnly: readOnly }}>
       <TabsStyled>
         <TabScrollStyled>{children}</TabScrollStyled>
       </TabsStyled>

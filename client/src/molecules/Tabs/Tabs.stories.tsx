@@ -2,16 +2,19 @@ import React, { Fragment } from 'react'
 import Tabs from 'molecules/Tabs/Tabs'
 import Tab from 'molecules/Tabs/Tab'
 
-const onClick = () => {}
+const onClick = () => console.log('onClick')
+const onHover = () => console.log('onHover')
 
 const renderTabs = () => (
   <Fragment>
-    <Tab label='Roles' onClick={onClick} />
-    <Tab label='User' onClick={onClick} />
+    <Tab name='Roles' onHover={onHover} isActive={false} readOnly={true} />
+    <Tab name='User' onClick={onClick} isActive={true} />
   </Fragment>
 )
 
-const Template = (args: any) => <Tabs {...args} />
+const Template = (args: any) => (
+  <Tabs {...args} active={'Roles'} readOnly={true} />
+)
 
 // Nav
 export const Active: any = Template.bind({})
