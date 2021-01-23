@@ -68,9 +68,11 @@ export type InputContextType = {
   label: string
   name: string
   type: InputType
-  disabled: boolean
+  disabled?: boolean
+  readOnly?: boolean
   options?: OptionType
   outlined?: boolean
+  placeholder?: string
 }
 
 export const InputContext = createContext<InputContextType>(

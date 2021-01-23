@@ -1,5 +1,4 @@
 import React from 'react'
-import TextField from 'atoms/TextField/TextField'
 import Tooltip from './Tooltip'
 import { Font } from 'atoms'
 
@@ -63,5 +62,5 @@ Right.args = {
 
 export default {
   title: 'atoms/Tooltip',
-  component: TextField
+  component: Tooltip
 }
