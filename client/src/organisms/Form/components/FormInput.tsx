@@ -10,7 +10,9 @@ import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import isUndefined from 'lodash/isUndefined'
 import FormDownload from 'organisms/Form/components/FormDownload'
-import { FormColourPicker, FormText, FormSelect } from 'organisms/Form'
+import FormColourPicker from 'organisms/Form/components/FormColourPicker'
+import FormText from 'organisms/Form/components/FormText'
+import FormSelect from 'organisms/Form/components/FormSelect'
 
 type Props = {
   label: string

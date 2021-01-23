@@ -31,17 +31,23 @@ const TestForm: FC = () => {
     <Form handleUpdate={handleUpdate}>
       <FormInput
         label='Text Area Input'
-        name='text'
-        value='some textarea'
+        name='Text Area Input'
+        value='some input textarea'
         type='text'
-        download={true}
         options={{ multiline: true }}
       />
       <FormInput
         label='Text Input'
-        name='textarea'
-        value='some textarea'
+        name='Text Input'
+        value='some input'
         type='text'
+      />
+      <FormInput
+        label='Text Input'
+        name='Text Input'
+        value='some input'
+        type='text'
+        download={true}
       />
       <FormInput
         label='Select Input'
