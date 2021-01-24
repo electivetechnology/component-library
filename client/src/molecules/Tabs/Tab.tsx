@@ -1,6 +1,7 @@
 import React, { useContext, FC, useEffect } from 'react'
 import { tabContext } from 'molecules/Tabs/Tabs'
 import { TabStyled } from 'molecules/Tabs/styles'
+import { Font } from 'atoms'
 
 interface Props {
   name: string
@@ -27,10 +28,10 @@ const Tab: FC<Props> = ({ name, isActive, onClick, onHover, readOnly }) => {
   }
 
   return (
-    <TabStyled onClick={handleClick} onMouseEnter={onHover}>
-      <h4>{name}</h4>
-      <p>isActive: {active}</p>
-      <p>readOnly: {disabled}</p>
+    <TabStyled onClick={handleClick} onMouseEnter={onHover} active={active}>
+      <Font variant='body2' uppercase>
+        {name}
+      </Font>
     </TabStyled>
   )
 }

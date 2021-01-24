@@ -20,8 +20,9 @@ const renderTabs = () => (
       <Tab name={TabConst.USERS} isActive={true} />
     </TabBar>
     <TabContent>
-      <TabPanel name={TabConst.ROLES}>Roles</TabPanel>
-      <TabPanel name={TabConst.USERS}>User</TabPanel>
+      {/* <TabPanel name={TabConst.ROLES}>Roles</TabPanel>
+      <TabPanel name={TabConst.USERS}>User</TabPanel> */}
+      {/* TODO do we need this? */}
     </TabContent>
   </Fragment>
 )
