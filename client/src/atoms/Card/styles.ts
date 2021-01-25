@@ -27,7 +27,8 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ${(props) =>
     props.fullHeight &&
     `
-      height: -webkit-fill-available;
+      height: 100%;
+      display: block;
     `};
   ${(props) =>
     props.fullWidth &&
