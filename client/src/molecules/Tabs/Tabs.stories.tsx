@@ -8,7 +8,7 @@ import TabPanel from 'molecules/Tabs/TabPanel'
 const onClick = () => console.log('onClick')
 const onHover = () => console.log('onHover')
 
-export enum TabConst {
+enum TabConst {
   ROLES = 'Roles',
   USERS = 'Users'
 }
@@ -20,9 +20,8 @@ const renderTabs = () => (
       <Tab name={TabConst.USERS} isActive={true} />
     </TabBar>
     <TabContent>
-      {/* <TabPanel name={TabConst.ROLES}>Roles</TabPanel>
-      <TabPanel name={TabConst.USERS}>User</TabPanel> */}
-      {/* TODO do we need this? */}
+      <TabPanel name={TabConst.ROLES}></TabPanel>
+      <TabPanel name={TabConst.USERS}></TabPanel>
     </TabContent>
   </Fragment>
 )
