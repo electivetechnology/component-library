@@ -4,6 +4,7 @@ import { closedIconStyle, ColumnStyled } from 'molecules/Columns/styles'
 import CloseIcon from '@material-ui/icons/Close'
 
 type Props = {
+  isClosable?: boolean
   colspan?: number
   addColumn?: any
   columnIndex?: number
@@ -12,6 +13,7 @@ type Props = {
 
 const Column: FC<Props> = ({
   children,
+  isClosable = true,
   colspan = 1,
   fixedWidth,
   addColumn,
@@ -20,7 +22,6 @@ const Column: FC<Props> = ({
   const { width, columns } = useContext(NavContext)
 
   useEffect(() => {
-
     addColumn(!fixedWidth ? colspan : 0)
   }, [])
 
@@ -39,8 +40,9 @@ const Column: FC<Props> = ({
 
   return (
     <ColumnStyled columnWidth={columnWidth} hide={!columnWidth}>
-      <CloseIcon style={closedIconStyle} onClick={handleCloseModal} />
-      width: {columnWidth}
+      {isClosable && (
+        <CloseIcon style={closedIconStyle} onClick={handleCloseModal} />
+      )}
       {children}
     </ColumnStyled>
   )
