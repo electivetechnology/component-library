@@ -1,7 +1,8 @@
 import React, { useContext, FC, useEffect } from 'react'
 import { NavContext } from 'molecules/Columns/base'
-import { closedIconStyle, ColumnStyled } from 'molecules/Columns/styles'
-import CloseIcon from '@material-ui/icons/Close'
+import { iconStyle, ColumnStyled } from 'molecules/Columns/styles'
+import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined'
+import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
 
 type Props = {
   isClosable?: boolean
@@ -25,8 +26,12 @@ const Column: FC<Props> = ({
     addColumn(!fixedWidth ? colspan : 0)
   }, [])
 
-  const handleCloseModal = () => {
+  const handleClose = () => {
     addColumn(colspan, false)
+  }
+
+  const handleOpen = () => {
+    addColumn(colspan, true)
   }
 
   const columnExists = columns.find(
@@ -38,12 +43,17 @@ const Column: FC<Props> = ({
 
   const columnWidth = fixedWidth ? `${fixedWidth}px` : `${percentageWidth}%`
 
+  const isHidden = percentageWidth === 0
+
   return (
     <ColumnStyled columnWidth={columnWidth} hide={!columnWidth}>
-      {isClosable && (
-        <CloseIcon style={closedIconStyle} onClick={handleCloseModal} />
+      {isClosable && !isHidden && (
+        <CloseOutlinedIcon style={iconStyle} onClick={handleClose} />
       )}
-      {children}
+      {isHidden && (
+        <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleOpen} />
+      )}
+      {!isHidden && children}
     </ColumnStyled>
   )
 }
