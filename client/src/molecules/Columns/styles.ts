@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 
-export const closedIconStyle = {
+export const iconStyle = {
+  cursor: 'pointer',
   fill: `${theme.grey}`,
   width: '18px'
 }
