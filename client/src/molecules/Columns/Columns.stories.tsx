@@ -6,11 +6,14 @@ const Template = (args: any) => <Columns {...args} />
 
 const renderColumns = () => (
   <Columns>
-    <Column fixedWidth={500} isClosable={false}>
+    <Column fixedWidth={500}>
       <div>column 1</div>
     </Column>
     <Column colspan={2}>
       <div>column 2</div>
+    </Column>
+    <Column colspan={1}>
+      <div>column 3</div>
     </Column>
   </Columns>
 )
