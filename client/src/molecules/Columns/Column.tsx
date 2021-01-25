@@ -1,23 +1,27 @@
 import React, { useContext, FC, useEffect } from 'react'
 import { NavContext } from 'molecules/Columns/base'
-import {
-  closedIconStyle,
-  ColumnStyled,
-} from 'molecules/Columns/styles'
+import { closedIconStyle, ColumnStyled } from 'molecules/Columns/styles'
 import CloseIcon from '@material-ui/icons/Close'
 
-type Props = { colspan?: number; addColumn?: any; columnIndex?: number }
+type Props = {
+  colspan?: number
+  addColumn?: any
+  columnIndex?: number
+  fixedWidth?: number
+}
 
 const Column: FC<Props> = ({
   children,
   colspan = 1,
+  fixedWidth,
   addColumn,
-  columnIndex,
+  columnIndex
 }) => {
   const { width, columns } = useContext(NavContext)
 
   useEffect(() => {
-    addColumn(colspan)
+
+    addColumn(!fixedWidth ? colspan : 0)
   }, [])
 
   const handleCloseModal = () => {
@@ -28,12 +32,13 @@ const Column: FC<Props> = ({
     (column: any, index: number) => columnIndex === index
   )
 
-  const columnWidth = columnExists && columnExists.display ? width * colspan : 0
+  const percentageWidth =
+    columnExists && columnExists.display ? width * colspan : 0
+
+  const columnWidth = fixedWidth ? `${fixedWidth}px` : `${percentageWidth}%`
 
   return (
-    <ColumnStyled
-      width={columnWidth ? columnWidth : 0}
-      hide={!columnWidth}>
+    <ColumnStyled columnWidth={columnWidth} hide={!columnWidth}>
       <CloseIcon style={closedIconStyle} onClick={handleCloseModal} />
       width: {columnWidth}
       {children}
