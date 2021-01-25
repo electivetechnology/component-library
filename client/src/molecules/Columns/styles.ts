@@ -3,7 +3,7 @@ import { theme } from 'styles/theme'
 
 export const closedIconStyle = {
   fill: `${theme.grey}`,
-  width: '18px',
+  width: '18px'
 }
 
 export const ColumnsStyled = styled.div`
@@ -14,21 +14,20 @@ export const ColumnsStyled = styled.div`
 `
 
 type ColumnStyledProps = {
-  width: number
+  columnWidth: string
   hide: boolean
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
-  width: 100%;
+  ${(props) =>
+    props.columnWidth &&
+    `
+      width: ${props.columnWidth};
+    `};
   @media screen and (min-width: 750px) {
-    ${props =>
+    ${(props) =>
       props.hide &&
       `
         display: none;
-      `};
-    ${props =>
-      props.width &&
-      `
-        width: ${props.width}%;
       `};
   }
 `
