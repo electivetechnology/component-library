@@ -1,6 +1,12 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { Form, FormAction, FormInfo, FormInput, FormTitle } from 'organisms/Form'
+import {
+  Form,
+  FormAction,
+  FormInfo,
+  FormInput,
+  FormTitle
+} from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 
 const { getAllByTestId, getByLabelText, getByText, getByTestId } = screen
@@ -46,8 +52,8 @@ const renderForm = () => {
 test('renders basic form', () => {
   renderForm()
   expect(getAllByTestId('FormTitle')).toBeDefined
-  expect(getByLabelText('Form Text')).toBeDefined
-  expect(getByLabelText('Form TextArea')).toBeDefined
+  expect(getAllByTestId('FormText')).toBeDefined
+  expect(getAllByTestId('FormTextarea')).toBeDefined
   expect(getByLabelText('Form Select')).toBeDefined
   expect(getByText('Form Colour')).toBeDefined
   expect(getByText('Form Info')).toBeDefined

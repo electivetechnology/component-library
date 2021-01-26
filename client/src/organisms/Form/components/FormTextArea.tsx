@@ -49,6 +49,7 @@ const FormTextArea: FunctionComponent<Props> = ({
         minHeight: parentHeight,
         width: '100%'
       }}
+      data-testid='FormTextarea'
     >
       <TextareaStyled
         id={name}

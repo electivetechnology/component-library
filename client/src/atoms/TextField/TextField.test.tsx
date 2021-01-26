@@ -1,20 +1,23 @@
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import TextField from 'atoms/TextField/TextField'
+import { Form, FormInput } from 'index'
 
 afterEach(cleanup)
 
+const handleUpdate = jest.fn()
+
 const { getByTestId } = render(
-  <TextField
-    onChange={null}
-    label={'label'}
-    variant={'standard'}
-    id={'1'}
-    margin={'none'}
-  />
+  <Form handleUpdate={handleUpdate}>
+    <FormInput
+      label={'Text Area Input '}
+      name={'Text Area Input'}
+      value={'Input'}
+      type={'text'}
+    />
+  </Form>
 )
 
 test('renders TextField', () => {
-  expect(getByTestId('TextField')).toBeDefined
+  expect(getByTestId('FormText')).toBeDefined
 })

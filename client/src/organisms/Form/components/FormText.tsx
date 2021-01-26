@@ -30,7 +30,7 @@ const FormText: FunctionComponent = () => {
 
   return (
     <Fragment>
-      <FormTextContainerStyled>
+      <FormTextContainerStyled data-testid='FormText'>
         {value ? <LabelStyled htmlFor={name}>{label}</LabelStyled> : null}
         {options?.multiline ? (
           <FormTextArea
