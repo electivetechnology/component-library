@@ -9,19 +9,17 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
 
-const FormText: FunctionComponent = () => {
+const FormSelect: FunctionComponent = () => {
   const {
+    inputValue,
     name,
     label,
     options,
     disabled,
-    darkMode,
-    border = true
+    outlined
   } = useContext(InputContext)
-  const { onBlur, inputs, updateInput } = useContext(FormContext)
+  const { onBlur, updateInput, darkMode } = useContext(FormContext)
   const valueRef = useRef()
-
-  const inputValue = inputs[name] ? inputs[name] : null
 
   const handleBlur = () => {
     onBlur(name)
@@ -49,8 +47,8 @@ const FormText: FunctionComponent = () => {
       disabled={disabled}
       onChange={handleChange}
       darkMode={darkMode}
-      border={border}
+      outlined={outlined}
     />
   )
 }
-export default memo(FormText)
+export default memo(FormSelect)
