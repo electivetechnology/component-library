@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { TabBarStyled } from './styles'
 
 type Props = {}
 
 const TabBar: React.FC<Props> = ({ children }) => {
-  return <Fragment>{children}</Fragment>
+  return <TabBarStyled>{children}</TabBarStyled>
 }
 
 export default TabBar

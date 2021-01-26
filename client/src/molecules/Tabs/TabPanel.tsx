@@ -1,4 +1,4 @@
-import React, { Fragment, FC, useContext } from 'react'
+import React, { FC, useContext } from 'react'
 import { tabContext } from 'molecules/Tabs/Tabs'
 
 interface Props {
@@ -10,7 +10,7 @@ const TabPanel: FC<Props> = ({ children, name }) => {
 
   const active = tabsActive === name
 
-  return active ? <Fragment>{children}</Fragment> : null
+  return active ? <div>{children}</div> : null
 }
 
 export default TabPanel
