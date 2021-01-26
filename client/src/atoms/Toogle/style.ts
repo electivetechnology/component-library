@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const ToggleContainerStyled = styled.div`
   display: inline-flex;
+  margin-left: auto;
 `
 
 export const ToggleLabelStyled = styled.div`
@@ -11,14 +12,17 @@ export const ToggleLabelStyled = styled.div`
 
 export const SwitchContainerStyled = styled.div`
   position: relative;
+  width: 46px;
 `
 
 export const SwitchStyled = styled.label`
   cursor: pointer;
+  width: inherit;
 `
 
 export const SwitchInputStyled = styled.input`
   opacity: 0;
+  width: inherit;
 `
 
 type SwitchTextProp = {

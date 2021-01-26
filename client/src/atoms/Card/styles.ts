@@ -7,21 +7,32 @@ type CardContainerProps = {
   theme: string
   padding?: boolean
   fullWidth?: boolean
+  fullHeight?: boolean
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
   min-width: 290px;
   min-height: 215px;
   width: max-content;
-  height: max-content;
+  display: grid;
   border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: max-content;
+
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  ${(props) =>
+    props.fullHeight &&
+    `
+      height: 100%;
+      display: block;
+    `};
   ${(props) =>
     props.fullWidth &&
     `
-      color: red; // used for testing
       overflow: scroll;
       width: 100%;
     `};
