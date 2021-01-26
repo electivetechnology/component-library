@@ -17,8 +17,6 @@ const FormText: FunctionComponent = () => {
     label,
     options,
     outlined,
-    placeholder,
-    readOnly,
     disabled
   } = useContext(InputContext)
 
@@ -40,8 +38,7 @@ const FormText: FunctionComponent = () => {
             onChange={onChange}
             handleBlur={handleBlur}
             value={value}
-            placeholder={value ? '' : placeholder}
-            readOnly={readOnly}
+            placeholder={value ? '' : label}
             disabled={disabled}
           />
         ) : (
@@ -51,8 +48,7 @@ const FormText: FunctionComponent = () => {
             onBlur={handleBlur}
             type={type}
             value={value}
-            placeholder={value ? '' : placeholder}
-            readOnly={readOnly}
+            placeholder={value ? '' : label}
             disabled={disabled}
           />
         )}

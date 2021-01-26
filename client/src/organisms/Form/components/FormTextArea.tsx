@@ -13,7 +13,6 @@ type Props = {
   onChange: any
   handleBlur: any
   placeholder?: string
-  readOnly?: boolean
   disabled?: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
@@ -22,7 +21,6 @@ const FormTextArea: FunctionComponent<Props> = ({
   onChange,
   handleBlur,
   placeholder,
-  readOnly,
   disabled
 }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
@@ -63,7 +61,6 @@ const FormTextArea: FunctionComponent<Props> = ({
           height: textAreaHeight
         }}
         placeholder={placeholder}
-        readOnly={readOnly}
         disabled={disabled}
       />
     </div>

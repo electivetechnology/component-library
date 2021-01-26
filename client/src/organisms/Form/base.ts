@@ -46,7 +46,7 @@ export type FormProps = {
     object: { [key: string]: string },
     handleStatus: HandleStatusType
   ) => void
-  readOnlyForm?: boolean
+  disableForm?: boolean
   darkMode?: boolean
   outlineInputs?: boolean
 }
@@ -56,7 +56,7 @@ export type FormContextType = {
   updateInput: Function
   inputs: any
   statuses: any
-  readOnlyForm: boolean
+  disableForm: boolean
   darkMode?: boolean
   outlineInputs?: boolean
 }
@@ -69,10 +69,8 @@ export type InputContextType = {
   name: string
   type: InputType
   disabled?: boolean
-  readOnly?: boolean
   options?: OptionType
   outlined?: boolean
-  placeholder?: string
 }
 
 export const InputContext = createContext<InputContextType>(

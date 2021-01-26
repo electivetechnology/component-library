@@ -5,7 +5,7 @@ import { FormProps, FormContext } from 'organisms/Form/base'
 const Form: FunctionComponent<FormProps> = ({
   children,
   handleUpdate,
-  readOnlyForm = false,
+  disableForm = false,
   darkMode = false,
   outlineInputs = true
 }) => {
@@ -29,7 +29,7 @@ const Form: FunctionComponent<FormProps> = ({
         updateInput,
         inputs,
         statuses,
-        readOnlyForm,
+        disableForm,
         darkMode,
         outlineInputs
       }}

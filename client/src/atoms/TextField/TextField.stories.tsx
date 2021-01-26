@@ -31,18 +31,6 @@ Multi.args = {
   options: { multiline: true }
 }
 
-// ReadOnly
-export const ReadOnly: any = FormTextTemplate.bind({})
-
-ReadOnly.args = {
-  label: 'Text Area Input ',
-  name: 'Text Area Input',
-  value: 'Input',
-  type: 'text',
-  options: { multiline: true },
-  readOnly: true
-}
-
 // Disabled
 export const Disabled: any = FormTextTemplate.bind({})
 
@@ -51,6 +39,18 @@ Disabled.args = {
   name: 'Text Area Input',
   value: 'Input',
   type: 'text',
+  disabled: true
+}
+
+// DisabledMulti
+export const DisabledMulti: any = FormTextTemplate.bind({})
+
+DisabledMulti.args = {
+  label: 'Text Area Input ',
+  name: 'Text Area Input',
+  value: 'Input',
+  type: 'text',
+  options: { multiline: true },
   disabled: true
 }
 

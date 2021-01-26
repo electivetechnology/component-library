@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { theme } from 'styles/theme'
 
 type TextareaProps = {
-  readOnly?: boolean
+  disabled?: boolean
 }
 
 export const TextareaStyled = styled.textarea<TextareaProps>`
@@ -13,11 +13,6 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   &:focus {
     outline: none;
   }
-  ${(props) =>
-    props.readOnly &&
-    `
-    border: none;
-    `}
   ${(props) =>
     props.disabled &&
     `

@@ -189,7 +189,6 @@ export const LabelStyled = styled.label`
 `
 
 type TextInputProps = {
-  readOnly?: boolean
   disabled?: boolean
 }
 
@@ -200,11 +199,6 @@ export const TextInputStyled = styled.input<TextInputProps>`
   &:focus {
     outline: none;
   }
-  ${(props) =>
-    props.readOnly &&
-    `
-    border: none;
-    `}
   ${(props) =>
     props.disabled &&
     `
