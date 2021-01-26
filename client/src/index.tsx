@@ -1,4 +1,4 @@
-// atoms
+// ATOMS
 export {
   Avatar,
   Button,
@@ -11,9 +11,11 @@ export {
   Tooltip
 } from 'atoms'
 
-// molecules
+
+// MOLECULES
 export { default as Alert } from 'molecules/Alert/Alert'
 export { default as Channels } from 'molecules/Channels/Channels'
+// Navs
 export { default as NavIcons } from 'molecules/NavIcons/NavIcons'
 export { default as NavToggle } from 'molecules/NavIcons/NavToggle'
 export { default as NavMulti } from 'molecules/NavIcons/NavMulti'
@@ -26,7 +28,9 @@ export {
   resetPopUp,
   popUpSchema
 } from 'molecules/PopUp/reducer'
+// Tabs
+export { default as Tabs } from 'molecules/Tabs/Tabs'
+export { default as Tab } from 'molecules/Tabs/Tab'
 
-// organisms
-// Form
+// ORGANISMS
 export { Form, FormInput } from 'organisms/Form'
