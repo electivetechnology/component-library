@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 export type InputType =
   | 'text'
-  | 'colorPicker'
+  | 'colourPicker'
   | 'colour'
   | 'select'
   | 'number'
@@ -20,10 +20,7 @@ export interface FormOptionType {
 }
 
 export interface OptionType {
-  readOnly?: boolean
   multiline?: boolean
-  affix?: string
-  helperText?: string
   width?: number
   selected?: FormOptionType
   selectOptions?: Array<FormOptionType>
@@ -49,8 +46,9 @@ export type FormProps = {
     object: { [key: string]: string },
     handleStatus: HandleStatusType
   ) => void
-  readOnlyForm?: boolean
+  disableForm?: boolean
   darkMode?: boolean
+  outlineInputs?: boolean
 }
 
 export type FormContextType = {
@@ -58,20 +56,21 @@ export type FormContextType = {
   updateInput: Function
   inputs: any
   statuses: any
-  readOnlyForm: boolean
+  disableForm: boolean
   darkMode?: boolean
+  outlineInputs?: boolean
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)
 
 export type InputContextType = {
+  inputValue: any
   label: string
   name: string
   type: InputType
-  disabled: boolean
+  disabled?: boolean
   options?: OptionType
-  darkMode?: boolean
-  border?: boolean
+  outlined?: boolean
 }
 
 export const InputContext = createContext<InputContextType>(

@@ -1,14 +1,26 @@
 import React, { FunctionComponent, memo, useContext, Fragment } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
-import { FormTextContainerStyled } from 'organisms/Form/styles'
+import {
+  FormTextContainerStyled,
+  TextInputStyled,
+  LabelStyled
+} from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
+import FormTextArea from 'organisms/Form/components/FormTextArea'
+import FormCopy from 'organisms/Form/components/FormCopy'
 
 const FormText: FunctionComponent = () => {
-  const { name, type, label, options } = useContext(InputContext)
+  const {
+    inputValue,
+    name,
+    type,
+    label,
+    options,
+    outlined,
+    disabled
+  } = useContext(InputContext)
 
-  const { onBlur, inputs } = useContext(FormContext)
-
-  const inputValue = inputs[name] ? inputs[name] : null
+  const { onBlur } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
@@ -17,27 +29,32 @@ const FormText: FunctionComponent = () => {
   }
 
   return (
-    <FormTextContainerStyled>
-      {options?.multiline ? (
-        <Fragment>
-          <label id={name}>{label}</label>
-          <textarea id={name} onChange={onChange} onBlur={handleBlur}>
-            {value}
-          </textarea>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <label id={name}>{label}</label>
-          <input
+    <Fragment>
+      <FormTextContainerStyled data-testid='FormText'>
+        {value ? <LabelStyled htmlFor={name}>{label}</LabelStyled> : null}
+        {options?.multiline ? (
+          <FormTextArea
+            name={name}
+            onChange={onChange}
+            handleBlur={handleBlur}
+            value={value}
+            placeholder={value ? '' : label}
+            disabled={disabled}
+          />
+        ) : (
+          <TextInputStyled
             id={name}
             onChange={onChange}
             onBlur={handleBlur}
             type={type}
             value={value}
+            placeholder={value ? '' : label}
+            disabled={disabled}
           />
-        </Fragment>
-      )}
-    </FormTextContainerStyled>
+        )}
+        {options?.copy && <FormCopy value={value} />}
+      </FormTextContainerStyled>
+    </Fragment>
   )
 }
 
