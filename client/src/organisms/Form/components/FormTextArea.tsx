@@ -5,18 +5,23 @@ import React, {
   useState,
   useEffect
 } from 'react'
+import { TextareaStyled } from './styles'
 
 type Props = {
   name: string
   value: string
   onChange: any
   handleBlur: any
+  placeholder?: string
+  disabled?: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
   name,
   value,
   onChange,
-  handleBlur
+  handleBlur,
+  placeholder,
+  disabled
 }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const [text, setText] = useState('')
@@ -41,10 +46,12 @@ const FormTextArea: FunctionComponent<Props> = ({
   return (
     <div
       style={{
-        minHeight: parentHeight
+        minHeight: parentHeight,
+        width: '100%'
       }}
+      data-testid='FormTextarea'
     >
-      <textarea
+      <TextareaStyled
         id={name}
         onChange={handleChange}
         onBlur={handleBlur}
@@ -54,6 +61,8 @@ const FormTextArea: FunctionComponent<Props> = ({
         style={{
           height: textAreaHeight
         }}
+        placeholder={placeholder}
+        disabled={disabled}
       />
     </div>
   )

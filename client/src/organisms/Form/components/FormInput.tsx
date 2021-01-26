@@ -24,8 +24,8 @@ type Props = {
   download?: boolean
   selectOptions?: Array<FormOptionType>
   options?: OptionType
-  readOnly?: boolean
   outlined?: boolean
+  disabled?: boolean
 }
 
 const FormInput: FunctionComponent<Props> = ({
@@ -37,10 +37,10 @@ const FormInput: FunctionComponent<Props> = ({
   helperText,
   download,
   options,
-  readOnly,
-  outlined
+  outlined,
+  disabled
 }) => {
-  const { updateInput, readOnlyForm, outlineInputs, inputs } = useContext(
+  const { updateInput, disableForm, outlineInputs, inputs } = useContext(
     FormContext
   )
 
@@ -61,11 +61,10 @@ const FormInput: FunctionComponent<Props> = ({
         name,
         type,
         options,
-        disabled: readOnly || readOnlyForm,
+        disabled: disabled || disableForm,
         outlined: applyOutline
       }}
     >
-
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
       {type === 'colourPicker' && <FormColourPicker />}

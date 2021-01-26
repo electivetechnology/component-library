@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
-import { makeStyles } from '@material-ui/core/styles'
 
 type FormTextStyledProps = {
   margin?: string
@@ -178,8 +177,36 @@ export const EditorLabel = styled.div`
 
 // FormText
 export const FormTextContainerStyled = styled.div`
-  display: inline-flex;
+  padding-top: 16px;
+  display: grid;
   width: 100%;
+`
+
+export const LabelStyled = styled.label`
+  color: ${theme.grey};
+  font-size: 12px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+`
+
+type TextInputProps = {
+  disabled?: boolean
+}
+
+export const TextInputStyled = styled.input<TextInputProps>`
+  border: none;
+  font-size: 14px;
+  border-bottom: 1px solid ${theme.dividerGrey};
+  &:focus {
+    outline: none;
+  }
+  ${(props) =>
+    props.disabled &&
+    `
+    border: none;
+    color: ${theme.disabledTextGrey};
+    border-bottom: 1px dotted ${theme.dividerGrey};
+    background-color: transparent;
+    `}
 `
 
 type CopyProps = {
