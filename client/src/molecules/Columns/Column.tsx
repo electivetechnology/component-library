@@ -46,7 +46,7 @@ const Column: FC<Props> = ({
   const isHidden = percentageWidth === 0
 
   return (
-    <ColumnStyled columnWidth={columnWidth} hide={!columnWidth}>
+    <ColumnStyled columnWidth={columnWidth} isHidden={isHidden}>
       {isClosable && !isHidden && (
         <CloseOutlinedIcon style={iconStyle} onClick={handleClose} />
       )}
