@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react'
 import { produce } from 'immer'
 
 export type NavContextType = {
-  width: any
+  colWidth: any
   columns: any
 }
 

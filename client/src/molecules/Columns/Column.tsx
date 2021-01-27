@@ -20,7 +20,7 @@ const Column: FC<Props> = ({
   addColumn,
   columnIndex
 }) => {
-  const { width, columns } = useContext(NavContext)
+  const { colWidth, columns } = useContext(NavContext)
 
   useEffect(() => {
     addColumn(!fixedWidth ? colspan : 0)
@@ -39,7 +39,7 @@ const Column: FC<Props> = ({
   )
 
   const percentageWidth =
-    columnExists && columnExists.display ? width * colspan : 0
+    columnExists && columnExists.display ? colWidth * colspan : 0
 
   const columnWidth = fixedWidth ? `${fixedWidth}px` : `${percentageWidth}%`
 

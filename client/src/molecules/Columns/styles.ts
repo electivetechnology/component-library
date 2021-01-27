@@ -7,11 +7,19 @@ export const iconStyle = {
   width: '18px'
 }
 
-export const ColumnsStyled = styled.div`
+type ColumnsStyledProps = {
+  width?: number
+}
+export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   display: block;
   @media screen and (min-width: 750px) {
     display: flex;
   }
+  ${(props) =>
+    props.width &&
+    `
+      width: ${props.width}px;
+    `};
 `
 
 type ColumnStyledProps = {
