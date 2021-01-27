@@ -14,6 +14,7 @@ type Props = {
   handleBlur: any
   placeholder?: string
   disabled?: boolean
+  darkMode: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
   name,
@@ -21,7 +22,8 @@ const FormTextArea: FunctionComponent<Props> = ({
   onChange,
   handleBlur,
   placeholder,
-  disabled
+  disabled,
+  darkMode
 }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const [text, setText] = useState('')
@@ -52,6 +54,7 @@ const FormTextArea: FunctionComponent<Props> = ({
       data-testid='FormTextarea'
     >
       <TextareaStyled
+        darkMode={darkMode}
         id={name}
         onChange={handleChange}
         onBlur={handleBlur}

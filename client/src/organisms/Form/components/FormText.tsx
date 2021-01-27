@@ -20,7 +20,7 @@ const FormText: FunctionComponent = () => {
     disabled
   } = useContext(InputContext)
 
-  const { onBlur } = useContext(FormContext)
+  const { onBlur, darkMode = false } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
@@ -34,6 +34,7 @@ const FormText: FunctionComponent = () => {
         {value ? <LabelStyled htmlFor={name}>{label}</LabelStyled> : null}
         {options?.multiline ? (
           <FormTextArea
+            darkMode={darkMode}
             name={name}
             onChange={onChange}
             handleBlur={handleBlur}
@@ -43,6 +44,7 @@ const FormText: FunctionComponent = () => {
           />
         ) : (
           <TextInputStyled
+            darkMode={darkMode}
             id={name}
             onChange={onChange}
             onBlur={handleBlur}
