@@ -1,4 +1,6 @@
+import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
+import { theme } from 'styles/theme'
 
 export const useStyles = makeStyles({
   component: (props: any) => ({
@@ -11,3 +13,11 @@ export const useStyles = makeStyles({
       props.overflow || props.multilineOverflow ? 'ellipsis' : 'initial'
   })
 })
+
+export const DarkModeTemplateStyled = styled.div`
+  background-image: linear-gradient(
+    ${theme.gradientBlue},
+    ${theme.gradientRed}
+  );
+  height: 200px;
+`

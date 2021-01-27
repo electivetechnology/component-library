@@ -1,5 +1,6 @@
 import React from 'react'
 import { FormInput, Form } from 'organisms/Form'
+import { DarkModeTemplateStyled } from './styles'
 
 const FormTextTemplate = (args: any) => {
   const handleUpdate = () => {}
@@ -7,6 +8,17 @@ const FormTextTemplate = (args: any) => {
     <Form handleUpdate={handleUpdate}>
       <FormInput {...args} />
     </Form>
+  )
+}
+
+const FormTextDarkModeTemplate = (args: any) => {
+  const handleUpdate = () => {}
+  return (
+    <DarkModeTemplateStyled>
+      <Form handleUpdate={handleUpdate} darkMode={args.darkMode}>
+        <FormInput {...args} />
+      </Form>
+    </DarkModeTemplateStyled>
   )
 }
 
@@ -29,6 +41,29 @@ Multi.args = {
   value: 'Input',
   type: 'text',
   options: { multiline: true }
+}
+
+// DarkMode
+export const DarkMode: any = FormTextDarkModeTemplate.bind({})
+
+DarkMode.args = {
+  label: 'Text Area Input ',
+  name: 'Text Area Input',
+  value: 'Input',
+  type: 'text',
+  darkMode: true
+}
+
+// DarkModeMulti
+export const DarkModeMulti: any = FormTextDarkModeTemplate.bind({})
+
+DarkModeMulti.args = {
+  label: 'Text Area Input ',
+  name: 'Text Area Input',
+  value: 'Input',
+  type: 'text',
+  options: { multiline: true },
+  darkMode: true
 }
 
 // Disabled
