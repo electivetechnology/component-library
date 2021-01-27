@@ -16,19 +16,18 @@ export const ColumnsStyled = styled.div`
 
 type ColumnStyledProps = {
   columnWidth: string
-  hide: boolean
+  isHidden: boolean
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
+  border: 1px ${theme.Gray} solid;
   ${(props) =>
     props.columnWidth &&
     `
       width: ${props.columnWidth};
     `};
-  @media screen and (min-width: 750px) {
-    ${(props) =>
-      props.hide &&
-      `
-        display: none;
-      `};
-  }
+  ${(props) =>
+    props.isHidden &&
+    `
+      width: 20px;
+    `};
 `
