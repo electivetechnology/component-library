@@ -2,7 +2,10 @@ import React, { Children, cloneElement } from 'react'
 import { ColumnsStyled } from 'molecules/Columns/styles'
 import { useColumnsReducer, NavContext } from 'molecules/Columns/base'
 
-const Columns: React.FC = ({ children }) => {
+type Props = {
+  width?: number
+}
+const Columns: React.FC<Props> = ({ children , width}) => {
   const { columns, dispatcher } = useColumnsReducer()
 
   let childrenStyled: any = []
@@ -22,11 +25,11 @@ const Columns: React.FC = ({ children }) => {
     return accumulator + span
   }, 0)
 
-  const width = 100 / totalSpan
+  const colWidth = 100 / totalSpan
 
   return (
-    <NavContext.Provider value={{ width, columns }}>
-      <ColumnsStyled>{childrenStyled}</ColumnsStyled>
+    <NavContext.Provider value={{ colWidth, columns }}>
+      <ColumnsStyled width={width}>{childrenStyled}</ColumnsStyled>
     </NavContext.Provider>
   )
 }

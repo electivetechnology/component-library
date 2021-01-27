@@ -5,7 +5,7 @@ import Column from 'molecules/Columns/Column'
 const Template = (args: any) => <Columns {...args} />
 
 const renderColumns = () => (
-  <Columns>
+  <Columns width={1000}>
     <Column fixedWidth={500}>
       <div>column 1</div>
     </Column>
