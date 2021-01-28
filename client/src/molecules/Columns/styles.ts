@@ -23,7 +23,7 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
 `
 
 type ColumnStyledProps = {
-  columnWidth: string
+  columnWidth: number
   isHidden: boolean
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
@@ -31,7 +31,7 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   ${(props) =>
     props.columnWidth &&
     `
-      width: ${props.columnWidth};
+      width: ${props.columnWidth}px;
     `};
   ${(props) =>
     props.isHidden &&

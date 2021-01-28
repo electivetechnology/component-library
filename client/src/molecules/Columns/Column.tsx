@@ -16,37 +16,38 @@ const Column: FC<Props> = ({
   children,
   isClosable = true,
   colspan = 1,
-  fixedWidth,
+  fixedWidth = 0,
   addColumn,
   columnIndex
 }) => {
   const { colWidth, columns } = useContext(NavContext)
 
+  colspan = !fixedWidth ? colspan : 0
+
   useEffect(() => {
-    addColumn(!fixedWidth ? colspan : 0)
+    addColumn(colspan, fixedWidth)
   }, [])
 
   const handleClose = () => {
-    addColumn(colspan, false)
+    addColumn(colspan, fixedWidth, false)
   }
 
   const handleOpen = () => {
-    addColumn(colspan, true)
+    addColumn(colspan, fixedWidth, true)
   }
 
   const columnExists = columns.find(
     (column: any, index: number) => columnIndex === index
   )
 
-  const percentageWidth =
-    columnExists && columnExists.display ? colWidth * colspan : 0
+  const width = fixedWidth ? fixedWidth : colWidth * colspan
 
-  const columnWidth = fixedWidth ? `${fixedWidth}px` : `${percentageWidth}%`
+  const isHidden = !columnExists || !columnExists.display
 
-  const isHidden = percentageWidth === 0
+  const displayWidth = columnExists && columnExists.display ? width : 0
 
   return (
-    <ColumnStyled columnWidth={columnWidth} isHidden={isHidden}>
+    <ColumnStyled columnWidth={displayWidth} isHidden={isHidden}>
       {isClosable && !isHidden && (
         <CloseOutlinedIcon style={iconStyle} onClick={handleClose} />
       )}
