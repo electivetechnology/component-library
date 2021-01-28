@@ -6,9 +6,12 @@ import {
   InputContext,
   FormOptionType
 } from 'organisms/Form/base'
-import FormText from 'organisms/Form/components/FormText'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
+import isUndefined from 'lodash/isUndefined'
+import FormDownload from 'organisms/Form/components/FormDownload'
+import FormColourPicker from 'organisms/Form/components/FormColourPicker'
+import FormText from 'organisms/Form/components/FormText'
 import FormSelect from 'organisms/Form/components/FormSelect'
 
 type Props = {
@@ -16,11 +19,13 @@ type Props = {
   name: string
   value: any
   type: InputType
+  affix?: string
+  helperText?: string
+  download?: boolean
   selectOptions?: Array<FormOptionType>
   options?: OptionType
-  readOnly?: boolean
-  darkMode?: boolean
-  border?: boolean
+  outlined?: boolean
+  disabled?: boolean
 }
 
 const FormInput: FunctionComponent<Props> = ({
@@ -28,38 +33,55 @@ const FormInput: FunctionComponent<Props> = ({
   name,
   value,
   type,
+  affix,
+  helperText,
+  download,
   options,
-  readOnly,
-  darkMode = false,
-  border = true
+  outlined,
+  disabled
 }) => {
-  // TODO: controlled components error when deleting value
-  const { updateInput, readOnlyForm } = useContext(FormContext)
+  const { updateInput, disableForm, outlineInputs, inputs } = useContext(
+    FormContext
+  )
 
   useEffect(() => {
     updateInput(name, value)
   }, [value])
 
+  const noOutlineBoth = !outlined && !outlineInputs
+  const noOutlineInput = !isUndefined(outlined) && !outlined
+
+  let applyOutline = !(noOutlineBoth || noOutlineInput)
+
   return (
     <InputContext.Provider
       value={{
+        inputValue: inputs[name] ? inputs[name] : '',
         label,
         name,
         type,
         options,
-        disabled: readOnly || readOnlyForm,
-        darkMode,
-        border
+        disabled: disabled || disableForm,
+        outlined: applyOutline
       }}
     >
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
+      {type === 'colourPicker' && <FormColourPicker />}
 
-      {options?.affix && (
+      {affix && (
         <AffixStyled>
-          <Font variant='body1'>{options?.affix}</Font>
+          <Font variant='body1'>{affix}</Font>
         </AffixStyled>
       )}
+
+      {helperText && (
+        <AffixStyled>
+          <Font variant='body1'>{helperText}</Font>
+        </AffixStyled>
+      )}
+
+      {download && <FormDownload label={label} value={value} />}
     </InputContext.Provider>
   )
 }

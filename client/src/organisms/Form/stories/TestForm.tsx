@@ -9,8 +9,8 @@ const TestForm: FC = () => {
   const [status, setStatus] = useState('available')
 
   const handleUpdate = (
-    candidate: {[key: string]: string},
-    addStatus: HandleStatusType,
+    candidate: { [key: string]: string },
+    addStatus: HandleStatusType
   ) => {
     console.group('handleUpdate')
     console.log(candidate)
@@ -21,29 +21,37 @@ const TestForm: FC = () => {
     addStatus('success')
   }
 
-  const handleSave = (
-    inputs: object,
-  ) => {
+  const handleSave = (inputs: object) => {
     console.group('handleSave')
     console.log(inputs)
     console.groupEnd()
   }
 
   return (
-    <Form
-      handleUpdate={handleUpdate}
-      darkMode={false}
-    >
+    <Form handleUpdate={handleUpdate}>
       <FormInput
-        label='Name'
-        name='name'
-        value={name}
+        label='Text Area Input'
+        name='Text Area Input'
+        value='some input textarea'
         type='text'
-        options={{ affix: 'affix me' }}
+        options={{ multiline: true }}
       />
       <FormInput
-        label='Candidate'
-        name='candidate'
+        label='Text Input'
+        name='Text Input'
+        value='some input'
+        type='text'
+      />
+      <FormInput
+        label='Text Input'
+        name='Text Input'
+        value='some input'
+        type='text'
+        download={true}
+      />
+      <FormInput
+        label='Select Input'
+        name='select'
         value={status}
         type='select'
         options={{ selectOptions: candidateStatusOptions }}

@@ -1,5 +1,6 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { makeStyles } from '@material-ui/core/styles'
 
 export const AutoCompleteContainerStyled = styled.div`
   background-image: linear-gradient(
@@ -8,3 +9,49 @@ export const AutoCompleteContainerStyled = styled.div`
   );
   height: 100px;
 `
+
+export const inputBorder = (outlined: boolean, darkMode: boolean) => {
+  let borderColour = darkMode ? theme.grey : theme.dividerGrey
+  return outlined ? `2px solid ${borderColour}` : 'none'
+}
+
+export const inputBorderHover = (outlined: boolean, darkMode: boolean) => {
+  let borderColour = darkMode ? theme.white : theme.grey
+  return outlined ? `2px solid ${borderColour}` : 'none'
+}
+
+export const useLabelStyles = makeStyles({
+  label: (props: any) => ({
+    color: props.darkMode ? theme.white : theme.grey,
+    fontSize: '14px !important',
+    '&.Mui-focused': {
+      color: props.darkMode ? theme.white : theme.grey
+    }
+  })
+})
+
+export const useInputStyles = makeStyles({
+  input: (props: any) => ({
+    fontSize: '14px !important',
+    color: props.darkMode ? theme.white : theme.black
+  }),
+  inputRoot: (props: any) => ({
+    color: props.darkMode ? theme.white : theme.grey,
+    '&::after': {
+      borderBottom: inputBorder(props.outlined, props.darkMode)
+    },
+    '&::before': {
+      borderBottom: inputBorder(props.outlined, props.darkMode)
+    },
+    '&:hover:not(.Mui-disabled):before': {
+      borderBottom: inputBorderHover(props.outlined, props.darkMode)
+    }
+  }),
+  popupIndicator: (props: any) => ({
+    color: props.darkMode ? `${theme.white}` : `${theme.grey}`
+  }),
+  paper: {
+    boxShadow: `0px 9px 13px ${theme.borderGrey}`,
+    borderRadius: '2px'
+  }
+})

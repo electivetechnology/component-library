@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import TextField from 'atoms/TextField/TextField'
 import Toggle from './Toggle'
 
 const TooltipTemplate = (args: any) => {
@@ -25,5 +24,5 @@ NoText.args = {
 
 export default {
   title: 'atoms/Toggle',
-  component: TextField
+  component: Toggle
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import TextField from 'atoms/TextField/TextField'
 import SelectField from './SelectField'
 import { AutoCompleteContainerStyled } from './style'
 
@@ -83,5 +82,5 @@ Options.args = {
 
 export default {
   title: 'atoms/SelectField',
-  component: TextField
+  component: SelectField
 }
