@@ -11,6 +11,7 @@ type Props = {
   columnIndex?: number
   fixedWidth?: number
   handleClose?: any
+  align: 'left' | 'right'
 }
 
 const Column: FC<Props> = ({
@@ -20,7 +21,8 @@ const Column: FC<Props> = ({
   fixedWidth = 0,
   addColumn,
   columnIndex,
-  handleClose
+  handleClose,
+  align = 'right'
 }) => {
   const { colWidth, columns } = useContext(NavContext)
 
@@ -50,7 +52,7 @@ const Column: FC<Props> = ({
   const displayWidth = columnExists && columnExists.display ? width : 0
 
   return (
-    <ColumnStyled columnWidth={displayWidth} isHidden={isHidden}>
+    <ColumnStyled columnWidth={displayWidth} isHidden={isHidden} align={align}>
       {isClosable && !isHidden && (
         <CloseOutlinedIcon style={iconStyle} onClick={onClose} />
       )}
