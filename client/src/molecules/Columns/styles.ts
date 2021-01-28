@@ -34,6 +34,11 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
       align-content: ${props.align};
     `};
   ${(props) =>
+    props.align &&
+    `
+      align-content: ${props.align};
+    `};
+  ${(props) =>
     props.columnWidth &&
     `
       width: ${props.columnWidth}px;
