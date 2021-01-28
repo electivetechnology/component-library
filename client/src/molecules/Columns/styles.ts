@@ -27,7 +27,6 @@ type ColumnStyledProps = {
   isHidden: boolean
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
-  border: 1px ${theme.Gray} solid;
   ${(props) =>
     props.columnWidth &&
     `

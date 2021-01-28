@@ -10,6 +10,7 @@ type Props = {
   addColumn?: any
   columnIndex?: number
   fixedWidth?: number
+  handleClose?: any
 }
 
 const Column: FC<Props> = ({
@@ -18,7 +19,8 @@ const Column: FC<Props> = ({
   colspan = 1,
   fixedWidth = 0,
   addColumn,
-  columnIndex
+  columnIndex,
+  handleClose
 }) => {
   const { colWidth, columns } = useContext(NavContext)
 
@@ -28,11 +30,12 @@ const Column: FC<Props> = ({
     addColumn(colspan, fixedWidth)
   }, [])
 
-  const handleClose = () => {
+  const onClose = () => {
+    handleClose && handleClose()
     addColumn(colspan, fixedWidth, false)
   }
 
-  const handleOpen = () => {
+  const onOpen = () => {
     addColumn(colspan, fixedWidth, true)
   }
 
@@ -49,10 +52,10 @@ const Column: FC<Props> = ({
   return (
     <ColumnStyled columnWidth={displayWidth} isHidden={isHidden}>
       {isClosable && !isHidden && (
-        <CloseOutlinedIcon style={iconStyle} onClick={handleClose} />
+        <CloseOutlinedIcon style={iconStyle} onClick={onClose} />
       )}
       {isHidden && (
-        <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleOpen} />
+        <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
       )}
       {!isHidden && children}
     </ColumnStyled>
