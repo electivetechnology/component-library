@@ -25,8 +25,14 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
 type ColumnStyledProps = {
   columnWidth: number
   isHidden: boolean
+  align: 'left' | 'right'
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
+  ${(props) =>
+    props.align &&
+    `
+      align-content: ${props.align};
+    `};
   ${(props) =>
     props.columnWidth &&
     `
