@@ -3,16 +3,20 @@ import { ColumnsStyled } from 'molecules/Columns/styles'
 import { useColumnsReducer, NavContext } from 'molecules/Columns/base'
 
 type Props = {
-  width?: number
+  width: number
 }
-const Columns: React.FC<Props> = ({ children , width}) => {
-  const { columns, dispatcher } = useColumnsReducer()
+const Columns: React.FC<Props> = ({ children, width }) => {
+  const { columns, dispatcher } = useColumnsReducer(width)
 
   let childrenStyled: any = []
   Children.map(children, (child: any, index) => {
     if (child) {
-      const addColumn = (colspan: number, display = true) => {
-        dispatcher({ type: 'add', index, colspan, display })
+      const addColumn = (
+        colspan: number,
+        fixedWidth: number,
+        display = true
+      ) => {
+        dispatcher({ type: 'add', index, colspan, fixedWidth, display })
       }
       childrenStyled.push(
         cloneElement(child, { addColumn, key: index, columnIndex: index })
@@ -25,7 +29,18 @@ const Columns: React.FC<Props> = ({ children , width}) => {
     return accumulator + span
   }, 0)
 
-  const colWidth = 100 / totalSpan
+  const totalFixed = columns.reduce(function (
+    accumulator: number,
+    column: any
+  ) {
+    const fixed = column.display ? column.fixedWidth : 0
+    return accumulator + fixed
+  },
+  0)
+
+  const widthRemaining = width - totalFixed
+
+  const colWidth = widthRemaining / totalSpan
 
   return (
     <NavContext.Provider value={{ colWidth, columns }}>
