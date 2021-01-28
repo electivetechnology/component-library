@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react'
 import { produce } from 'immer'
 
 export type NavContextType = {
-  colWidth: any
+  colWidth: number
   columns: any
 }
 
@@ -17,7 +17,7 @@ export const useColumnsReducer = (width: number) => {
             draftState[action.index] = {
               colspan: action.colspan,
               display: action.display,
-              fixedWidth: action.fixedWidth,
+              fixedWidth: action.fixedWidth
             }
             break
           default:
@@ -27,35 +27,31 @@ export const useColumnsReducer = (width: number) => {
     [] as any
   )
 
-  // const addColumn = (
-  //   colspan: number,
-  //   fixedWidth: number,
-  //   display = true
-  // ) => {
-  //   dispatcher({ type: 'add', index, colspan, fixedWidth, display })
-  // }
-  //
-  //
-  // const totalSpan = columns.reduce(function (accumulator: number, column: any) {
-  //   const span = column.display ? column.colspan : 0
-  //   return accumulator + span
-  // }, 0)
-  //
-  // const totalFixed = columns.reduce(function (
-  //   accumulator: number,
-  //   column: any
-  //   ) {
-  //     const fixed = column.display ? column.fixedWidth : 0
-  //     return accumulator + fixed
-  //   },
-  //   0)
-  //
-  // const widthRemaining = width - totalFixed
-  //
-  // const colWidth = widthRemaining / totalSpan
+  const totalSpan = Object.values(columns).reduce(function (
+    accumulator: number,
+    column: any
+  ) {
+    const span = column.display ? column.colspan : 0
+    return accumulator + span
+  },
+  0)
+
+  const totalFixed = Object.values(columns).reduce(function (
+    accumulator: number,
+    column: any
+  ) {
+    const fixed = column.display ? column.fixedWidth : 0
+    return accumulator + fixed
+  },
+  0)
+
+  const widthRemaining = width - totalFixed
+
+  const colWidth = widthRemaining / totalSpan
 
   return {
     columns: columns as any,
-    dispatcher,
+    colWidth,
+    dispatcher
   }
 }
