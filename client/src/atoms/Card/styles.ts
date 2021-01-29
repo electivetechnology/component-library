@@ -8,6 +8,7 @@ type CardContainerProps = {
   padding?: boolean
   fullWidth?: boolean
   fullHeight?: boolean
+  noBorder?: boolean
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
@@ -15,7 +16,6 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   min-height: 215px;
   width: max-content;
   display: grid;
-  border-radius: 16px;
   height: max-content;
 
   overflow: -moz-scrollbars-none;
@@ -24,6 +24,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ::-webkit-scrollbar {
     display: none;
   }
+
   ${(props) =>
     props.fullHeight &&
     `
@@ -67,6 +68,11 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     `
       border: 1px solid ${theme.grayComment};
       box-shadow: none;
+    `};
+  ${(props) =>
+    props.noBorder &&
+    `
+      border: none;
     `};
 `
 

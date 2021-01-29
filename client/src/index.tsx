@@ -11,7 +11,6 @@ export {
   Tooltip
 } from 'atoms'
 
-
 // MOLECULES
 export { default as Alert } from 'molecules/Alert/Alert'
 export { default as Channels } from 'molecules/Channels/Channels'
@@ -31,6 +30,7 @@ export {
 // Tabs
 export { default as Tabs } from 'molecules/Tabs/Tabs'
 export { default as Tab } from 'molecules/Tabs/Tab'
+export { default as TabPanel } from 'molecules/Tabs/TabPanel'
 
 // ORGANISMS
 export { Form, FormInput } from 'organisms/Form'

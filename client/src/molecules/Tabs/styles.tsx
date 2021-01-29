@@ -6,13 +6,9 @@ export const TabBarStyled = styled.div`
   display: inline-flex;
 `
 
-export const TabContainerStyled = styled.div`
-  display: grid;
-`
-
 export const TabScrollStyled = styled.div`
   overflow-x: scroll;
-  display: flex;
+  display: grid;
   width: 100%;
   ::-webkit-scrollbar {
     display: none;
