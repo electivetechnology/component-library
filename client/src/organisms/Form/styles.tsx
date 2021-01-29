@@ -190,6 +190,7 @@ export const LabelStyled = styled.label`
 
 type TextInputProps = {
   disabled?: boolean
+  darkMode: boolean
 }
 
 export const TextInputStyled = styled.input<TextInputProps>`
@@ -205,6 +206,14 @@ export const TextInputStyled = styled.input<TextInputProps>`
     border: none;
     color: ${theme.disabledTextGrey};
     border-bottom: 1px dotted ${theme.dividerGrey};
+    background-color: transparent;
+    `}
+  ${(props) =>
+    props.darkMode &&
+    `
+    border: none;
+    color: ${theme.white};
+    border-bottom: 1px solid ${theme.white};
     background-color: transparent;
     `}
 `
