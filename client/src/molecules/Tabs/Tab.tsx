@@ -20,8 +20,6 @@ const Tab: FC<Props> = ({ name, isActive, onClick, onHover, readOnly }) => {
 
   const active = tabsActive === name ? 'active' : 'inactive'
 
-  const disabled = tabsReadOnly || readOnly ? 'disabled' : 'enabled'
-
   const handleClick = () => {
     setTabsActive(name)
     onClick && onClick()
