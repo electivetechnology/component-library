@@ -25,7 +25,7 @@ const SelectField: FunctionComponent<Props> = ({
   outlined = true
 }) => {
   const labelClasses = useLabelStyles({ darkMode, outlined })
-  const inputClasses = useInputStyles({ darkMode })
+  const inputClasses = useInputStyles({ darkMode, outlined })
 
   return (
     <Autocomplete

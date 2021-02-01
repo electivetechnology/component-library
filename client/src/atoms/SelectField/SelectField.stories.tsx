@@ -34,7 +34,7 @@ NoBorder.args = {
   label: 'Label',
   options: [],
   darkMode: true,
-  border: false
+  outlined: false
 }
 
 // Disabled
