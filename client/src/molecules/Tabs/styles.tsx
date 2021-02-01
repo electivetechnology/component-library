@@ -47,7 +47,7 @@ export const TabStyled = styled.div<TabProps>`
     `
         color: ${theme.white};
         &:hover {
-          background-color: ${theme.hoverBlue};
+          background-color: ${theme.primaryGrey};
           padding-bottom: 3px;
         }
       `}
