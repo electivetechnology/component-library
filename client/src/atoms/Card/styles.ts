@@ -18,6 +18,10 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   display: grid;
   border-radius: 16px;
   height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // Need this for header and footer
 
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
@@ -74,6 +78,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     props.noBorder &&
     `
       border: none;
+      box-shadow: none;
     `};
 `
 

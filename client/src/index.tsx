@@ -5,7 +5,7 @@ export {
   CloseButton,
   Checkbox,
   CsvDownloader,
-  CardContainer,
+  Card,
   Header,
   Toggle,
   Tooltip
