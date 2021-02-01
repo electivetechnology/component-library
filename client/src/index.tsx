@@ -6,7 +6,6 @@ export {
   Checkbox,
   CsvDownloader,
   Card,
-  ComponentCard,
   Header,
   Toggle,
   Tooltip
