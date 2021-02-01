@@ -9,11 +9,15 @@ type TextareaProps = {
 export const TextareaStyled = styled.textarea<TextareaProps>`
   border: none;
   width: 100%;
+  height: auto;
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   &:focus {
     outline: none;
+  }
+  &:hover {
+    border-bottom: 1px solid ${theme.grey};
   }
   ${(props) =>
     props.disabled &&
@@ -28,7 +32,10 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     `
     border: none;
     color: ${theme.white};
-    border-bottom: 1px solid ${theme.white};
+    border-bottom: 1px solid ${theme.grey};
     background-color: transparent;
+      &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
     `}
 `

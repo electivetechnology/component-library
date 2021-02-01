@@ -200,6 +200,9 @@ export const TextInputStyled = styled.input<TextInputProps>`
   &:focus {
     outline: none;
   }
+  &:hover {
+    border-bottom: 1px solid ${theme.grey};
+  }
   ${(props) =>
     props.disabled &&
     `
@@ -213,8 +216,11 @@ export const TextInputStyled = styled.input<TextInputProps>`
     `
     border: none;
     color: ${theme.white};
-    border-bottom: 1px solid ${theme.white};
+    border-bottom: 1px solid ${theme.grey};
     background-color: transparent;
+      &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
     `}
 `
 
