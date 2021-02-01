@@ -1,11 +1,8 @@
 import React from 'react'
-import CardContainer from 'atoms/Card/CardContainer'
-import ComponentCard from 'atoms/Card/ComponentCard'
-
-const setSeleted = () => {}
+import CardComponent from 'atoms/Card/CardComponent'
 
 const CardTemplate = (args: any) => {
-  return <ComponentCard {...args} />
+  return <CardComponent {...args} />
 }
 
 // Primary
@@ -37,8 +34,7 @@ Selected.args = {
   hover: false,
   footer: 'Footer',
   header: 'Label',
-  selected: true,
-  setSelected: setSeleted
+  selected: true
 }
 
 export const Hover: any = CardTemplate.bind({})
@@ -95,5 +91,5 @@ CardWithFullWidth.args = {
 
 export default {
   title: 'atoms/Card',
-  component: CardContainer
+  component: CardComponent
 }

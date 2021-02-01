@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import CardContainer from 'atoms/Card/CardContainer'
+import React from 'react'
 import {
   ComponentCardFooterStyled,
   CardBorderStyled,
-  ComponentCardHeaderStyled
+  ComponentCardHeaderStyled,
+  CardContainerStyled
 } from 'atoms/Card/styles'
 import Font from 'atoms/Font/Font'
 
@@ -17,13 +17,13 @@ type Props = {
   selected?: boolean
   fullHeight?: boolean
   noBorder?: boolean
-  setSelected?: any
+  onClick?: any
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
   children,
   selected,
-  setSelected,
+  onClick,
   theme = 'Primary',
   footer = false,
   header = false,
@@ -32,11 +32,8 @@ const ComponentCard: React.FC<Props> = ({
   fullHeight = false,
   noBorder = false
 }) => {
-  const onClick = () => {
-    setSelected(!selected)
-  }
   return (
-    <CardContainer
+    <CardContainerStyled
       hover={hover}
       theme={theme}
       selected={selected}
@@ -46,24 +43,24 @@ const ComponentCard: React.FC<Props> = ({
       fullHeight={fullHeight}
       noBorder={noBorder}
     >
-      {header ? (
+      {header && (
         <ComponentCardHeaderStyled>
           <div style={{ padding: '4px 8px 0' }}>
             <Font variant='h6'>{header}</Font>
           </div>
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
-      ) : null}
+      )}
       {children}
-      {footer ? (
+      {footer && (
         <ComponentCardFooterStyled>
           <CardBorderStyled />
           <div style={{ margin: '2px 8px' }}>
             <Font variant='caption'>{footer}</Font>
           </div>
         </ComponentCardFooterStyled>
-      ) : null}
-    </CardContainer>
+      )}
+    </CardContainerStyled>
   )
 }
 
