@@ -19,6 +19,9 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   &:hover {
     border-bottom: 1px solid ${theme.grey};
   }
+  &:active {
+    border-bottom: 1px solid ${theme.grey};
+  }
   ${(props) =>
     props.disabled &&
     `
@@ -35,6 +38,9 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     border-bottom: 1px solid ${theme.grey};
     background-color: transparent;
       &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
+      &:active {
         border-bottom: 1px solid ${theme.white};
       }
     `}

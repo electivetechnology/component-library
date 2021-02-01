@@ -182,10 +182,19 @@ export const FormTextContainerStyled = styled.div`
   width: 100%;
 `
 
-export const LabelStyled = styled.label`
+type LabelProps = {
+  darkMode: boolean
+}
+
+export const LabelStyled = styled.label<LabelProps>`
   color: ${theme.grey};
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  ${(props) =>
+    props.darkMode &&
+    `
+    color: ${theme.white};
+    `}
 `
 
 type TextInputProps = {
@@ -201,6 +210,9 @@ export const TextInputStyled = styled.input<TextInputProps>`
     outline: none;
   }
   &:hover {
+    border-bottom: 1px solid ${theme.grey};
+  }
+  &:active {
     border-bottom: 1px solid ${theme.grey};
   }
   ${(props) =>
@@ -219,6 +231,9 @@ export const TextInputStyled = styled.input<TextInputProps>`
     border-bottom: 1px solid ${theme.grey};
     background-color: transparent;
       &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
+      &:active {
         border-bottom: 1px solid ${theme.white};
       }
     `}
