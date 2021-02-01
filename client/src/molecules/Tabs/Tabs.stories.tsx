@@ -7,7 +7,6 @@ import TabPanel from 'molecules/Tabs/TabPanel'
 import { theme } from 'styles/theme'
 
 const onClick = () => console.log('onClick')
-const onHover = () => console.log('onHover')
 
 enum TabConst {
   ROLES = 'Roles',
