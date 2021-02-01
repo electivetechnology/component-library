@@ -3,7 +3,7 @@ import { CardContainerStyled } from 'atoms/Card/styles'
 
 type Props = {
   theme: string
-  onClick: any
+  onClick?: any
   hover?: boolean
   selected?: boolean
   padding?: boolean
