@@ -9,7 +9,7 @@ type TextareaProps = {
 export const TextareaStyled = styled.textarea<TextareaProps>`
   border: none;
   width: 100%;
-  height: auto;
+  height: auto !important;
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;

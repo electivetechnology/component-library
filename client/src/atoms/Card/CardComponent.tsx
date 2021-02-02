@@ -46,14 +46,14 @@ const ComponentCard: React.FC<Props> = ({
       {header && (
         <ComponentCardHeaderStyled>
           <div style={{ padding: '4px 8px 0' }}>
-            <Font variant='h6'>{header}</Font>
+            <Font variant='h4'>{header}</Font>
           </div>
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
       )}
       {children}
       {footer && (
-        <ComponentCardFooterStyled>
+        <ComponentCardFooterStyled padding={padding}>
           <CardBorderStyled />
           <div style={{ margin: '2px 8px' }}>
             <Font variant='caption'>{footer}</Font>

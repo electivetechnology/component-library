@@ -20,7 +20,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   height: max-content;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  position: relative;
   // Need this for header and footer
 
   overflow: -moz-scrollbars-none;
@@ -86,9 +86,19 @@ export const CardBorderStyled = styled.div`
   border: 1px solid ${theme.grayGeyser};
 `
 
+type ComponentCardFooterProps = {
+  padding?: boolean
+}
 // Component card
-export const ComponentCardFooterStyled = styled.div`
+export const ComponentCardFooterStyled = styled.div<ComponentCardFooterProps>`
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  ${(props) =>
+    props.padding &&
+    `
+      width: 86%;
+    `};
 `
 
 export const ComponentCardHeaderStyled = styled.div``

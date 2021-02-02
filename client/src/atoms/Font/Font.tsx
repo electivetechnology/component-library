@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { useStyles } from 'atoms/Font/styles'
+import { ThemeProvider } from '@material-ui/styles'
+import { appTheme } from 'styles/theme'
 
 type Props = {
   variant: any
@@ -37,17 +39,19 @@ const Font: FunctionComponent<Props> = ({
   })
 
   return (
-    <Typography
-      data-testid='Font'
-      variant={variant}
-      component={component}
-      gutterBottom={gutterBottom}
-      align={align}
-      inline={inline}
-      className={`${classes.component}`}
-    >
-      {children}
-    </Typography>
+    <ThemeProvider theme={appTheme}>
+      <Typography
+        data-testid='Font'
+        variant={variant}
+        component={component}
+        gutterBottom={gutterBottom}
+        align={align}
+        inline={inline}
+        className={`${classes.component}`}
+      >
+        {children}
+      </Typography>
+    </ThemeProvider>
   )
 }
 
