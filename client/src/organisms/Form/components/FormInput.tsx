@@ -13,7 +13,7 @@ import FormDownload from 'organisms/Form/components/FormDownload'
 import FormColourPicker from 'organisms/Form/components/FormColourPicker'
 import FormText from 'organisms/Form/components/FormText'
 import FormSelect from 'organisms/Form/components/FormSelect'
-// import FormPhone from 'organisms/Form/components/FormPhone'
+import FormPhone from 'organisms/Form/components/FormPhone'
 
 type Props = {
   label: string
@@ -68,7 +68,7 @@ const FormInput: FunctionComponent<Props> = ({
     >
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
-      {/*{type === 'phone' && <FormPhone />}*/}
+      {type === 'phone' && <FormPhone />}
       {type === 'colourPicker' && <FormColourPicker />}
 
       {affix && (
