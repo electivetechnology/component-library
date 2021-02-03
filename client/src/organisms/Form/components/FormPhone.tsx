@@ -23,7 +23,7 @@ const FormPhone: FunctionComponent = () => {
     disabled
   } = useContext(InputContext)
 
-  const { onBlur, darkMode = false } = useContext(FormContext)
+  const { onBlur, darkMode } = useContext(FormContext)
 
   const inputHook = useFormInput(name, inputValue)
 
