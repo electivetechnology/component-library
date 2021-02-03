@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({
   children,
   headerTheme = 'primary'
 }) => {
-  const [showSection, setShowSection] = useState(false)
+  const [showSection, setShowSection] = useState(true)
 
   const handleShowSection = () => {
     setShowSection(!showSection)
