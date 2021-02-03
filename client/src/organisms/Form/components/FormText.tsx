@@ -20,7 +20,7 @@ const FormText: FunctionComponent = () => {
     disabled
   } = useContext(InputContext)
 
-  const { onBlur, darkMode = false } = useContext(FormContext)
+  const { onBlur, darkMode } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
