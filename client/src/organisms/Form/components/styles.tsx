@@ -44,3 +44,19 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
       }
     `}
 `
+
+
+export const DateWrapperStyled = styled.div`
+  position: relative;
+  margin-top: 16px;
+`
+
+export const DateLabelStyled = styled.div`
+  position: absolute;
+  z-index: 0;
+  top: -7px;
+  background-color: ${theme.white};
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+`

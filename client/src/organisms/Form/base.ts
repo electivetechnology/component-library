@@ -57,7 +57,7 @@ export type FormContextType = {
   inputs: any
   statuses: any
   disableForm: boolean
-  darkMode?: boolean
+  darkMode: boolean
   outlineInputs?: boolean
 }
 
