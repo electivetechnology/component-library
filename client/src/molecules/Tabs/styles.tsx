@@ -8,7 +8,9 @@ export const TabBarStyled = styled.div`
 
 export const TabScrollStyled = styled.div`
   overflow-x: scroll;
-  display: grid;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   width: 100%;
   ::-webkit-scrollbar {
     display: none;
@@ -66,9 +68,11 @@ export const TabStyled = styled.div<TabProps>`
 
 export const TabsStyled = styled.div`
   overflow: hidden;
+  height: 100%;
 `
 
 // Tab Panel
 export const TabPanelStyled = styled.div`
   width: 100%;
+  height: 100%;
 `
