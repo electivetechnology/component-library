@@ -40,9 +40,7 @@ const renderTabs = (darkMode: boolean) => (
   </div>
 )
 
-const Template = (args: any) => (
-  <Tabs {...args} active={TabConst.ROLES} readOnly={true} />
-)
+const Template = (args: any) => <Tabs {...args} active={TabConst.ROLES} />
 
 // Default
 export const Default: any = Template.bind({})

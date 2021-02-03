@@ -67,3 +67,8 @@ export const TabStyled = styled.div<TabProps>`
 export const TabsStyled = styled.div`
   overflow: hidden;
 `
+
+// Tab Panel
+export const TabPanelStyled = styled.div`
+  width: 100%;
+`
