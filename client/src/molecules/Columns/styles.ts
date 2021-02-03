@@ -28,6 +28,7 @@ type ColumnStyledProps = {
   align: 'left' | 'right'
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
+  display: inline-flex;
   ${(props) =>
     props.align &&
     `
