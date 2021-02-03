@@ -45,6 +45,8 @@
     "immer": "6.0.x",
     "lodash": "4.17.x",
     "react": "17.0.x",
+    "react-phone-input-mui": "2.9.x",
+    "react-phone-input-2": "2.13.x",
     "react-csv-downloader": "1.8.x",
     "react-dom": "17.0.x",
     "react-redux": "7.2.x",
