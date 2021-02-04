@@ -45,7 +45,7 @@ const ComponentCard: React.FC<Props> = ({
     >
       {header && (
         <ComponentCardHeaderStyled>
-          <div style={{ padding: '4px 8px 0' }}>
+          <div style={{ padding: '12px 24px' }}>
             <Font variant='h4'>{header}</Font>
           </div>
           <CardBorderStyled />
