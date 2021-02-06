@@ -11,7 +11,6 @@ export const TabContainerStyled = styled.div`
 `
 
 export const TabScrollStyled = styled.div`
-  overflow-x: scroll;
   display: flex;
   width: 100%;
   ::-webkit-scrollbar {
