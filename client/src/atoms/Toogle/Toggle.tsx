@@ -36,7 +36,7 @@ const Toggle: FunctionComponent<Props> = ({
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>
-          <SwitchInputStyled onClick={onChange} />
+          <SwitchInputStyled onClick={disabled ? null : onChange} />
           <SwitchTextContainerStyled checked={isActive}>
             <SwitchTextStyled checked={isActive}>
               <Font
