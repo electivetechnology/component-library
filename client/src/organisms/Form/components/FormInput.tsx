@@ -67,11 +67,10 @@ const FormInput: FunctionComponent<Props> = ({
         outlined: applyOutline
       }}
     >
-
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
       {type === 'phone' && <FormPhone />}
-      {type === 'phone' && <FormDate />}
+      {type === 'date' && <FormDate />}
       {type === 'colourPicker' && <FormColourPicker />}
 
       {affix && (

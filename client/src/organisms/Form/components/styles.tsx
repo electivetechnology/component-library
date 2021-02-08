@@ -45,10 +45,9 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     `}
 `
 
-
 export const DateWrapperStyled = styled.div`
   position: relative;
-  margin-top: 16px;
+  margin-top: 8px;
 `
 
 export const DateLabelStyled = styled.div`

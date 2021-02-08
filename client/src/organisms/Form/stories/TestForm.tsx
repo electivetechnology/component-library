@@ -30,13 +30,13 @@ const TestForm: FC = () => {
   return (
     <Form handleUpdate={handleUpdate}>
       <FormInput
-        label='Text Input'
+        label='Phone'
         name='Text Input'
         value='some input'
         type='phone'
       />
       <FormInput
-        label='Text Input'
+        label='Date'
         name='Text Input'
         value='some input'
         type='date'
