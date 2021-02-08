@@ -27,8 +27,20 @@ const Toggle: FunctionComponent<Props> = ({
   label,
   activeLabel,
   inactiveLabel,
-  disabled
+  disabled = false
 }) => {
+  const fontColor = (disabled: boolean, isActive: boolean) => {
+    if (isActive && !disabled) {
+      return theme.primaryColorValencia
+    } else if (isActive && disabled) {
+      return theme.secondaryHover
+    } else if (!isActive && !disabled) {
+      return theme.primaryGrey
+    } else {
+      return theme.disabledTextGrey
+    }
+  }
+
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
@@ -37,19 +49,17 @@ const Toggle: FunctionComponent<Props> = ({
       <SwitchContainerStyled>
         <SwitchStyled>
           <SwitchInputStyled onClick={disabled ? null : onChange} />
-          <SwitchTextContainerStyled checked={isActive}>
+          <SwitchTextContainerStyled checked={isActive} disabled={disabled}>
             <SwitchTextStyled checked={isActive}>
-              <Font
-                variant='body2'
-                color={
-                  isActive ? theme.primaryColorValencia : theme.primaryGrey
-                }
-              >
+              <Font variant='body2' color={fontColor(disabled, isActive)}>
                 {isActive ? activeLabel : inactiveLabel}
               </Font>
             </SwitchTextStyled>
           </SwitchTextContainerStyled>
-          <SwitchHandleStyled checked={isActive}></SwitchHandleStyled>
+          <SwitchHandleStyled
+            checked={isActive}
+            disabled={disabled}
+          ></SwitchHandleStyled>
         </SwitchStyled>
       </SwitchContainerStyled>
     </ToggleContainerStyled>
