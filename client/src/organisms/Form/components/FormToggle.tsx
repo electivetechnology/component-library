@@ -1,18 +1,18 @@
 import React, { FunctionComponent, memo, useContext, useState } from 'react'
-import { Checkbox } from 'atoms'
+import { Toggle } from 'atoms'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
 
-const FormCheckbox: FunctionComponent = () => {
-  const { inputValue, name, label, disabled } = useContext(InputContext)
+const FormToggle: FunctionComponent = () => {
+  const { inputValue, name, label, disabled, options } = useContext(InputContext)
 
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 
   const [isActive, setActive] = useState(inputValue)
 
-  const handleChange = (active: any) => {
-    setActive(active)
-    updateInput(name, active)
+  const handleChange = () => {
+    setActive(!inputValue)
+    updateInput(name, !inputValue)
   }
 
   useEffectAfterMount(() => {
@@ -20,15 +20,15 @@ const FormCheckbox: FunctionComponent = () => {
   }, [isActive])
 
   return (
-    <Checkbox
-      value={inputValue ? inputValue : false}
+    <Toggle
+      isActive={inputValue ? inputValue : false}
       label={label}
       disabled={disabled}
-      onBlur={undefined}
-      fontSize='12px'
       onChange={handleChange}
+      activeLabel={options?.activeLabel}
+      inactiveLabel={options?.inactiveLabel}
     />
   )
 }
 
-export default memo(FormCheckbox)
+export default memo(FormToggle)

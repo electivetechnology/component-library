@@ -28,6 +28,8 @@ export interface OptionType {
   isMulti?: boolean
   isDynamic?: boolean
   copy?: boolean
+  activeLabel?: string
+  inactiveLabel?: string
 }
 
 export type HandleStatusType = (

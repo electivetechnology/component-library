@@ -14,21 +14,21 @@ import {
 
 type Props = {
   isActive: boolean
-  setIsActive: any
+  onChange: any
   label?: string
   activeLabel?: string
-  deactiveLabel?: string
+  inactiveLabel?: string
+  disabled?: boolean
 }
 
 const Toggle: FunctionComponent<Props> = ({
   isActive,
-  setIsActive,
+  onChange,
   label,
   activeLabel,
-  deactiveLabel
+  inactiveLabel,
+  disabled
 }) => {
-  const onToggle = () => setIsActive(!isActive)
-
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
@@ -36,7 +36,7 @@ const Toggle: FunctionComponent<Props> = ({
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>
-          <SwitchInputStyled onClick={onToggle} />
+          <SwitchInputStyled onClick={onChange} />
           <SwitchTextContainerStyled checked={isActive}>
             <SwitchTextStyled checked={isActive}>
               <Font
@@ -45,7 +45,7 @@ const Toggle: FunctionComponent<Props> = ({
                   isActive ? theme.primaryColorValencia : theme.primaryGrey
                 }
               >
-                {isActive ? activeLabel : deactiveLabel}
+                {isActive ? activeLabel : inactiveLabel}
               </Font>
             </SwitchTextStyled>
           </SwitchTextContainerStyled>
