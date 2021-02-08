@@ -27,11 +27,13 @@ export const SwitchInputStyled = styled.input`
 
 type SwitchTextProp = {
   checked?: boolean
+  disabled: boolean
 }
 
 export const SwitchTextContainerStyled = styled.span<SwitchTextProp>`
   height: 24px;
-  width: 56px;
+  min-width: 56px;
+  width: max-content;
   border-radius: 50px;
   box-sizing: border-box;
   display: flex;
@@ -46,6 +48,18 @@ export const SwitchTextContainerStyled = styled.span<SwitchTextProp>`
     `
       border: 1px solid ${theme.primaryColorValencia};
     `};
+  ${(props) =>
+    props.disabled &&
+    !props.checked &&
+    `
+      border: 1px solid ${theme.dividerGrey};
+    `};
+  ${(props) =>
+    props.disabled &&
+    props.checked &&
+    `
+      border: 1px solid ${theme.secondaryHover};
+    `};
 `
 
 type SwitchTextStyledProp = {
@@ -54,6 +68,7 @@ type SwitchTextStyledProp = {
 
 export const SwitchTextStyled = styled.div<SwitchTextStyledProp>`
   margin-left: auto;
+  padding-left: 18px;
   ${(props) =>
     props.checked &&
     `
@@ -63,6 +78,7 @@ export const SwitchTextStyled = styled.div<SwitchTextStyledProp>`
 
 type SwitchHandleProp = {
   checked: boolean
+  disabled: boolean
 }
 
 export const SwitchHandleStyled = styled.span<SwitchHandleProp>`
@@ -82,5 +98,17 @@ export const SwitchHandleStyled = styled.span<SwitchHandleProp>`
     `
       background-color: ${theme.primaryColorValencia};
       transform: translateX(32px);
+    `};
+  ${(props) =>
+    props.disabled &&
+    !props.checked &&
+    `
+      background-color: ${theme.dividerGrey};
+    `};
+  ${(props) =>
+    props.disabled &&
+    props.checked &&
+    `
+      background-color: ${theme.secondaryHover};
     `};
 `
