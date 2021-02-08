@@ -20,32 +20,3 @@ export const CheckboxWithStyled = {
   },
   checked: {}
 }
-
-
-export const ToggleStyled:any = {
-  root: {
-    width: '48px',
-    height: '32px',
-    position: 'relative',
-    top: '2px',
-    '@media screen and (min-width: 750px)': {
-      top: '21px',
-    },
-  },
-  switchBase: {
-    color: theme.Gray,
-    '&$checked': {
-      color: theme.primaryColorValencia,
-    },
-    '&$checked + $track': {
-      backgroundColor: theme.primaryColorValencia,
-    },
-  },
-  thumb: {
-    height: '14px',
-    width: '14px',
-  },
-  checked: {},
-  track: {},
-}
-
