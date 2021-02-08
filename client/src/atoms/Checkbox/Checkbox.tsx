@@ -9,10 +9,13 @@ import { withStyles } from '@material-ui/core/styles'
 import {
   CheckboxContainerStyled,
   CheckboxLabelStyled,
-  CheckboxWithStyled
+  CheckboxWithStyled,
+  ToggleStyled
 } from 'atoms/Checkbox/styles'
+import Switch from '@material-ui/core/Switch'
 
 type Props = {
+  toggle: boolean
   label?: string
   fontSize?: string
   onChange: any
@@ -25,7 +28,10 @@ const CheckboxStyled = withStyles(
   CheckboxWithStyled
 )((props: CheckboxProps) => <MaterialCheckbox color='default' {...props} />)
 
+const Toggle = withStyles(ToggleStyled)(Switch)
+
 const Checkbox: FunctionComponent<Props> = ({
+  toggle = false,
   label,
   onChange,
   onBlur,
@@ -45,16 +51,20 @@ const Checkbox: FunctionComponent<Props> = ({
 
   return (
     <CheckboxContainerStyled data-testid='Checkbox'>
-      <CheckboxStyled
-        id={`label-${label}`}
-        checked={isChecked}
-        onChange={handleChange}
-        inputProps={{
-          'aria-label': 'primary checkbox'
-        }}
-        onBlur={onBlur}
-        disabled={disabled}
-      />
+      {toggle ? (
+        <Toggle checked={isChecked} onChange={handleChange} name='FormToggle' />
+      ) : (
+        <CheckboxStyled
+          id={`label-${label}`}
+          checked={isChecked}
+          onChange={handleChange}
+          inputProps={{
+            'aria-label': 'primary checkbox'
+          }}
+          onBlur={onBlur}
+          disabled={disabled}
+        />
+      )}
       <CheckboxLabelStyled>
         <label htmlFor={`label-${label}`} style={{ fontSize }}>
           {label}

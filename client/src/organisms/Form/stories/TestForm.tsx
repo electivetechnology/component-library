@@ -30,6 +30,18 @@ const TestForm: FC = () => {
   return (
     <Form handleUpdate={handleUpdate}>
       <FormInput
+        label='CheckBox'
+        name='checkbox'
+        value={false}
+        type='checkbox'
+      />
+      <FormInput
+        label='Toggle'
+        name='toggle'
+        value={true}
+        type='toggle'
+      />
+      <FormInput
         label='Text Input'
         name='Text Input'
         value='some input'
