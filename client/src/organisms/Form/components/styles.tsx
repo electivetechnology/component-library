@@ -9,7 +9,6 @@ type TextareaProps = {
 export const TextareaStyled = styled.textarea<TextareaProps>`
   border: none;
   width: 100%;
-  height: auto !important;
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
@@ -46,10 +45,9 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     `}
 `
 
-
 export const DateWrapperStyled = styled.div`
   position: relative;
-  margin-top: 16px;
+  margin-top: 8px;
 `
 
 export const DateLabelStyled = styled.div`

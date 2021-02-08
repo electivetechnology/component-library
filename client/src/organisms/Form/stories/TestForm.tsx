@@ -40,7 +40,7 @@ const TestForm: FC = () => {
         name='toggle'
         value={false}
         type='toggle'
-        options={{inactiveLabel: 'inactive', activeLabel: 'active'}}
+        options={{ inactiveLabel: 'inactive', activeLabel: 'active' }}
       />
       <FormInput
         label='Text Input'
@@ -49,7 +49,7 @@ const TestForm: FC = () => {
         type='phone'
       />
       <FormInput
-        label='Text Input'
+        label='Date'
         name='Text Input'
         value='some input'
         type='date'
