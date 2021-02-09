@@ -3,7 +3,10 @@ import Toggle from './Toggle'
 
 const TooltipTemplate = (args: any) => {
   const [isToggle, setIsToggled] = useState(false)
-  return <Toggle isActive={isToggle} onChange={setIsToggled} {...args} />
+  const onChange = () => {
+    setIsToggled(!isToggle)
+  }
+  return <Toggle {...args}  isActive={isToggle} onChange={onChange} />
 }
 
 // Default
