@@ -1,8 +1,13 @@
 import React, { useContext, FC, useEffect } from 'react'
 import { NavContext } from 'molecules/Columns/base'
-import { iconStyle, ColumnStyled } from 'molecules/Columns/styles'
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined'
+import {
+  iconStyle,
+  ColumnStyled,
+  ColumnBorderStyled,
+  iconLeftStyle
+} from 'molecules/Columns/styles'
 import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 
 type Props = {
   isClosable?: boolean
@@ -53,8 +58,9 @@ const Column: FC<Props> = ({
 
   return (
     <ColumnStyled columnWidth={displayWidth} isHidden={isHidden} align={align}>
+      <ColumnBorderStyled />
       {isClosable && !isHidden && (
-        <CloseOutlinedIcon style={iconStyle} onClick={onClose} />
+        <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
       )}
       {isHidden && (
         <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />

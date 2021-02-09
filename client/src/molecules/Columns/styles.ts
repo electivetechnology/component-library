@@ -7,6 +7,13 @@ export const iconStyle = {
   width: '18px'
 }
 
+export const iconLeftStyle = {
+  cursor: 'pointer',
+  fill: `${theme.grey}`,
+  width: '12px',
+  paddingLeft: '4px'
+}
+
 type ColumnsStyledProps = {
   width?: number
 }
@@ -35,11 +42,6 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
       align-content: ${props.align};
     `};
   ${(props) =>
-    props.align &&
-    `
-      align-content: ${props.align};
-    `};
-  ${(props) =>
     props.columnWidth &&
     `
       width: ${props.columnWidth}px;
@@ -49,4 +51,11 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
     `
       width: 20px;
     `};
+`
+
+export const ColumnBorderStyled = styled.div`
+  width: 16px;
+  background-color: ${theme.grayAthens};
+  height: 100%;
+  box-shadow: 3px 0px 3px ${theme.borderGrey};
 `

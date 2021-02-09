@@ -6,8 +6,17 @@ const Template = (args: any) => <Columns {...args} />
 
 const renderColumns = () => (
   <Columns width={1000}>
-    <Column fixedWidth={500}>
-      <div>column 1</div>
+    <Column fixedWidth={500} align={'left'}>
+      <div>
+        <div>column 1</div>
+        <div>column 1</div>
+        <div>column 1</div>
+        <div>column 1</div>
+        <div>column 1</div>
+        <div>column 1</div>
+        <div>column 1</div>
+        <div>column 1</div>
+      </div>
     </Column>
     <Column colspan={2} align={'right'}>
       <div>column 2</div>
