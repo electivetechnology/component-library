@@ -14,20 +14,32 @@ import {
 
 type Props = {
   isActive: boolean
-  setIsActive: any
+  onChange: any
   label?: string
   activeLabel?: string
-  deactiveLabel?: string
+  inactiveLabel?: string
+  disabled?: boolean
 }
 
 const Toggle: FunctionComponent<Props> = ({
   isActive,
-  setIsActive,
+  onChange,
   label,
   activeLabel,
-  deactiveLabel
+  inactiveLabel,
+  disabled = false
 }) => {
-  const onToggle = () => setIsActive(!isActive)
+  const fontColor = (disabled: boolean, isActive: boolean) => {
+    if (isActive && !disabled) {
+      return theme.primaryColorValencia
+    } else if (isActive && disabled) {
+      return theme.secondaryHover
+    } else if (!isActive && !disabled) {
+      return theme.primaryGrey
+    } else {
+      return theme.disabledTextGrey
+    }
+  }
 
   return (
     <ToggleContainerStyled>
@@ -36,20 +48,18 @@ const Toggle: FunctionComponent<Props> = ({
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>
-          <SwitchInputStyled onClick={onToggle} />
-          <SwitchTextContainerStyled checked={isActive}>
+          <SwitchInputStyled onClick={disabled ? null : onChange} />
+          <SwitchTextContainerStyled checked={isActive} disabled={disabled}>
             <SwitchTextStyled checked={isActive}>
-              <Font
-                variant='body2'
-                color={
-                  isActive ? theme.primaryColorValencia : theme.primaryGrey
-                }
-              >
-                {isActive ? activeLabel : deactiveLabel}
+              <Font variant='body2' color={fontColor(disabled, isActive)}>
+                {isActive ? activeLabel : inactiveLabel}
               </Font>
             </SwitchTextStyled>
           </SwitchTextContainerStyled>
-          <SwitchHandleStyled checked={isActive}></SwitchHandleStyled>
+          <SwitchHandleStyled
+            checked={isActive}
+            disabled={disabled}
+          ></SwitchHandleStyled>
         </SwitchStyled>
       </SwitchContainerStyled>
     </ToggleContainerStyled>

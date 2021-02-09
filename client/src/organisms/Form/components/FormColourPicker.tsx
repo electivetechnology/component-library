@@ -12,11 +12,9 @@ import { Font } from 'atoms'
 import { InputContext, FormContext } from 'organisms/Form/base'
 
 const FormColourPicker: FunctionComponent = () => {
-  const { name, label, disabled } = useContext(InputContext)
+  const { inputValue, name, label, disabled } = useContext(InputContext)
 
   const { updateInput, onBlur, inputs } = useContext(FormContext)
-
-  const inputValue = inputs[name] ? inputs[name] : null
 
   const [chosenColor, setChosenColor] = useState('')
   const [showPicker, setShowPicker] = useState(false)

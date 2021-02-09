@@ -30,6 +30,31 @@ const TestForm: FC = () => {
   return (
     <Form handleUpdate={handleUpdate}>
       <FormInput
+        label='CheckBox'
+        name='checkbox'
+        value={false}
+        type='checkbox'
+      />
+      <FormInput
+        label='Toggle'
+        name='toggle'
+        value={false}
+        type='toggle'
+        options={{ inactiveLabel: 'inactive', activeLabel: 'active' }}
+      />
+      <FormInput
+        label='Text Input'
+        name='Text Input'
+        value='some input'
+        type='phone'
+      />
+      <FormInput
+        label='Date'
+        name='Text Input'
+        value='some input'
+        type='date'
+      />
+      <FormInput
         label='Text Area Input'
         name='Text Area Input'
         value='some input textarea'

@@ -8,6 +8,7 @@ type CardContainerProps = {
   padding?: boolean
   fullWidth?: boolean
   fullHeight?: boolean
+  noBorder?: boolean
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
@@ -17,6 +18,10 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   display: grid;
   border-radius: 16px;
   height: max-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // Need this for header and footer
 
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
@@ -24,6 +29,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ::-webkit-scrollbar {
     display: none;
   }
+
   ${(props) =>
     props.fullHeight &&
     `
@@ -68,15 +74,31 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
       border: 1px solid ${theme.grayComment};
       box-shadow: none;
     `};
+  ${(props) =>
+    props.noBorder &&
+    `
+      border: none;
+      box-shadow: none;
+    `};
 `
 
 export const CardBorderStyled = styled.div`
   border: 1px solid ${theme.grayGeyser};
 `
 
+type ComponentCardFooterProps = {
+  padding?: boolean
+}
 // Component card
-export const ComponentCardFooterStyled = styled.div`
+export const ComponentCardFooterStyled = styled.div<ComponentCardFooterProps>`
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  ${(props) =>
+    props.padding &&
+    `
+      width: 86%;
+    `};
 `
 
 export const ComponentCardHeaderStyled = styled.div``

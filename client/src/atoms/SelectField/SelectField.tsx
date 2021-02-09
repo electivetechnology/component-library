@@ -1,7 +1,5 @@
 import React, { FunctionComponent } from 'react'
 import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
-import { theme } from 'styles/theme'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { useInputStyles, useLabelStyles } from 'atoms/SelectField/style'
 
@@ -27,7 +25,7 @@ const SelectField: FunctionComponent<Props> = ({
   outlined = true
 }) => {
   const labelClasses = useLabelStyles({ darkMode, outlined })
-  const inputClasses = useInputStyles({ darkMode })
+  const inputClasses = useInputStyles({ darkMode, outlined })
 
   return (
     <Autocomplete

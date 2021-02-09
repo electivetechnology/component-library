@@ -5,7 +5,7 @@ export {
   CloseButton,
   Checkbox,
   CsvDownloader,
-  CardContainer,
+  Card,
   Header,
   Toggle,
   Tooltip
@@ -24,7 +24,7 @@ export {
   resetPopUp,
   popUpSchema
 } from 'molecules/PopUp/reducer'
-export { Tabs, Tab } from 'molecules/Tabs'
+export { Tabs, Tab, TabPanel } from 'molecules/Tabs'
 
 // ORGANISMS
 export { Form, FormInput } from 'organisms/Form'

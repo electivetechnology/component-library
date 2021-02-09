@@ -3,7 +3,6 @@ import { TabsStyled, TabScrollStyled } from 'molecules/Tabs/styles'
 
 export const tabContext = React.createContext({
   tabsActive: '',
-  tabsReadOnly: false,
   setTabsActive: null as any
 })
 
@@ -11,13 +10,12 @@ const { Provider } = tabContext
 
 type Props = {
   active?: string
-  readOnly?: boolean
 }
 
-const Tabs: React.FC<Props> = ({ children, active = '', readOnly = false }) => {
+const Tabs: React.FC<Props> = ({ children, active = '' }) => {
   const [tabsActive, setTabsActive] = useState(active)
   return (
-    <Provider value={{ tabsActive, setTabsActive, tabsReadOnly: readOnly }}>
+    <Provider value={{ tabsActive, setTabsActive }}>
       <TabsStyled>
         <TabScrollStyled>{children}</TabScrollStyled>
       </TabsStyled>

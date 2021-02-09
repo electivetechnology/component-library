@@ -15,6 +15,12 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   &:focus {
     outline: none;
   }
+  &:hover {
+    border-bottom: 1px solid ${theme.grey};
+  }
+  &:active {
+    border-bottom: 1px solid ${theme.grey};
+  }
   ${(props) =>
     props.disabled &&
     `
@@ -28,7 +34,28 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     `
     border: none;
     color: ${theme.white};
-    border-bottom: 1px solid ${theme.white};
+    border-bottom: 1px solid ${theme.grey};
     background-color: transparent;
+      &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
+      &:active {
+        border-bottom: 1px solid ${theme.white};
+      }
     `}
+`
+
+export const DateWrapperStyled = styled.div`
+  position: relative;
+  margin-top: 8px;
+`
+
+export const DateLabelStyled = styled.div`
+  position: absolute;
+  z-index: 0;
+  top: -7px;
+  background-color: ${theme.white};
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 `

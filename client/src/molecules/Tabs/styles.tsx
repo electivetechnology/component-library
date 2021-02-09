@@ -6,12 +6,10 @@ export const TabBarStyled = styled.div`
   display: inline-flex;
 `
 
-export const TabContainerStyled = styled.div`
-  display: grid;
-`
-
 export const TabScrollStyled = styled.div`
   display: flex;
+  flex-flow: column;
+  height: 100%;
   width: 100%;
   ::-webkit-scrollbar {
     display: none;
@@ -20,6 +18,7 @@ export const TabScrollStyled = styled.div`
 
 type TabProps = {
   active: string
+  darkMode: boolean
 }
 
 export const TabStyled = styled.div<TabProps>`
@@ -44,8 +43,35 @@ export const TabStyled = styled.div<TabProps>`
             padding-bottom: 0;
           }
       `}
+  ${(props) =>
+    props.darkMode &&
+    `
+        color: ${theme.white};
+        &:hover {
+          background-color: ${theme.primaryGrey};
+          padding-bottom: 3px;
+        }
+      `}
+  ${(props) =>
+    props.active &&
+    props.active === 'active' &&
+    props.darkMode &&
+    `
+          border-bottom: 3px solid ${theme.white};
+          &:hover {
+            background-color: unset;
+            padding-bottom: 0;
+          }
+      `}
 `
 
 export const TabsStyled = styled.div`
   overflow: hidden;
+  height: 100%;
+`
+
+// Tab Panel
+export const TabPanelStyled = styled.div`
+  width: 100%;
+  height: 100%;
 `
