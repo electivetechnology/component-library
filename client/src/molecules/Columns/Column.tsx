@@ -4,7 +4,8 @@ import {
   iconStyle,
   ColumnStyled,
   ColumnBorderStyled,
-  iconLeftStyle
+  iconLeftStyle,
+  SideColumnStyled
 } from 'molecules/Columns/styles'
 import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
@@ -17,6 +18,8 @@ type Props = {
   fixedWidth?: number
   handleClose?: any
   align: 'left' | 'right'
+  backgroundColor?: string
+  divider: boolean
 }
 
 const Column: FC<Props> = ({
@@ -27,7 +30,9 @@ const Column: FC<Props> = ({
   addColumn,
   columnIndex,
   handleClose,
-  align = 'right'
+  backgroundColor,
+  align = 'right',
+  divider = true
 }) => {
   const { colWidth, columns } = useContext(NavContext)
 
@@ -57,14 +62,21 @@ const Column: FC<Props> = ({
   const displayWidth = columnExists && columnExists.display ? width : 0
 
   return (
-    <ColumnStyled columnWidth={displayWidth} isHidden={isHidden} align={align}>
-      <ColumnBorderStyled />
-      {isClosable && !isHidden && (
-        <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
-      )}
-      {isHidden && (
-        <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
-      )}
+    <ColumnStyled
+      columnWidth={displayWidth}
+      isHidden={isHidden}
+      align={align}
+      backgroundColor={backgroundColor}
+    >
+      <SideColumnStyled>
+        {divider && <ColumnBorderStyled />}
+        {isClosable && !isHidden && (
+          <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
+        )}
+        {isHidden && (
+          <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
+        )}
+      </SideColumnStyled>
       {!isHidden && children}
     </ColumnStyled>
   )

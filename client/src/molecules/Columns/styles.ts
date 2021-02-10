@@ -18,8 +18,14 @@ type ColumnsStyledProps = {
   width?: number
 }
 export const ColumnsStyled = styled.div<ColumnsStyledProps>`
-  display: block;
+  display: grid;
+  grid-template-rows: 50%;
+  grid-gap: 16px;
+  padding-right: 8px;
+  width: 100%;
   @media screen and (min-width: 750px) {
+    grid-template-rows: unset%;
+    grid-gap: unset;
     display: flex;
   }
   ${(props) =>
@@ -33,19 +39,30 @@ type ColumnStyledProps = {
   columnWidth: number
   isHidden: boolean
   align: 'left' | 'right'
+  backgroundColor?: string
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
   display: inline-flex;
+  width: auto;
+  z-index: 100;
+  @media screen and (min-width: 750px) {
+    width: unset;
+    ${(props) =>
+      props.columnWidth &&
+      `
+        width: ${props.columnWidth}px;
+      `};
+    ${(props) =>
+      props.backgroundColor &&
+      `
+        background-color: ${props.backgroundColor};
+      `};
+  }
   ${(props) =>
     props.align &&
     `
       align-content: ${props.align};
-    `};
-  ${(props) =>
-    props.columnWidth &&
-    `
-      width: ${props.columnWidth}px;
-    `};
+    `}
   ${(props) =>
     props.isHidden &&
     `
@@ -54,8 +71,16 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
 `
 
 export const ColumnBorderStyled = styled.div`
-  width: 16px;
-  background-color: ${theme.grayAthens};
-  height: 100%;
-  box-shadow: 3px 0px 3px ${theme.borderGrey};
+  display: none;
+  @media screen and (min-width: 750px) {
+    display: block;
+    width: 16px;
+    background-color: ${theme.grayAthens};
+    height: 100%;
+    box-shadow: 3px 0px 3px ${theme.borderGrey};
+  }
+`
+
+export const SideColumnStyled = styled.div`
+  display: inlnie-flex;
 `
