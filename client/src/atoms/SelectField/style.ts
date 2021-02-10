@@ -10,6 +10,10 @@ export const AutoCompleteContainerStyled = styled.div`
   height: 100px;
 `
 
+export const SelectFieldStyled = styled.div`
+  padding-top: 24px;
+`
+
 export const inputBorder = (outlined: boolean, darkMode: boolean) => {
   let borderColour = darkMode ? theme.grey : theme.dividerGrey
   return outlined ? `2px solid ${borderColour}` : 'none'
@@ -44,6 +48,12 @@ export const useInputStyles = makeStyles({
       borderBottom: inputBorder(props.outlined, props.darkMode)
     },
     '&:hover:not(.Mui-disabled):before': {
+      borderBottom: inputBorderHover(props.outlined, props.darkMode)
+    },
+    '&:focus': {
+      borderBottom: inputBorderHover(props.outlined, props.darkMode)
+    },
+    '&:active': {
       borderBottom: inputBorderHover(props.outlined, props.darkMode)
     }
   }),
