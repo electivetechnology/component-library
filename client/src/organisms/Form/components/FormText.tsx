@@ -29,38 +29,36 @@ const FormText: FunctionComponent = () => {
   }
 
   return (
-    <Fragment>
-      <FormTextContainerStyled data-testid='FormText'>
-        {value ? (
-          <LabelStyled darkMode={darkMode} htmlFor={name}>
-            {label}
-          </LabelStyled>
-        ) : null}
-        {options?.multiline ? (
-          <FormTextArea
-            darkMode={darkMode}
-            name={name}
-            onChange={onChange}
-            handleBlur={handleBlur}
-            value={value}
-            placeholder={value ? '' : label}
-            disabled={disabled}
-          />
-        ) : (
-          <TextInputStyled
-            darkMode={darkMode}
-            id={name}
-            onChange={onChange}
-            onBlur={handleBlur}
-            type={type}
-            value={value}
-            placeholder={value ? '' : label}
-            disabled={disabled}
-          />
-        )}
-        {options?.copy && <FormCopy value={value} />}
-      </FormTextContainerStyled>
-    </Fragment>
+    <FormTextContainerStyled data-testid='FormText'>
+      {value ? (
+        <LabelStyled darkMode={darkMode} htmlFor={name}>
+          {label}
+        </LabelStyled>
+      ) : null}
+      {options?.multiline ? (
+        <FormTextArea
+          darkMode={darkMode}
+          name={name}
+          onChange={onChange}
+          handleBlur={handleBlur}
+          value={value}
+          placeholder={value ? '' : label}
+          disabled={disabled}
+        />
+      ) : (
+        <TextInputStyled
+          darkMode={darkMode}
+          id={name}
+          onChange={onChange}
+          onBlur={handleBlur}
+          type={type}
+          value={value}
+          placeholder={value ? '' : label}
+          disabled={disabled}
+        />
+      )}
+      {options?.copy && <FormCopy value={value} />}
+    </FormTextContainerStyled>
   )
 }
 

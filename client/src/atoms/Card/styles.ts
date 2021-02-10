@@ -39,7 +39,6 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ${(props) =>
     props.fullWidth &&
     `
-      overflow: scroll;
       width: 100%;
     `};
   ${(props) =>

@@ -1,7 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
-import { useInputStyles, useLabelStyles } from 'atoms/SelectField/style'
+import {
+  useInputStyles,
+  useLabelStyles,
+  SelectFieldStyled
+} from 'atoms/SelectField/style'
 
 type Props = {
   label?: string
@@ -28,29 +32,31 @@ const SelectField: FunctionComponent<Props> = ({
   const inputClasses = useInputStyles({ darkMode, outlined })
 
   return (
-    <Autocomplete
-      value={value}
-      options={options}
-      onChange={onChange}
-      classes={inputClasses}
-      disabled={disabled}
-      noOptionsText={noOptionsMessage}
-      getOptionLabel={(option: any) => option.label}
-      renderInput={(params: any) => (
-        <TextField
-          {...params}
-          variant='standard'
-          label={label}
-          fullWidth
-          InputLabelProps={{
-            classes: {
-              root: labelClasses.label
-            }
-          }}
-        />
-      )}
-      disableClearable={true}
-    />
+    <SelectFieldStyled>
+      <Autocomplete
+        value={value}
+        options={options}
+        onChange={onChange}
+        classes={inputClasses}
+        disabled={disabled}
+        noOptionsText={noOptionsMessage}
+        getOptionLabel={(option: any) => option.label}
+        renderInput={(params: any) => (
+          <TextField
+            {...params}
+            variant='standard'
+            label={label}
+            fullWidth
+            InputLabelProps={{
+              classes: {
+                root: labelClasses.label
+              }
+            }}
+          />
+        )}
+        disableClearable={true}
+      />
+    </SelectFieldStyled>
   )
 }
 
