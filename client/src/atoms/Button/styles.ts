@@ -43,6 +43,7 @@ export const Wrapper = styled.div<WrapperProps>`
       align-content: center;
       padding: 0 8px 0 0;
       grid-template-columns: 30px 1fr;
+      width: max-content;
   `};
 `
 
