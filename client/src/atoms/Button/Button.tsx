@@ -20,7 +20,7 @@ const Button: React.FC<Props> = ({
 
   const handleClick = (event: any) => {
     onClick(event)
-    setRedirect(true)
+    href && setRedirect(true)
   }
 
   return (
