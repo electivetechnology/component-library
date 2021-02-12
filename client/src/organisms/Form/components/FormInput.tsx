@@ -17,6 +17,7 @@ import FormPhone from 'organisms/Form/components/FormPhone'
 import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 type Props = {
   label: string
@@ -69,6 +70,7 @@ const FormInput: FunctionComponent<Props> = ({
         outlined: applyOutline
       }}
     >
+
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
       {type === 'phone' && <FormPhone />}
@@ -76,6 +78,8 @@ const FormInput: FunctionComponent<Props> = ({
       {type === 'colourPicker' && <FormColourPicker />}
       {type === 'checkbox' && <FormCheckbox />}
       {type === 'toggle' && <FormToggle />}
+
+      <FormStatus/>
 
       {affix && (
         <AffixStyled>

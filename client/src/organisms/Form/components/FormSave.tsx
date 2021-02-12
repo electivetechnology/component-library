@@ -5,6 +5,7 @@ import { FormContext } from 'organisms/Form/base'
 import isNull from 'lodash/isNull'
 import isUndefined from 'lodash/isUndefined'
 import isEmpty from 'lodash/isEmpty'
+import { Button } from 'atoms'
 
 interface Props {
   label: string
@@ -12,17 +13,21 @@ interface Props {
   icon?: ReactElement<SvgIconProps>
 }
 const FormSave: FunctionComponent<Props> = ({ label, handleSave, icon }) => {
-  const { inputs } = useContext(FormContext)
+  const { inputs, addStatus } = useContext(FormContext)
 
   const handleAction = () => {
     const hasEmpty = Object.values(inputs).find((input: any) => {
       return isEmpty(input) || isNull(input)
     })
 
-    handleSave(isUndefined(hasEmpty) ? inputs : false)
+    const handleStatus = (name:string, statusType: any, message: any) => {
+      addStatus(statusType, name, message)
+    }
+
+    handleSave(isUndefined(hasEmpty) ? inputs : false, handleStatus)
   }
 
-  return <FormAction label={label} handleAction={handleAction} icon={icon} />
+  return <Button label={label} onClick={handleAction} icon={icon} theme='primary'/>
 }
 
 export default FormSave
