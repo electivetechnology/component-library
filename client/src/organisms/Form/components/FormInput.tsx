@@ -45,9 +45,13 @@ const FormInput: FunctionComponent<Props> = ({
   outlined,
   disabled
 }) => {
-  const { updateInput, disableForm, outlineInputs, inputs } = useContext(
-    FormContext
-  )
+  const {
+    updateInput,
+    disableForm,
+    outlineInputs,
+    inputs,
+    statuses
+  } = useContext(FormContext)
 
   useEffect(() => {
     updateInput(name, value)
@@ -67,10 +71,10 @@ const FormInput: FunctionComponent<Props> = ({
         type,
         options,
         disabled: disabled || disableForm,
-        outlined: applyOutline
+        outlined: applyOutline,
+        status: statuses && statuses[name] && statuses[name]
       }}
     >
-
       {['text', 'number'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
       {type === 'phone' && <FormPhone />}
@@ -79,7 +83,7 @@ const FormInput: FunctionComponent<Props> = ({
       {type === 'checkbox' && <FormCheckbox />}
       {type === 'toggle' && <FormToggle />}
 
-      <FormStatus/>
+      <FormStatus />
 
       {affix && (
         <AffixStyled>

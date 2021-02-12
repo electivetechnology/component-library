@@ -1,7 +1,7 @@
 import { useContext, useReducer, useState } from 'react'
 import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
-import { FormContext, StatusType } from 'organisms/Form/base'
+import { FormContext, StatusTypeType } from 'organisms/Form/base'
 
 export enum InputsConst {
   UPDATE = 'UPDATE'
@@ -81,8 +81,12 @@ export const useInputStatus = () => {
     {} as any
   )
 
-  const addStatus = (statusType : StatusType, name: string, message?: string) => {
-    dispatch({ type: StatusConst.ADD, statusType, name, message })
+  const addStatus = (
+    name: string,
+    statusType: StatusTypeType,
+    message?: string
+  ) => {
+    dispatch({ type: StatusConst.ADD, name, statusType, message })
   }
 
   const removeStatus = (name: string) => {
