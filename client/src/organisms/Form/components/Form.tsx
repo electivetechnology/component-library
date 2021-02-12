@@ -28,6 +28,7 @@ const Form: FunctionComponent<FormProps> = ({
         onBlur,
         updateInput,
         inputs,
+        addStatus,
         statuses,
         disableForm,
         darkMode,

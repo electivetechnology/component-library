@@ -32,6 +32,12 @@ export interface OptionType {
   inactiveLabel?: string
 }
 
+export type HandleStatusSaveType = (
+  name: string,
+  statusType: StatusType,
+  message?: string
+) => void
+
 export type HandleStatusType = (
   statusType: StatusType,
   message?: string
@@ -58,6 +64,7 @@ export type FormContextType = {
   updateInput: Function
   inputs: any
   statuses: any
+  addStatus: any
   disableForm: boolean
   darkMode: boolean
   outlineInputs?: boolean

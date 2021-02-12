@@ -1,11 +1,14 @@
 import React, { FunctionComponent, memo, useContext, Fragment } from 'react'
-import { FormContext } from 'organisms/Form/base'
+import { FormContext, InputContext } from 'organisms/Form/base'
 
 const FormStatus: FunctionComponent = () => {
   const { statuses } = useContext(FormContext)
+  const { name } = useContext(InputContext)
   const status = statuses && statuses[name] ? statuses[name] : null
 
-  {/*TODO: timeout for success and pending? */}
+  {
+    /*TODO: timeout for success and pending? */
+  }
   return (
     <Fragment>
       {status && status.statusType === 'error' && (
