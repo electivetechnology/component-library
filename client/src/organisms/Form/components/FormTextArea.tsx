@@ -5,7 +5,7 @@ import React, {
   useState,
   useEffect
 } from 'react'
-import { TextareaStyled } from './styles'
+import { TextareaStyled } from 'organisms/Form/styles'
 
 type Props = {
   name: string
@@ -15,6 +15,7 @@ type Props = {
   placeholder?: string
   disabled?: boolean
   darkMode: boolean
+  error: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
   name,
@@ -23,7 +24,8 @@ const FormTextArea: FunctionComponent<Props> = ({
   handleBlur,
   placeholder,
   disabled,
-  darkMode
+  darkMode,
+  error
 }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const [text, setText] = useState('')
@@ -66,6 +68,7 @@ const FormTextArea: FunctionComponent<Props> = ({
         }}
         placeholder={placeholder}
         disabled={disabled}
+        error={error}
       />
     </div>
   )

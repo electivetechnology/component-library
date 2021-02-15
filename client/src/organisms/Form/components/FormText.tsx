@@ -17,8 +17,13 @@ const FormText: FunctionComponent = () => {
     label,
     options,
     outlined,
-    disabled
+    disabled,
+    status
   } = useContext(InputContext)
+
+  const { statusType, message } = status || {}
+
+  const error = statusType === 'error'
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -30,11 +35,11 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled data-testid='FormText'>
-      {value ? (
+      {value && (
         <LabelStyled darkMode={darkMode} htmlFor={name}>
           {label}
         </LabelStyled>
-      ) : null}
+      )}
       {options?.multiline ? (
         <FormTextArea
           darkMode={darkMode}
@@ -44,6 +49,7 @@ const FormText: FunctionComponent = () => {
           value={value}
           placeholder={value ? '' : label}
           disabled={disabled}
+          error={error}
         />
       ) : (
         <TextInputStyled
@@ -55,6 +61,7 @@ const FormText: FunctionComponent = () => {
           value={value}
           placeholder={value ? '' : label}
           disabled={disabled}
+          error={error}
         />
       )}
       {options?.copy && <FormCopy value={value} />}

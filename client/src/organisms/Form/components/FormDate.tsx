@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState
 } from 'react'
-import { DateLabelStyled, DateWrapperStyled } from './styles'
+import { DateLabelStyled, DateWrapperStyled } from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
