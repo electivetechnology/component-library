@@ -14,6 +14,19 @@ export type InputType =
 
 export type StatusTypeType = 'pending' | 'error' | 'success'
 
+export interface InputProps {
+  label: string
+  name: string
+  value: any
+  type: InputType
+  affix?: string
+  helperText?: string
+  download?: boolean
+  options?: OptionType
+  outlined?: boolean
+  disabled?: boolean
+}
+
 export interface FormOptionType {
   label: string
   value: string

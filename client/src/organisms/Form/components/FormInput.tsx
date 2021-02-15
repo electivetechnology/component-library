@@ -1,11 +1,5 @@
 import React, { FunctionComponent, memo, useContext, useEffect } from 'react'
-import {
-  InputType,
-  OptionType,
-  FormContext,
-  InputContext,
-  FormOptionType
-} from 'organisms/Form/base'
+import { FormContext, InputContext, InputProps } from 'organisms/Form/base'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import isUndefined from 'lodash/isUndefined'
@@ -17,23 +11,9 @@ import FormPhone from 'organisms/Form/components/FormPhone'
 import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
-import FormStatus from 'organisms/Form/components/FormStatus'
+import FormHelper from 'organisms/Form/components/FormHelper'
 
-type Props = {
-  label: string
-  name: string
-  value: any
-  type: InputType
-  affix?: string
-  helperText?: string
-  download?: boolean
-  selectOptions?: Array<FormOptionType>
-  options?: OptionType
-  outlined?: boolean
-  disabled?: boolean
-}
-
-const FormInput: FunctionComponent<Props> = ({
+const FormInput: FunctionComponent<InputProps> = ({
   label,
   name,
   value,
@@ -83,17 +63,11 @@ const FormInput: FunctionComponent<Props> = ({
       {type === 'checkbox' && <FormCheckbox />}
       {type === 'toggle' && <FormToggle />}
 
-      <FormStatus />
+      <FormHelper helperText={helperText} />
 
       {affix && (
         <AffixStyled>
           <Font variant='body1'>{affix}</Font>
-        </AffixStyled>
-      )}
-
-      {helperText && (
-        <AffixStyled>
-          <Font variant='body1'>{helperText}</Font>
         </AffixStyled>
       )}
 

@@ -1,13 +1,10 @@
 import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
-import { HandleStatusType } from 'organisms/Form/base'
 import { candidateStatusOptions } from 'organisms/Form/mock'
 import { useInputStatus } from 'organisms/Form/hooks'
 
 const TestForm: FC = () => {
-  const [name, setName] = useState('some name')
-  const [status, setStatus] = useState('available')
   const { statuses, addStatus } = useInputStatus()
 
   const handleUpdate = (name: string, value: string) => {
@@ -15,14 +12,12 @@ const TestForm: FC = () => {
     console.log(name)
     console.log(value)
     console.groupEnd()
-    // setName('updated by test')
-    addStatus(name, 'pending')
-    addStatus(name, 'error', "there' been a terrible mistake")
-    addStatus(name, 'success')
+    addStatus(name, 'error', 'some error single update')
   }
 
   const handleSave = (inputs: object) => {
-    addStatus('newInput', 'success', 'some success')
+    addStatus('textInput', 'error', 'some error with text')
+    addStatus('newInput', 'error', 'some error with text area')
     console.group('handleSave')
     console.log(inputs)
     console.groupEnd()
@@ -41,11 +36,12 @@ const TestForm: FC = () => {
         name='newInput'
         value='new input'
         type='text'
+        options={{ multiline: true }}
       />
       <FormInput
         label='Select Input'
         name='select'
-        value={status}
+        value={''}
         type='select'
         options={{ selectOptions: candidateStatusOptions }}
       />
@@ -73,13 +69,6 @@ const TestForm: FC = () => {
         name='Text Input'
         value='some input'
         type='date'
-      />
-      <FormInput
-        label='Text Area Input'
-        name='Text Area Input'
-        value='some input textarea'
-        type='text'
-        options={{ multiline: true }}
       />
       <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
     </Form>
