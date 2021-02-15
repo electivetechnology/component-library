@@ -12,12 +12,12 @@ export const AutoCompleteContainerStyled = styled.div`
 
 export const inputBorder = (outlined: boolean, darkMode: boolean) => {
   let borderColour = darkMode ? theme.grey : theme.dividerGrey
-  return outlined ? `2px solid ${borderColour}` : 'none'
+  return outlined ? `1px solid ${borderColour}` : 'none'
 }
 
 export const inputBorderHover = (outlined: boolean, darkMode: boolean) => {
   let borderColour = darkMode ? theme.white : theme.grey
-  return outlined ? `2px solid ${borderColour}` : 'none'
+  return outlined ? `1px solid ${borderColour}` : 'none'
 }
 
 export const useLabelStyles = makeStyles({
@@ -33,7 +33,8 @@ export const useLabelStyles = makeStyles({
 export const useInputStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
-    color: props.darkMode ? theme.white : theme.black
+    color: props.darkMode ? theme.white : theme.black,
+    whiteSpace: 'nowrap'
   }),
   inputRoot: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
@@ -47,8 +48,13 @@ export const useInputStyles = makeStyles({
       borderBottom: inputBorderHover(props.outlined, props.darkMode)
     }
   }),
+  root: () => ({
+    overflow: 'hidden'
+  }),
   popupIndicator: (props: any) => ({
-    color: props.darkMode ? `${theme.white}` : `${theme.grey}`
+    color: props.darkMode ? `${theme.white}` : `${theme.grey}`,
+    backgroundColor: theme.white,
+    padding: '2px 2px 0'
   }),
   paper: {
     boxShadow: `0px 9px 13px ${theme.borderGrey}`,

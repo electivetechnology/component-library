@@ -14,7 +14,7 @@ const SelectLightThemeTemplate = (args: any) => (
 export const Light: any = SelectTemplate.bind({})
 
 Light.args = {
-  label: 'Label',
+  label: 'LabelLabelLabelLabel',
   options: []
 }
 
