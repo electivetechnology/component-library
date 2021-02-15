@@ -11,6 +11,9 @@ const useStyles = makeStyles({
   dropdown: () => ({
     position: 'absolute',
     top: '20px'
+  }),
+  inputBase: () => ({
+    height: '31px !important'
   })
 })
 
@@ -33,10 +36,9 @@ const FormPhone: FunctionComponent = () => {
         buttonStyle={{
           border: 'none',
           backgroundColor: 'white',
-          maxHeight: '35px !important',
-          marginBottom: '24px'
+          bottom: '0'
         }}
-        inputStyle={{ border: 'none', height: '35px !important' }}
+        inputStyle={{ border: 'none' }}
         {...inputHook}
         defaultCountry={'gb'}
         onBlur={handleBlur}
@@ -45,6 +47,10 @@ const FormPhone: FunctionComponent = () => {
         autoFormat={false}
         disabled={disabled}
         dropdownClass={classes.dropdown}
+        inputClass={classes.inputBase}
+        containerStyle={{
+          margin: '13px 0 0'
+        }}
       />
     </FormPhoneStyled>
   )

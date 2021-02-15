@@ -180,6 +180,7 @@ export const FormTextContainerStyled = styled.div`
   padding-top: 24px;
   display: grid;
   width: 100%;
+  height: 44px;
 `
 
 type LabelProps = {
