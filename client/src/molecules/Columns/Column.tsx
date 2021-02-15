@@ -19,7 +19,7 @@ type Props = {
   handleClose?: any
   align: 'left' | 'right'
   backgroundColor?: string
-  divider: boolean
+  divider?: Boolean
 }
 
 const Column: FC<Props> = ({

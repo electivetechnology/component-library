@@ -18,9 +18,7 @@ type ColumnsStyledProps = {
   width?: number
 }
 export const ColumnsStyled = styled.div<ColumnsStyledProps>`
-  display: grid;
-  grid-template-rows: 50%;
-  grid-gap: 16px;
+  display: inline-flex;
   padding-right: 8px;
   width: 100%;
   @media screen and (min-width: 750px) {
@@ -43,19 +41,15 @@ type ColumnStyledProps = {
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
   display: inline-flex;
-  width: auto;
+  width: 91vw;
   z-index: 100;
+  background-color: ${theme.grayAthens};
   @media screen and (min-width: 750px) {
     width: unset;
     ${(props) =>
       props.columnWidth &&
       `
         width: ${props.columnWidth}px;
-      `};
-    ${(props) =>
-      props.backgroundColor &&
-      `
-        background-color: ${props.backgroundColor};
       `};
   }
   ${(props) =>
@@ -68,6 +62,13 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
     `
       width: 20px;
     `};
+  @media screen and (min-width: 750px) {
+    ${(props) =>
+      props.backgroundColor &&
+      `
+        background-color: ${props.backgroundColor};
+      `};
+  }
 `
 
 export const ColumnBorderStyled = styled.div`
