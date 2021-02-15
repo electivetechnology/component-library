@@ -63,5 +63,5 @@ export const DateLabelStyled = styled.div`
 `
 
 export const FormPhoneStyled = styled.div`
-  padding-top: 8px;
+  padding-top: 24px;
 `
