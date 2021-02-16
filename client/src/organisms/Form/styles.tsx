@@ -177,9 +177,10 @@ export const EditorLabel = styled.div`
 
 // FormText
 export const FormTextContainerStyled = styled.div`
-  padding-top: 16px;
+  padding-top: 24px;
   display: grid;
   width: 100%;
+  height: 44px;
 `
 
 type LabelProps = {
@@ -208,6 +209,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   border-bottom: 1px solid ${theme.dividerGrey};
   &:focus {
     outline: none;
+    border-bottom: 1px solid ${theme.grey};
   }
   &:hover {
     border-bottom: 1px solid ${theme.grey};

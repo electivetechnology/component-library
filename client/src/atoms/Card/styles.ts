@@ -12,7 +12,8 @@ type CardContainerProps = {
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
-  min-width: 290px;
+  width: auto;
+  overflow: hidden;
   min-height: 215px;
   width: max-content;
   display: grid;
@@ -39,7 +40,6 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ${(props) =>
     props.fullWidth &&
     `
-      overflow: scroll;
       width: 100%;
     `};
   ${(props) =>

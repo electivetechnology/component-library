@@ -14,6 +14,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   &:focus {
     outline: none;
+    border-bottom: 1px solid ${theme.grey};
   }
   &:hover {
     border-bottom: 1px solid ${theme.grey};
@@ -47,15 +48,20 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
 
 export const DateWrapperStyled = styled.div`
   position: relative;
-  margin-top: 8px;
+  margin-top: 24px;
+  padding-top: 8px;
 `
 
 export const DateLabelStyled = styled.div`
   position: absolute;
   z-index: 0;
-  top: -7px;
+  top: -2px;
   background-color: ${theme.white};
   color: rgba(0, 0, 0, 0.54);
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+`
+
+export const FormPhoneStyled = styled.div`
+  padding-top: 24px;
 `

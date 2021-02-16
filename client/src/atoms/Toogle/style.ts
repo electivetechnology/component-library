@@ -68,7 +68,6 @@ type SwitchTextStyledProp = {
 
 export const SwitchTextStyled = styled.div<SwitchTextStyledProp>`
   margin-left: auto;
-  padding-left: 18px;
   ${(props) =>
     props.checked &&
     `
