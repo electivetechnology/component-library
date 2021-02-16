@@ -24,14 +24,20 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   width: 100%;
   overflow: scroll;
   @media screen and (min-width: 750px) {
-    grid-template-rows: unset;
-    grid-gap: unset;
-    display: flex;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 35% auto auto;
+  }
+  @media screen and (min-width: 960px) {
+    display: inline-flex;
   }
   ${(props) =>
     props.width &&
     `
-      width: ${props.width}px;
+      width: 100vw;
+      @media screen and (min-width: 750px) {
+        width: ${props.width}px;
+      }
     `};
   ${(props) =>
     props.height &&
@@ -53,7 +59,7 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   background-color: ${theme.grayAthens};
   @media screen and (min-width: 750px) {
     display: inline-flex;
-    width: unset;
+    width: 100%;
     ${(props) =>
       props.columnWidth &&
       `
@@ -96,6 +102,10 @@ export const SideColumnStyled = styled.div`
 
 export const ColumnContentStyled = styled.div`
   display: inlnie-flex;
+  width: inherit;
+  @media screen and (min-width: 750px) {
+    width: 100%;
+  }
 `
 
 export const SideColumnMobiledStyled = styled.div`
