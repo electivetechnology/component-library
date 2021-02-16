@@ -16,11 +16,13 @@ export const iconLeftStyle = {
 
 type ColumnsStyledProps = {
   width?: number
+  height?: number
 }
 export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   display: inline-flex;
   padding-right: 8px;
   width: 100%;
+  overflow: scroll;
   @media screen and (min-width: 750px) {
     grid-template-rows: unset;
     grid-gap: unset;
@@ -31,6 +33,11 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
     `
       width: ${props.width}px;
     `};
+  ${(props) =>
+    props.height &&
+    `
+      height: ${props.height}px;
+    `};
 `
 
 type ColumnStyledProps = {
@@ -40,11 +47,12 @@ type ColumnStyledProps = {
   backgroundColor?: string
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
-  display: inline-flex;
+  display: grid;
   width: 91vw;
   z-index: 100;
   background-color: ${theme.grayAthens};
   @media screen and (min-width: 750px) {
+    display: inline-flex;
     width: unset;
     ${(props) =>
       props.columnWidth &&
@@ -84,4 +92,29 @@ export const ColumnBorderStyled = styled.div`
 
 export const SideColumnStyled = styled.div`
   display: inlnie-flex;
+`
+
+export const ColumnContentStyled = styled.div`
+  display: inlnie-flex;
+`
+
+export const SideColumnMobiledStyled = styled.div`
+  display: inline-flex;
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
+`
+
+export const SideColumnDesktopdStyled = styled.div`
+  display: none;
+  @media screen and (min-width: 750px) {
+    display: flex;
+  }
+`
+
+export const MobileButtonLabelStyled = styled.span`
+  font-size: 14px;
+  color: ${theme.primaryGrey};
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  padding: 2px 0 0 4px;
 `

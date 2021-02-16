@@ -5,10 +5,15 @@ import {
   ColumnStyled,
   ColumnBorderStyled,
   iconLeftStyle,
-  SideColumnStyled
+  SideColumnStyled,
+  ColumnContentStyled,
+  SideColumnMobiledStyled,
+  SideColumnDesktopdStyled,
+  MobileButtonLabelStyled
 } from 'molecules/Columns/styles'
 import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
 type Props = {
   isClosable?: boolean
@@ -69,15 +74,23 @@ const Column: FC<Props> = ({
       backgroundColor={backgroundColor}
     >
       <SideColumnStyled>
-        {divider && <ColumnBorderStyled />}
         {isClosable && !isHidden && (
-          <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
+          <SideColumnMobiledStyled onClick={onClose}>
+            <ArrowBackIcon style={iconLeftStyle} />
+            <MobileButtonLabelStyled>Back</MobileButtonLabelStyled>
+          </SideColumnMobiledStyled>
         )}
-        {isHidden && (
-          <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
-        )}
+        <SideColumnDesktopdStyled>
+          {divider && <ColumnBorderStyled />}
+          {isClosable && !isHidden && (
+            <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
+          )}
+          {isHidden && (
+            <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
+          )}
+        </SideColumnDesktopdStyled>
       </SideColumnStyled>
-      {!isHidden && children}
+      <ColumnContentStyled>{!isHidden && children}</ColumnContentStyled>
     </ColumnStyled>
   )
 }

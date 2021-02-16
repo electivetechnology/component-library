@@ -28,6 +28,7 @@ export const useLabelStyles = makeStyles({
   label: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
     fontSize: '14px !important',
+    whiteSpace: 'nowrap',
     '&.Mui-focused': {
       color: props.darkMode ? theme.white : theme.grey
     }
