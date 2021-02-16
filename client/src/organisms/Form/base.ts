@@ -59,7 +59,7 @@ export type HandleStatusType = (
 
 export type FormProps = {
   handleUpdate?: (key: string, value: string) => void
-  statuses: any
+  statuses?: any
   disableForm?: boolean
   darkMode?: boolean
   outlineInputs?: boolean
