@@ -22,7 +22,7 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   padding-right: 8px;
   width: 100%;
   @media screen and (min-width: 750px) {
-    grid-template-rows: unset%;
+    grid-template-rows: unset;
     grid-gap: unset;
     display: flex;
   }
