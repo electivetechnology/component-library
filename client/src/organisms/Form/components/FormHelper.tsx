@@ -14,7 +14,7 @@ const FormHelper: FunctionComponent<Props> = ({ helperText }) => {
 
   if (statusType === 'error') {
     return (
-      <Font variant='body2' color={theme.primaryRed}>{message ? message : 'Input is pending'}</Font>
+      <Font variant='body2' color={theme.primaryRed}>{message ? message : 'Error saving input'}</Font>
     )
   }
 
