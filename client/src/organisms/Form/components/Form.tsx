@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react'
-import { useInputs } from 'organisms/Form/hooks'
+import React, { Children, FunctionComponent, useEffect, useState } from 'react'
+import { useFormItems } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
 
 const Form: FunctionComponent<FormProps> = ({
@@ -10,13 +10,23 @@ const Form: FunctionComponent<FormProps> = ({
   darkMode = false,
   outlineInputs = true
 }) => {
-  const { inputs, updateInput } = useInputs()
+  const { items: inputs, updateItem: updateInput } = useFormItems()
+
+  const { items: requiredErrors, updateItem: updateRequired } = useFormItems()
+
 
   const onBlur = (name: string) => {
     const value = inputs[name]
 
     handleUpdate && handleUpdate(name, value)
   }
+
+  useEffect(() => {
+    Children.map(children, (child: any) => {
+      const { required, name } = child.props
+      required && updateRequired(name, false)
+    })
+  }, [])
 
   return (
     <FormContext.Provider
@@ -25,6 +35,8 @@ const Form: FunctionComponent<FormProps> = ({
         updateInput,
         inputs,
         statuses,
+        requiredErrors,
+        updateRequired,
         disableForm,
         darkMode,
         outlineInputs

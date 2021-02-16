@@ -25,6 +25,7 @@ export interface InputProps {
   options?: OptionType
   outlined?: boolean
   disabled?: boolean
+  required?: boolean
 }
 
 export interface FormOptionType {
@@ -46,8 +47,8 @@ export interface OptionType {
 }
 
 export type StatusType = {
-  name: string,
-  statusType: StatusTypeType,
+  name: string
+  statusType: StatusTypeType
   message?: string
 }
 
@@ -70,6 +71,8 @@ export type FormContextType = {
   updateInput: Function
   inputs: any
   statuses: any
+  requiredErrors: { [key: string]: boolean }
+  updateRequired: Function
   disableForm: boolean
   darkMode: boolean
   outlineInputs?: boolean
@@ -83,9 +86,11 @@ export type InputContextType = {
   name: string
   type: InputType
   disabled?: boolean
+  required?: boolean
   options?: OptionType
   outlined?: boolean
   status?: StatusType
+  requiredError: boolean
 }
 
 export const InputContext = createContext<InputContextType>(
