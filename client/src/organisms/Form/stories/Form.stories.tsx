@@ -8,8 +8,6 @@ import {
   FormTitle
 } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
-import FormText from 'organisms/Form/components/FormText'
-import { InputContext } from 'organisms/Form/base'
 
 const handleUpdate = () => {}
 const handleAction = () => {}
@@ -22,39 +20,16 @@ export const Text: any = Template.bind({})
 Text.args = {
   handleUpdate,
   children: (
-    <InputContext.Provider
-      value={{
-        inputValue: 'some text',
-        label: 'Text Input',
-        name: 'textInput',
-        type: 'text',
-        disabled: false,
-        outlined: false
-      }}
-    >
-      <FormText />
-    </InputContext.Provider>
-  )
-}
-
-export const TextArea: any = Template.bind({})
-
-TextArea.args = {
-  handleUpdate,
-  children: (
-    <InputContext.Provider
-      value={{
-        inputValue: 'some text',
-        label: 'Text Input',
-        name: 'textInput',
-        type: 'text',
-        options: {multiline: true},
-        disabled: false,
-        outlined: false
-      }}
-    >
-      <FormText />
-    </InputContext.Provider>
+    <Fragment>
+      <FormInput
+        label='Text Area'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{ multiline: true }}
+      />
+      <FormInput label='Text Input' name='text' value='some text' type='text' />
+    </Fragment>
   )
 }
 
