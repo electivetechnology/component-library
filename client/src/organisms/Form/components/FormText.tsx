@@ -18,12 +18,14 @@ const FormText: FunctionComponent = () => {
     options,
     outlined,
     disabled,
-    status
+    required,
+    status,
+    requiredError
   } = useContext(InputContext)
 
-  const { statusType, message } = status || {}
+  const { statusType } = status || {}
 
-  const error = statusType === 'error'
+  const error = statusType === 'error' || requiredError
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -40,6 +42,7 @@ const FormText: FunctionComponent = () => {
           {label}
         </LabelStyled>
       )}
+      {required && <span>*</span>}
       {options?.multiline ? (
         <FormTextArea
           darkMode={darkMode}

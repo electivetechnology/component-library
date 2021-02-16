@@ -8,9 +8,15 @@ type Props = {
   helperText?: string
 }
 const FormHelper: FunctionComponent<Props> = ({ helperText }) => {
-  const { status } = useContext(InputContext)
+  const { status, requiredError } = useContext(InputContext)
 
   const { statusType, message } = status || {}
+
+  if (requiredError) {
+    return (
+      <Font variant='body2' color={theme.primaryRed}>{message ? message : 'Required field'}</Font>
+    )
+  }
 
   if (statusType === 'error') {
     return (

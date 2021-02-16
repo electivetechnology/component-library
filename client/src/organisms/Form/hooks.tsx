@@ -32,6 +32,34 @@ export const useInputs = () => {
   }
 }
 
+export enum RequiredConst {
+  UPDATE = 'UPDATE'
+}
+export const useRequired = () => {
+  const [required, dispatch] = useReducer(
+    (state: any, action: any) =>
+      produce(state, (draftState: any) => {
+        switch (action.type) {
+          case RequiredConst.UPDATE:
+            draftState[action.name] = action.error
+            break
+          default:
+            return state
+        }
+      }),
+    {} as any
+  )
+
+  const updateRequired = (name: string, error: boolean) => {
+    dispatch({ type: RequiredConst.UPDATE, name, error })
+  }
+
+  return {
+    requiredErrors: required as any,
+    updateRequired
+  }
+}
+
 export const useFormInput = (name: string, initialValue: string) => {
   const { updateInput } = useContext(FormContext)
   const [value, setValue] = useState(initialValue || '')

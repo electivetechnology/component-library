@@ -12,64 +12,73 @@ const TestForm: FC = () => {
     console.log(name)
     console.log(value)
     console.groupEnd()
-    addStatus(name, 'error', 'some error single update')
+    // addStatus(name, 'error', 'some error single update')
   }
 
   const handleSave = (inputs: object) => {
-    addStatus('textInput', 'error', 'some error with text')
-    addStatus('newInput', 'error', 'some error with text area')
+    // addStatus('textInput', 'error', 'some error with text')
+    // addStatus('newInput', 'error', 'some error with text area')
     console.group('handleSave')
     console.log(inputs)
     console.groupEnd()
   }
 
   return (
-    <Form handleUpdate={handleUpdate} statuses={statuses}>
+    // <Form handleUpdate={handleUpdate} statuses={statuses}>
+    <Form statuses={statuses}>
       <FormInput
         label='Text Input'
         name='textInput'
-        value='some input'
+        value=''
         type='text'
+        required
       />
       <FormInput
-        label='New Input'
-        name='newInput'
-        value='new input'
+        label='Text Input2'
+        name='textInput2'
+        value=''
         type='text'
-        options={{ multiline: true }}
+        required
       />
-      <FormInput
-        label='Select Input'
-        name='select'
-        value={''}
-        type='select'
-        options={{ selectOptions: candidateStatusOptions }}
-      />
-      <FormInput
-        label='CheckBox'
-        name='checkbox'
-        value={false}
-        type='checkbox'
-      />
-      <FormInput
-        label='Toggle'
-        name='toggle'
-        value={false}
-        type='toggle'
-        options={{ inactiveLabel: 'no', activeLabel: 'yes' }}
-      />
-      <FormInput
-        label='Text Input'
-        name='Text Input'
-        value='some input'
-        type='phone'
-      />
-      <FormInput
-        label='Date'
-        name='Text Input'
-        value='some input'
-        type='date'
-      />
+      {/*<FormInput*/}
+      {/*  label='New Input'*/}
+      {/*  name='newInput'*/}
+      {/*  value='new input'*/}
+      {/*  type='text'*/}
+      {/*  options={{ multiline: true }}*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='Select Input'*/}
+      {/*  name='select'*/}
+      {/*  value={''}*/}
+      {/*  type='select'*/}
+      {/*  options={{ selectOptions: candidateStatusOptions }}*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='CheckBox'*/}
+      {/*  name='checkbox'*/}
+      {/*  value={false}*/}
+      {/*  type='checkbox'*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='Toggle'*/}
+      {/*  name='toggle'*/}
+      {/*  value={false}*/}
+      {/*  type='toggle'*/}
+      {/*  options={{ inactiveLabel: 'no', activeLabel: 'yes' }}*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='Text Input'*/}
+      {/*  name='Text Input'*/}
+      {/*  value='some input'*/}
+      {/*  type='phone'*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='Date'*/}
+      {/*  name='Text Input'*/}
+      {/*  value='some input'*/}
+      {/*  type='date'*/}
+      {/*/>*/}
       <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
     </Form>
   )

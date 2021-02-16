@@ -23,14 +23,16 @@ const FormInput: FunctionComponent<InputProps> = ({
   download,
   options,
   outlined,
-  disabled
+  disabled,
+  required
 }) => {
   const {
     updateInput,
     disableForm,
     outlineInputs,
     inputs,
-    statuses
+    statuses,
+    requiredErrors
   } = useContext(FormContext)
 
   useEffect(() => {
@@ -42,6 +44,8 @@ const FormInput: FunctionComponent<InputProps> = ({
 
   let applyOutline = !(noOutlineBoth || noOutlineInput)
 
+  const requiredError = requiredErrors[name] && requiredErrors[name]
+
   return (
     <InputContext.Provider
       value={{
@@ -51,8 +55,10 @@ const FormInput: FunctionComponent<InputProps> = ({
         type,
         options,
         disabled: disabled || disableForm,
+        required,
         outlined: applyOutline,
-        status: statuses && statuses[name] && statuses[name]
+        status: statuses && statuses[name] && statuses[name],
+        requiredError
       }}
     >
       {['text', 'number'].includes(type) && <FormText />}
