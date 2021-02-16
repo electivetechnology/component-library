@@ -1,34 +1,50 @@
 import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
-import { HandleStatusType } from 'organisms/Form/base'
 import { candidateStatusOptions } from 'organisms/Form/mock'
+import { useInputStatus } from 'organisms/Form/hooks'
 
 const TestForm: FC = () => {
-  const [name, setName] = useState('some name')
-  const [status, setStatus] = useState('available')
+  const { statuses, addStatus } = useInputStatus()
 
-  const handleUpdate = (
-    candidate: { [key: string]: string },
-    addStatus: HandleStatusType
-  ) => {
+  const handleUpdate = (name: string, value: string) => {
     console.group('handleUpdate')
-    console.log(candidate)
+    console.log(name)
+    console.log(value)
     console.groupEnd()
-    // setName('updated by test')
-    addStatus('pending')
-    addStatus('error', "there' been a terrible mistake")
-    addStatus('success')
+    addStatus(name, 'error', 'some error single update')
   }
 
   const handleSave = (inputs: object) => {
+    addStatus('textInput', 'error', 'some error with text')
+    addStatus('newInput', 'error', 'some error with text area')
     console.group('handleSave')
     console.log(inputs)
     console.groupEnd()
   }
 
   return (
-    <Form handleUpdate={handleUpdate}>
+    <Form handleUpdate={handleUpdate} statuses={statuses}>
+      <FormInput
+        label='Text Input'
+        name='textInput'
+        value='some input'
+        type='text'
+      />
+      <FormInput
+        label='New Input'
+        name='newInput'
+        value='new input'
+        type='text'
+        options={{ multiline: true }}
+      />
+      <FormInput
+        label='Select Input'
+        name='select'
+        value={''}
+        type='select'
+        options={{ selectOptions: candidateStatusOptions }}
+      />
       <FormInput
         label='CheckBox'
         name='checkbox'
@@ -53,33 +69,6 @@ const TestForm: FC = () => {
         name='Text Input'
         value='some input'
         type='date'
-      />
-      <FormInput
-        label='Text Area Input'
-        name='Text Area Input'
-        value='some input textarea'
-        type='text'
-        options={{ multiline: true }}
-      />
-      <FormInput
-        label='Text Input'
-        name='Text Input'
-        value='some input'
-        type='text'
-      />
-      <FormInput
-        label='Text Input'
-        name='Text Input'
-        value='some input'
-        type='text'
-        download={true}
-      />
-      <FormInput
-        label='Select Input'
-        name='select'
-        value={status}
-        type='select'
-        options={{ selectOptions: candidateStatusOptions }}
       />
       <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
     </Form>

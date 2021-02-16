@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import FormAction from './FormAction'
 import { FormContext } from 'organisms/Form/base'
 import isNull from 'lodash/isNull'
 import isUndefined from 'lodash/isUndefined'
 import isEmpty from 'lodash/isEmpty'
+import { Button } from 'atoms'
 
 interface Props {
   label: string
@@ -22,7 +22,9 @@ const FormSave: FunctionComponent<Props> = ({ label, handleSave, icon }) => {
     handleSave(isUndefined(hasEmpty) ? inputs : false)
   }
 
-  return <FormAction label={label} handleAction={handleAction} icon={icon} />
+  return (
+    <Button label={label} onClick={handleAction} icon={icon} theme='primary' />
+  )
 }
 
 export default FormSave

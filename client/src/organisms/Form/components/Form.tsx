@@ -1,25 +1,21 @@
 import React, { FunctionComponent } from 'react'
-import { useInputStatus, useInputs } from 'organisms/Form/hooks'
+import { useInputs } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
 
 const Form: FunctionComponent<FormProps> = ({
   children,
   handleUpdate,
+  statuses,
   disableForm = false,
   darkMode = false,
   outlineInputs = true
 }) => {
   const { inputs, updateInput } = useInputs()
-  const { statuses, addStatus } = useInputStatus()
 
   const onBlur = (name: string) => {
     const value = inputs[name]
 
-    const handleStatus = (statusType: any, message: any) => {
-      addStatus(statusType, name, message)
-    }
-
-    handleUpdate && handleUpdate({ [name]: value }, handleStatus)
+    handleUpdate && handleUpdate(name, value)
   }
 
   return (

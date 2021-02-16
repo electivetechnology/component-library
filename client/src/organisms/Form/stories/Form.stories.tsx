@@ -21,38 +21,61 @@ Text.args = {
   handleUpdate,
   children: (
     <Fragment>
+      <FormInput label='Text Area' name='text' value='some text' type='text' />
       <FormInput
-        label='Text Area'
+        label='Text'
         name='textarea'
         value='some textarea'
         type='text'
         options={{ multiline: true }}
       />
-      <FormInput label='Text Input' name='text' value='some text' type='text' />
+    </Fragment>
+  )
+}
+
+// FormTextArea
+export const TextError: any = Template.bind({})
+
+TextError.args = {
+  handleUpdate,
+  statuses: {
+    text: { statusType: 'error' },
+    textArea: { statusType: 'error' }
+  },
+  children: (
+    <Fragment>
+      <FormInput label='Text Area' name='text' value='some text' type='text' />
+      <FormInput
+        label='Text'
+        name='textArea'
+        value='some textarea'
+        type='text'
+        options={{ multiline: true }}
+      />
     </Fragment>
   )
 }
 
 // FormDownload
-export const DownloadText: any = Template.bind({})
+export const TextDownload: any = Template.bind({})
 
-DownloadText.args = {
+TextDownload.args = {
   handleUpdate,
   children: (
     <Fragment>
       <FormInput
         label='Text Area'
+        name='text'
+        value='some text'
+        type='text'
+        download={true}
+      />
+      <FormInput
+        label='Text'
         name='textarea'
         value='some textarea'
         type='text'
         options={{ multiline: true }}
-        download={true}
-      />
-      <FormInput
-        label='Text Input'
-        name='text'
-        value='some text'
-        type='text'
         download={true}
       />
     </Fragment>
@@ -60,25 +83,25 @@ DownloadText.args = {
 }
 
 // FormCopy
-export const CopyText: any = Template.bind({})
+export const TextCopy: any = Template.bind({})
 
-CopyText.args = {
+TextCopy.args = {
   handleUpdate,
   children: (
     <Fragment>
       <FormInput
         label='Text Area'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        options={{ multiline: true, copy: true }}
-      />
-      <FormInput
-        label='Text Input'
         name='text'
         value='some text'
         type='text'
         options={{ copy: true }}
+      />
+      <FormInput
+        label='Text'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{ multiline: true, copy: true }}
       />
     </Fragment>
   )
