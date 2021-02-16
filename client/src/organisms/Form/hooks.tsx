@@ -3,16 +3,16 @@ import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
 import { FormContext, StatusTypeType } from 'organisms/Form/base'
 
-export enum InputsConst {
+export enum ItemsConst {
   UPDATE = 'UPDATE'
 }
 
-export const useInputs = () => {
-  const [inputs, dispatch] = useReducer(
+export const useFormItems = () => {
+  const [items, dispatch] = useReducer(
     (state: any, action: any) =>
       produce(state, (draftState: any) => {
         switch (action.type) {
-          case InputsConst.UPDATE:
+          case ItemsConst.UPDATE:
             draftState[action.name] = action.value
             break
           default:
@@ -22,41 +22,13 @@ export const useInputs = () => {
     {} as any
   )
 
-  const updateInput = (name: string, value: string) => {
-    dispatch({ type: InputsConst.UPDATE, name, value })
+  const updateItem = (name: string, value: string | boolean) => {
+    dispatch({ type: ItemsConst.UPDATE, name, value })
   }
 
   return {
-    inputs: inputs as any,
-    updateInput
-  }
-}
-
-export enum RequiredConst {
-  UPDATE = 'UPDATE'
-}
-export const useRequired = () => {
-  const [required, dispatch] = useReducer(
-    (state: any, action: any) =>
-      produce(state, (draftState: any) => {
-        switch (action.type) {
-          case RequiredConst.UPDATE:
-            draftState[action.name] = action.error
-            break
-          default:
-            return state
-        }
-      }),
-    {} as any
-  )
-
-  const updateRequired = (name: string, error: boolean) => {
-    dispatch({ type: RequiredConst.UPDATE, name, error })
-  }
-
-  return {
-    requiredErrors: required as any,
-    updateRequired
+    items: items as any,
+    updateItem
   }
 }
 

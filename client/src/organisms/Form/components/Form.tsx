@@ -1,5 +1,5 @@
 import React, { Children, FunctionComponent, useEffect, useState } from 'react'
-import { useInputs, useRequired } from 'organisms/Form/hooks'
+import { useFormItems } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
 
 const Form: FunctionComponent<FormProps> = ({
@@ -10,11 +10,10 @@ const Form: FunctionComponent<FormProps> = ({
   darkMode = false,
   outlineInputs = true
 }) => {
-  const { inputs, updateInput } = useInputs()
+  const { items: inputs, updateItem: updateInput } = useFormItems()
 
-  // TOOD: only update inputs on blur?
+  const { items: requiredErrors, updateItem: updateRequired } = useFormItems()
 
-  const { requiredErrors, updateRequired } = useRequired()
 
   const onBlur = (name: string) => {
     const value = inputs[name]
