@@ -5,7 +5,6 @@ import {
   ColumnStyled,
   ColumnBorderStyled,
   iconLeftStyle,
-  SideColumnStyled,
   ColumnContentStyled,
   SideColumnMobiledStyled,
   SideColumnDesktopdStyled,
@@ -73,23 +72,19 @@ const Column: FC<Props> = ({
       align={align}
       backgroundColor={backgroundColor}
     >
-      <SideColumnStyled>
+      <SideColumnMobiledStyled onClick={onClose} isClosable={isClosable}>
+        <ArrowBackIcon style={iconLeftStyle} />
+        <MobileButtonLabelStyled>Back</MobileButtonLabelStyled>
+      </SideColumnMobiledStyled>
+      <SideColumnDesktopdStyled>
+        {divider && <ColumnBorderStyled />}
         {isClosable && !isHidden && (
-          <SideColumnMobiledStyled onClick={onClose}>
-            <ArrowBackIcon style={iconLeftStyle} />
-            <MobileButtonLabelStyled>Back</MobileButtonLabelStyled>
-          </SideColumnMobiledStyled>
+          <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
         )}
-        <SideColumnDesktopdStyled>
-          {divider && <ColumnBorderStyled />}
-          {isClosable && !isHidden && (
-            <ArrowForwardIosIcon style={iconLeftStyle} onClick={onClose} />
-          )}
-          {isHidden && (
-            <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
-          )}
-        </SideColumnDesktopdStyled>
-      </SideColumnStyled>
+        {isHidden && (
+          <ChevronLeftOutlinedIcon style={iconStyle} onClick={onOpen} />
+        )}
+      </SideColumnDesktopdStyled>
       <ColumnContentStyled>{!isHidden && children}</ColumnContentStyled>
     </ColumnStyled>
   )
