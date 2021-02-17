@@ -343,3 +343,9 @@ export const DateLabelStyled = styled.div`
 export const FormPhoneStyled = styled.div`
   padding-top: 8px;
 `
+
+export const ButtonWrapperStyled = styled.div`
+  display: grid;
+  margin: 16px 0;
+  padding-top: 8px;
+`

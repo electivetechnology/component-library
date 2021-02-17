@@ -42,7 +42,6 @@ const FormText: FunctionComponent = () => {
           {label}
         </LabelStyled>
       )}
-      {required && <span>*</span>}
       {options?.multiline ? (
         <FormTextArea
           darkMode={darkMode}

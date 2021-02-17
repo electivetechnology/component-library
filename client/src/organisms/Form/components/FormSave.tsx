@@ -4,6 +4,7 @@ import { FormContext } from 'organisms/Form/base'
 import isNull from 'lodash/isNull'
 import isEmpty from 'lodash/isEmpty'
 import { Button } from 'atoms'
+import { ButtonWrapperStyled } from 'organisms/Form/styles'
 
 interface Props {
   label: string
@@ -35,14 +36,16 @@ const FormSave: FunctionComponent<Props> = ({
   }
 
   return (
-    <Button
-      label={label}
-      onClick={handleAction}
-      icon={icon}
-      theme='primary'
-      disabled={disabled}
-      fullWidth={fullWidth}
-    />
+    <ButtonWrapperStyled>
+      <Button
+        label={label}
+        onClick={handleAction}
+        icon={icon}
+        theme='primary'
+        disabled={disabled}
+        fullWidth={fullWidth}
+      />
+    </ButtonWrapperStyled>
   )
 }
 
