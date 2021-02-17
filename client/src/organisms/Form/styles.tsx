@@ -214,7 +214,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   ${(props) =>
     props.error &&
     `
-    border-bottom: 1px dotted ${theme.primaryRed};
+    border-bottom: 1px solid ${theme.primaryRed};
     `}
   ${(props) =>
     props.darkMode &&
@@ -298,7 +298,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   ${(props) =>
     props.error &&
     `
-    border-bottom: 1px dotted ${theme.primaryRed};
+    border-bottom: 1px solid ${theme.primaryRed};
     `}
   ${(props) =>
     props.disabled &&
