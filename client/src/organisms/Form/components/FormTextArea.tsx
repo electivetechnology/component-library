@@ -64,7 +64,8 @@ const FormTextArea: FunctionComponent<Props> = ({
         ref={textAreaRef}
         rows={1}
         style={{
-          height: textAreaHeight
+          height: textAreaHeight,
+          resize: 'none'
         }}
         placeholder={placeholder}
         disabled={disabled}
