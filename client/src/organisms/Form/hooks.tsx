@@ -55,10 +55,11 @@ export const useFormInput = (name: string, initialValue: string) => {
 
 export enum StatusConst {
   ADD = 'ADD',
-  REMOVE = 'REMOVE'
+  REMOVE = 'REMOVE',
+  CLEAR = 'CLEAR'
 }
 
-export const useInputStatus = () => {
+export const useFormStatus = () => {
   const [statuses, dispatch] = useReducer(
     (state: any, action: any) =>
       produce(state, (draftState: any) => {
@@ -74,6 +75,8 @@ export const useInputStatus = () => {
               return (status[0] = action.name)
             })
             break
+          case StatusConst.CLEAR:
+            return {}
           default:
             return state
         }
@@ -93,9 +96,14 @@ export const useInputStatus = () => {
     dispatch({ type: StatusConst.REMOVE, name })
   }
 
+  const clearStatus = () => {
+    dispatch({ type: StatusConst.CLEAR })
+  }
+
   return {
     statuses,
     addStatus,
-    removeStatus
+    removeStatus,
+    clearStatus
   }
 }
