@@ -96,10 +96,6 @@ export const ColumnBorderStyled = styled.div`
   }
 `
 
-export const SideColumnStyled = styled.div`
-  display: inlnie-flex;
-`
-
 export const ColumnContentStyled = styled.div`
   display: inlnie-flex;
   width: inherit;
@@ -108,8 +104,17 @@ export const ColumnContentStyled = styled.div`
   }
 `
 
-export const SideColumnMobiledStyled = styled.div`
-  display: inline-flex;
+type SideColumnMobiledProps = {
+  isClosable: boolean
+}
+
+export const SideColumnMobiledStyled = styled.div<SideColumnMobiledProps>`
+  display: none;
+  ${(props) =>
+    props.isClosable &&
+    `
+      display: inline-flex;
+    `};
   @media screen and (min-width: 750px) {
     display: none;
   }
