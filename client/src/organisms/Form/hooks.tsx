@@ -1,18 +1,18 @@
 import { useContext, useReducer, useState } from 'react'
 import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
-import { FormContext, StatusType } from 'organisms/Form/base'
+import { FormContext, StatusTypeType } from 'organisms/Form/base'
 
-export enum InputsConst {
+export enum ItemsConst {
   UPDATE = 'UPDATE'
 }
 
-export const useInputs = () => {
-  const [inputs, dispatch] = useReducer(
+export const useFormItems = () => {
+  const [items, dispatch] = useReducer(
     (state: any, action: any) =>
       produce(state, (draftState: any) => {
         switch (action.type) {
-          case InputsConst.UPDATE:
+          case ItemsConst.UPDATE:
             draftState[action.name] = action.value
             break
           default:
@@ -22,13 +22,13 @@ export const useInputs = () => {
     {} as any
   )
 
-  const updateInput = (name: string, value: string) => {
-    dispatch({ type: InputsConst.UPDATE, name, value })
+  const updateItem = (name: string, value: string | boolean) => {
+    dispatch({ type: ItemsConst.UPDATE, name, value })
   }
 
   return {
-    inputs: inputs as any,
-    updateInput
+    items: items as any,
+    updateItem
   }
 }
 
@@ -55,10 +55,11 @@ export const useFormInput = (name: string, initialValue: string) => {
 
 export enum StatusConst {
   ADD = 'ADD',
-  REMOVE = 'REMOVE'
+  REMOVE = 'REMOVE',
+  CLEAR = 'CLEAR'
 }
 
-export const useInputStatus = () => {
+export const useFormStatus = () => {
   const [statuses, dispatch] = useReducer(
     (state: any, action: any) =>
       produce(state, (draftState: any) => {
@@ -74,6 +75,8 @@ export const useInputStatus = () => {
               return (status[0] = action.name)
             })
             break
+          case StatusConst.CLEAR:
+            return {}
           default:
             return state
         }
@@ -81,17 +84,26 @@ export const useInputStatus = () => {
     {} as any
   )
 
-  const addStatus = (statusType : StatusType, name: string, message?: string) => {
-    dispatch({ type: StatusConst.ADD, statusType, name, message })
+  const addStatus = (
+    name: string,
+    statusType: StatusTypeType,
+    message?: string
+  ) => {
+    dispatch({ type: StatusConst.ADD, name, statusType, message })
   }
 
   const removeStatus = (name: string) => {
     dispatch({ type: StatusConst.REMOVE, name })
   }
 
+  const clearStatus = () => {
+    dispatch({ type: StatusConst.CLEAR })
+  }
+
   return {
     statuses,
     addStatus,
-    removeStatus
+    removeStatus,
+    clearStatus
   }
 }

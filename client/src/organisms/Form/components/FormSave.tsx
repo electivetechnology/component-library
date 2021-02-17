@@ -1,28 +1,52 @@
 import React, { FunctionComponent, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import FormAction from './FormAction'
 import { FormContext } from 'organisms/Form/base'
 import isNull from 'lodash/isNull'
-import isUndefined from 'lodash/isUndefined'
 import isEmpty from 'lodash/isEmpty'
+import { Button } from 'atoms'
+import { ButtonWrapperStyled } from 'organisms/Form/styles'
 
 interface Props {
   label: string
   handleSave: any
+  disabled?: boolean
   icon?: ReactElement<SvgIconProps>
+  fullWidth?: boolean
 }
-const FormSave: FunctionComponent<Props> = ({ label, handleSave, icon }) => {
-  const { inputs } = useContext(FormContext)
+const FormSave: FunctionComponent<Props> = ({
+  label,
+  handleSave,
+  disabled = false,
+  icon,
+  fullWidth = false
+}) => {
+  const { inputs, requiredErrors, updateRequired } = useContext(FormContext)
 
   const handleAction = () => {
-    const hasEmpty = Object.values(inputs).find((input: any) => {
-      return isEmpty(input) || isNull(input)
+    const hasErrors = Object.keys(requiredErrors).filter((inputName: any) => {
+      const inputValue = inputs[inputName]
+      const error = isEmpty(inputValue) || isNull(inputValue)
+
+      updateRequired(inputName, error)
+
+      return error
     })
 
-    handleSave(isUndefined(hasEmpty) ? inputs : false)
+    handleSave(isEmpty(hasErrors) ? inputs : false)
   }
 
-  return <FormAction label={label} handleAction={handleAction} icon={icon} />
+  return (
+    <ButtonWrapperStyled>
+      <Button
+        label={label}
+        onClick={handleAction}
+        icon={icon}
+        theme='primary'
+        disabled={disabled}
+        fullWidth={fullWidth}
+      />
+    </ButtonWrapperStyled>
+  )
 }
 
 export default FormSave

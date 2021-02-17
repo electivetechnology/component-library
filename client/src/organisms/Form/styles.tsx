@@ -120,21 +120,6 @@ export const FlexibilityWrapperStyled = styled.div`
 export const AffixStyled = styled.div`
   margin-top: 24px;
 `
-export const DateWrapperStyled = styled.div`
-  position: relative;
-  margin-top: 16px;
-`
-
-// TODO: use font component?
-export const DateLabelStyled = styled.div`
-  position: absolute;
-  z-index: 0;
-  top: -7px;
-  background-color: ${theme.white};
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 12px;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-`
 
 export const BrandStyled = styled.div`
   display: flex;
@@ -201,6 +186,7 @@ export const LabelStyled = styled.label<LabelProps>`
 type TextInputProps = {
   disabled?: boolean
   darkMode: boolean
+  error: boolean
 }
 
 export const TextInputStyled = styled.input<TextInputProps>`
@@ -224,6 +210,11 @@ export const TextInputStyled = styled.input<TextInputProps>`
     color: ${theme.disabledTextGrey};
     border-bottom: 1px dotted ${theme.dividerGrey};
     background-color: transparent;
+    `}
+  ${(props) =>
+    props.error &&
+    `
+    border-bottom: 1px solid ${theme.primaryRed};
     `}
   ${(props) =>
     props.darkMode &&
@@ -280,4 +271,81 @@ export const ToastStyled = styled.div`
   left: -10px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   top: 2px;
+`
+
+type TextareaProps = {
+  disabled?: boolean
+  darkMode: boolean
+  error: boolean
+}
+
+export const TextareaStyled = styled.textarea<TextareaProps>`
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  border-bottom: 1px solid ${theme.dividerGrey};
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${theme.grey};
+  }
+  &:hover {
+    border-bottom: 1px solid ${theme.grey};
+  }
+  &:active {
+    border-bottom: 1px solid ${theme.grey};
+  }
+  ${(props) =>
+    props.error &&
+    `
+    border-bottom: 1px solid ${theme.primaryRed};
+    `}
+  ${(props) =>
+    props.disabled &&
+    `
+    border: none;
+    color: ${theme.disabledTextGrey};
+    border-bottom: 1px dotted ${theme.dividerGrey};
+    background-color: transparent;
+    `}
+  ${(props) =>
+    props.darkMode &&
+    `
+    border: none;
+    color: ${theme.white};
+    border-bottom: 1px solid ${theme.grey};
+    background-color: transparent;
+      &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
+      &:active {
+        border-bottom: 1px solid ${theme.white};
+      }
+    `}
+`
+
+export const DateWrapperStyled = styled.div`
+  position: relative;
+  margin-top: 24px;
+  padding-top: 8px;
+`
+
+export const DateLabelStyled = styled.div`
+  position: absolute;
+  z-index: 0;
+  top: -2px;
+  background-color: ${theme.white};
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+`
+
+export const FormPhoneStyled = styled.div`
+  padding-top: 8px;
+`
+
+export const ButtonWrapperStyled = styled.div`
+  display: grid;
+  margin: 16px 0;
+  padding-top: 8px;
 `

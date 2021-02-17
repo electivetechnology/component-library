@@ -5,7 +5,7 @@ import { TextField } from '@material-ui/core'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { makeStyles } from '@material-ui/styles'
 import 'react-phone-input-2/lib/style.css'
-import { FormPhoneStyled } from './styles'
+import { FormPhoneStyled } from 'organisms/Form/styles'
 
 const useStyles = makeStyles({
   dropdown: () => ({

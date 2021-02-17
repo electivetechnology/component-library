@@ -12,7 +12,21 @@ export type InputType =
   | 'textEditor'
   | 'toggle'
 
-export type StatusType = 'pending' | 'error' | 'success'
+export type StatusTypeType = 'pending' | 'error' | 'success'
+
+export interface InputProps {
+  label: string
+  name: string
+  value: any
+  type: InputType
+  affix?: string
+  helperText?: string
+  download?: boolean
+  options?: OptionType
+  outlined?: boolean
+  disabled?: boolean
+  required?: boolean
+}
 
 export interface FormOptionType {
   label: string
@@ -32,22 +46,21 @@ export interface OptionType {
   inactiveLabel?: string
 }
 
-export type HandleStatusType = (
-  statusType: StatusType,
+export type StatusType = {
+  name: string
+  statusType: StatusTypeType
   message?: string
-) => void
+}
 
-export type AddStatusType = (
-  statusType: StatusType,
+export type HandleStatusType = (
   name: string,
+  statusType: StatusTypeType,
   message?: string
 ) => void
 
 export type FormProps = {
-  handleUpdate?: (
-    object: { [key: string]: string },
-    handleStatus: HandleStatusType
-  ) => void
+  handleUpdate?: (key: string, value: string) => void
+  statuses?: any
   disableForm?: boolean
   darkMode?: boolean
   outlineInputs?: boolean
@@ -58,6 +71,8 @@ export type FormContextType = {
   updateInput: Function
   inputs: any
   statuses: any
+  requiredErrors: { [key: string]: boolean }
+  updateRequired: Function
   disableForm: boolean
   darkMode: boolean
   outlineInputs?: boolean
@@ -71,8 +86,11 @@ export type InputContextType = {
   name: string
   type: InputType
   disabled?: boolean
+  required?: boolean
   options?: OptionType
   outlined?: boolean
+  status?: StatusType
+  requiredError: boolean
 }
 
 export const InputContext = createContext<InputContextType>(
