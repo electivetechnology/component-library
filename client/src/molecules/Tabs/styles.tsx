@@ -7,7 +7,6 @@ export const TabBarStyled = styled.div`
 `
 
 export const TabScrollStyled = styled.div`
-  overflow-x: scroll;
   display: flex;
   flex-flow: column;
   height: 100%;

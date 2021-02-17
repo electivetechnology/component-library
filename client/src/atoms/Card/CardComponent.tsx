@@ -18,6 +18,7 @@ type Props = {
   fullHeight?: boolean
   noBorder?: boolean
   onClick?: any
+  scroll?: boolean
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
@@ -30,7 +31,8 @@ const ComponentCard: React.FC<Props> = ({
   padding = false,
   fullWidth = false,
   fullHeight = false,
-  noBorder = false
+  noBorder = false,
+  scroll = false
 }) => {
   return (
     <CardContainerStyled
@@ -42,6 +44,7 @@ const ComponentCard: React.FC<Props> = ({
       fullWidth={fullWidth}
       fullHeight={fullHeight}
       noBorder={noBorder}
+      scroll={scroll}
     >
       {header && (
         <ComponentCardHeaderStyled>
