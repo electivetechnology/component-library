@@ -23,13 +23,20 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   padding-right: 8px;
   width: 100%;
   overflow: scroll;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  // hide scroll bar on firefox
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   @media screen and (min-width: 750px) {
     width: 100vw;
     display: grid;
-    grid-template-columns: 35% auto auto;
   }
   @media screen and (min-width: 960px) {
-    display: inline-flex;
+    overflow: scroll;
   }
   ${(props) =>
     props.width &&
@@ -60,6 +67,16 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   @media screen and (min-width: 750px) {
     display: inline-flex;
     width: 100%;
+    height: calc(100vh - 72px);
+    overflow: hidden;
+    ${(props) =>
+      props.backgroundColor &&
+      `
+        background-color: ${props.backgroundColor};
+      `};
+  }
+  @media screen and (min-width: 960px) {
+    height: calc(100vh - 114px);
     ${(props) =>
       props.columnWidth &&
       `
@@ -76,13 +93,6 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
     `
       width: 20px;
     `};
-  @media screen and (min-width: 750px) {
-    ${(props) =>
-      props.backgroundColor &&
-      `
-        background-color: ${props.backgroundColor};
-      `};
-  }
 `
 
 export const ColumnBorderStyled = styled.div`
@@ -131,5 +141,5 @@ export const MobileButtonLabelStyled = styled.span`
   font-size: 14px;
   color: ${theme.primaryGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  padding: 2px 0 0 4px;
+  padding: 4px 0 0 4px;
 `

@@ -64,7 +64,7 @@ export const useInputStyles = makeStyles({
   }),
   popupIndicator: (props: any) => ({
     color: props.darkMode ? `${theme.white}` : `${theme.grey}`,
-    backgroundColor: theme.white,
+    backgroundColor: props.darkMode ? 'transparent' : theme.white,
     padding: '2px 2px 0'
   }),
   paper: {
