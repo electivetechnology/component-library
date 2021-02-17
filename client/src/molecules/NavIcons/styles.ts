@@ -37,7 +37,7 @@ type NavigationContentProps = {
 }
 
 export const NavigationContentStyled = styled.div<NavigationContentProps>`
-  padding: 32px 0 0 0;
+  padding: 8px 0 0 0;
   margin: 0 16px;
   ${(props) =>
     props.horizontal &&
