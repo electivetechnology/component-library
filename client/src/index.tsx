@@ -8,7 +8,8 @@ export {
   Card,
   Header,
   Toggle,
-  Tooltip
+  Tooltip,
+  LoaderComponent
 } from 'atoms'
 
 // MOLECULES
@@ -27,4 +28,4 @@ export {
 export { Tabs, Tab, TabPanel } from 'molecules/Tabs'
 
 // ORGANISMS
-export { Form, FormInput, FormSave, useFormStatus} from 'organisms/Form'
+export { Form, FormInput, FormSave, useFormStatus } from 'organisms/Form'
