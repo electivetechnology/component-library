@@ -22,8 +22,8 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   display: inline-flex;
   padding-right: 8px;
   width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -32,11 +32,12 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   -ms-overflow-style: none;
   scrollbar-width: none;
   @media screen and (min-width: 750px) {
+    overflow: hidden;
     width: 100vw;
-    display: grid;
   }
   @media screen and (min-width: 960px) {
-    overflow: scroll;
+    // overflow: scroll;
+    // hidden for list and job view
   }
   ${(props) =>
     props.width &&
@@ -58,6 +59,7 @@ type ColumnStyledProps = {
   isHidden: boolean
   align: 'left' | 'right'
   backgroundColor?: string
+  scroll?: boolean
 }
 export const ColumnStyled = styled.div<ColumnStyledProps>`
   display: grid;
@@ -69,6 +71,11 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
     width: 100%;
     height: calc(100vh - 72px);
     overflow: hidden;
+    ${(props) =>
+      props.scroll &&
+      `
+        overflow: ${props.scroll};
+      `};
     ${(props) =>
       props.backgroundColor &&
       `
