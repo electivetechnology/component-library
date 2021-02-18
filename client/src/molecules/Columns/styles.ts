@@ -35,10 +35,6 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
     overflow: hidden;
     width: 100vw;
   }
-  @media screen and (min-width: 960px) {
-    // overflow: scroll;
-    // hidden for list and job view
-  }
   ${(props) =>
     props.width &&
     `
