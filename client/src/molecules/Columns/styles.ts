@@ -63,7 +63,6 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   z-index: 100;
   background-color: ${theme.grayAthens};
   @media screen and (min-width: 750px) {
-    display: inline-flex;
     width: 100%;
     height: calc(100vh - 72px);
     overflow: hidden;
@@ -79,6 +78,7 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
       `};
   }
   @media screen and (min-width: 960px) {
+    display: inline-flex;
     height: calc(100vh - 114px);
     ${(props) =>
       props.columnWidth &&
@@ -128,14 +128,14 @@ export const SideColumnMobiledStyled = styled.div<SideColumnMobiledProps>`
     `
       display: inline-flex;
     `};
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 960px) {
     display: none;
   }
 `
 
 export const SideColumnDesktopdStyled = styled.div`
   display: none;
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 960px) {
     display: flex;
   }
 `
