@@ -5,7 +5,8 @@ import {
   HeaderBorder,
   HeaderContentStyled,
   expandIconStyles,
-  HeaderContent
+  HeaderContent,
+  HeaderContainer
 } from './styles'
 import Font from '../Font/Font'
 import { theme } from 'styles/theme'
@@ -30,7 +31,7 @@ const Header: React.FC<Props> = ({
   const fontColor =
     headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
   return (
-    <div>
+    <HeaderContainer>
       <HeaderBorder />
       <div>
         {title ? (
@@ -55,7 +56,7 @@ const Header: React.FC<Props> = ({
         ) : null}
       </div>
       <HeaderContent showSection={showSection}>{children}</HeaderContent>
-    </div>
+    </HeaderContainer>
   )
 }
 

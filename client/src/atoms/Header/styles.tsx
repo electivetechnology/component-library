@@ -6,6 +6,10 @@ export const HeaderBorder = styled.div`
   width: 100%;
 `
 
+export const HeaderContainer = styled.div`
+  display: contents;
+`
+
 export const HeaderContentStyled = styled.div`
   width: 100%;
   display: flex;
@@ -20,6 +24,10 @@ export const HeaderContent = styled.div<HeaderContentProp>`
     props.showSection &&
     `
         display: block;
+        flex-grow: inherit;
+        max-height: fit-content;
+        overflow-x: hidden;
+        overflow-y: auto;
     `};
 `
 
