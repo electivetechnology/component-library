@@ -47,31 +47,6 @@ Tertiary.args = {
   label: 'Tertiary'
 }
 
-// Action
-// export const Action: any = Template.bind({})
-
-// Action.args = {
-//   theme: 'action',
-//   label: 'Action'
-// }
-
-// TogglePrimary
-// TODO: LATER SPRINT
-// export const TogglePrimary: any = Template.bind({})
-
-// TogglePrimary.args = {
-//   theme: 'togglePrimary',
-//   label: 'Toggle Primary'
-// }
-
-// // ToggleSecondary
-// export const ToggleSecondary: any = Template.bind({})
-
-// ToggleSecondary.args = {
-//   theme: 'toggleSecondary',
-//   label: 'Toggle Secondary'
-// }
-
 // Disabled
 export const Disabled: any = Template.bind({})
 
@@ -96,6 +71,14 @@ export const Icon: any = Template.bind({})
 Icon.args = {
   theme: 'primary',
   label: 'Icon',
+  icon: <Save />
+}
+
+// Quaternary
+export const Quaternary: any = Template.bind({})
+
+Quaternary.args = {
+  theme: 'quaternary',
   icon: <Save />
 }
 
