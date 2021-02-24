@@ -24,7 +24,7 @@ const renderTabs = (darkMode: boolean) => (
         : 'unset'
     }}
   >
-    <TabBar columns='auto auto'>
+    <TabBar>
       <Tab
         name={TabConst.ROLES}
         isActive={false}
