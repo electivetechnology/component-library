@@ -37,6 +37,7 @@ const Tab: FC<Props> = ({
     <TabStyled
       onClick={handleClick}
       onMouseEnter={onHover}
+      onTouchStart={onHover}
       active={active}
       darkMode={darkMode}
     >
