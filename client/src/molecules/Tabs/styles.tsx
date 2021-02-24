@@ -1,9 +1,30 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 
+type TabBarProps = {
+  columns?: string
+}
+
 // Tab bar
-export const TabBarStyled = styled.div`
-  display: inline-flex;
+export const TabBarStyled = styled.div<TabBarProps>`
+  overflow: scroll;
+  width: 92vw;
+  display: grid;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  // hide scroll bar on firefox
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ${(props) =>
+    props.columns &&
+    `
+          grid-template-columns: ${props.columns};          
+      `}
+  @media screen and (min-width: 750px) {
+    display: inline-flex;
+  }
 `
 
 export const TabScrollStyled = styled.div`

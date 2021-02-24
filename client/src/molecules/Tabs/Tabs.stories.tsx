@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Tabs from 'molecules/Tabs/Tabs'
 import TabBar from 'molecules/Tabs/TabBar'
 import Tab from 'molecules/Tabs/Tab'
@@ -24,7 +24,7 @@ const renderTabs = (darkMode: boolean) => (
         : 'unset'
     }}
   >
-    <TabBar>
+    <TabBar columns='auto auto'>
       <Tab
         name={TabConst.ROLES}
         isActive={false}
