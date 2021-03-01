@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Children } from 'react'
 import { TabBarStyled } from './styles'
 
-type Props = {}
+const TabBar: React.FC = ({ children }) => {
+  const count = Children.count(children)
 
-const TabBar: React.FC<Props> = ({ children }) => {
-  return <TabBarStyled>{children}</TabBarStyled>
+  const grid = new Array(count + 1).join('auto ')
+
+  return <TabBarStyled columns={grid}>{children}</TabBarStyled>
 }
 
 export default TabBar
