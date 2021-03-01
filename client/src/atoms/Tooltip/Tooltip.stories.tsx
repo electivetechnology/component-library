@@ -1,9 +1,14 @@
 import React from 'react'
 import Tooltip from './Tooltip'
+import { Button } from 'atoms'
+import Save from '@material-ui/icons/Save'
 
 const TooltipTemplate = (args: any) => {
   return (
-    <div style={{ margin: '24px 0 0 80px' }}>
+    <div style={{ margin: '24px 0 0 80px', display: 'inline-flex' }}>
+      <Tooltip {...args} />
+      <Tooltip {...args} />
+      <Tooltip {...args} />
       <Tooltip {...args} />
     </div>
   )
@@ -43,6 +48,17 @@ Right.args = {
   label: 'Label',
   tooltipText: 'Tooltip right',
   placement: 'right'
+}
+
+// Children
+export const Children: any = TooltipTemplate.bind({})
+
+Children.args = {
+  tooltipText: 'Tooltip right',
+  placement: 'bottom',
+  children: (
+    <Button label='' theme='quaternary' onClick={() => {}} icon={<Save />} />
+  )
 }
 
 // Highlighted
