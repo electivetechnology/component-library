@@ -25,7 +25,7 @@ export {
   resetPopUp,
   popUpSchema
 } from 'molecules/PopUp/reducer'
-export { Tabs, Tab, TabPanel } from 'molecules/Tabs'
+export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'
 
 // ORGANISMS
 export { Form, FormInput, FormSave, useFormStatus } from 'organisms/Form'
