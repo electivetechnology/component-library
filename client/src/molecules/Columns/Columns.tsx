@@ -20,9 +20,10 @@ const Columns: React.FC<Props> = ({ children, width }) => {
       )
   })
 
+
   return (
     <NavContext.Provider value={{ colWidth, columns }}>
-      <ColumnsStyled width={width}>{childrenStyled}</ColumnsStyled>
+      {/*<ColumnsStyled width={width}>{childrenStyled}</ColumnsStyled>*/}
     </NavContext.Provider>
   )
 }
