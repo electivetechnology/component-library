@@ -9,6 +9,7 @@ export type ThemeType =
   | 'action'
   | 'togglePrimary'
   | 'toggleSecondary'
+  | 'quaternary'
 
 export type Props = {
   label: string

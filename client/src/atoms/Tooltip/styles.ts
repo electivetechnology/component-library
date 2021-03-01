@@ -35,7 +35,7 @@ export const TooltipStyled = styled.span<TooltipProp>`
     transform: translateX(-50%);
     white-space: nowrap;
     width: auto;
-    height: 100%;
+    height: auto;
 
     display: none;
 

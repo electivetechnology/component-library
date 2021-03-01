@@ -4,6 +4,7 @@ import styled from 'styled-components'
 type WrapperProps = {
   icon?: any
   variant?: string
+  label: boolean
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -38,6 +39,12 @@ export const Wrapper = styled.div<WrapperProps>`
       padding: 2px 16px;
   `};
   ${(props) =>
+    props.variant === 'quaternary' &&
+    `
+      grid-template-columns: 1fr;
+      padding: 2px 16px;
+  `};
+  ${(props) =>
     props.icon &&
     `
       align-content: center;
@@ -45,10 +52,16 @@ export const Wrapper = styled.div<WrapperProps>`
       grid-template-columns: 30px 1fr;
       width: max-content;
   `};
+  ${(props) =>
+    !props.label &&
+    `
+      padding: 0;
+  `};
 `
 
 type IcronProps = {
   variant: string
+  label: boolean
 }
 export const Icon = styled.div<IcronProps>`
   padding-right: 8px;
@@ -58,6 +71,12 @@ export const Icon = styled.div<IcronProps>`
     props.variant === 'mobile' &&
     `
       padding-right: 0;
+  `};
+  ${(props) =>
+    !props.label &&
+    `
+      padding: 0;
+      margin: auto;
   `};
 `
 
@@ -87,6 +106,9 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   border: none;
   padding: 8px;
   cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
   ${(props) =>
     props.variant === 'primary' &&
     !props.disabled &&
@@ -142,11 +164,30 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       }
   `};
   ${(props) =>
+    props.variant === 'quaternary' &&
+    !props.disabled &&
+    `
+      color: ${theme.primaryGrey};
+      border-radius: 4px;
+      background-color: transparent;
+      &:hover {
+        background-color: ${theme.hoverBlue};
+      }
+  `};
+  ${(props) =>
     props.variant === 'tertiary' &&
     props.disabled &&
     `
       color: ${theme.Gray};
       background-color: ${theme.white};
+      border-radius: 4px;
+  `};
+  ${(props) =>
+    props.variant === 'quaternary' &&
+    props.disabled &&
+    `
+      color: ${theme.primaryGrey};
+      background-color: transparent;
       border-radius: 4px;
   `};
   ${(props) =>
