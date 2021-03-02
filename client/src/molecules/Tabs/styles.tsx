@@ -24,6 +24,7 @@ export const TabBarStyled = styled.div<TabBarProps>`
       `}
   @media screen and (min-width: 750px) {
     display: inline-flex;
+    width: auto;
   }
 `
 
