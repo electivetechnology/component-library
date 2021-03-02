@@ -17,15 +17,14 @@ export const TabBarStyled = styled.div<TabBarProps>`
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  @media screen and (min-width: 750px) {
+    width: auto;
+  }
   ${(props) =>
     props.columns &&
     `
           grid-template-columns: ${props.columns};          
       `}
-  @media screen and (min-width: 750px) {
-    display: inline-flex;
-    width: auto;
-  }
 `
 
 export const TabScrollStyled = styled.div`
