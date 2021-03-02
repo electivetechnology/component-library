@@ -8,7 +8,7 @@ type TabBarProps = {
 // Tab bar
 export const TabBarStyled = styled.div<TabBarProps>`
   overflow: scroll;
-  width: 92vw;
+  width: 90vw;
   display: grid;
   ::-webkit-scrollbar {
     display: none;
