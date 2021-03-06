@@ -1,5 +1,3 @@
-import { createMuiTheme } from '@material-ui/core/styles'
-
 export const theme = {
   primaryColorValencia: '#D63948',
   primaryColorValenciaDark: '#BD202F',
@@ -52,36 +50,3 @@ export const zindex = {
   notificationOverlay: 10,
   notificationWrapper: 12
 }
-
-export const appTheme = createMuiTheme({
-  typography: {
-    h1: {
-      fontSize: '36px'
-    },
-    h2: {
-      fontSize: '30px'
-    },
-    h3: {
-      fontSize: '26px'
-    },
-    h4: {
-      fontSize: '18px'
-    },
-    h5: {
-      fontSize: '14px'
-    },
-    h6: {
-      fontSize: '12px'
-    },
-    body1: {
-      fontSize: '14px'
-    }
-  },
-  overrides: {
-    MuiChip: {
-      deleteIcon: {
-        color: `${theme.white}`
-      }
-    }
-  }
-})
