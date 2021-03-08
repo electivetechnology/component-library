@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import { TextField } from '@material-ui/core'
+import { Autocomplete } from '@material-ui/lab'
 import { useStyles } from 'atoms/PhoneInput/styles'
 
 function countryToFlag(isoCode: string) {

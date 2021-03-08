@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { CloseIconStyled } from 'molecules/PopUp/styles'
-import Close from '@material-ui/icons/Close'
+import { Close } from '@material-ui/icons'
 
 type Props = {
   handleClose?: any

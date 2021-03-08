@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { CloseWrapper, useStyles } from 'atoms/CloseButton/styles'
-import CloseIcon from '@material-ui/icons/Close'
+import { Close } from '@material-ui/icons'
 
 type Props = {
   onClose: any
@@ -11,7 +11,7 @@ const CloseButton: FunctionComponent<Props> = ({ onClose }) => {
 
   return (
     <CloseWrapper data-testid='CloseButton'>
-      <CloseIcon className={classes.icon} onClick={onClose} />
+      <Close className={classes.icon} onClick={onClose} />
     </CloseWrapper>
   )
 }

@@ -1,8 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import ErrorIcon from '@material-ui/icons/Error'
-import InfoIcon from '@material-ui/icons/Info'
-import WarningIcon from '@material-ui/icons/Warning'
+import { CheckCircle as CheckCircleIcon, Error as ErrorIcon,  Info as InfoIcon,  Warning as WarningIcon } from '@material-ui/icons'
 import { useStyles } from 'molecules/Alert/styles'
 
 const variantIcon: any = {

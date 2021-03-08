@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { InlineStyle, IconOutlineStyled, iconStyles } from 'molecules/Channels/styles'
-import TextSms from '@material-ui/icons/TextsmsOutlined'
-import Smartphone from '@material-ui/icons/SmartphoneOutlined'
-import PhoneOutlined from '@material-ui/icons/PhoneOutlined'
-
+import { TextsmsOutlined , SmartphoneOutlined, PhoneOutlined } from '@material-ui/icons'
 type Props = {
   sms: boolean
   phone: boolean
@@ -19,10 +16,10 @@ const Channels: FunctionComponent<Props> = ({ sms, phone, webChat }) => {
         <PhoneOutlined className={classes.phoneIcon} />
       </IconOutlineStyled>
       <IconOutlineStyled isActive={sms}>
-        <Smartphone className={classes.messageIcon} />
+        <SmartphoneOutlined className={classes.messageIcon} />
       </IconOutlineStyled>
       <IconOutlineStyled isActive={webChat}>
-        <TextSms className={classes.webIcon} />
+        <TextsmsOutlined className={classes.webIcon} />
       </IconOutlineStyled>
     </InlineStyle>
   )

@@ -2,7 +2,7 @@ import React, { useContext, FC, cloneElement } from 'react'
 import { navContext } from 'molecules/NavIcons/NavIcons'
 import { sectionContext } from 'molecules/NavIcons/NavSection'
 import { IconStyled, iconStyles } from 'molecules/NavIcons/styles'
-import Tooltip from '@material-ui/core/Tooltip'
+import { Tooltip } from '@material-ui/core'
 
 type Props = {
   children: any

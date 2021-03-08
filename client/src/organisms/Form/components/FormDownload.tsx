@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo } from 'react'
-import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
+import { CloudDownloadOutlined as CloudDownloadOutlinedIcon } from '@material-ui/icons'
 import { ActionButtonStyled } from 'organisms/Form/styles'
 
 type Props = {

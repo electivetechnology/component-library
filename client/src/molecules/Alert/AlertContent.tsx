@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { useStyles } from 'molecules/Alert/styles'
-import SnackbarContent from '@material-ui/core/SnackbarContent'
+import { SnackbarContent } from '@material-ui/core'
 import { CloseButton } from 'atoms'
 import AlertMessage from 'molecules/Alert/AlertMessage'
 import { AlertTypeType } from 'molecules/Alert/types'

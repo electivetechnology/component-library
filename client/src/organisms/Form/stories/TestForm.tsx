@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
-import AddIcon from '@material-ui/icons/Add'
+import {Add as AddIcon } from '@material-ui/icons'
 import { candidateStatusOptions } from 'organisms/Form/mock'
 import { useFormStatus } from 'organisms/Form/hooks'
 

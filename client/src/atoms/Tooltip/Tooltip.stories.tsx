@@ -1,7 +1,7 @@
 import React from 'react'
 import Tooltip from './Tooltip'
 import { Button } from 'atoms'
-import Save from '@material-ui/icons/Save'
+import { Save } from '@material-ui/icons'
 
 const TooltipTemplate = (args: any) => {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMoreOutlined'
-import ExpandLessIcon from '@material-ui/icons/ExpandLess'
+import { ExpandMoreOutlined as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from '@material-ui/icons'
 import {
   HeaderBorder,
   HeaderContentStyled,

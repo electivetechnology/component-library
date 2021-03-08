@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Snackbar from '@material-ui/core/Snackbar'
+import { Snackbar } from '@material-ui/core'
 import { resetAlert, getAlert } from 'molecules/Alert/reducer'
 import AlertContent from 'molecules/Alert/AlertContent'
 import { CloseWrapper } from 'molecules/Alert/styles'

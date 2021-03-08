@@ -7,7 +7,7 @@ import {
   FormRow,
   FormTitle
 } from 'organisms/Form'
-import AddIcon from '@material-ui/icons/Add'
+import { Add as  AddIcon } from '@material-ui/icons'
 
 const handleUpdate = () => {}
 const handleAction = () => {}

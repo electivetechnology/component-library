@@ -1,5 +1,4 @@
-import remove from 'lodash/remove'
-import merge from 'lodash/merge'
+import { remove, merge } from 'lodash'
 import { produce } from 'immer'
 
 // GLOBAL ACTION CREATORS

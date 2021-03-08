@@ -1,6 +1,6 @@
 import React from 'react'
 import Fab from 'atoms/Fab/Fab'
-import Save from '@material-ui/icons/Save'
+import { Save } from '@material-ui/icons'
 
 export default {
   title: 'atoms/Fab',

@@ -7,7 +7,7 @@ import {
   FormInput,
   FormTitle
 } from 'organisms/Form'
-import AddIcon from '@material-ui/icons/Add'
+import { Add as  AddIcon } from '@material-ui/icons'
 
 const { getAllByTestId, getByLabelText, getByText, getByTestId } = screen
 

@@ -10,9 +10,7 @@ import {
   SideColumnDesktopdStyled,
   MobileButtonLabelStyled
 } from 'molecules/Columns/styles'
-import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import { ChevronLeftOutlined  as ChevronLeftOutlinedIcon, ArrowForwardIos as ArrowForwardIosIcon, ArrowBack as ArrowBackIcon } from '@material-ui/icons'
 
 type Props = {
   isClosable?: boolean

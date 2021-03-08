@@ -1,18 +1,10 @@
 import React, { Fragment } from 'react'
-import FolderSharedOutlined from '@material-ui/icons/FolderSharedOutlined'
-import MeetingRoomOutlined from '@material-ui/icons/MeetingRoomOutlined'
-import DomainOutlined from '@material-ui/icons/DomainOutlined'
-import WorkOffOutlined from '@material-ui/icons/WorkOffOutlined'
-import ArchiveOutlined from '@material-ui/icons/ArchiveOutlined'
-import VisibilityOutlined from '@material-ui/icons/VisibilityOutlined'
+import { FolderSharedOutlined, MeetingRoomOutlined, DomainOutlined, WorkOffOutlined, ArchiveOutlined, VisibilityOutlined, Inbox as InboxIcon, CheckCircleOutline as CheckCircleIcon, CancelOutlined as CancelIcon} from '@material-ui/icons'
 import NavIcon from 'molecules/NavIcons/NavIcon'
 import NavToggle from 'molecules/NavIcons/NavToggle'
 import NavIcons from 'molecules/NavIcons/NavIcons'
 import { DividerType } from 'molecules/NavIcons/base'
 import NavMulti from 'molecules/NavIcons/NavMulti'
-import InboxIcon from '@material-ui/icons/Inbox'
-import CheckCircleIcon from '@material-ui/icons/CheckCircleOutline'
-import CancelIcon from '@material-ui/icons/CancelOutlined'
 
 const Template = (args: any) => <NavIcons {...args} />
 

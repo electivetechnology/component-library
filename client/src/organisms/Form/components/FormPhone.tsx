@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useContext } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
-import ReactPhoneInput from 'react-phone-input-mui'
+import { ReactPhoneInput } from 'react-phone-input-mui'
 import { TextField } from '@material-ui/core'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { makeStyles } from '@material-ui/styles'
