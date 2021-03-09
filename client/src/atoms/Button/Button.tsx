@@ -38,7 +38,7 @@ const Button: React.FC<Props> = ({
       disabled={disabled}
       fullWidth={fullWidth}
     >
-      <Wrapper icon={icon} variant={theme} label={hasLabel}>
+      <Wrapper icon={icon} variant={theme} hasLabel={hasLabel}>
         {icon && (
           <Icon variant={theme} label={hasLabel}>
             {icon}

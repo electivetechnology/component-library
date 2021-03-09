@@ -4,7 +4,7 @@ import styled from 'styled-components'
 type WrapperProps = {
   icon?: any
   variant?: string
-  label: boolean
+  hasLabel: boolean
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -53,7 +53,7 @@ export const Wrapper = styled.div<WrapperProps>`
       width: max-content;
   `};
   ${(props) =>
-    !props.label &&
+    !props.hasLabel &&
     `
       padding: 0;
   `};
