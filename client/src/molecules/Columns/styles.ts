@@ -62,6 +62,7 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   width: 91vw;
   z-index: 100;
   background-color: ${theme.grayAthens};
+  margin: auto;
   @media screen and (min-width: 750px) {
     width: 100%;
     height: calc(100vh - 72px);
