@@ -3,15 +3,15 @@ import { CloseWrapper, useStyles } from 'atoms/CloseButton/styles'
 import CloseIcon from '@material-ui/icons/Close'
 
 type Props = {
-  onClose: any
+  handleClose: any
 }
 
-const CloseButton: FunctionComponent<Props> = ({ onClose }) => {
+const CloseButton: FunctionComponent<Props> = ({ handleClose }) => {
   const classes = useStyles()
 
   return (
     <CloseWrapper data-testid='CloseButton'>
-      <CloseIcon className={classes.icon} onClick={onClose} />
+      <CloseIcon className={classes.icon} onClick={handleClose} />
     </CloseWrapper>
   )
 }

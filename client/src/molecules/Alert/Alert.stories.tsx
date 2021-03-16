@@ -1,16 +1,16 @@
 import React from 'react'
 import Alert from 'molecules/Alert/Alert'
-import ProviderWrapper from 'utils/ProviderWrapper'
 import AlertContent from 'molecules/Alert/AlertContent'
-import { action } from '@storybook/addon-actions'
+
 import AlertMessage from 'molecules/Alert/AlertMessage'
 import {
-  successStore,
-  warningStore,
-  infoStore,
-  errorStore,
-  emptyStore
+  successContextMock,
+  warningContextMock,
+  infoContextMock,
+  errorContextMock,
+  emptyContextMock
 } from 'molecules/Alert/mocks'
+import { AlertContext } from './base'
 
 export default {
   title: 'molecules/Alert',
@@ -18,69 +18,69 @@ export default {
 }
 
 export const SuccessAlert = () => (
-  <ProviderWrapper store={successStore}>
+  <AlertContext.Provider value={successContextMock}>
     <Alert />
-  </ProviderWrapper>
+  </AlertContext.Provider>
 )
+
 export const WarningAlert = () => (
-  <ProviderWrapper store={warningStore}>
+  <AlertContext.Provider value={warningContextMock}>
     <Alert />
-  </ProviderWrapper>
+  </AlertContext.Provider>
 )
 export const InfoAlert = () => (
-  <ProviderWrapper store={infoStore}>
+  <AlertContext.Provider value={infoContextMock}>
     <Alert />
-  </ProviderWrapper>
+  </AlertContext.Provider>
 )
 export const ErrorAlert = () => (
-  <ProviderWrapper store={errorStore}>
+  <AlertContext.Provider value={errorContextMock}>
     <Alert />
-  </ProviderWrapper>
+  </AlertContext.Provider>
 )
 export const EmptyAlert = () => (
-  <ProviderWrapper store={emptyStore}>
+  <AlertContext.Provider value={emptyContextMock}>
     <Alert />
-  </ProviderWrapper>
+  </AlertContext.Provider>
 )
 
 export const SuccessContent = () => (
-  <AlertContent
-    variant={'success'}
-    message={'Success Content'}
-    onClose={action('close')}
-  />
+  <AlertContext.Provider value={successContextMock}>
+    <AlertContent />
+  </AlertContext.Provider>
 )
+
 export const WarningContent = () => (
-  <AlertContent
-    variant={'warning'}
-    message={'Warning Content'}
-    onClose={action('close')}
-  />
+  <AlertContext.Provider value={warningContextMock}>
+    <AlertContent />
+  </AlertContext.Provider>
 )
+
 export const InfoContent = () => (
-  <AlertContent
-    variant={'info'}
-    message={'Info Content'}
-    onClose={action('close')}
-  />
+  <AlertContext.Provider value={infoContextMock}>
+    <AlertContent />
+  </AlertContext.Provider>
 )
+
 export const ErrorContent = () => (
-  <AlertContent
-    variant={'error'}
-    message={'Error Content'}
-    onClose={action('close')}
-  />
+  <AlertContext.Provider value={errorContextMock}>
+    <AlertContent />
+  </AlertContext.Provider>
 )
 
 export const SuccessMessage = () => (
-  <AlertMessage variant={'success'} message={'Success Message'} />
+  <AlertContext.Provider value={successContextMock}>
+    <AlertMessage />
+  </AlertContext.Provider>
 )
-export const WarningMessage = () => (
-  <AlertMessage variant={'warning'} message={'Warning Message'} />
-)
+
 export const InfoMessage = () => (
-  <AlertMessage variant={'info'} message={'Info Message'} />
+  <AlertContext.Provider value={infoContextMock}>
+    <AlertMessage />
+  </AlertContext.Provider>
 )
 export const ErrorMessage = () => (
-  <AlertMessage variant={'error'} message={'Error Message'} />
+  <AlertContext.Provider value={errorContextMock}>
+    <AlertMessage />
+  </AlertContext.Provider>
 )
