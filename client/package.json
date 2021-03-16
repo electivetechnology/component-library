@@ -80,9 +80,9 @@
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-mock-store": "^1.0.2",
-    "@types/styled-components":"^5.1.7",
+    "@types/styled-components": "^5.1.7",
     "chromatic": "^5.6.3",
-    "dayjs":"^1.10.4",
+    "dayjs": "^1.10.4",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.22.1",
@@ -149,5 +149,8 @@
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
+  },
+  "dependencies": {
+    "chart.js": "^2.9.4"
   }
 }
