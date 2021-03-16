@@ -16,7 +16,7 @@ type NavigationContainerProps = {
 }
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
-  width: 76px;
+  width: auto;
   background-color: ${theme.grayAthens};
   ${(props) =>
     props.horizontal &&
@@ -37,8 +37,7 @@ type NavigationContentProps = {
 }
 
 export const NavigationContentStyled = styled.div<NavigationContentProps>`
-  padding: 8px 0 0 0;
-  margin: 0 16px;
+  margin: 0 8px;
   ${(props) =>
     props.horizontal &&
     `
