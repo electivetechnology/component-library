@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useContext } from 'react'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
 import WarningIcon from '@material-ui/icons/Warning'
 import { useStyles } from 'molecules/Alert/styles'
+import { AlertContext } from 'molecules/Alert/base'
 
 const variantIcon: any = {
   success: CheckCircleIcon,
@@ -12,17 +13,13 @@ const variantIcon: any = {
   info: InfoIcon
 }
 
-type Props = {
-  variant: string
-  message: string
-}
+const AlertMessage: FunctionComponent = () => {
+  const {
+    alert: { alertType, message }
+  } = useContext(AlertContext)
 
-const AlertMessage: FunctionComponent<Props> = ({
-  variant = 'success',
-  message = ''
-}) => {
   const classes = useStyles()
-  const Icon: any = variantIcon[variant]
+  const Icon: any = variantIcon[alertType]
 
   return (
     <span

@@ -1,26 +1,55 @@
-import { ALERT, AlertType } from 'molecules/Alert/types'
+import { AlertTypeType } from 'molecules/Alert/base'
+import { action } from '@storybook/addon-actions'
 
-const alertStore = (value: AlertType) => [
-  {
-    key: ALERT,
-    value
-  }
-]
+const handleClose = () => {
+  action('close')
+}
 
-export const successStore = alertStore({
-  alertType: 'success',
-  message: 'Success Alert'
-})
-export const warningStore = alertStore({
-  alertType: 'warning',
-  message: 'Warning Alert'
-})
-export const infoStore = alertStore({
-  alertType: 'info',
-  message: 'Info Alert'
-})
-export const errorStore = alertStore({
-  alertType: 'error',
-  message: 'Error Alert'
-})
-export const emptyStore = alertStore({ alertType: '', message: '' })
+const setAlert = () => {
+  action('set')
+}
+
+export const successContextMock = {
+  alert: {
+    alertType: 'success' as AlertTypeType,
+    message: 'Success Alert',
+  },
+  setAlert,
+  handleClose
+}
+
+export const warningContextMock = {
+  alert: {
+    alertType: 'warning' as AlertTypeType,
+    message: 'Warning Alert',
+  },
+  setAlert,
+  handleClose
+}
+
+export const infoContextMock = {
+  alert: {
+    alertType: 'info' as AlertTypeType,
+    message: 'Info Alert',
+  },
+  setAlert,
+  handleClose
+}
+
+export const errorContextMock = {
+  alert: {
+    alertType: 'error' as AlertTypeType,
+    message: 'Error Alert',
+  },
+  setAlert,
+  handleClose
+}
+
+export const emptyContextMock = {
+  alert: {
+    alertType: '' as AlertTypeType,
+    message: '',
+  },
+  setAlert,
+  handleClose
+}
