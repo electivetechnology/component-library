@@ -26,8 +26,18 @@ export default [
   {
     input,
     output: {
-      // file: pkg.module,
       format: "esm",
+      sourcemap: true,
+      dir: 'dist',
+    },
+    treeshake: false,
+    plugins,
+    external,
+  },
+  {
+    input,
+    output: {
+      format: "cjs",
       sourcemap: true,
       dir: 'dist',
     },
