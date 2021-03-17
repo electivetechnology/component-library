@@ -10,7 +10,7 @@ export {
   Toggle,
   Tooltip,
   LoaderComponent,
-  ChartComponent,
+  Chart,
 } from 'atoms'
 
 // MOLECULES
