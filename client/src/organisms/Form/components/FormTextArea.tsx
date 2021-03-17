@@ -35,7 +35,7 @@ const FormTextArea: FunctionComponent<Props> = ({
   useEffect(() => {
     setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
     setTextAreaHeight(`${textAreaRef.current!.scrollHeight}px`)
-  }, [text])
+  }, [text, value])
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextAreaHeight('auto')
