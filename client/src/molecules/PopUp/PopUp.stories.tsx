@@ -1,7 +1,6 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PopUp from 'molecules/PopUp/PopUp'
-import ProviderWrapper from 'utils/ProviderWrapper'
-import { noCloseStore, closeStore } from 'molecules/PopUp/mocks'
+import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'molecules/PopUp',
@@ -9,13 +8,16 @@ export default {
 }
 
 export const NoClosePopUp = () => (
-  <ProviderWrapper store={noCloseStore}>
-    <PopUp>Do not allow close</PopUp>
-  </ProviderWrapper>
+  <Fragment>
+    <div id="pop-up"/>
+    <PopUp open={true} setOpen={action('open')}>Do not allow close</PopUp>
+  </Fragment>
+
 )
 
 export const ClosePopUp = () => (
-  <ProviderWrapper store={closeStore}>
-    <PopUp>Allow close</PopUp>
-  </ProviderWrapper>
+  <Fragment>
+    <div id="pop-up"/>
+    <PopUp open={true} setOpen={action('open')} isCloseable>Allow close</PopUp>
+  </Fragment>
 )
