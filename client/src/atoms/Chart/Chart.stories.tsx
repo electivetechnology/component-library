@@ -1,6 +1,6 @@
 import React from 'react'
-import { ChartComponent } from 'atoms'
-import { theme } from 'styles/theme';
+import { Chart } from 'atoms'
+import { theme } from 'styles/theme'
 
 const ChartTemplate = (args: any) => {
   var selectedIndex: any = null
@@ -18,7 +18,7 @@ const ChartTemplate = (args: any) => {
     }
   }
   return (
-    <ChartComponent 
+    <Chart 
       {...args}
       handleOnClick={handleSegmentClick} />
   )
@@ -38,5 +38,5 @@ Default.args = {
 
 export default {
   title: 'atoms/Chart',
-  component: ChartComponent
+  component: Chart
 }
