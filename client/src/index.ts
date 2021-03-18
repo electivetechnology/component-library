@@ -10,6 +10,7 @@ export {
   Toggle,
   Tooltip,
   LoaderComponent,
+  Chart,
   Font
 } from 'atoms'
 
