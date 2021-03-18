@@ -27,26 +27,30 @@ const ChartComponent: React.FC<Props> = ({
   labelPosition = 'right'
 }) => {
   useEffect(() => {
-    const ctx = document.getElementById("myChart")
+    const ctx = document.getElementById("chart")
+    
     const chart = new Chart(ctx, {
       type: "pie",
       data: {
         labels: labels,
         datasets: [{
-            data: data,
-            backgroundColor: segmentColor,
-            borderColor: borderColor,
-            hoverBackgroundColor: hoverBackgroundColor,
-            borderWidth: borderWidth
+          data: data,
+          backgroundColor: segmentColor,
+          borderColor: borderColor,
+          borderWidth: borderWidth,
         }]
       },
       options: {
         responsive: width ? false : true,
-        onClick: function (event: any, element: any) {          
+        onClick: function (event: any, element: any) {
           chart.update()
           handleOnClick(event, element)
         },
         legend: {
+          display: true,
+          labels: {
+            padding: 20
+          },
           position: labelPosition,
           onClick: function (event: any, element: any) {
             chart.update()
@@ -57,7 +61,7 @@ const ChartComponent: React.FC<Props> = ({
     })
   })
   return (
-    <canvas id="myChart" width={width} height={height} />
+    <canvas id="chart" width={width} height={height} />
   )
 }
 
