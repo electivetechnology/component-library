@@ -12,6 +12,8 @@ type Props = {
   borderWidth: number
   handleOnClick: any
   labelPosition?: string
+  chartId: string
+  chartName: any
 }
 
 const ChartComponent: React.FC<Props> = ({
@@ -22,14 +24,17 @@ const ChartComponent: React.FC<Props> = ({
   data,
   segmentColor,
   hoverBackgroundColor,
+  chartId,
+  chartName,
   handleOnClick,
   borderWidth = 2,
   labelPosition = 'right'
 }) => {
+  var selectedIndex: any = null
   useEffect(() => {
-    const ctx = document.getElementById("chart")
+    chartName = document.getElementById(chartId)
     
-    const chart = new Chart(ctx, {
+    const chart = new Chart(chartName, {
       type: "pie",
       data: {
         labels: labels,
@@ -44,6 +49,16 @@ const ChartComponent: React.FC<Props> = ({
         responsive: width ? false : true,
         onClick: function (event: any, element: any) {
           chart.update()
+          if(element && element.length){
+            const segment = element[0];
+            if (selectedIndex !== segment["_index"]) {
+                selectedIndex = segment["_index"];
+                segment._model.outerRadius += 10;
+            }
+            else{
+              selectedIndex = null;
+            }
+          }
           handleOnClick(event, element)
         },
         legend: {
@@ -54,14 +69,29 @@ const ChartComponent: React.FC<Props> = ({
           position: labelPosition,
           onClick: function (event: any, element: any) {
             chart.update()
+            if(element && element.length){
+              const segment = element[0];
+              if (selectedIndex !== segment["_index"]) {
+                  selectedIndex = segment["_index"];
+                  segment._model.outerRadius += 10;
+              }
+              else{
+                selectedIndex = null;
+              }
+            }
             handleOnClick(event, element)
+          }
+        },
+        hover: {
+          onHover: (event: any, chartElement: any) => {
+            event.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
           }
         }
       }
     })
   })
   return (
-    <canvas id="chart" width={width} height={height} />
+    <canvas id={chartId} width={width} height={height} />
   )
 }
 
