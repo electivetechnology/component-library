@@ -3,19 +3,8 @@ import { Chart } from 'atoms'
 import { theme } from 'styles/theme'
 
 const ChartTemplate = (args: any) => {
-  var selectedIndex: any = null
-
   const handleSegmentClick = (event: any, elements: any) => {
-    if(elements && elements.length){
-      const segment = elements[0];
-      if (selectedIndex !== segment["_index"]) {
-          selectedIndex = segment["_index"];
-          segment._model.outerRadius += 10;
-      }
-      else{
-        selectedIndex = null;
-      }
-    }
+    console.log('segment click');
   }
   return (
     <Chart 
@@ -39,7 +28,9 @@ Default.args = {
   ],
   data: [12, 19, 3, 5, 2, 3],
   borderColor: theme.white,
-  labelPosition: 'top'
+  labelPosition: 'top',
+  chartId: 'chartId',
+  chartName: 'chartName'
 }
 
 export default {
