@@ -61,7 +61,7 @@ const FormInput: FunctionComponent<InputProps> = ({
         requiredError
       }}
     >
-      {['text', 'number'].includes(type) && <FormText />}
+      {['text', 'number', 'password'].includes(type) && <FormText />}
       {type === 'select' && <FormSelect />}
       {type === 'phone' && <FormPhone />}
       {type === 'date' && <FormDate />}

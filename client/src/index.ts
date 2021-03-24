@@ -22,4 +22,4 @@ export { default as PopUp } from 'molecules/PopUp/PopUp'
 export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'
 
 // ORGANISMS
-export { Form, FormInput, FormSave, useFormStatus } from 'organisms/Form'
+export { Form, FormInput, FormSave, useFormStatus, FormTitle } from 'organisms/Form'

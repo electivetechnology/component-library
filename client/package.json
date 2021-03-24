@@ -1,6 +1,6 @@
 {
   "name": "electivegroup-component-library",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "engines": {
     "node": ">=10"
   },
@@ -143,8 +143,5 @@
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
-  },
-  "dependencies": {
-    "electivegroup-component-library": "file:.yalc/electivegroup-component-library"
   }
 }
