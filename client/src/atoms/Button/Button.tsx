@@ -24,11 +24,9 @@ const Button: React.FC<Props> = ({
   }
 
   const handleClick = (event: any) => {
-    onClick(event)
+    onClick && onClick(event)
     href && setRedirect(true)
   }
-
-  const hasLabel = label ? true : false
 
   return (
     <ButtonComponent
@@ -38,9 +36,9 @@ const Button: React.FC<Props> = ({
       disabled={disabled}
       fullWidth={fullWidth}
     >
-      <Wrapper icon={icon} variant={theme} hasLabel={hasLabel}>
+      <Wrapper icon={icon} variant={theme} hasLabel={!!label}>
         {icon && (
-          <Icon variant={theme} label={hasLabel}>
+          <Icon variant={theme} label={!!label}>
             {icon}
           </Icon>
         )}

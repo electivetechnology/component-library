@@ -15,7 +15,7 @@ export type Props = {
   label: string
   theme: ThemeType
   disabled?: boolean
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
   icon?: ReactElement<SvgIconProps>
   href?: string
   fullWidth?: boolean
