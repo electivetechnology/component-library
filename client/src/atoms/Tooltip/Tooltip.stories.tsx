@@ -76,6 +76,22 @@ Highlighted.args = {
   }
 }
 
+// HideTooltip
+export const HideTooltip: any = TooltipTemplate.bind({})
+
+HideTooltip.args = {
+  label: 'Label',
+  tooltipText: 'Tooltip bottom',
+  placement: 'bottom',
+  labelStyle: {
+    color: '#311b91',
+    border: 'solid 1px #311b91',
+    borderRadius: '8px',
+    padding: ' 0 4px'
+  },
+  show: false
+}
+
 export default {
   title: 'atoms/Tooltip',
   component: Tooltip
