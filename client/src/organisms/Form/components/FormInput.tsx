@@ -12,6 +12,7 @@ import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
 import FormHelper from 'organisms/Form/components/FormHelper'
+import FormTextEditor from 'organisms/Form/components/FormTextEditor'
 
 const FormInput: FunctionComponent<InputProps> = ({
   label,
@@ -62,6 +63,7 @@ const FormInput: FunctionComponent<InputProps> = ({
       }}
     >
       {['text', 'number', 'password'].includes(type) && <FormText />}
+      {type === 'textEditor' && <FormTextEditor />}
       {type === 'select' && <FormSelect />}
       {type === 'phone' && <FormPhone />}
       {type === 'date' && <FormDate />}
