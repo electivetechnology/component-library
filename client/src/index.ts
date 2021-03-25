@@ -11,7 +11,8 @@ export {
   Tooltip,
   LoaderComponent,
   Chart,
-  Font
+  Font,
+  Legend
 } from 'atoms'
 
 // MOLECULES
