@@ -11,7 +11,6 @@ type Props = {
   data: Array<number>
   borderWidth: number
   handleOnClick: any
-  labelPosition?: string
   chartId: string
   chartName: any
 }
@@ -28,9 +27,7 @@ const ChartComponent: React.FC<Props> = ({
   chartName,
   handleOnClick,
   borderWidth = 2,
-  labelPosition = 'right'
 }) => {
-  var selectedIndex: any = null
   useEffect(() => {
     chartName = document.getElementById(chartId)
     
@@ -49,39 +46,9 @@ const ChartComponent: React.FC<Props> = ({
         responsive: width ? false : true,
         onClick: function (event: any, element: any) {
           chart.update()
-          if(element && element.length){
-            const segment = element[0];
-            if (selectedIndex !== segment["_index"]) {
-                selectedIndex = segment["_index"];
-                segment._model.outerRadius += 10;
-            }
-            else{
-              selectedIndex = null;
-            }
-          }
           handleOnClick(event, element)
         },
-        legend: {
-          display: true,
-          labels: {
-            padding: 20
-          },
-          position: labelPosition,
-          onClick: function (event: any, element: any) {
-            chart.update()
-            if(element && element.length){
-              const segment = element[0];
-              if (selectedIndex !== segment["_index"]) {
-                  selectedIndex = segment["_index"];
-                  segment._model.outerRadius += 10;
-              }
-              else{
-                selectedIndex = null;
-              }
-            }
-            handleOnClick(event, element)
-          }
-        },
+        legend: false,
         hover: {
           onHover: (event: any, chartElement: any) => {
             event.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
