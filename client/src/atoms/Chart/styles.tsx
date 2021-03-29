@@ -8,7 +8,7 @@ export const LegendPointStyled = styled.div<LegendPointProp>`
   height: 14px;
   width: 15px;
   border-radius: 8px;
-  margin-right: 8px;
+  margin: auto;
   ${props =>
     props.color &&
     `
@@ -17,6 +17,7 @@ export const LegendPointStyled = styled.div<LegendPointProp>`
 `
 
 export const LegendStyled = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 18px auto;
+  grid-gap: 8px;
 `
