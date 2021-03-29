@@ -12,7 +12,9 @@ export {
   LoaderComponent,
   Chart,
   Font,
-  Legend
+  Legend,
+  Grid,
+  GridColumn
 } from 'atoms'
 
 // MOLECULES
