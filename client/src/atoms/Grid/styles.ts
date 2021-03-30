@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { theme } from 'styles/theme'
 
 type GridContainerProps = {
   grid: string
@@ -84,4 +85,18 @@ export const ColumnContentStyled = styled.div<ColumnContentProps>`
     `
         padding-right: 0;
     `};
+`
+
+export const ColumnCloseStyled = styled.div`
+`
+
+export const CloseTextStyled = styled.div`
+  transform-origin:84px 70px;
+  transform:rotate(-90deg);
+  font-size: 12px;
+  position: relative;
+  bottom: 132px;
+  left: -12px;
+  color: ${theme.grey};
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 `
