@@ -34,6 +34,7 @@ export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   @media screen and (min-width: 750px) {
     overflow: hidden;
     width: 100vw;
+    padding-right: 0;
   }
   ${(props) =>
     props.width &&
