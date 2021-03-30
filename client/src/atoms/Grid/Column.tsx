@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  ColumnStyled, ColumnContentStyled
+  ColumnStyled, ColumnContentStyled, ColumnCloseStyled, CloseTextStyled
 } from './styles'
 import {
   ColumnBorderStyled,
@@ -36,21 +36,41 @@ const ColumnComponent: React.FC<Props> = ({
     <ColumnStyled display={expandMainColumn}>
       <SideColumnDesktopdStyled>
         {divider && <ColumnBorderStyled />}
-        {isClosable && !expandMainColumn && (
-            <ArrowForwardIosIcon style={iconLeftStyle} onClick={handleCloseAllContent} />
-          )}
         {isClosable && expandMainColumn && (
-          <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleCloseAllContent} />
+          <ColumnCloseStyled>
+            <ArrowForwardIosIcon style={iconLeftStyle} onClick={handleCloseAllContent} />
+            <CloseTextStyled>
+              Show
+            </CloseTextStyled>
+          </ColumnCloseStyled>
+        )}
+        {isClosable && !expandMainColumn && (
+          <ColumnCloseStyled>
+            <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleCloseAllContent} />
+            <CloseTextStyled>
+              Hide
+            </CloseTextStyled>
+          </ColumnCloseStyled>
         )}
       </SideColumnDesktopdStyled>
       <ColumnContentStyled isClosable={isClosable}>
         {children}
       </ColumnContentStyled>
-      {isOptionalContentClosable && !mainColumnExpanded && (
-        <ArrowForwardIosIcon style={iconLeftStyle} onClick={handleCloseOptionalContent} />
-        )}
-      {isOptionalContentClosable && mainColumnExpanded &&(
-        <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleCloseOptionalContent} />
+      {isOptionalContentClosable && mainColumnExpanded && (
+        <ColumnCloseStyled>
+          <ArrowForwardIosIcon style={iconLeftStyle} onClick={handleCloseOptionalContent} />
+          <CloseTextStyled>
+            Show
+          </CloseTextStyled>
+        </ColumnCloseStyled>
+      )}
+      {isOptionalContentClosable && !mainColumnExpanded &&(
+        <ColumnCloseStyled>
+          <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleCloseOptionalContent} />
+          <CloseTextStyled>
+            Hide
+          </CloseTextStyled>
+        </ColumnCloseStyled>
       )}
     </ColumnStyled>
   )
