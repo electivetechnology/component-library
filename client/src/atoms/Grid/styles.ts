@@ -95,6 +95,7 @@ export const ColumnContentStyled = styled.div<ColumnContentProps>`
 `
 
 export const ColumnCloseStyled = styled.div`
+  height: 60px;
 `
 
 export const CloseTextStyled = styled.div`

@@ -67,6 +67,6 @@ Default.args = {
 }
 
 export default {
-  title: 'atoms/Grid',
+  title: 'atoms/GridColumn',
   component: Grid
 }
