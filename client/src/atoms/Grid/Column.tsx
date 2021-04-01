@@ -37,16 +37,16 @@ const ColumnComponent: React.FC<Props> = ({
       <SideColumnDesktopdStyled>
         {divider && <ColumnBorderStyled />}
         {isClosable && expandMainColumn && (
-          <ColumnCloseStyled>
-            <ArrowForwardIosIcon style={iconLeftStyle} onClick={handleCloseAllContent} />
+          <ColumnCloseStyled onClick={handleCloseAllContent}>
+            <ArrowForwardIosIcon style={iconLeftStyle} />
             <CloseTextStyled>
               Show
             </CloseTextStyled>
           </ColumnCloseStyled>
         )}
         {isClosable && !expandMainColumn && (
-          <ColumnCloseStyled>
-            <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleCloseAllContent} />
+          <ColumnCloseStyled onClick={handleCloseAllContent} >
+            <ChevronLeftOutlinedIcon style={iconStyle} />
             <CloseTextStyled>
               Hide
             </CloseTextStyled>
@@ -57,16 +57,16 @@ const ColumnComponent: React.FC<Props> = ({
         {children}
       </ColumnContentStyled>
       {isOptionalContentClosable && mainColumnExpanded && (
-        <ColumnCloseStyled>
-          <ArrowForwardIosIcon style={iconLeftStyle} onClick={handleCloseOptionalContent} />
+        <ColumnCloseStyled onClick={handleCloseOptionalContent} >
+          <ArrowForwardIosIcon style={iconLeftStyle} />
           <CloseTextStyled>
             Show
           </CloseTextStyled>
         </ColumnCloseStyled>
       )}
       {isOptionalContentClosable && !mainColumnExpanded &&(
-        <ColumnCloseStyled>
-          <ChevronLeftOutlinedIcon style={iconStyle} onClick={handleCloseOptionalContent} />
+        <ColumnCloseStyled onClick={handleCloseOptionalContent} >
+          <ChevronLeftOutlinedIcon style={iconStyle} />
           <CloseTextStyled>
             Hide
           </CloseTextStyled>
