@@ -12,6 +12,7 @@ export const AutoCompleteContainerStyled = styled.div`
 
 export const SelectFieldStyled = styled.div`
   padding-top: 24px;
+  width: 100%;
 `
 
 export const inputBorder = (outlined: boolean, darkMode: boolean) => {

@@ -13,6 +13,7 @@ import {
   MuiPickersUtilsProvider
 } from '@material-ui/pickers'
 import { useFormInput } from 'organisms/Form/hooks'
+import { theme } from 'styles/theme'
 
 const FormDate: FunctionComponent = () => {
   const { inputValue, name, label, disabled } = useContext(InputContext)
@@ -34,7 +35,7 @@ const FormDate: FunctionComponent = () => {
 
   return (
     <DateWrapperStyled>
-      <DateLabelStyled>{label}</DateLabelStyled>
+      <DateLabelStyled darkMode={darkMode}>{label}</DateLabelStyled>
       <MuiPickersUtilsProvider utils={DateUtils}>
         <KeyboardDatePicker
           disableToolbar
@@ -46,7 +47,7 @@ const FormDate: FunctionComponent = () => {
           onChange={handleChange}
           autoOk
           InputProps={{
-            style: { fontSize: 14 }
+            style: { fontSize: 14, color: darkMode ? theme.white : theme.black }
           }}
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}

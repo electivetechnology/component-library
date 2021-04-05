@@ -12,6 +12,7 @@ import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
 import FormHelper from 'organisms/Form/components/FormHelper'
+import FormDelete from './FormDelete'
 
 const FormInput: FunctionComponent<InputProps> = ({
   label,
@@ -24,7 +25,8 @@ const FormInput: FunctionComponent<InputProps> = ({
   options,
   outlined,
   disabled,
-  required
+  required,
+  deletable
 }) => {
   const {
     updateInput,
@@ -78,6 +80,7 @@ const FormInput: FunctionComponent<InputProps> = ({
       )}
 
       {download && <FormDownload label={label} value={value} />}
+      {deletable && <FormDelete id={inputs.id} />}
     </InputContext.Provider>
   )
 }

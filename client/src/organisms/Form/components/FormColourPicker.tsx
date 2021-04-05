@@ -7,13 +7,13 @@ import React, {
   useEffect
 } from 'react'
 import { BlockPicker } from 'react-color'
-import { PickerStyled, ColorStyled, PickerLabelStyled } from 'organisms/Form/styles'
+import { PickerStyled, ColorStyled, PickerLabelStyled, RequiredStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import { InputContext, FormContext } from 'organisms/Form/base'
 import { theme } from 'styles/theme'
 
 const FormColourPicker: FunctionComponent = () => {
-  const { inputValue, name, label, disabled } = useContext(InputContext)
+  const { inputValue, name, label, disabled, required = true} = useContext(InputContext)
 
   const { updateInput, onBlur, darkMode } = useContext(FormContext)
 
@@ -59,6 +59,7 @@ const FormColourPicker: FunctionComponent = () => {
         />
         <PickerLabelStyled>
           <Font variant='h5' color={darkMode ? theme.white : theme.grayComment}>{label}</Font>
+          {required && <RequiredStyled fontSize="24">*</RequiredStyled>}
         </PickerLabelStyled>
       </PickerStyled>
       {showPicker && (

@@ -8,6 +8,7 @@ import React, {
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
+import { RequiredStyled, SelectStyled } from '../styles'
 
 const FormSelect: FunctionComponent = () => {
   const {
@@ -16,7 +17,8 @@ const FormSelect: FunctionComponent = () => {
     label,
     options,
     disabled,
-    outlined
+    outlined,
+    required
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
   const valueRef = useRef()
@@ -40,15 +42,18 @@ const FormSelect: FunctionComponent = () => {
   }, [valueRef.current])
 
   return (
-    <SelectField
-      label={label}
-      value={selected}
-      options={selectOptions}
-      disabled={disabled}
-      onChange={handleChange}
-      darkMode={darkMode}
-      outlined={outlined}
-    />
+    <SelectStyled>
+      <SelectField
+        label={label}
+        value={selected}
+        options={selectOptions}
+        disabled={disabled}
+        onChange={handleChange}
+        darkMode={darkMode}
+        outlined={outlined}
+      />
+      {required && <RequiredStyled>*</RequiredStyled>}
+    </SelectStyled>
   )
 }
 export default memo(FormSelect)

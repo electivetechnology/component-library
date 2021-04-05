@@ -26,6 +26,7 @@ const FormCheckbox: FunctionComponent = () => {
       disabled={disabled}
       onBlur={undefined}
       fontSize='12px'
+      darkMode={darkMode}
       onChange={handleChange}
     />
   )

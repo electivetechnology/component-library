@@ -11,6 +11,8 @@ import {
   CheckboxLabelStyled,
   CheckboxWithStyled
 } from 'atoms/Checkbox/styles'
+import { theme } from 'styles/theme'
+import { RequiredStyled } from 'organisms/Form/styles'
 
 type Props = {
   label?: string
@@ -19,6 +21,8 @@ type Props = {
   onBlur?: any
   value?: any
   disabled?: boolean
+  darkMode?: boolean
+  required?: boolean
 }
 
 const CheckboxStyled = withStyles(
@@ -31,7 +35,9 @@ const Checkbox: FunctionComponent<Props> = ({
   onBlur,
   value,
   disabled,
-  fontSize
+  fontSize,
+  darkMode,
+  required
 }) => {
   const [isChecked, setCheckbox] = useState(value)
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -54,11 +60,13 @@ const Checkbox: FunctionComponent<Props> = ({
         }}
         onBlur={onBlur}
         disabled={disabled}
+        style={{color: darkMode ? theme.white :  theme.black}}
       />
       <CheckboxLabelStyled>
-        <label htmlFor={`label-${label}`} style={{ fontSize }}>
+        <label htmlFor={`label-${label}`} style={{ fontSize: fontSize, color: darkMode ? theme.white :  theme.black }}>
           {label}
         </label>
+        {required && <RequiredStyled>*</RequiredStyled>}
       </CheckboxLabelStyled>
     </CheckboxContainerStyled>
   )

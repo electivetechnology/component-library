@@ -26,6 +26,7 @@ export interface InputProps {
   outlined?: boolean
   disabled?: boolean
   required?: boolean
+  deletable?: boolean
 }
 
 export interface FormOptionType {
@@ -76,6 +77,7 @@ export type FormContextType = {
   disableForm: boolean
   darkMode: boolean
   outlineInputs?: boolean
+  handleDelete?: any
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)

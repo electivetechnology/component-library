@@ -19,6 +19,7 @@ type Props = {
   activeLabel?: string
   inactiveLabel?: string
   disabled?: boolean
+  darkMode?: boolean
 }
 
 const Toggle: FunctionComponent<Props> = ({
@@ -27,6 +28,7 @@ const Toggle: FunctionComponent<Props> = ({
   label,
   activeLabel,
   inactiveLabel,
+  darkMode,
   disabled = false
 }) => {
   const fontColor = (disabled: boolean, isActive: boolean) => {
@@ -44,7 +46,7 @@ const Toggle: FunctionComponent<Props> = ({
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
-        <Font variant='body2'>{label}</Font>
+        <Font variant='body2' color={darkMode ? theme.white : theme.black}>{label}</Font>
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>

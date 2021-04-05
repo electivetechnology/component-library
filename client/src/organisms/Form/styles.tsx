@@ -145,6 +145,7 @@ export const BrandTextStyled = styled.div`
 // Colour picker
 export const PickerLabelStyled = styled.div`
   padding: 8px 16px 0;
+  display: inline-flex;
 `
 
 export const PickerStyled = styled.div`
@@ -168,9 +169,18 @@ export const FormTextContainerStyled = styled.div`
   height: auto;
 `
 
-export const RequiredStyled = styled.span`
+type RequiredProp = {
+  fontSize?: string
+}
+
+export const RequiredStyled = styled.span<RequiredProp>`
   color: ${theme.primaryColorValencia};
   font-size: 12px;
+  ${(props) =>
+    props.fontSize &&
+    `
+    font-size: ${props.fontSize}px;
+    `}
 `
 
 type LabelProps = {
@@ -343,14 +353,23 @@ export const DateWrapperStyled = styled.div`
   padding-top: 8px;
 `
 
-export const DateLabelStyled = styled.div`
+type DateLabelProps = {
+  darkMode?: boolean
+}
+
+export const DateLabelStyled = styled.div<DateLabelProps>`
   position: absolute;
   z-index: 0;
   top: -2px;
-  background-color: ${theme.white};
-  color: rgba(0, 0, 0, 0.54);
+  background-color: transparent;
+  color: ${theme.black};
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  ${(props) =>
+    props.darkMode &&
+    `
+    color: ${theme.white};
+    `}
 `
 
 export const FormPhoneStyled = styled.div`
@@ -361,4 +380,10 @@ export const ButtonWrapperStyled = styled.div`
   display: grid;
   margin: 16px 0;
   padding-top: 8px;
+`
+
+// Form Select
+export const SelectStyled = styled.div`
+  display: inline-flex;
+  width: 100%;
 `
