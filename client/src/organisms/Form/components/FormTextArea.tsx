@@ -5,7 +5,8 @@ import React, {
   useState,
   useEffect
 } from 'react'
-import { TextareaStyled } from 'organisms/Form/styles'
+import { TextareaStyled, WarningStyle } from 'organisms/Form/styles'
+import WarningIcon from '@material-ui/icons/Warning'
 
 type Props = {
   name: string
@@ -51,7 +52,8 @@ const FormTextArea: FunctionComponent<Props> = ({
     <div
       style={{
         minHeight: parentHeight,
-        width: '100%'
+        width: '100%',
+        display: 'inline-flex'
       }}
       data-testid='FormTextarea'
     >
@@ -71,6 +73,7 @@ const FormTextArea: FunctionComponent<Props> = ({
         disabled={disabled}
         error={error}
       />
+      {error && <WarningIcon style={WarningStyle} />}
     </div>
   )
 }

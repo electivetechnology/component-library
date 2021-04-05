@@ -3,11 +3,14 @@ import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
   TextInputStyled,
-  LabelStyled
+  LabelStyled,
+  WarningStyle,
+  RequiredStyled
 } from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
+import WarningIcon from '@material-ui/icons/Warning'
 
 const FormText: FunctionComponent = () => {
   const {
@@ -20,7 +23,7 @@ const FormText: FunctionComponent = () => {
     disabled,
     required,
     status,
-    requiredError
+    requiredError,
   } = useContext(InputContext)
 
   const { statusType } = status || {}
@@ -38,9 +41,12 @@ const FormText: FunctionComponent = () => {
   return (
     <FormTextContainerStyled data-testid='FormText'>
       {value && (
-        <LabelStyled darkMode={darkMode} htmlFor={name}>
-          {label}
-        </LabelStyled>
+        <div>
+          <LabelStyled darkMode={darkMode} htmlFor={name}>
+            {label}
+          </LabelStyled>
+          {required && <RequiredStyled>*</RequiredStyled>}
+        </div>
       )}
       {options?.multiline ? (
         <FormTextArea
@@ -54,17 +60,20 @@ const FormText: FunctionComponent = () => {
           error={error}
         />
       ) : (
-        <TextInputStyled
-          darkMode={darkMode}
-          id={name}
-          onChange={onChange}
-          onBlur={handleBlur}
-          type={type}
-          value={value}
-          placeholder={value ? '' : label}
-          disabled={disabled}
-          error={error}
-        />
+        <div>
+          <TextInputStyled
+            darkMode={darkMode}
+            id={name}
+            onChange={onChange}
+            onBlur={handleBlur}
+            type={type}
+            value={value}
+            placeholder={value ? '' : label}
+            disabled={disabled}
+            error={error}
+          />
+          {error && <WarningIcon style={WarningStyle} />}
+        </div>
       )}
       {options?.copy && <FormCopy value={value} />}
     </FormTextContainerStyled>

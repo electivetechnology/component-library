@@ -33,6 +33,26 @@ Text.args = {
   )
 }
 
+// FormTextRequired
+export const TextRequired: any = Template.bind({})
+
+TextRequired.args = {
+  handleUpdate,
+  children: (
+    <Fragment>
+      <FormInput label='Text Area' name='text' value='some text' type='text' required={true} />
+      <FormInput
+        label='Text'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{ multiline: true }}
+        required={true}
+      />
+    </Fragment>
+  )
+}
+
 // FormTextArea
 export const TextError: any = Template.bind({})
 
