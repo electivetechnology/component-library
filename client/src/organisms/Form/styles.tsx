@@ -237,12 +237,6 @@ export const TextInputStyled = styled.input<TextInputProps>`
     `}
 `
 
-export const WarningStyle = {
-  width: '18px',
-  margin: 'auto',
-  height: '18px'
-}
-
 type CopyProps = {
   isActive?: boolean
 }

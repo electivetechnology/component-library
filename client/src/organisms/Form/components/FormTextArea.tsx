@@ -5,7 +5,7 @@ import React, {
   useState,
   useEffect
 } from 'react'
-import { TextareaStyled, WarningStyle } from 'organisms/Form/styles'
+import { TextareaStyled } from 'organisms/Form/styles'
 import WarningIcon from '@material-ui/icons/Warning'
 
 type Props = {
@@ -73,7 +73,12 @@ const FormTextArea: FunctionComponent<Props> = ({
         disabled={disabled}
         error={error}
       />
-      {error && <WarningIcon style={WarningStyle} />}
+      {error && <WarningIcon style={{
+        width: '18px',
+        margin: 'auto',
+        height: '18px',
+        fill: darkMode ? 'white' : 'black'
+      }} />}
     </div>
   )
 }

@@ -1,10 +1,9 @@
-import React, { FunctionComponent, memo, useContext, Fragment } from 'react'
+import React, { FunctionComponent, memo, useContext } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
   TextInputStyled,
   LabelStyled,
-  WarningStyle,
   RequiredStyled
 } from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
@@ -72,7 +71,12 @@ const FormText: FunctionComponent = () => {
             disabled={disabled}
             error={error}
           />
-          {error && <WarningIcon style={WarningStyle} />}
+          {error && <WarningIcon style={{
+            width: '18px',
+            margin: 'auto',
+            height: '18px',
+            fill: darkMode ? 'white' : 'black'
+          }} />}
         </div>
       )}
       {options?.copy && <FormCopy value={value} />}

@@ -1,6 +1,7 @@
-import React, { FunctionComponent, memo } from 'react'
+import React, { FunctionComponent, memo, useContext } from 'react'
 import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
 import { ActionButtonStyled } from 'organisms/Form/styles'
+import { FormContext } from '../base'
 
 type Props = {
   label: string
@@ -8,6 +9,8 @@ type Props = {
 }
 
 const FormDownload: FunctionComponent<Props> = ({ label, value }) => {
+  const { darkMode } = useContext(FormContext)
+
   const onDownload = () => {
     const element = document.createElement('a')
     const file = new Blob([value], { type: 'text/plain' })
@@ -18,7 +21,7 @@ const FormDownload: FunctionComponent<Props> = ({ label, value }) => {
   }
   return (
     <ActionButtonStyled data-testid="FormDownload">
-      <CloudDownloadOutlinedIcon onClick={onDownload} />
+      <CloudDownloadOutlinedIcon onClick={onDownload} style={{fill: darkMode ? 'white' : 'black'}} />
     </ActionButtonStyled>
   )
 }
