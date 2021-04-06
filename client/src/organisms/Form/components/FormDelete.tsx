@@ -10,7 +10,7 @@ interface Props {
 const FormDelete: FunctionComponent<Props> = ({ id }) => {
   const { handleDelete, darkMode } = useContext(FormContext)
   return (
-    <ActionButtonStyled data-testid="FormDelete" isDelete={true}>
+    <ActionButtonStyled data-testid="FormDelete">
       <DeleteOutlineOutlinedIcon
         onClick={id ? handleDelete(id) : handleDelete}
         style={{fill: darkMode ? 'white' : 'black'}}

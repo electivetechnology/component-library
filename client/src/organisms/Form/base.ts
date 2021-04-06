@@ -26,7 +26,6 @@ export interface InputProps {
   outlined?: boolean
   disabled?: boolean
   required?: boolean
-  deletable?: boolean
 }
 
 export interface FormOptionType {
@@ -45,6 +44,7 @@ export interface OptionType {
   copy?: boolean
   activeLabel?: string
   inactiveLabel?: string
+  isDelete?: boolean
 }
 
 export type StatusType = {

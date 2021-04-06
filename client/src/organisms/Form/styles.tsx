@@ -22,28 +22,15 @@ export const SectionTitleStyled = styled.div`
   margin-top: 8px;
 `
 
-type ActionProps = {
-  isDelete?: boolean
-  margin?: string
-}
-
-export const ActionButtonStyled = styled.div<ActionProps>`
+export const ActionButtonStyled = styled.div`
   cursor: pointer;
   margin-top: auto;
-  top: 26px;
+  top: 12px;
   position: relative;
   padding: 8px;
-  ${(props) =>
-    props.isDelete &&
-    `
-      top: -18px;
-      @media screen and (min-width: 750px) {
-        top: 32px;
-      }
-    `}
 `
 
-export const ActionTextStyled = styled.div<ActionProps>`
+export const ActionTextStyled = styled.div`
   cursor: pointer;
   margin-top: auto;
   top: -32px;
@@ -386,4 +373,9 @@ export const ButtonWrapperStyled = styled.div`
 export const SelectStyled = styled.div`
   display: inline-flex;
   width: 100%;
+`
+
+// Form row
+export const FormRowStyled = styled.div`
+  display: inline-flex;
 `

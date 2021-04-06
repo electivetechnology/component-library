@@ -187,15 +187,14 @@ TextDelete.args = {
         name='text'
         value='some text'
         type='text'
-        deletable={true}
+        options={{ isDelete: true }}
       />
       <FormInput
         label='Text'
         name='textarea'
         value='some textarea'
         type='text'
-        options={{ multiline: true }}
-        deletable={true}
+        options={{ isDelete: true, multiline: true }}
       />
     </Fragment>
   )

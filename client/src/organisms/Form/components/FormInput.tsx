@@ -4,15 +4,10 @@ import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import isUndefined from 'lodash/isUndefined'
 import FormDownload from 'organisms/Form/components/FormDownload'
-import FormColourPicker from 'organisms/Form/components/FormColourPicker'
-import FormText from 'organisms/Form/components/FormText'
-import FormSelect from 'organisms/Form/components/FormSelect'
-import FormPhone from 'organisms/Form/components/FormPhone'
-import FormDate from 'organisms/Form/components/FormDate'
-import FormCheckbox from 'organisms/Form/components/FormCheckbox'
-import FormToggle from 'organisms/Form/components/FormToggle'
 import FormHelper from 'organisms/Form/components/FormHelper'
 import FormDelete from './FormDelete'
+import FormInputs from './FormInputs'
+import { FormRow } from '..'
 
 const FormInput: FunctionComponent<InputProps> = ({
   label,
@@ -25,8 +20,7 @@ const FormInput: FunctionComponent<InputProps> = ({
   options,
   outlined,
   disabled,
-  required,
-  deletable
+  required
 }) => {
   const {
     updateInput,
@@ -63,13 +57,17 @@ const FormInput: FunctionComponent<InputProps> = ({
         requiredError
       }}
     >
-      {['text', 'number'].includes(type) && <FormText />}
-      {type === 'select' && <FormSelect />}
-      {type === 'phone' && <FormPhone />}
-      {type === 'date' && <FormDate />}
-      {type === 'colourPicker' && <FormColourPicker />}
-      {type === 'checkbox' && <FormCheckbox />}
-      {type === 'toggle' && <FormToggle />}
+      {options && options.isDelete || download ? (
+        <div>
+          <FormRow>
+            <FormInputs type={type} />
+            {download && <FormDownload label={label} value={value} />}
+            {options && options.isDelete && <FormDelete id={inputs.id} />}
+          </FormRow>
+        </div>
+      ) : (
+        <FormInputs type={type} />
+      )}
 
       <FormHelper helperText={helperText} />
 
@@ -78,9 +76,6 @@ const FormInput: FunctionComponent<InputProps> = ({
           <Font variant='body1'>{affix}</Font>
         </AffixStyled>
       )}
-
-      {download && <FormDownload label={label} value={value} />}
-      {deletable && <FormDelete id={inputs.id} />}
     </InputContext.Provider>
   )
 }
