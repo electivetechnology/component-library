@@ -61,13 +61,14 @@ const FormInput: FunctionComponent<InputProps> = ({
         requiredError
       }}
     >
-      {['text', 'number'].includes(type) && <FormText />}
-      {type === 'select' && <FormSelect />}
-      {type === 'phone' && <FormPhone />}
-      {type === 'date' && <FormDate />}
-      {type === 'colourPicker' && <FormColourPicker />}
-      {type === 'checkbox' && <FormCheckbox />}
-      {type === 'toggle' && <FormToggle />}
+      {options?.isDelete ? (
+        <FromRow>
+          <FormInputs type={type} />
+          <FormDelete />
+        </FromRow>
+      ) : (
+        <FormInputs type={type} />
+      )}
 
       <FormHelper helperText={helperText} />
 
