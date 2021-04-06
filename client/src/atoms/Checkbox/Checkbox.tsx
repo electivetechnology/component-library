@@ -60,10 +60,10 @@ const Checkbox: FunctionComponent<Props> = ({
         }}
         onBlur={onBlur}
         disabled={disabled}
-        style={{color: darkMode ? theme.white :  theme.black}}
+        style={{color: darkMode ? theme.white :  theme.grey}}
       />
       <CheckboxLabelStyled>
-        <label htmlFor={`label-${label}`} style={{ fontSize: fontSize, color: darkMode ? theme.white :  theme.black }}>
+        <label htmlFor={`label-${label}`} style={{ fontSize: fontSize, color: darkMode ? theme.white :  theme.grey }}>
           {label}
         </label>
         {required && <RequiredStyled>*</RequiredStyled>}

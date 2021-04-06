@@ -25,7 +25,7 @@ const FormDate: FunctionComponent = () => {
 
   const [isNewDate, setIsNewDate] = useState(0)
 
-  const classes = DateStyles()
+  const classes = DateStyles({darkMode})
 
   useEffect(() => {
     isNewDate && onBlur(name)
@@ -51,12 +51,15 @@ const FormDate: FunctionComponent = () => {
           autoOk
           InputProps={{
             className: classes.input,
-            style: { fontSize: 14, color: darkMode ? theme.white : theme.black }
+            style: {
+              fontSize: 14, 
+              color: darkMode ? theme.white : theme.grey,
+            }
           }}
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
           fullWidth
-          keyboardIcon={<InsertInvitation style={{color: darkMode ? theme.white : theme.black}} />}
+          keyboardIcon={<InsertInvitation style={{color: darkMode ? theme.white : theme.primaryGrey}} />}
         />
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>

@@ -336,14 +336,17 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
 `
 
 export const DateStyles = makeStyles({
-  input: {
+  input: (props: any) => ({
     '&:after': {
-      borderBottom: `1px solid ${theme.white}`,
+      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
     },
     '&:before': {
-      borderBottom: `1px solid ${theme.white}`,
+      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
     },
-  },
+    '&.MuiInput-underline:hover:before': {
+      borderBottom: props.darkMode ? `1px solid ${theme.white}` : `1px solid ${theme.grey}`,
+    },
+  }),
 })
 
 export const DateWrapperStyled = styled.div`
@@ -390,4 +393,5 @@ export const SelectStyled = styled.div`
 // Form row
 export const FormRowStyled = styled.div`
   display: inline-flex;
+  width: 100%
 `

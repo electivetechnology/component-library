@@ -39,7 +39,7 @@ export const useLabelStyles = makeStyles({
 export const useInputStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
-    color: props.darkMode ? theme.white : theme.black,
+    color: props.darkMode ? theme.white : theme.grey,
     whiteSpace: 'nowrap'
   }),
   inputRoot: (props: any) => ({

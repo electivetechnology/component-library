@@ -44,7 +44,7 @@ const Tab: FC<Props> = ({
       <Font
         variant='body2'
         uppercase
-        color={darkMode ? theme.white : theme.black}
+        color={darkMode ? theme.white : theme.grey}
       >
         {name}
       </Font>

@@ -46,7 +46,7 @@ const Toggle: FunctionComponent<Props> = ({
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
-        <Font variant='body2' color={darkMode ? theme.white : theme.black}>{label}</Font>
+        <Font variant='body2' color={darkMode ? theme.white : theme.grey}>{label}</Font>
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>

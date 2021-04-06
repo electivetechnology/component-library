@@ -119,15 +119,13 @@ export const Select: any = Template.bind({})
 Select.args = {
   handleUpdate,
   children: (
-    <FormRow>
-      <FormInput
-        label='Form Select'
-        name='select'
-        value={status}
-        type='select'
-        options={{ selectOptions: [{ value: '', label: '' }] }}
-      />
-    </FormRow>
+    <FormInput
+      label='Form Select'
+      name='select'
+      value={status}
+      type='select'
+      options={{ selectOptions: [{ value: '', label: '' }] }}
+    />
   )
 }
 
