@@ -51,7 +51,7 @@ const ChartComponent: React.FC<Props> = ({
         legend: false,
         hover: {
           onHover: (event: any, chartElement: any) => {
-            event.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+            event.target.style.cursor = chartElement[0] ? 'pointer' : 'default'
           }
         }
       }

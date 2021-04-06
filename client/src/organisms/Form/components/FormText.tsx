@@ -10,6 +10,7 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
+import { theme } from 'styles/theme'
 
 const FormText: FunctionComponent = () => {
   const {
@@ -75,7 +76,7 @@ const FormText: FunctionComponent = () => {
             width: '18px',
             margin: 'auto',
             height: '18px',
-            fill: darkMode ? 'white' : 'black'
+            fill: darkMode ? theme.white : theme.grey
           }} />}
         </div>
       )}
