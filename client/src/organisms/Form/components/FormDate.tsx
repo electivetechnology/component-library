@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState
 } from 'react'
-import { DateLabelStyled, DateWrapperStyled } from 'organisms/Form/styles'
+import { DateLabelStyled, DateWrapperStyled, DateStyles } from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
@@ -14,6 +14,7 @@ import {
 } from '@material-ui/pickers'
 import { useFormInput } from 'organisms/Form/hooks'
 import { theme } from 'styles/theme'
+import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
 
 const FormDate: FunctionComponent = () => {
   const { inputValue, name, label, disabled } = useContext(InputContext)
@@ -23,6 +24,8 @@ const FormDate: FunctionComponent = () => {
   const { value, onChange } = useFormInput(name, inputValue)
 
   const [isNewDate, setIsNewDate] = useState(0)
+
+  const classes = DateStyles()
 
   useEffect(() => {
     isNewDate && onBlur(name)
@@ -47,11 +50,13 @@ const FormDate: FunctionComponent = () => {
           onChange={handleChange}
           autoOk
           InputProps={{
+            className: classes.input,
             style: { fontSize: 14, color: darkMode ? theme.white : theme.black }
           }}
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
           fullWidth
+          keyboardIcon={<InsertInvitation style={{color: darkMode ? theme.white : theme.black}} />}
         />
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>

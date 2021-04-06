@@ -53,7 +53,7 @@ ColourPicker.args = {
   children: (
     <FormInput
       label='Colour Picker'
-      name='name'
+      name='colorPicker'
       value='#DCE1E8'
       type='colourPicker'
     />

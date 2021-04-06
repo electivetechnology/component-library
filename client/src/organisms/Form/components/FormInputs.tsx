@@ -1,5 +1,4 @@
 import React, { FunctionComponent, memo, Fragment } from 'react'
-import { InputProps } from 'organisms/Form/base'
 import FormColourPicker from 'organisms/Form/components/FormColourPicker'
 import FormText from 'organisms/Form/components/FormText'
 import FormSelect from 'organisms/Form/components/FormSelect'

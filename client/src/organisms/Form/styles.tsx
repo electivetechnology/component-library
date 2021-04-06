@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
+import { makeStyles } from '@material-ui/core'
 
 type FormTextStyledProps = {
   margin?: string
@@ -333,6 +334,17 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
       }
     `}
 `
+
+export const DateStyles = makeStyles({
+  input: {
+    '&:after': {
+      borderBottom: `1px solid ${theme.white}`,
+    },
+    '&:before': {
+      borderBottom: `1px solid ${theme.white}`,
+    },
+  },
+})
 
 export const DateWrapperStyled = styled.div`
   position: relative;
