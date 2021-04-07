@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
+import { makeStyles } from '@material-ui/core'
 
 type FormTextStyledProps = {
   margin?: string
@@ -22,28 +23,15 @@ export const SectionTitleStyled = styled.div`
   margin-top: 8px;
 `
 
-type ActionProps = {
-  isDelete?: boolean
-  margin?: string
-}
-
-export const ActionButtonStyled = styled.div<ActionProps>`
+export const ActionButtonStyled = styled.div`
   cursor: pointer;
   margin-top: auto;
-  top: 26px;
+  top: 12px;
   position: relative;
   padding: 8px;
-  ${(props) =>
-    props.isDelete &&
-    `
-      top: -18px;
-      @media screen and (min-width: 750px) {
-        top: 32px;
-      }
-    `}
 `
 
-export const ActionTextStyled = styled.div<ActionProps>`
+export const ActionTextStyled = styled.div`
   cursor: pointer;
   margin-top: auto;
   top: -32px;
@@ -145,6 +133,7 @@ export const BrandTextStyled = styled.div`
 // Colour picker
 export const PickerLabelStyled = styled.div`
   padding: 8px 16px 0;
+  display: inline-flex;
 `
 
 export const PickerStyled = styled.div`
@@ -166,6 +155,20 @@ export const FormTextContainerStyled = styled.div`
   display: grid;
   width: 100%;
   height: auto;
+`
+
+type RequiredProp = {
+  fontSize?: string
+}
+
+export const RequiredStyled = styled.span<RequiredProp>`
+  color: ${theme.primaryColorValencia};
+  font-size: 12px;
+  ${(props) =>
+    props.fontSize &&
+    `
+    font-size: ${props.fontSize}px;
+    `}
 `
 
 type LabelProps = {
@@ -332,20 +335,43 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     `}
 `
 
+export const DateStyles = makeStyles({
+  input: (props: any) => ({
+    '&:after': {
+      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
+    },
+    '&:before': {
+      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
+    },
+    '&.MuiInput-underline:hover:before': {
+      borderBottom: props.darkMode ? `1px solid ${theme.white}` : `1px solid ${theme.grey}`,
+    },
+  }),
+})
+
 export const DateWrapperStyled = styled.div`
   position: relative;
   margin-top: 24px;
   padding-top: 8px;
 `
 
-export const DateLabelStyled = styled.div`
+type DateLabelProps = {
+  darkMode?: boolean
+}
+
+export const DateLabelStyled = styled.div<DateLabelProps>`
   position: absolute;
   z-index: 0;
   top: -2px;
-  background-color: ${theme.white};
-  color: rgba(0, 0, 0, 0.54);
+  background-color: transparent;
+  color: ${theme.black};
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  ${(props) =>
+    props.darkMode &&
+    `
+    color: ${theme.white};
+    `}
 `
 
 export const FormPhoneStyled = styled.div`
@@ -356,4 +382,16 @@ export const ButtonWrapperStyled = styled.div`
   display: grid;
   margin: 16px 0;
   padding-top: 8px;
+`
+
+// Form Select
+export const SelectStyled = styled.div`
+  display: inline-flex;
+  width: 100%;
+`
+
+// Form row
+export const FormRowStyled = styled.div`
+  display: inline-flex;
+  width: 100%
 `

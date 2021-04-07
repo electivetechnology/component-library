@@ -8,31 +8,45 @@ import {
   FormTitle
 } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
+import { theme } from 'styles/theme'
 
 const handleUpdate = () => {}
 const handleAction = () => {}
 
-const Template = (args: any) => <Form {...args} handleUpdate={handleUpdate} />
+const Template = (args: any) => (
+  <div style={{
+    backgroundImage: `linear-gradient(
+        ${theme.gradientBlue},
+        ${theme.gradientRed}
+      )`,
+    height: '100%'
+    }}>
+    <Form {...args} handleUpdate={handleUpdate} />
+  </div>
+)
 
 // FormAction
 export const Action: any = Template.bind({})
 
 Action.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <FormAction
       label='Set Primary'
       handleAction={handleAction}
-      icon={<AddIcon />}
+      icon={<AddIcon style={{fill: theme.white}} />}
     />
   )
 }
+
 
 // FormCheckbox
 export const Checkbox: any = Template.bind({})
 
 Checkbox.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput
@@ -50,10 +64,11 @@ export const ColourPicker: any = Template.bind({})
 
 ColourPicker.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <FormInput
       label='Colour Picker'
-      name='colorPicker'
+      name='name'
       value='#DCE1E8'
       type='colourPicker'
     />
@@ -65,6 +80,7 @@ export const Date: any = Template.bind({})
 
 Date.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <FormInput
       label='Date'
@@ -80,6 +96,7 @@ export const Info: any = Template.bind({})
 
 Info.args = {
   handleUpdate,
+  darkMode: true,
   children: <FormInfo info={'Some Info'} />
 }
 
@@ -88,6 +105,7 @@ export const Phone: any = Template.bind({})
 
 Phone.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput
@@ -105,6 +123,7 @@ export const Row: any = Template.bind({})
 
 Row.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <FormRow>
       <FormInput label='Name' name='name' value='some name' type='text' />
@@ -118,22 +137,25 @@ export const Select: any = Template.bind({})
 
 Select.args = {
   handleUpdate,
+  darkMode: true,
   children: (
-    <FormInput
-      label='Form Select'
-      name='select'
-      value={status}
-      type='select'
-      options={{ selectOptions: [{ value: '', label: '' }] }}
-    />
+    <FormRow>
+      <FormInput
+        label='Form Select'
+        name='select'
+        value={status}
+        type='select'
+        options={{ selectOptions: [{ value: '', label: '' }] }}
+      />
+    </FormRow>
   )
 }
-
 // FormText
 export const Text: any = Template.bind({})
 
 Text.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput label='Text Area' name='text' value='some text' type='text' />
@@ -148,11 +170,13 @@ Text.args = {
   )
 }
 
+
 // FormCopy
 export const TextCopy: any = Template.bind({})
 
 TextCopy.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput
@@ -178,6 +202,7 @@ export const TextDelete: any = Template.bind({})
 
 TextDelete.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput
@@ -192,7 +217,7 @@ TextDelete.args = {
         name='textarea'
         value='some textarea'
         type='text'
-        options={{ isDelete: true, multiline: true }}
+        options={{ isDelete: true , multiline: true }}
       />
     </Fragment>
   )
@@ -203,6 +228,7 @@ export const TextDownload: any = Template.bind({})
 
 TextDownload.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput
@@ -229,6 +255,7 @@ export const TextError: any = Template.bind({})
 
 TextError.args = {
   handleUpdate,
+  darkMode: true,
   statuses: {
     text: { statusType: 'error' },
     textArea: { statusType: 'error' }
@@ -252,6 +279,7 @@ export const TextRequired: any = Template.bind({})
 
 TextRequired.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <Fragment>
       <FormInput label='Text Area' name='text' value='some text' type='text' required={true} />
@@ -272,6 +300,7 @@ export const Title: any = Template.bind({})
 
 Title.args = {
   handleUpdate,
+  darkMode: true,
   children: <FormTitle label={'Some Title'} />
 }
 
@@ -280,6 +309,7 @@ export const Toggle: any = Template.bind({})
 
 Toggle.args = {
   handleUpdate,
+  darkMode: true,
   children: (
     <FormInput
       label='Toggle'
@@ -291,6 +321,6 @@ Toggle.args = {
 }
 
 export default {
-  title: 'organisms/Form',
+  title: 'organisms/FormDarkMode',
   component: Form
 }

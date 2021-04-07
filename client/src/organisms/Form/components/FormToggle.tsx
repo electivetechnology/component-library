@@ -27,6 +27,7 @@ const FormToggle: FunctionComponent = () => {
       onChange={handleChange}
       activeLabel={options?.activeLabel}
       inactiveLabel={options?.inactiveLabel}
+      darkMode={darkMode}
     />
   )
 }
