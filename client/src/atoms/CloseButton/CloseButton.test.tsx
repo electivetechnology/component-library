@@ -5,9 +5,9 @@ import CloseButton from 'atoms/CloseButton/CloseButton'
 
 afterEach(cleanup)
 
-const onClose = jest.fn()
+const handleClose = jest.fn()
 
-const { getByTestId } = render(<CloseButton onClose={onClose} />)
+const { getByTestId } = render(<CloseButton handleClose={handleClose} />)
 
 test('renders CloseButton', () => {
   expect(getByTestId('CloseButton')).toBeDefined

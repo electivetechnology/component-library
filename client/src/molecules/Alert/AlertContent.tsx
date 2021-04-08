@@ -1,30 +1,25 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useContext } from 'react'
 import { useStyles } from 'molecules/Alert/styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
 import { CloseButton } from 'atoms'
 import AlertMessage from 'molecules/Alert/AlertMessage'
-import { AlertTypeType } from 'molecules/Alert/types'
+import { AlertContext } from 'molecules/Alert/base'
 
-type Props = {
-  variant: AlertTypeType
-  message: string
-  onClose: any
-}
+const AlertContent: FunctionComponent = () => {
+  const {
+    alert: { alertType },
+    handleClose
+  } = useContext(AlertContext)
 
-const AlertContent: FunctionComponent<Props> = ({
-  variant = 'success',
-  message = '',
-  onClose
-}) => {
   const classes = useStyles()
 
   return (
     <SnackbarContent
       data-testid='AlertContent'
-      className={!!variant ? classes[variant] : ''}
+      className={!!alertType ? classes[alertType] : ''}
       aria-describedby='client-snackbar'
-      message={<AlertMessage variant={variant} message={message} />}
-      action={<CloseButton onClose={onClose} />}
+      message={<AlertMessage />}
+      action={<CloseButton handleClose={handleClose} />}
     />
   )
 }

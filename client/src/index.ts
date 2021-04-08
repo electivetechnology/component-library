@@ -18,7 +18,7 @@ export {
 } from 'atoms'
 
 // MOLECULES
-export { default as Alert } from 'molecules/Alert/Alert'
+export { Alert, AlertContext, AlertContainer } from 'molecules/Alert'
 export { default as Channels } from 'molecules/Channels/Channels'
 export { NavIcons, NavToggle, NavMulti, NavIcon } from 'molecules/NavIcons'
 export { Columns, Column } from 'molecules/Columns'
