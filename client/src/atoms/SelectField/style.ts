@@ -12,6 +12,7 @@ export const AutoCompleteContainerStyled = styled.div`
 
 export const SelectFieldStyled = styled.div`
   padding-top: 24px;
+  width: 100%;
 `
 
 export const inputBorder = (outlined: boolean, darkMode: boolean) => {
@@ -38,7 +39,7 @@ export const useLabelStyles = makeStyles({
 export const useInputStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
-    color: props.darkMode ? theme.white : theme.black,
+    color: props.darkMode ? theme.white : theme.grey,
     whiteSpace: 'nowrap'
   }),
   inputRoot: (props: any) => ({

@@ -10,7 +10,11 @@ export {
   Toggle,
   Tooltip,
   LoaderComponent,
-  Font
+  Chart,
+  Font,
+  Legend,
+  Grid,
+  GridColumn
 } from 'atoms'
 
 // MOLECULES

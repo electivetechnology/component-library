@@ -44,6 +44,7 @@ export interface OptionType {
   copy?: boolean
   activeLabel?: string
   inactiveLabel?: string
+  isDelete?: boolean
 }
 
 export type StatusType = {
@@ -76,6 +77,7 @@ export type FormContextType = {
   disableForm: boolean
   darkMode: boolean
   outlineInputs?: boolean
+  handleDelete?: any
 }
 
 export const FormContext = createContext<FormContextType>({} as FormContextType)

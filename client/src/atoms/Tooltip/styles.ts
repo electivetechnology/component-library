@@ -17,6 +17,7 @@ export const TooltipLabelStyled = styled.span<TooltipLabelProp>`
 
 type TooltipProp = {
   placement: string
+  show: boolean
 }
 
 export const TooltipStyled = styled.span<TooltipProp>`
@@ -71,5 +72,10 @@ export const TooltipStyled = styled.span<TooltipProp>`
   }
   &:hover:before {
     display: block;
+    ${(props) =>
+      !props.show &&
+      `
+        display: none;
+      `};
   }
 `

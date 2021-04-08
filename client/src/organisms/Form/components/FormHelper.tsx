@@ -1,6 +1,5 @@
-import React, { FunctionComponent, memo, useContext, Fragment } from 'react'
-import { FormContext, InputContext } from 'organisms/Form/base'
-import { AffixStyled } from 'organisms/Form/styles'
+import React, { FunctionComponent, memo, useContext } from 'react'
+import { InputContext } from 'organisms/Form/base'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
 
@@ -26,7 +25,7 @@ const FormHelper: FunctionComponent<Props> = ({ helperText }) => {
 
   if (helperText) {
     return (
-      <Font variant='body1'>{helperText}</Font>
+      <Font variant='body2' color={theme.grey}>{helperText}</Font>
     )
   }
 

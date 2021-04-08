@@ -7,6 +7,7 @@ type Props = {
   labelSize?: string
   tooltipText?: string
   labelStyle?: any
+  show?: boolean
 }
 
 const Tooltip: FunctionComponent<Props> = ({
@@ -15,10 +16,11 @@ const Tooltip: FunctionComponent<Props> = ({
   tooltipText,
   labelSize,
   labelStyle,
-  children
+  children,
+  show = true
 }) => {
   return (
-    <TooltipStyled data-text={tooltipText} placement={placement}>
+    <TooltipStyled data-text={tooltipText} placement={placement} show={show}>
       <TooltipLabelStyled
         data-html='true'
         fontSize={labelSize}
