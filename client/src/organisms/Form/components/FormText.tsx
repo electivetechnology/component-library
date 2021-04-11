@@ -40,47 +40,49 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled data-testid='FormText'>
-      {value && (
-        <div>
-          <LabelStyled darkMode={darkMode} htmlFor={name}>
-            {label}
-          </LabelStyled>
-          {required && <RequiredStyled>*</RequiredStyled>}
-        </div>
-      )}
-      {options?.multiline ? (
-        <FormTextArea
-          darkMode={darkMode}
-          name={name}
-          onChange={onChange}
-          handleBlur={handleBlur}
-          value={value}
-          placeholder={value ? '' : label}
-          disabled={disabled}
-          error={error}
-        />
-      ) : (
-        <div>
-          <TextInputStyled
+      <div>
+        {value && (
+          <div>
+            <LabelStyled darkMode={darkMode} htmlFor={name}>
+              {label}
+            </LabelStyled>
+            {required && <RequiredStyled>*</RequiredStyled>}
+          </div>
+        )}
+        {options && options.multiline ? (
+          <FormTextArea
             darkMode={darkMode}
-            id={name}
+            name={name}
             onChange={onChange}
-            onBlur={handleBlur}
-            type={type}
+            handleBlur={handleBlur}
             value={value}
             placeholder={value ? '' : label}
             disabled={disabled}
             error={error}
           />
-          {error && <WarningIcon style={{
-            width: '18px',
-            margin: 'auto',
-            height: '18px',
-            fill: darkMode ? theme.white : theme.grey
-          }} />}
-        </div>
-      )}
-      {options?.copy && <FormCopy value={value} />}
+        ) : (
+          <div>
+            <TextInputStyled
+              darkMode={darkMode}
+              id={name}
+              onChange={onChange}
+              onBlur={handleBlur}
+              type={type}
+              value={value}
+              placeholder={value ? '' : label}
+              disabled={disabled}
+              error={error}
+            />
+            {error && <WarningIcon style={{
+              width: '18px',
+              margin: 'auto',
+              height: '18px',
+              fill: darkMode ? theme.white : theme.grey
+            }} />}
+          </div>
+        )}
+      </div>
+      {options && options.copy && <FormCopy value={value} darkMode={darkMode} />}
     </FormTextContainerStyled>
   )
 }

@@ -4,7 +4,7 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
 
 const FormCheckbox: FunctionComponent = () => {
-  const { inputValue, name, label, disabled } = useContext(InputContext)
+  const { inputValue, name, label, disabled, required } = useContext(InputContext)
 
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 
@@ -28,6 +28,7 @@ const FormCheckbox: FunctionComponent = () => {
       fontSize='12px'
       darkMode={darkMode}
       onChange={handleChange}
+      required={required}
     />
   )
 }

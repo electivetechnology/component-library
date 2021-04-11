@@ -152,7 +152,7 @@ export const EditorLabel = styled.div`
 // FormText
 export const FormTextContainerStyled = styled.div`
   padding-top: 24px;
-  display: grid;
+  display: inline-flex;
   width: 100%;
   height: auto;
 `
@@ -196,6 +196,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   border: none;
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
+  background-color: transparent;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
@@ -213,6 +214,16 @@ export const TextInputStyled = styled.input<TextInputProps>`
     color: ${theme.disabledTextGrey};
     border-bottom: 1px dotted ${theme.dividerGrey};
     background-color: transparent;
+      &:focus {
+        outline: none;
+        border-bottom: 1px dotted ${theme.dividerGrey};
+      }
+      &:hover {
+        border-bottom: 1px dotted ${theme.dividerGrey};
+      }
+      &:active {
+        border-bottom: 1px dotted ${theme.dividerGrey};
+      }
     `}
   ${(props) =>
     props.error &&
@@ -223,7 +234,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
     props.darkMode &&
     `
     border: none;
-    color: ${theme.white};
+    color: ${theme.white}; 
     border-bottom: 1px solid ${theme.grey};
     background-color: transparent;
       &:hover {
@@ -241,9 +252,8 @@ type CopyProps = {
 
 export const CopyIconStyled = styled.div<CopyProps>`
   position: relative;
-  top: 38px;
   display: none;
-  left: 8px;
+  top: 8px;
   ${(props) =>
     props.isActive &&
     `
@@ -258,12 +268,24 @@ export const CopiedStyled = styled.div`
 `
 
 // FORM COPY
-export const CopyElementStyled = styled.div`
+type CopyElementProp = {
+  isActive?: boolean
+}
+export const CopyElementStyled = styled.div<CopyElementProp>`
   width: 48px;
   padding-left: 8px;
+  cursor: pointer;
+  ${(props) =>
+    props.isActive &&
+    `
+      margin: auto 0;
+    `}
 `
 
-export const ToastStyled = styled.div`
+type ToastProps = {
+  darkMode: boolean
+}
+export const ToastStyled = styled.div<ToastProps>`
   border: 1px solid ${theme.secondaryGray};
   border-radius: 4px;
   background-color: ${theme.secondaryGray};
@@ -274,6 +296,11 @@ export const ToastStyled = styled.div`
   left: -10px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   top: 2px;
+  ${(props) =>
+    props.darkMode &&
+    `
+      color: ${theme.black};
+    `}
 `
 
 type TextareaProps = {
@@ -286,6 +313,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   border: none;
   width: 100%;
   font-size: 14px;
+  background-color: transparent;
   border-bottom: 1px solid ${theme.dividerGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   overflow: hidden;
@@ -318,6 +346,16 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     color: ${theme.disabledTextGrey};
     border-bottom: 1px dotted ${theme.dividerGrey};
     background-color: transparent;
+      &:focus {
+        outline: none;
+        border-bottom: 1px dotted ${theme.dividerGrey};
+      }
+      &:hover {
+        border-bottom: 1px dotted ${theme.dividerGrey};
+      }
+      &:active {
+        border-bottom: 1px dotted ${theme.dividerGrey};
+      }
     `}
   ${(props) =>
     props.darkMode &&
@@ -393,5 +431,5 @@ export const SelectStyled = styled.div`
 // Form row
 export const FormRowStyled = styled.div`
   display: inline-flex;
-  width: 100%
+  width: 100%;
 `
