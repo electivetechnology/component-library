@@ -8,7 +8,7 @@ import React, {
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
-import { RequiredStyled, SelectStyled } from '../styles'
+import { SelectStyled } from '../styles'
 
 const FormSelect: FunctionComponent = () => {
   const {
@@ -17,8 +17,7 @@ const FormSelect: FunctionComponent = () => {
     label,
     options,
     disabled,
-    outlined,
-    required
+    outlined
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
   const valueRef = useRef()
@@ -52,7 +51,6 @@ const FormSelect: FunctionComponent = () => {
         darkMode={darkMode}
         outlined={outlined}
       />
-      {required && <RequiredStyled>*</RequiredStyled>}
     </SelectStyled>
   )
 }

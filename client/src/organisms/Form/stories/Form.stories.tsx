@@ -41,6 +41,13 @@ Checkbox.args = {
         value={true}
         type='checkbox'
       />
+      <FormInput
+        label='Checkbox'
+        name='checkbox'
+        value={true}
+        type='checkbox'
+        required={true}
+      />
     </Fragment>
   )
 }
@@ -51,12 +58,21 @@ export const ColourPicker: any = Template.bind({})
 ColourPicker.args = {
   handleUpdate,
   children: (
-    <FormInput
-      label='Colour Picker'
-      name='colorPicker'
-      value='#DCE1E8'
-      type='colourPicker'
-    />
+    <Fragment>
+      <FormInput
+        label='Colour Picker'
+        name='colorPicker'
+        value='#DCE1E8'
+        type='colourPicker'
+      />
+      <FormInput
+        label='Colour Picker'
+        name='colorPicker'
+        value='#DCE1E8'
+        type='colourPicker'
+        required={true}
+      />
+    </Fragment>
   )
 }
 
@@ -66,12 +82,21 @@ export const Date: any = Template.bind({})
 Date.args = {
   handleUpdate,
   children: (
-    <FormInput
-      label='Date'
-      type='date'
-      name="date"
-      value=''
-    />
+    <Fragment>
+      <FormInput
+        label='Date'
+        type='date'
+        name="date"
+        value=''
+      />
+      <FormInput
+        label='Date'
+        type='date'
+        name="date"
+        value=''
+        required={true}
+      />
+    </Fragment>
   )
 }
 
@@ -119,13 +144,37 @@ export const Select: any = Template.bind({})
 Select.args = {
   handleUpdate,
   children: (
-    <FormInput
-      label='Form Select'
-      name='select'
-      value={status}
-      type='select'
-      options={{ selectOptions: [{ value: '', label: '' }] }}
-    />
+    <Fragment>
+      <FormInput
+        label='Form Select'
+        name='select'
+        value={status}
+        type='select'
+        options={{ selectOptions: [{ value: '', label: '' }] }}
+      />
+      <FormInput
+        label='Form Select prefix'
+        name='select'
+        value={status}
+        type='select'
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          prefix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          suffix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />   
+    </Fragment>
   )
 }
 
@@ -136,9 +185,16 @@ Text.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <FormInput label='Text Area' name='text' value='some text' type='text' />
+      <FormInput label='Text' name='text' value='some text' type='text' />
       <FormInput
-        label='Text'
+        label='Text Area Required'
+        name='text'
+        value='some text'
+        type='text'
+        required={true}
+      />
+      <FormInput
+        label='Text Area'
         name='textarea'
         value='some textarea'
         type='text'
@@ -281,12 +337,23 @@ export const Toggle: any = Template.bind({})
 Toggle.args = {
   handleUpdate,
   children: (
-    <FormInput
-      label='Toggle'
-      name='toggle'
-      value={true}
-      type='toggle'
-    />
+    <Fragment>
+      <div style={{paddingBottom: '8px'}}>
+        <FormInput
+          label='Toggle'
+          name='toggle'
+          value={true}
+          type='toggle'
+        />
+      </div>
+      <FormInput
+        label='Toggle'
+        name='toggle'
+        value={true}
+        type='toggle'
+        required={true}
+      />
+    </Fragment>
   )
 }
 

@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState
 } from 'react'
-import { DateLabelStyled, DateWrapperStyled, DateStyles } from 'organisms/Form/styles'
+import { DateLabelStyled, DateWrapperStyled, DateStyles, RequiredStyled } from 'organisms/Form/styles'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
@@ -17,7 +17,7 @@ import { theme } from 'styles/theme'
 import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
 
 const FormDate: FunctionComponent = () => {
-  const { inputValue, name, label, disabled } = useContext(InputContext)
+  const { inputValue, name, label, disabled, required = false } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -38,7 +38,10 @@ const FormDate: FunctionComponent = () => {
 
   return (
     <DateWrapperStyled>
-      <DateLabelStyled darkMode={darkMode}>{label}</DateLabelStyled>
+      <DateLabelStyled darkMode={darkMode}>
+        {label}
+        {required && <RequiredStyled>*</RequiredStyled>}
+      </DateLabelStyled>
       <MuiPickersUtilsProvider utils={DateUtils}>
         <KeyboardDatePicker
           disableToolbar

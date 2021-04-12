@@ -11,6 +11,7 @@ import {
   SwitchTextContainerStyled,
   SwitchTextStyled
 } from './style'
+import { RequiredStyled } from 'organisms/Form/styles'
 
 type Props = {
   isActive: boolean
@@ -20,6 +21,7 @@ type Props = {
   inactiveLabel?: string
   disabled?: boolean
   darkMode?: boolean
+  required?: boolean
 }
 
 const Toggle: FunctionComponent<Props> = ({
@@ -29,6 +31,7 @@ const Toggle: FunctionComponent<Props> = ({
   activeLabel,
   inactiveLabel,
   darkMode,
+  required,
   disabled = false
 }) => {
   const fontColor = (disabled: boolean, isActive: boolean) => {
@@ -47,6 +50,7 @@ const Toggle: FunctionComponent<Props> = ({
     <ToggleContainerStyled>
       <ToggleLabelStyled>
         <Font variant='body2' color={darkMode ? theme.white : theme.grey}>{label}</Font>
+        {required && <RequiredStyled>*</RequiredStyled>}
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>

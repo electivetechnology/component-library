@@ -19,7 +19,7 @@ const Template = (args: any) => (
         ${theme.gradientBlue},
         ${theme.gradientRed}
       )`,
-    height: '100%'
+    height: '500px'
     }}>
     <Form {...args} handleUpdate={handleUpdate} />
   </div>
@@ -55,6 +55,13 @@ Checkbox.args = {
         value={true}
         type='checkbox'
       />
+      <FormInput
+        label='Checkbox'
+        name='checkbox'
+        value={true}
+        type='checkbox'
+        required={true}
+      />
     </Fragment>
   )
 }
@@ -66,12 +73,21 @@ ColourPicker.args = {
   handleUpdate,
   darkMode: true,
   children: (
-    <FormInput
-      label='Colour Picker'
-      name='name'
-      value='#DCE1E8'
-      type='colourPicker'
-    />
+    <Fragment>
+      <FormInput
+        label='Colour Picker'
+        name='colorPicker'
+        value='#DCE1E8'
+        type='colourPicker'
+      />
+      <FormInput
+        label='Colour Picker'
+        name='colorPicker'
+        value='#DCE1E8'
+        type='colourPicker'
+        required={true}
+      />
+    </Fragment>
   )
 }
 
@@ -82,12 +98,21 @@ Date.args = {
   handleUpdate,
   darkMode: true,
   children: (
-    <FormInput
-      label='Date'
-      type='date'
-      name="date"
-      value=''
-    />
+    <Fragment>
+      <FormInput
+        label='Date'
+        type='date'
+        name="date"
+        value=''
+      />
+      <FormInput
+        label='Date'
+        type='date'
+        name="date"
+        value=''
+        required={true}
+      />
+    </Fragment>
   )
 }
 
@@ -139,7 +164,7 @@ Select.args = {
   handleUpdate,
   darkMode: true,
   children: (
-    <FormRow>
+    <div>
       <FormInput
         label='Form Select'
         name='select'
@@ -147,7 +172,29 @@ Select.args = {
         type='select'
         options={{ selectOptions: [{ value: '', label: '' }] }}
       />
-    </FormRow>
+      <FormInput
+        label='Form Select prefix'
+        name='select'
+        value={status}
+        type='select'
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          prefix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px', fill: theme.white }} />
+        }}
+      />
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          suffix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px', fill: theme.white }} />
+        }}
+      /> 
+    </div>
   )
 }
 // FormText
@@ -158,9 +205,9 @@ Text.args = {
   darkMode: true,
   children: (
     <Fragment>
-      <FormInput label='Text Area' name='text' value='some text' type='text' />
+      <FormInput label='Text' name='text' value='some text' type='text' />
       <FormInput
-        label='Text'
+        label='Text Area'
         name='textarea'
         value='some textarea'
         type='text'
@@ -311,12 +358,23 @@ Toggle.args = {
   handleUpdate,
   darkMode: true,
   children: (
-    <FormInput
-      label='Toggle'
-      name='toggle'
-      value={true}
-      type='toggle'
-    />
+    <Fragment>
+      <div style={{paddingBottom: '8px'}}>
+        <FormInput
+          label='Toggle'
+          name='toggle'
+          value={true}
+          type='toggle'
+        />
+      </div>
+      <FormInput
+        label='Toggle'
+        name='toggle'
+        value={true}
+        type='toggle'
+        required={true}
+      />
+    </Fragment>
   )
 }
 

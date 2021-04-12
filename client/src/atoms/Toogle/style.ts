@@ -8,6 +8,7 @@ export const ToggleContainerStyled = styled.div`
 
 export const ToggleLabelStyled = styled.div`
   padding: 4px 8px 0 0;
+  display: inline-flex;
 `
 
 export const SwitchContainerStyled = styled.div`

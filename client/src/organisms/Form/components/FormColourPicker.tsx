@@ -13,7 +13,7 @@ import { InputContext, FormContext } from 'organisms/Form/base'
 import { theme } from 'styles/theme'
 
 const FormColourPicker: FunctionComponent = () => {
-  const { inputValue, name, label, disabled, required = true} = useContext(InputContext)
+  const { inputValue, name, label, disabled, required = false} = useContext(InputContext)
 
   const { updateInput, onBlur, darkMode } = useContext(FormContext)
 
@@ -55,7 +55,7 @@ const FormColourPicker: FunctionComponent = () => {
       <PickerStyled>
         <ColorStyled
           style={{ backgroundColor: colorValue }}
-          onClick={handleOnClick}
+          onClick={disabled ? undefined : handleOnClick}
         />
         <PickerLabelStyled>
           <Font variant='h5' color={darkMode ? theme.white : theme.grayComment}>{label}</Font>

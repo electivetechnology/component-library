@@ -45,6 +45,9 @@ export interface OptionType {
   activeLabel?: string
   inactiveLabel?: string
   isDelete?: boolean
+  icon?: any
+  prefix?: boolean
+  suffix?: boolean
 }
 
 export type StatusType = {

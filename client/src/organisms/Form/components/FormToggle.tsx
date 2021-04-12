@@ -4,7 +4,7 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
 
 const FormToggle: FunctionComponent = () => {
-  const { inputValue, name, label, disabled, options } = useContext(InputContext)
+  const { inputValue, name, label, disabled, options, required } = useContext(InputContext)
 
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 
@@ -28,6 +28,7 @@ const FormToggle: FunctionComponent = () => {
       activeLabel={options?.activeLabel}
       inactiveLabel={options?.inactiveLabel}
       darkMode={darkMode}
+      required={required}
     />
   )
 }
