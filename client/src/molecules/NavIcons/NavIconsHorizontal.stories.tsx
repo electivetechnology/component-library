@@ -80,6 +80,15 @@ Both.args = {
   children: <Fragment>{renderHorizontal('start')}</Fragment>
 }
 
+export const CollapsibleMobileView: any = Template.bind({})
+
+CollapsibleMobileView.args = {
+  layout: 'horizontal',
+  children: <Fragment>{renderHorizontal('start')}</Fragment>,
+  subMenuContents: <Fragment>{renderHorizontal('start')}</Fragment>,
+  subMenu: true
+}
+
 export default {
   title: 'molecules/NavIcons/Horizontal',
   component: NavIcons

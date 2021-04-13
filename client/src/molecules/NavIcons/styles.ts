@@ -13,6 +13,8 @@ export const iconStyles = makeStyles({
 
 type NavigationContainerProps = {
   horizontal?: boolean
+  expandSubMenu?: boolean
+  showSubMenu?: boolean
 }
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
@@ -29,6 +31,16 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       padding: 6px 24px;
       width: revert;
       height: 100%;
+    `};
+  ${(props) =>
+    props.horizontal && props.expandSubMenu &&
+    `
+      border-radius: 12px 12px 0 0;
+    `};
+  ${(props) =>
+    props.horizontal && props.showSubMenu &&
+    `
+      border-radius: 0 0 12px 12px;
     `};
 `
 
@@ -49,6 +61,10 @@ export const NavigationContentStyled = styled.div<NavigationContentProps>`
       display: grid;
       grid-template-columns: auto auto;
     `};
+`
+
+export const SubMenuStyled = styled.div`
+  margin-left: auto;
 `
 
 export const VerticalDividerStyled = styled.div`
