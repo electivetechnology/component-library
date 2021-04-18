@@ -14,7 +14,8 @@ export {
   Font,
   Legend,
   Grid,
-  GridColumn
+  GridColumn,
+  ChartComponent
 } from 'atoms'
 
 // MOLECULES

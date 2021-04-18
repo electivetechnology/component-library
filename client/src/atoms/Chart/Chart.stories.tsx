@@ -2,6 +2,14 @@ import React, { Fragment } from 'react'
 import { Chart } from 'atoms'
 import { theme } from 'styles/theme'
 import Legend from './ChartLegend'
+import ChartComponent  from './Chart'
+
+const ChartComponenetTemplate = (args: any) => {
+  return (
+    <ChartComponent 
+      {...args} />
+  )
+}
 
 const ChartTemplate = (args: any) => {
   const handleSegmentClick = (event: any, elements: any) => {
@@ -88,6 +96,27 @@ CustomLegend.args = {
   labelPosition: 'top',
   chartId: 'chartId',
   chartName: 'chartName'
+}
+
+// ChartNew
+export const ChartNew: any = ChartComponenetTemplate.bind({})
+
+ChartNew.args = {
+  data: [
+    { x: "a", y: 1 }, { x: "b", y: 4 }, { x: "c", y: 5 }, { x: "d", y: 7 }
+  ],
+  legendData: [
+    { name: "a", symbol: { fill: "tomato", type: "star" } },
+    { name: "b", symbol: { fill: "orange" } },
+    { name: "c", symbol: { fill: "pink", type: "star" } },
+    { name: "d", symbol: { fill: "blue" } },
+  ],
+  colorScale: [
+    "tomato",
+    "orange",
+    "pink",
+    "blue",
+  ],
 }
 
 export default {

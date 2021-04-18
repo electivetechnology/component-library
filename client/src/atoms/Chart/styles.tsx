@@ -21,3 +21,10 @@ export const LegendStyled = styled.div`
   grid-template-columns: 18px auto;
   grid-gap: 8px;
 `
+
+export  const clearButtonStyle = {
+  backgroundColor: "black",
+  color: "white",
+  padding: "10px",
+  marginTop: "10px"
+}
