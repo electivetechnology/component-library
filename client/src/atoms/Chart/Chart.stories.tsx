@@ -5,8 +5,28 @@ import Legend from './ChartLegend'
 import ChartComponent  from './Chart'
 
 const ChartComponenetTemplate = (args: any) => {
+  const handleOnClick = (a: any, b: any) => {
+    console.log('a', a);
+    console.log('b', b);
+    return [
+      {
+        target: "data",
+        childName: ["pie", "legend"],
+        mutation: ({ style }) => {
+          return style.fill === "#c43a31" ? null : { style: { fill: "#c43a31" } };
+        }
+      }, {
+        target: "labels",
+        childName: ["pie", "legend"],
+        mutation: ({ text }) => {
+          return text === "selected" ? null : { text: "selected" };
+        }
+      }
+    ]
+  }
   return (
     <ChartComponent 
+      onClick={handleOnClick}
       {...args} />
   )
 }

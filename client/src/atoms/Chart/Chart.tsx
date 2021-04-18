@@ -1,23 +1,26 @@
 import React from 'react'
 import {
   VictoryPie,
-  VictorySharedEvents,
   VictoryLegend,
   VictoryTooltip,
 } from "victory"
+import { theme } from 'styles/theme'
+const { VictorySharedEvents } = require('victory')
 
 type Props = {
   data: Array<any>
   legendData: Array<any>
   colorScale: Array<any>
   labelStyle?: any
+  onClick?: any
 }
 
 const Chart: React.FC<Props> = ({
   data,
   legendData,
   colorScale,
-  labelStyle
+  labelStyle,
+  onClick
 }) => {
   
   // const clearClicks = () => {
@@ -49,23 +52,7 @@ const Chart: React.FC<Props> = ({
             childName: ["pie", "legend"],
             target: "data",
             eventHandlers: {
-              onClick: () => {
-                return [
-                  {
-                    target: "data",
-                    childName: ["pie", "legend"],
-                    mutation: ({ style }) => {
-                      return style.fill === "#c43a31" ? null : { style: { fill: "#c43a31" } };
-                    }
-                  }, {
-                    target: "labels",
-                    childName: ["pie", "legend"],
-                    mutation: ({ text }) => {
-                      return text === "selected" ? null : { text: "selected" };
-                    }
-                  }
-                ];
-              }
+              onClick: onClick
             }
           }]}
         >
@@ -86,7 +73,12 @@ const Chart: React.FC<Props> = ({
               height={200}
               standalone={false}
               colorScale={colorScale}
-              style={{ labels: labelStyle }}
+              style={{ 
+                labels: labelStyle,
+                data: {
+                  fillOpacity: 0.9, stroke: theme.white, strokeWidth: 1
+                }
+              }}
               data={data}
               labelComponent={
                 <VictoryTooltip />
