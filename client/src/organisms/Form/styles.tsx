@@ -197,6 +197,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
+  width: 100%;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
@@ -430,6 +431,9 @@ export const SelectStyled = styled.div`
 
 // Form row
 export const FormRowStyled = styled.div`
-  display: inline-flex;
+  display: grid;
   width: 100%;
-`
+  @media screen and (min-width: 750px) {
+    display: inline-flex;
+  }
+  `

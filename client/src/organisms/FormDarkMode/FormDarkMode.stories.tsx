@@ -11,7 +11,6 @@ import AddIcon from '@material-ui/icons/Add'
 import { theme } from 'styles/theme'
 
 const handleUpdate = () => {}
-const handleAction = () => {}
 
 const Template = (args: any) => (
   <div style={{
@@ -24,22 +23,6 @@ const Template = (args: any) => (
     <Form {...args} handleUpdate={handleUpdate} />
   </div>
 )
-
-// FormAction
-export const Action: any = Template.bind({})
-
-Action.args = {
-  handleUpdate,
-  darkMode: true,
-  children: (
-    <FormAction
-      label='Set Primary'
-      handleAction={handleAction}
-      icon={<AddIcon style={{fill: theme.white}} />}
-    />
-  )
-}
-
 
 // FormCheckbox
 export const Checkbox: any = Template.bind({})
@@ -205,9 +188,9 @@ Text.args = {
   darkMode: true,
   children: (
     <Fragment>
-      <FormInput label='Text' name='text' value='some text' type='text' />
+      <FormInput label='Text field' name='text' value='some text' type='text' />
       <FormInput
-        label='Text Area'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -227,14 +210,14 @@ TextCopy.args = {
   children: (
     <Fragment>
       <FormInput
-        label='Text Area'
+        label='Text field'
         name='text'
         value='some text'
         type='text'
         options={{ copy: true }}
       />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -253,14 +236,14 @@ TextDelete.args = {
   children: (
     <Fragment>
       <FormInput
-        label='Text Area'
+        label='Text field'
         name='text'
         value='some text'
         type='text'
         options={{ isDelete: true }}
       />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -279,14 +262,14 @@ TextDownload.args = {
   children: (
     <Fragment>
       <FormInput
-        label='Text Area'
+        label='Text field'
         name='text'
         value='some text'
         type='text'
         download={true}
       />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -309,9 +292,9 @@ TextError.args = {
   },
   children: (
     <Fragment>
-      <FormInput label='Text Area' name='text' value='some text' type='text' />
+      <FormInput label='Text field' name='text' value='some text' type='text' />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textArea'
         value='some textarea'
         type='text'
@@ -329,9 +312,9 @@ TextRequired.args = {
   darkMode: true,
   children: (
     <Fragment>
-      <FormInput label='Text Area' name='text' value='some text' type='text' required={true} />
+      <FormInput label='Text field' name='text' value='some text' type='text' required={true} />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'

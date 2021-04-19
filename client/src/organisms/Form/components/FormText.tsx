@@ -38,9 +38,11 @@ const FormText: FunctionComponent = () => {
     onBlur(name)
   }
 
+  const placeholder = required ? `${label}* ` : label
+
   return (
     <FormTextContainerStyled data-testid='FormText'>
-      <div>
+      <div style={{width: '100%'}}>
         {value && (
           <div>
             <LabelStyled darkMode={darkMode} htmlFor={name}>
@@ -56,12 +58,12 @@ const FormText: FunctionComponent = () => {
             onChange={onChange}
             handleBlur={handleBlur}
             value={value}
-            placeholder={value ? '' : label}
+            placeholder={value ? '' : placeholder}
             disabled={disabled}
             error={error}
           />
         ) : (
-          <div>
+          <div style={{display: 'inline-flex'}}>
             <TextInputStyled
               darkMode={darkMode}
               id={name}
@@ -69,7 +71,7 @@ const FormText: FunctionComponent = () => {
               onBlur={handleBlur}
               type={type}
               value={value}
-              placeholder={value ? '' : label}
+              placeholder={value ? '' : placeholder}
               disabled={disabled}
               error={error}
             />
@@ -77,7 +79,7 @@ const FormText: FunctionComponent = () => {
               width: '18px',
               margin: 'auto',
               height: '18px',
-              fill: darkMode ? theme.white : theme.grey
+              fill: darkMode ? theme.white : theme.primaryColorValencia
             }} />}
           </div>
         )}
