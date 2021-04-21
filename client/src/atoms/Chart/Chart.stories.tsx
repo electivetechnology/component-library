@@ -1,7 +1,7 @@
 import React from 'react'
 import { Chart } from 'atoms'
 
-const ChartComponenetTemplate = (args: any) => {
+const ChartTemplate = (args: any) => {
   const handleOnClick = (event: any, element: any) => {
     return [
       {
@@ -29,7 +29,7 @@ const ChartComponenetTemplate = (args: any) => {
 }
 
 // Default
-export const Default: any = ChartComponenetTemplate.bind({})
+export const Default: any = ChartTemplate.bind({})
 
 Default.args = {
   data: [

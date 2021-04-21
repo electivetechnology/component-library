@@ -41,8 +41,7 @@ const Chart: React.FC<Props> = ({
             eventHandlers: {
               onClick: onClick            
             }
-          }]}
-        >
+          }]}>
           <g transform={legendPosition}>
             <VictoryLegend
               name="legend"
