@@ -13,6 +13,10 @@ type Props = {
   colorScale: Array<any>
   labelStyle?: any
   onClick?: any
+  width?: number
+  height?: number
+  legendPosition?: string
+  piePosition?: string
 }
 
 const Chart: React.FC<Props> = ({
@@ -20,53 +24,38 @@ const Chart: React.FC<Props> = ({
   legendData,
   colorScale,
   labelStyle,
-  onClick
+  onClick,
+  width = 300,
+  height = 150,
+  legendPosition = "translate(-35, -30)",
+  piePosition = "translate(-35, -24)"
 }) => {
-  
-  // const clearClicks = () => {
-  //   this.setState({
-  //     externalMutations: [
-  //       {
-  //         childName: ["bar", "pie"],
-  //         target: ["data"],
-  //         eventKey: "all",
-  //         mutation: () => ({ style: undefined }),
-  //         callback: this.removeMutation.bind(this)
-  //       }
-  //     ]
-  //   });
-  // }
   
   return (
     <div>
-      {/* <button
-        onClick={clearClicks}
-        style={clearButtonStyle}
-      >
-        Reset
-      </button> */}
-      {/* TODO: possible future feature */}
-      <svg width={500} height={200}>
+      <svg width={width} height={height}>
         <VictorySharedEvents
           events={[{
             childName: ["pie", "legend"],
             target: "data",
             eventHandlers: {
-              onClick: onClick
+              onClick: onClick            
             }
           }]}
         >
-          <VictoryLegend
-            name="legend"
-            x={230}
-            y={50}
-            orientation="vertical"
-            standalone={false}
-            title=""
-            centerTitle
-            data={legendData}
-          />
-          <g transform={"translate(-30, 10)"}>
+          <g transform={legendPosition}>
+            <VictoryLegend
+              name="legend"
+              x={230}
+              y={50}
+              orientation="vertical"
+              standalone={false}
+              title=""
+              centerTitle
+              data={legendData}
+            />
+          </g>
+          <g transform={piePosition}>
             <VictoryPie
               name="pie"
               width={300}
@@ -76,12 +65,20 @@ const Chart: React.FC<Props> = ({
               style={{ 
                 labels: labelStyle,
                 data: {
-                  fillOpacity: 0.9, stroke: theme.white, strokeWidth: 1
+                  fillOpacity: 0.4, stroke: theme.white, strokeWidth: 1
                 }
               }}
               data={data}
               labelComponent={
-                <VictoryTooltip />
+                <VictoryTooltip
+                  style={{ fill: "white", zIndex: 10000 }}
+                  flyoutStyle={{
+                    stroke: "none",
+                    fill: "black",
+                    opacity: "80%"
+                  }}
+                  constrainToVisibleArea={true}
+                />
               }
             />
           </g>
