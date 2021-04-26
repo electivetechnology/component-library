@@ -1,4 +1,4 @@
-export type DividerType = 'start' | 'both' | 'end' | 'none'
+export type DividerType = 'start' | 'both' | 'end'
 
 export type PositionType = 'start' | 'end'
 
