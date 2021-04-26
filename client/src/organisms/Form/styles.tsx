@@ -197,6 +197,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
+  width: 100%;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
@@ -314,6 +315,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   width: 100%;
   font-size: 14px;
   background-color: transparent;
+  width: 100%;
   border-bottom: 1px solid ${theme.dividerGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   overflow: hidden;

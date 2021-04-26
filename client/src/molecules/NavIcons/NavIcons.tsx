@@ -6,6 +6,7 @@ import {
 } from 'molecules/NavIcons/styles'
 import { LayoutType } from 'molecules/NavIcons/base'
 import MoreHoriz from '@material-ui/icons/MoreHoriz'
+import { theme } from 'styles/theme'
 
 export const navContext = React.createContext({
   layout: 'vertical'
@@ -20,7 +21,13 @@ type Props = {
   backgroundColor?: string
 }
 
-const NavIcons: React.FC<Props> = ({ children, layout, subMenu = false, subMenuContents, backgroundColor = 'transparent' }) => {
+const NavIcons: React.FC<Props> = ({
+  children,
+  layout,
+  subMenu = false,
+  subMenuContents,
+  backgroundColor = theme.white
+}) => {
   const horizontal = layout === 'horizontal'
   const [expandSubMenu, setExpandSubMenu] = useState(false)
 

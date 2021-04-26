@@ -19,7 +19,7 @@ const Template = (args: any) => <NavIcons {...args} />
 const handleUpdate = () => {}
 
 const renderLabels = () => (
-  <NavToggle initial='Shortlist' title='Label'>
+  <NavToggle initial='Shortlist' title='Labels:'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
       <FolderSharedOutlined />
     </NavIcon>
