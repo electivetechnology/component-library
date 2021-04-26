@@ -7,4 +7,4 @@ export default {
   component: CloseButton
 }
 
-export const Close = () => <CloseButton onClose={action('close')} />
+export const Close = () => <CloseButton handleClose={action('close')} />
