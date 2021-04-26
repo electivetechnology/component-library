@@ -43,11 +43,7 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       border-radius: 0 0 12px 12px;
     `};
   ${(props) =>
-<<<<<<< HEAD
-    props.backgroundColor &&
-=======
     props.backgroundColor && 
->>>>>>> master
     `
       background-color: ${props.backgroundColor};
     `};
