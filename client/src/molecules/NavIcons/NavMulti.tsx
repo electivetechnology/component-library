@@ -9,11 +9,11 @@ const { Provider } = sectionContext
 
 type Props = {
   initial: Array<string>
-  divider: DividerType
+  divider?: DividerType
   position?: PositionType
 }
 
-const NavMulti: FC<Props> = ({ children, initial, divider, position= 'start' }) => {
+const NavMulti: FC<Props> = ({ children, initial, divider, position }) => {
   const [activeNames, setActiveNames] = useState(initial)
 
   const handleClick = (name: any) => {
