@@ -15,6 +15,7 @@ type NavigationContainerProps = {
   horizontal?: boolean
   expandSubMenu?: boolean
   showSubMenu?: boolean
+  backgroundColor: string
 }
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
@@ -28,7 +29,7 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       background-color: ${theme.grayAthens};
       box-shadow: 0px 1px 3px ${theme.borderGrey};
       border-radius: 12px;
-      padding: 6px 24px;
+      padding: 6px 18px;
       width: revert;
       height: 100%;
     `};
@@ -41,6 +42,11 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
     props.horizontal && props.showSubMenu &&
     `
       border-radius: 0 0 12px 12px;
+    `};
+  ${(props) =>
+    props.backgroundColor && 
+    `
+      background-color: ${props.backgroundColor};
     `};
 `
 
