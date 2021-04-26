@@ -10,7 +10,7 @@ const ChartTemplate = (args: any) => {
         childName: ["pie", "legend"],
         mutation: (element: any) => {
           return element.style.fillOpacity === 0.4 ? 
-          { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } } : 
+            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } } : 
             { style: { fillOpacity: 0.4, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
         }
       }, {
