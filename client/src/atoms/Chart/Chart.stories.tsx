@@ -23,6 +23,7 @@ const ChartTemplate = (args: any) => {
               padding: 0,
               fill: theme.black,
               fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+              fontWeight: 'bold'
             }}
             : null
         },

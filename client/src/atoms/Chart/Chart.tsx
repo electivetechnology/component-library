@@ -24,9 +24,23 @@ const Chart: React.FC<Props> = ({
   onClick,
   viewHeight = 180
 }) => {
+  const isMobile = window.innerWidth < 760
+
+  const handleViewBoxSize = () => {
+    if (isMobile) {
+      return `100 30 340 ${legendData.length*30 >= 140 ? legendData.length*30 : 140}`
+    } else if (window.innerWidth > 760 && window.innerWidth < 960) {
+      return `80 30 400 ${viewHeight >= 140 ? viewHeight : 140}`
+    } else {
+      return `20 25 450 ${viewHeight >= 200 ? viewHeight : 200}`
+    }
+  }
+
+  const translateTransform = isMobile ? "translate(50, 10)" : "translate(42, 10)"
+
   return (
     <div style={{height: 'auto', width: 'auto'}}>
-      <svg viewBox={`20 25 450 ${viewHeight}`} width='100%' height='100%'
+      <svg viewBox={handleViewBoxSize()} width='100%' height='100%'
         preserveAspectRatio="xMinYMidn meet"
       >
         <VictorySharedEvents
@@ -59,7 +73,7 @@ const Chart: React.FC<Props> = ({
               }
             }}
           />
-          <g transform="translate(42, 10)">
+          <g transform={translateTransform}>
             <VictoryPie
               name="pie"
               width={200}
