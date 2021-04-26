@@ -40,7 +40,8 @@ export const theme = {
   disabledTextGrey: '#B0B7BB',
   primaryGreen: '#8ADC8A',
   primaryGreenHover: '#AEDFAE',
-  toggleGrey: '#F1F1F1'
+  toggleGrey: '#F1F1F1',
+  lightText: '#747779'
 }
 
 export const zindex = {

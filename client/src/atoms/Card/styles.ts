@@ -16,7 +16,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   width: auto;
   overflow: hidden;
   width: max-content;
-  min-height: 215px;
+  min-height: 100px;
   display: grid;
   border-radius: 16px;
   height: max-content;

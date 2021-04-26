@@ -1,5 +1,6 @@
 import React from 'react'
 import { Chart } from 'atoms'
+import { theme } from 'styles/theme'
 
 const ChartTemplate = (args: any) => {
   const handleOnClick = (event: any, element: any) => {
@@ -10,14 +11,26 @@ const ChartTemplate = (args: any) => {
         mutation: (element: any) => {
           return element.style.fillOpacity === 1 ? 
             null : 
-            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } };
+            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
         }
       }, {
         target: "labels",
-        childName: ["pie", "legend"],
+        childName: ["legend"],
         mutation: (element: any) => {
-          return element.text === "selected" ? null : { text: "selected" };
-        }
+          return element.style.fill === theme.lightText ?
+            { style: {
+              fontSize: 12,
+              padding: 0,
+              fill: theme.black,
+              fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+            }}
+            : null
+        },
+      }, {
+        target: "data",
+        childName: ["legend"],
+        mutation: (element: any) => {
+        },
       }
     ]
   }
@@ -33,11 +46,24 @@ export const Default: any = ChartTemplate.bind({})
 
 Default.args = {
   data: [
-    { x: "Avocado", y: 1 }, { x: "Banana", y: 4 }, { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 }
+    { x: "Avocado", y: 1 }, { x: "Banana", y: 4 },
+    { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 },
+    { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 },
+    { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 }
   ],
   legendData: [
-    { name: "Avocado", symbol: { fill: "tomato", type: "star" } },
+    { name: "Don’t understand the question", symbol: { fill: "tomato", type: "star", stroke: "pink" } },
     { name: "Banana", symbol: { fill: "orange" } },
+    { name: "Coconut", symbol: { fill: "pink", type: "star" } },
+    { name: "Strawberry", symbol: { fill: "blue" } },
+    { name: "Coconut", symbol: { fill: "pink", type: "star" } },
+    { name: "Strawberry", symbol: { fill: "blue" } },
+    { name: "Coconut", symbol: { fill: "pink", type: "star" } },
+    { name: "Strawberry", symbol: { fill: "blue" } },
+    { name: "Coconut", symbol: { fill: "pink", type: "star" } },
+    { name: "Strawberry", symbol: { fill: "blue" } },
+    { name: "Coconut", symbol: { fill: "pink", type: "star" } },
+    { name: "Strawberry", symbol: { fill: "blue" } },
     { name: "Coconut", symbol: { fill: "pink", type: "star" } },
     { name: "Strawberry", symbol: { fill: "blue" } },
   ],
@@ -46,7 +72,12 @@ Default.args = {
     "orange",
     "pink",
     "blue",
+    "pink",
+    "blue",
+    "pink",
+    "blue",
   ],
+  viewHeight: 14*28
 }
 
 export default {

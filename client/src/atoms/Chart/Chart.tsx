@@ -13,10 +13,7 @@ type Props = {
   colorScale: Array<any>
   labelStyle?: any
   onClick?: any
-  width?: number
-  height?: number
-  legendPosition?: string
-  piePosition?: string
+  viewHeight: string
 }
 
 const Chart: React.FC<Props> = ({
@@ -25,43 +22,51 @@ const Chart: React.FC<Props> = ({
   colorScale,
   labelStyle,
   onClick,
-  width = 300,
-  height = 150,
-  legendPosition = "translate(-35, -30)",
-  piePosition = "translate(-35, -24)"
+  viewHeight = 180
 }) => {
-  
   return (
-    <div>
-      <svg width={width} height={height}>
+    <div style={{height: 'auto', width: 'auto'}}>
+      <svg viewBox={`20 25 450 ${viewHeight}`} width='100%' height='100%'
+        preserveAspectRatio="xMinYMidn meet"
+      >
         <VictorySharedEvents
           events={[{
             childName: ["pie", "legend"],
             target: "data",
             eventHandlers: {
-              onClick: onClick            
+              onClick: onClick
             }
           }]}>
-          <g transform={legendPosition}>
-            <VictoryLegend
-              name="legend"
-              x={230}
-              y={50}
-              orientation="vertical"
-              standalone={false}
-              title=""
-              centerTitle
-              data={legendData}
-            />
-          </g>
-          <g transform={piePosition}>
+          <VictoryLegend
+            name="legend"
+            x={230}
+            y={50}
+            orientation="vertical"
+            standalone={false}
+            title=""
+            centerTitle
+            data={legendData}
+            rowGutter={{ top: 0, bottom: 0 }}
+            style={{
+              labels: {
+                fontSize: 12,
+                padding: 0,
+                fill: theme.lightText,
+                fontFamily: 'Roboto, Helvetica, Arial, sans-serif'
+              },
+              data: {
+                fillOpacity: 0.4, strokeWidth: 6, fontSize: 16, strokeOpacity: 0.4
+              }
+            }}
+          />
+          <g transform="translate(42, 10)">
             <VictoryPie
               name="pie"
-              width={300}
+              width={200}
               height={200}
               standalone={false}
               colorScale={colorScale}
-              style={{ 
+              style={{
                 labels: labelStyle,
                 data: {
                   fillOpacity: 0.4, stroke: theme.white, strokeWidth: 1
