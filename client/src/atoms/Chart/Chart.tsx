@@ -65,8 +65,9 @@ const Chart: React.FC<Props> = ({
               labels: {
                 fontSize: 12,
                 padding: 0,
-                fill: theme.lightText,
-                fontFamily: 'Roboto, Helvetica, Arial, sans-serif'
+                fill: (datum: any) => datum.datum.symbol.active ? theme.black : theme.lightText,
+                fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+                fontWeight: (datum) => datum.datum.symbol.active ? 'bold' : 'unset'
               },
               data: {
                 fillOpacity: 0.4, strokeWidth: 6, fontSize: 16, strokeOpacity: 0.4
@@ -80,13 +81,15 @@ const Chart: React.FC<Props> = ({
               height={200}
               standalone={false}
               colorScale={colorScale}
+              data={data}
               style={{
                 labels: labelStyle,
                 data: {
-                  fillOpacity: 0.4, stroke: theme.white, strokeWidth: 1
+                  fillOpacity: (datum) => datum.datum.active ? 1 : 0.4, 
+                  stroke: theme.white,
+                  strokeWidth: 1
                 }
               }}
-              data={data}
               labelComponent={
                 <VictoryTooltip
                   style={{ fill: "white", zIndex: 10000 }}

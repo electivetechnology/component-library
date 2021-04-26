@@ -9,9 +9,9 @@ const ChartTemplate = (args: any) => {
         target: "data",
         childName: ["pie", "legend"],
         mutation: (element: any) => {
-          return element.style.fillOpacity === 1 ? 
-            null : 
-            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
+          return element.style.fillOpacity === 0.4 ? 
+          { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } } : 
+            { style: { fillOpacity: 0.4, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
         }
       }, {
         target: "labels",
@@ -25,7 +25,13 @@ const ChartTemplate = (args: any) => {
               fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
               fontWeight: 'bold'
             }}
-            : null
+            : { style: {
+              fontSize: 12,
+              padding: 0,
+              fill: theme.lightText,
+              fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+              fontWeight: 'unset'
+            }}
         },
       }, {
         target: "data",
@@ -47,14 +53,17 @@ export const Default: any = ChartTemplate.bind({})
 
 Default.args = {
   data: [
-    { x: "Avocado", y: 1 }, { x: "Banana", y: 4 },
+    { x: "Avocado", y: 1 }, { x: "Banana", y: 4, active: true },
     { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 },
     { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 },
     { x: "Coconut", y: 5 }, { x: "Strawberry", y: 7 }
   ],
   legendData: [
-    { name: "Don’t understand the question", symbol: { fill: "tomato", type: "star", stroke: "pink" } },
-    { name: "Banana", symbol: { fill: "orange" } },
+    { 
+      name: "Don’t understand the question",
+      symbol: { fill: "tomato", type: "star", stroke: "pink" },
+    },
+    { name: "Banana", symbol: { fill: "orange", active: true } },
     { name: "Coconut", symbol: { fill: "pink", type: "star" } },
     { name: "Strawberry", symbol: { fill: "blue" } },
     { name: "Coconut", symbol: { fill: "pink", type: "star" } },
