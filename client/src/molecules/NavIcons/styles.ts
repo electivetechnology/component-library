@@ -99,7 +99,7 @@ export const IconStyled = styled.div<IconStyledProps>`
   display: flex;
   justify-content: center;
   margin: 6px 0;
-  cursor: point;
+  cursor: pointer;
   background-color: ${theme.white};
   &:hover {
     background-color: ${theme.dividerGrey};
