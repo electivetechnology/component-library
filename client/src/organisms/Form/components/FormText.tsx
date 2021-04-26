@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FunctionComponent, memo, useContext, useState } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
@@ -11,6 +11,7 @@ import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import FormDelete from './FormDelete'
 
 const FormText: FunctionComponent = () => {
   const {
@@ -25,12 +26,14 @@ const FormText: FunctionComponent = () => {
     status,
     requiredError,
   } = useContext(InputContext)
+  
+  const [isHovered, setIsHovered] = useState(false)
 
   const { statusType } = status || {}
 
   const error = statusType === 'error' || requiredError
 
-  const { onBlur, darkMode } = useContext(FormContext)
+  const { onBlur, darkMode, inputs } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
@@ -38,9 +41,22 @@ const FormText: FunctionComponent = () => {
     onBlur(name)
   }
 
+  const handleMouseHover = () => {
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
+
+  const fieldPlaceholder = required ? `${label}*` : label
+
   return (
-    <FormTextContainerStyled data-testid='FormText'>
-      <div>
+    <FormTextContainerStyled 
+      data-testid='FormText'
+      onMouseEnter={handleMouseHover}
+      onMouseLeave={handleMouseLeave}>
+      <div style={{width: '100%'}}>
         {value && (
           <div>
             <LabelStyled darkMode={darkMode} htmlFor={name}>
@@ -56,7 +72,7 @@ const FormText: FunctionComponent = () => {
             onChange={onChange}
             handleBlur={handleBlur}
             value={value}
-            placeholder={value ? '' : label}
+            placeholder={value ? '' : fieldPlaceholder}
             disabled={disabled}
             error={error}
           />
@@ -69,7 +85,7 @@ const FormText: FunctionComponent = () => {
               onBlur={handleBlur}
               type={type}
               value={value}
-              placeholder={value ? '' : label}
+              placeholder={value ? '' : fieldPlaceholder}
               disabled={disabled}
               error={error}
             />
@@ -82,7 +98,10 @@ const FormText: FunctionComponent = () => {
           </div>
         )}
       </div>
-      {options && options.copy && <FormCopy value={value} darkMode={darkMode} />}
+      {options && 
+        options.copy && 
+        <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />}
+      {options && options.isDelete && <FormDelete id={inputs.id} isHovered={isHovered} />}
     </FormTextContainerStyled>
   )
 }

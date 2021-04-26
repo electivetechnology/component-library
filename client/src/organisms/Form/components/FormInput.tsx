@@ -63,7 +63,6 @@ const FormInput: FunctionComponent<InputProps> = ({
             {options && options.prefix && options.icon}
             <FormInputs type={type} />
             {download && <FormDownload label={label} value={value} />}
-            {options && options.isDelete && <FormDelete id={inputs.id} />}
             {options && options.suffix && options.icon}
           </FormRow>
         </div>

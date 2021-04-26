@@ -174,6 +174,28 @@ Select.args = {
           icon: <AddIcon style={{position: 'relative', top: '44px'}} />
         }}
       />   
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        required={true}
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          suffix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />   
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        required={true}
+        options={{ 
+          isDelete: true
+        }}
+      />   
     </Fragment>
   )
 }
@@ -185,16 +207,16 @@ Text.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <FormInput label='Text' name='text' value='some text' type='text' />
+      <FormInput label='Text field' name='text' value='some text' type='text' />
       <FormInput
-        label='Text Area Required'
+        label='Text Area'
         name='text'
         value='some text'
         type='text'
         required={true}
       />
       <FormInput
-        label='Text Area'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -212,14 +234,14 @@ TextCopy.args = {
   children: (
     <Fragment>
       <FormInput
-        label='Text Area'
+        label='Text field'
         name='text'
         value='some text'
         type='text'
         options={{ copy: true }}
       />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -237,14 +259,14 @@ TextDelete.args = {
   children: (
     <Fragment>
       <FormInput
-        label='Text Area'
+        label='Text field'
         name='text'
         value='some text'
         type='text'
         options={{ isDelete: true }}
       />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -262,14 +284,14 @@ TextDownload.args = {
   children: (
     <Fragment>
       <FormInput
-        label='Text Area'
+        label='Text field'
         name='text'
         value='some text'
         type='text'
         download={true}
       />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
@@ -291,9 +313,9 @@ TextError.args = {
   },
   children: (
     <Fragment>
-      <FormInput label='Text Area' name='text' value='some text' type='text' />
+      <FormInput label='Text field' name='text' value='some text' type='text' />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textArea'
         value='some textarea'
         type='text'
@@ -310,9 +332,9 @@ TextRequired.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <FormInput label='Text Area' name='text' value='some text' type='text' required={true} />
+      <FormInput label='Text field' name='text' value='some text' type='text' required={true} />
       <FormInput
-        label='Text'
+        label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'

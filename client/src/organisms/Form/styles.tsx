@@ -23,12 +23,22 @@ export const SectionTitleStyled = styled.div`
   margin-top: 8px;
 `
 
-export const ActionButtonStyled = styled.div`
+type deleteProp = {
+  isActive?: boolean
+}
+
+export const ActionButtonStyled = styled.div<deleteProp>`
   cursor: pointer;
   margin-top: auto;
-  top: 12px;
+  top: 4px;
   position: relative;
-  padding: 8px;
+  padding: 8px 8px 0;
+  display: none;
+  ${(props) =>
+    props.isActive &&
+    `
+      display: block;
+    `}
 `
 
 export const ActionTextStyled = styled.div`
@@ -197,6 +207,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
+  width: 100%;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};

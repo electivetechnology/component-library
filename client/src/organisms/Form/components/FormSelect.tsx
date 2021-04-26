@@ -3,12 +3,14 @@ import React, {
   memo,
   useContext,
   useEffect,
-  useRef
+  useRef,
+  useState
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
+import FormDelete from './FormDelete'
 
 const FormSelect: FunctionComponent = () => {
   const {
@@ -17,9 +19,12 @@ const FormSelect: FunctionComponent = () => {
     label,
     options,
     disabled,
-    outlined
+    outlined,
+    required
   } = useContext(InputContext)
-  const { onBlur, updateInput, darkMode } = useContext(FormContext)
+  const [isHovered, setIsHovered] = useState(false)
+
+  const { onBlur, updateInput, darkMode, inputs } = useContext(FormContext)
   const valueRef = useRef()
 
   const handleBlur = () => {
@@ -36,14 +41,26 @@ const FormSelect: FunctionComponent = () => {
     updateInput(name, newValue ? newValue.value : null)
   }
 
+  const handleMouseHover = () => {
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
+
   useEffect(() => {
     valueRef.current && handleBlur()
   }, [valueRef.current])
 
+  const fieldPlaceholder = required ? `${label}*` : label
+
   return (
-    <SelectStyled>
+    <SelectStyled
+      onMouseEnter={handleMouseHover}
+      onMouseLeave={handleMouseLeave}>
       <SelectField
-        label={label}
+        label={fieldPlaceholder}
         value={selected}
         options={selectOptions}
         disabled={disabled}
@@ -51,6 +68,7 @@ const FormSelect: FunctionComponent = () => {
         darkMode={darkMode}
         outlined={outlined}
       />
+      {options && options.isDelete && <FormDelete id={inputs.id} isHovered={isHovered} />}
     </SelectStyled>
   )
 }
