@@ -99,14 +99,11 @@ export const IconStyled = styled.div<IconStyledProps>`
   display: flex;
   justify-content: center;
   margin: 6px 0;
+  cursor: point;
+  background-color: ${theme.white};
   &:hover {
     background-color: ${theme.dividerGrey};
   }
-  ${(props) =>
-    props.selected &&
-    `
-      background-color: ${theme.primaryGrey};
-    `};
   ${(props) =>
     props.horizontal &&
     `
@@ -131,6 +128,11 @@ export const IconStyled = styled.div<IconStyledProps>`
       &:hover {
         background-color: ${theme.hoverBlue};
       }
+    `};
+  ${(props) =>
+    props.selected &&
+    `
+      background-color: ${theme.primaryGrey};
     `};
 `
 
