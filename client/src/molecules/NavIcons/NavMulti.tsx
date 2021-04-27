@@ -11,9 +11,11 @@ type Props = {
   initial: Array<string>
   divider?: DividerType
   position?: PositionType
+  title?: string
 }
 
-const NavMulti: FC<Props> = ({ children, initial, divider, position }) => {
+const NavMulti: FC<Props> = ({ children, initial, divider, position, title }) => {
+  
   const [activeNames, setActiveNames] = useState(initial)
 
   const handleClick = (name: any) => {
@@ -32,7 +34,7 @@ const NavMulti: FC<Props> = ({ children, initial, divider, position }) => {
 
   return (
     <Provider value={{ activeName: '', activeNames, handleClick }}>
-      <NavSection divider={divider} position={position}>{children}</NavSection>
+      <NavSection title={title} divider={divider} position={position}>{children}</NavSection>
     </Provider>
   )
 }
