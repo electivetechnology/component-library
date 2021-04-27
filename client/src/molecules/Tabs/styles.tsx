@@ -18,7 +18,7 @@ export const TabBarStyled = styled.div<TabBarProps>`
   -ms-overflow-style: none;
   scrollbar-width: none;
   @media screen and (min-width: 750px) {
-    width: auto;
+    width: 0 auto;
   }
   ${(props) =>
     props.columns &&
