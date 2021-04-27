@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import NavSection, {
   sectionContext
 } from 'molecules/NavIcons/NavSection'
@@ -17,6 +17,10 @@ type Props = {
 const NavMulti: FC<Props> = ({ children, initial, divider, position, title }) => {
   
   const [activeNames, setActiveNames] = useState(initial)
+
+  useEffect(() => {
+    setActiveNames(initial)
+  }, [initial])
 
   const handleClick = (name: any) => {
     const exists = activeNames.find((activeName) => activeName === name)

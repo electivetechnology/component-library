@@ -7,7 +7,12 @@ export const HeaderBorder = styled.div`
 `
 
 export const HeaderContainer = styled.div`
-  display: contents;
+  display: table;
+  width: 100%;
+`
+
+export const HeaderContenContainStyled = styled.div`
+  display: table-row;
 `
 
 export const HeaderContentStyled = styled.div`
