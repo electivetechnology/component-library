@@ -6,7 +6,8 @@ import {
   HeaderContentStyled,
   expandIconStyles,
   HeaderContent,
-  HeaderContainer
+  HeaderContainer,
+  HeaderContenContainStyled
 } from './styles'
 import Font from '../Font/Font'
 import { theme } from 'styles/theme'
@@ -32,30 +33,32 @@ const Header: React.FC<Props> = ({
     headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
   return (
     <HeaderContainer>
-      <HeaderBorder />
-      <div>
-        {title ? (
-          <HeaderContentStyled>
-            <div style={{ paddingTop: '4px' }}>
-              <Font variant='body1' color={fontColor} fontWeight={600}>
-                {title}
-              </Font>
-            </div>
-            {showSection ? (
-              <ExpandLessIcon
-                style={expandIconStyles}
-                onClick={handleShowSection}
-              />
-            ) : (
-              <ExpandMoreIcon
-                style={expandIconStyles}
-                onClick={handleShowSection}
-              />
-            )}
-          </HeaderContentStyled>
-        ) : null}
-      </div>
-      <HeaderContent showSection={showSection}>{children}</HeaderContent>
+      <HeaderContenContainStyled>
+        <HeaderBorder />
+        <div>
+          {title ? (
+            <HeaderContentStyled>
+              <div style={{ paddingTop: '4px' }}>
+                <Font variant='body1' color={fontColor} fontWeight={600}>
+                  {title}
+                </Font>
+              </div>
+              {showSection ? (
+                <ExpandLessIcon
+                  style={expandIconStyles}
+                  onClick={handleShowSection}
+                />
+              ) : (
+                <ExpandMoreIcon
+                  style={expandIconStyles}
+                  onClick={handleShowSection}
+                />
+              )}
+            </HeaderContentStyled>
+          ) : null}
+        </div>
+        <HeaderContent showSection={showSection}>{children}</HeaderContent>
+      </HeaderContenContainStyled>
     </HeaderContainer>
   )
 }
