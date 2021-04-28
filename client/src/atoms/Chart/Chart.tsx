@@ -70,7 +70,10 @@ const Chart: React.FC<Props> = ({
                 fontWeight: (datum) => datum.datum.symbol.active ? 'bold' : 'unset'
               },
               data: {
-                fillOpacity: 0.4, strokeWidth: 6, fontSize: 16, strokeOpacity: 0.4
+                fillOpacity: (datum: any) => datum.datum.symbol.active ? 1 : 0.4,
+                strokeWidth: 6,
+                fontSize: 16,
+                strokeOpacity: (datum: any) => datum.datum.symbol.active ? 1 : 0.4
               }
             }}
           />

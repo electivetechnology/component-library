@@ -9,15 +9,15 @@ const ChartTemplate = (args: any) => {
         target: "data",
         childName: ["pie", "legend"],
         mutation: (element: any) => {
-          return element.style.fillOpacity === 0.4 ? 
-            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } } : 
-            { style: { fillOpacity: 0.4, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
+          return element.datum.active ? 
+            { style: { fillOpacity: 0.4, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } } : 
+            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
         }
       }, {
         target: "labels",
         childName: ["legend"],
         mutation: (element: any) => {
-          return element.style.fill === theme.lightText ?
+          return element.datum.symbol.active ?
             { style: {
               fontSize: 12,
               padding: 0,
@@ -38,7 +38,12 @@ const ChartTemplate = (args: any) => {
         childName: ["legend"],
         mutation: (element: any) => {
         },
-      }
+      },
+      {
+        target: 'data',
+        childName: ['legend'],
+        mutation: (element: any) => {},
+      },
     ]
   }
   return (
