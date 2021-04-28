@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent,
+  FC,
   memo,
   useContext,
   useEffect,
@@ -16,7 +16,7 @@ import { useFormInput } from 'organisms/Form/hooks'
 import { theme } from 'styles/theme'
 import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
 
-const FormDate: FunctionComponent = () => {
+const FormDate: FC = () => {
   const { inputValue, name, label, disabled, required = false } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
@@ -55,7 +55,7 @@ const FormDate: FunctionComponent = () => {
           InputProps={{
             className: classes.input,
             style: {
-              fontSize: 14, 
+              fontSize: 14,
               color: darkMode ? theme.white : theme.grey,
             }
           }}

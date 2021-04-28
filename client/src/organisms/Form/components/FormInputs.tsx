@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, Fragment } from 'react'
+import React, { FC, memo, Fragment } from 'react'
 import FormColourPicker from 'organisms/Form/components/FormColourPicker'
 import FormText from 'organisms/Form/components/FormText'
 import FormSelect from 'organisms/Form/components/FormSelect'
@@ -11,7 +11,7 @@ type Props = {
   type: string
 }
 
-const FormInputs: FunctionComponent<Props> = ({ type }) => {
+const FormInputs: FC<Props> = ({ type }) => {
   return (
     <Fragment>
       {['text', 'number', 'password'].includes(type) && <FormText />}

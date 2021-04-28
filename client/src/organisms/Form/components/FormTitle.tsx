@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FC, memo, useContext } from 'react'
 import { Font } from 'atoms'
 import { SectionTitleStyled } from 'organisms/Form/styles'
 import { theme } from 'styles/theme'
@@ -8,7 +8,7 @@ type Props = {
   label: string
 }
 
-const FormTitle: FunctionComponent<Props> = ({ label }) => {
+const FormTitle: FC<Props> = ({ label }) => {
   const { darkMode } = useContext(FormContext)
   return (
     <SectionTitleStyled data-testid='FormTitle'>

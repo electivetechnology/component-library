@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent,
+  FC,
   memo,
   useContext,
   useEffect,
@@ -10,7 +10,7 @@ import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
 
-const FormSelect: FunctionComponent = () => {
+const FormSelect: FC = () => {
   const {
     inputValue,
     name,

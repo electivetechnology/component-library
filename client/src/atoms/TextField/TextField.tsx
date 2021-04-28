@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   })
 })
 
-const TextInput: FunctionComponent<Props> = ({
+const TextInput: FC<Props> = ({
   id,
   label,
   onChange = null,

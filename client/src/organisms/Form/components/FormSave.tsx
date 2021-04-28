@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement, useContext } from 'react'
+import React, { FC, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { FormContext } from 'organisms/Form/base'
 import isNull from 'lodash/isNull'
@@ -13,7 +13,7 @@ interface Props {
   icon?: ReactElement<SvgIconProps>
   fullWidth?: boolean
 }
-const FormSave: FunctionComponent<Props> = ({
+const FormSave: FC<Props> = ({
   label,
   handleSave,
   disabled = false,

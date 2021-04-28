@@ -1,9 +1,9 @@
-import React, { FunctionComponent, memo, useContext, useState } from 'react'
+import React, { FC, memo, useContext, useState } from 'react'
 import { Checkbox } from 'atoms'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
 
-const FormCheckbox: FunctionComponent = () => {
+const FormCheckbox: FC = () => {
   const { inputValue, name, label, disabled, required } = useContext(InputContext)
 
   const { onBlur, updateInput, darkMode } = useContext(FormContext)

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from 'react'
+import React, { FC, useContext } from 'react'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
 import ErrorIcon from '@material-ui/icons/Error'
 import InfoIcon from '@material-ui/icons/Info'
@@ -13,7 +13,7 @@ const variantIcon: any = {
   info: InfoIcon
 }
 
-const AlertMessage: FunctionComponent = () => {
+const AlertMessage: FC = () => {
   const {
     alert: { alertType, message }
   } = useContext(AlertContext)

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FC, memo, useContext } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
@@ -12,7 +12,7 @@ import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 
-const FormText: FunctionComponent = () => {
+const FormText: FC = () => {
   const {
     inputValue,
     name,

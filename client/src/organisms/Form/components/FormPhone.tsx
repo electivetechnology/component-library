@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext } from 'react'
+import React, { FC, useContext } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import ReactPhoneInput from 'react-phone-input-mui'
 import { TextField } from '@material-ui/core'
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   })
 })
 
-const FormPhone: FunctionComponent = () => {
+const FormPhone: FC = () => {
   const classes = useStyles()
 
   const { inputValue, name, label, disabled } = useContext(InputContext)

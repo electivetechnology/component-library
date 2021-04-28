@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import {
@@ -18,7 +18,7 @@ type Props = {
   outlined?: boolean
 }
 
-const SelectField: FunctionComponent<Props> = ({
+const SelectField: FC<Props> = ({
   label,
   disabled,
   value,

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import TextField from '@material-ui/core/TextField'
 import MaterialAutocomplete from '@material-ui/lab/Autocomplete'
 import { useStyles } from 'atoms/AutoComplete/styles'
@@ -18,7 +18,7 @@ type Props = {
   onInputChange?: any
 }
 
-const AutoComplete: FunctionComponent<Props> = ({
+const AutoComplete: FC<Props> = ({
   value,
   defaultValue,
   options,

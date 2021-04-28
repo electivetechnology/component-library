@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FC, useState } from 'react'
 import FileCopyOutlined from '@material-ui/icons/FileCopyOutlined'
 import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline'
 import {
@@ -13,7 +13,7 @@ interface Props {
   value: string
   darkMode: boolean
 }
-const FormCopy: FunctionComponent<Props> = ({ value, darkMode }) => {
+const FormCopy: FC<Props> = ({ value, darkMode }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
 

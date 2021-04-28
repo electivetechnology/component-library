@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { TooltipStyled, TooltipLabelStyled } from './styles'
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   show?: boolean
 }
 
-const Tooltip: FunctionComponent<Props> = ({
+const Tooltip: FC<Props> = ({
   label,
   placement = 'top',
   tooltipText,

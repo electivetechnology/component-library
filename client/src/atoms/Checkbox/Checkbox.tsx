@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent,
+  FC,
   useState,
   useEffect,
   ChangeEvent
@@ -29,7 +29,7 @@ const CheckboxStyled = withStyles(
   CheckboxWithStyled
 )((props: CheckboxProps) => <MaterialCheckbox color='default' {...props} />)
 
-const Checkbox: FunctionComponent<Props> = ({
+const Checkbox: FC<Props> = ({
   label,
   onChange,
   onBlur,

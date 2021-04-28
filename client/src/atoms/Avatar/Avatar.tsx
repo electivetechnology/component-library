@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import MaterialAvatar from '@material-ui/core/Avatar'
 import { theme } from 'styles/theme'
 import { useStyles } from 'atoms/Avatar/styles'
@@ -10,7 +10,7 @@ type Props = {
   width?: string
 }
 
-const Avatar: FunctionComponent<Props> = ({
+const Avatar: FC<Props> = ({
   children,
   color = theme.grayComment,
   fontWeight = 100,

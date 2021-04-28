@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from 'react'
+import React, { FC, Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getPopUp, resetPopUp } from 'molecules/PopUp/reducer'
 import {
@@ -9,7 +9,7 @@ import {
 } from 'molecules/PopUp/styles'
 import PopUpClose from 'molecules/PopUp/PopUpClose'
 
-const PopUp: FunctionComponent = ({ children }) => {
+const PopUp: FC = ({ children }) => {
   const dispatch = useDispatch()
   const { popUpType, isCloseable } = useSelector(getPopUp)
 
