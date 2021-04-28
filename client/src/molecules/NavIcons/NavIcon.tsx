@@ -9,16 +9,15 @@ type Props = {
   name: string
   handleUpdate: Function
   roundIcon?: boolean
-  selectedIcon?: boolean
 }
 
-const NavIcon: FC<Props> = ({ children, name, handleUpdate, roundIcon, selectedIcon = false }) => {
+const NavIcon: FC<Props> = ({ children, name, handleUpdate, roundIcon }) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
   const horizontal = layout === 'horizontal'
 
-  const selected = activeName === name || activeNames.includes(name) || selectedIcon
-  
+  const selected = activeName === name || activeNames.includes(name)
+
   const classes = iconStyles({ selected, horizontal })
 
   const childrenStyled = cloneElement(children, { className: classes.Icon })
