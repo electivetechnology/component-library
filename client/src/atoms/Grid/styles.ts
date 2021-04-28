@@ -64,6 +64,7 @@ type ColumnProps = {
 export const ColumnStyled = styled.div<ColumnProps>`
   display: inline-flex;
   width: 100%;
+  height: inherit;
   ${props =>
     props.display &&
     `
