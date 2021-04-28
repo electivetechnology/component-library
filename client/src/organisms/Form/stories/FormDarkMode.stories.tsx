@@ -6,7 +6,7 @@ import {
   FormInput,
   FormRow,
   FormTitle
-} from 'organisms/Form'
+} from 'organisms/Form/index'
 import AddIcon from '@material-ui/icons/Add'
 import { theme } from 'styles/theme'
 
@@ -177,9 +177,9 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          prefix: true, 
+          prefix: true,
           icon: <AddIcon style={{position: 'relative', top: '44px', fill: theme.white }} />
         }}
       />
@@ -188,12 +188,12 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
+          suffix: true,
           icon: <AddIcon style={{position: 'relative', top: '44px', fill: theme.white }} />
         }}
-      /> 
+      />
     </div>
   )
 }
