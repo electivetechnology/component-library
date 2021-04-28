@@ -7,7 +7,7 @@ import FormDownload from 'organisms/Form/components/FormDownload'
 import FormHelper from 'organisms/Form/components/FormHelper'
 import FormDelete from './FormDelete'
 import FormInputs from './FormInputs'
-import { FormRow } from '..'
+import FormRow from './FormRow'
 
 const FormInput: FunctionComponent<InputProps> = ({
   label,
