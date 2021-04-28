@@ -25,13 +25,12 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
     props.horizontal &&
     `
       width: 100%;
-      height: 60px;
+      height: auto;
       background-color: ${theme.grayAthens};
       box-shadow: 0px 1px 3px ${theme.borderGrey};
       border-radius: 12px;
       padding: 6px 18px;
       width: revert;
-      height: 100%;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&
@@ -66,11 +65,15 @@ export const NavigationContentStyled = styled.div<NavigationContentProps>`
       margin: 0;
       display: grid;
       grid-template-columns: auto auto;
+      height: 36px;
     `};
 `
 
 export const SubMenuStyled = styled.div`
-  margin-left: auto;
+  margin: auto 0 auto auto;
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
 `
 
 export const VerticalDividerStyled = styled.div`
@@ -96,14 +99,11 @@ export const IconStyled = styled.div<IconStyledProps>`
   display: flex;
   justify-content: center;
   margin: 6px 0;
+  cursor: pointer;
+  background-color: transparent;
   &:hover {
     background-color: ${theme.dividerGrey};
   }
-  ${(props) =>
-    props.selected &&
-    `
-      background-color: ${theme.primaryGrey};
-    `};
   ${(props) =>
     props.horizontal &&
     `
@@ -128,6 +128,11 @@ export const IconStyled = styled.div<IconStyledProps>`
       &:hover {
         background-color: ${theme.hoverBlue};
       }
+    `};
+  ${(props) =>
+    props.selected &&
+    `
+      background-color: ${theme.primaryGrey};
     `};
 `
 

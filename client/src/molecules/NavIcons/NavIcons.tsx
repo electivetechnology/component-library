@@ -26,7 +26,7 @@ const NavIcons: React.FC<Props> = ({
   layout,
   subMenu = false,
   subMenuContents,
-  backgroundColor = theme.white
+  backgroundColor = 'transparent'
 }) => {
   const horizontal = layout === 'horizontal'
   const [expandSubMenu, setExpandSubMenu] = useState(false)
