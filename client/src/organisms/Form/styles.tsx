@@ -432,6 +432,9 @@ export const SelectStyled = styled.div`
 
 // Form row
 export const FormRowStyled = styled.div`
-  display: inline-flex;
+  display: grid;
   width: 100%;
-`
+  @media screen and (min-width: 750px) {
+    display: inline-flex;
+  }
+  `
