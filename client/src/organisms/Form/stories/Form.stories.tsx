@@ -157,9 +157,9 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          prefix: true, 
+          prefix: true,
           icon: <AddIcon style={{position: 'relative', top: '44px'}} />
         }}
       />
@@ -168,12 +168,12 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
+          suffix: true,
           icon: <AddIcon style={{position: 'relative', top: '44px'}} />
         }}
-      />   
+      />
     </Fragment>
   )
 }
@@ -358,6 +358,6 @@ Toggle.args = {
 }
 
 export default {
-  title: 'organisms/Form',
+  title: 'organisms/Form/Standard',
   component: Form
 }
