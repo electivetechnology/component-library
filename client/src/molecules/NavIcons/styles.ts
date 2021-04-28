@@ -21,6 +21,7 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
   width: auto;
   background-color: ${theme.grayAthens};
+  max-width: 56px;
   ${(props) =>
     props.horizontal &&
     `
@@ -31,6 +32,7 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       border-radius: 12px;
       padding: 6px 18px;
       width: revert;
+      max-width: none;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&

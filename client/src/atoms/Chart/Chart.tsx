@@ -26,49 +26,6 @@ const Chart: React.FC<Props> = ({
 }) => {
   const isMobile = window.innerWidth < 760
 
-  const handleOnClick = (event: any, element: any) => {
-    return [
-      {
-        target: "data",
-        childName: ["pie", "legend"],
-        mutation: (element: any) => {
-          console.log('element', element.style.fillOpacity === 0.4);
-          
-          return element.style.fillOpacity === 0.4 ? 
-            { style: { fillOpacity: 1, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } } : 
-            { style: { fillOpacity: 0.4, fill: element.style.fill, stroke: "#ffffff", strokeWidth: 1, padding: 10 } }
-        }
-      }, {
-        target: "labels",
-        childName: ["legend"],
-        mutation: (element: any) => {
-          console.log('legend', element.style.fill === theme.lightText);
-          
-          return element.style.fill === theme.black ?
-            { style: {
-              fontSize: 12,
-              padding: 0,
-              fill: theme.lightText,
-              fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-              fontWeight: 'unset'
-            }}
-            : { style: {
-              fontSize: 12,
-              padding: 0,
-              fill: theme.black,
-              fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-              fontWeight: 'bold'
-            }}
-        },
-      },
-      {
-        target: 'data',
-        childName: ['legend'],
-        mutation: (element: any) => {},
-      },
-    ]
-  }
-
   const handleViewBoxSize = () => {
     if (isMobile) {
       return `100 30 340 ${legendData.length*30 >= 140 ? legendData.length*30 : 140}`
@@ -91,7 +48,7 @@ const Chart: React.FC<Props> = ({
             childName: ["pie", "legend"],
             target: "data",
             eventHandlers: {
-              onClick: handleOnClick
+              onClick: onClick
             }
           }]}>
           <VictoryLegend
