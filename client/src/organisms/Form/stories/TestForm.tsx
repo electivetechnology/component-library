@@ -23,9 +23,22 @@ const TestForm: FC = () => {
     console.groupEnd()
   }
 
+  type ButtonProps = React.HTMLProps<HTMLButtonElement>
+
+  const FancyButton = React.forwardRef<any, any>((props, ref) => (
+    <button type="button" ref={ref} className="FancyButton">
+      {props.children}
+    </button>
+  ))
+
+// You can now get a ref directly to the DOM button:
+  const ref = React.createRef<HTMLButtonElement>()
+
+
   return (
     // <Form handleUpdate={handleUpdate} statuses={statuses}>
     <Form statuses={statuses}>
+      <FancyButton ref={ref}>Click me!</FancyButton>
       <FormInput
         label='Text Input'
         name='textInput'
@@ -79,7 +92,7 @@ const TestForm: FC = () => {
         value='some input'
         type='date'
       />
-      <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
+      <FormSave ref={ref} hidden={true} label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
     </Form>
   )
 }

@@ -101,6 +101,7 @@ type ButtonComponentProps = {
   variant: string
   disabled: boolean
   fullWidth?: boolean
+  hidden?: boolean
 }
 export const ButtonComponent = styled.button<ButtonComponentProps>`
   border: none;
@@ -234,5 +235,10 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.fullWidth &&
     `
       width: 100%;
+  `};
+  ${(props) =>
+    props.fullWidth &&
+    `
+      visibility: hidden;
   `};
 `

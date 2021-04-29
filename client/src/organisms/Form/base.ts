@@ -101,3 +101,11 @@ export type InputContextType = {
 export const InputContext = createContext<InputContextType>(
   {} as InputContextType
 )
+
+export type SubmitContextType = {
+  inputValue: any
+}
+
+export const SubmitContext = createContext<SubmitContextType>(
+  {} as SubmitContextType
+)

@@ -12,13 +12,15 @@ interface Props {
   disabled?: boolean
   icon?: ReactElement<SvgIconProps>
   fullWidth?: boolean
+  hidden?: boolean
 }
 const FormSave: FC<Props> = ({
   label,
   handleSave,
   disabled = false,
   icon,
-  fullWidth = false
+  fullWidth = false,
+  hidden = false
 }) => {
   const { inputs, requiredErrors, updateRequired } = useContext(FormContext)
 
@@ -44,6 +46,7 @@ const FormSave: FC<Props> = ({
         theme='primary'
         disabled={disabled}
         fullWidth={fullWidth}
+        hidden={hidden}
       />
     </ButtonWrapperStyled>
   )

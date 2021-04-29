@@ -15,7 +15,8 @@ const Button: React.FC<Props> = ({
   onClick,
   icon,
   href,
-  fullWidth
+  fullWidth,
+  hidden= false
 }) => {
   const [redirect, setRedirect] = useState(false)
 
@@ -28,7 +29,7 @@ const Button: React.FC<Props> = ({
     href && setRedirect(true)
   }
 
-  const hasLabel = label ? true : false
+  const hasLabel = !!label
 
   return (
     <ButtonComponent
@@ -37,6 +38,7 @@ const Button: React.FC<Props> = ({
       variant={theme}
       disabled={disabled}
       fullWidth={fullWidth}
+      hidden={hidden}
     >
       <Wrapper icon={icon} variant={theme} hasLabel={hasLabel}>
         {icon && (
