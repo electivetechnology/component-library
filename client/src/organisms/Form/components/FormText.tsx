@@ -63,7 +63,7 @@ const FormText: FunctionComponent = () => {
             error={error}
           />
         ) : (
-          <div style={{display: 'inline-flex'}}>
+          <div style={{display: 'inline-flex', width: '100%'}}>
             <TextInputStyled
               darkMode={darkMode}
               id={name}

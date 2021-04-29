@@ -3,9 +3,12 @@ import {
   ComponentCardFooterStyled,
   CardBorderStyled,
   ComponentCardHeaderStyled,
-  CardContainerStyled
+  CardContainerStyled,
+  CardHeaderStyled
 } from 'atoms/Card/styles'
 import Font from 'atoms/Font/Font'
+import { Pill } from 'atoms'
+import { renderStatus, StatuConst } from '../Pill/base'
 
 type Props = {
   theme: string
@@ -19,12 +22,14 @@ type Props = {
   noBorder?: boolean
   onClick?: any
   scroll?: boolean
+  status?: StatuConst
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
   children,
   selected,
   onClick,
+  status,
   theme = 'Primary',
   footer = false,
   header = false,
@@ -32,7 +37,7 @@ const ComponentCard: React.FC<Props> = ({
   fullWidth = false,
   fullHeight = false,
   noBorder = false,
-  scroll = false
+  scroll = false,
 }) => {
   return (
     <CardContainerStyled
@@ -48,9 +53,10 @@ const ComponentCard: React.FC<Props> = ({
     >
       {header && (
         <ComponentCardHeaderStyled>
-          <div style={{ padding: '12px 24px' }}>
+          <CardHeaderStyled>
             <Font variant='h4'>{header}</Font>
-          </div>
+            {status && <Pill color={renderStatus(status)} />}
+          </CardHeaderStyled>
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
       )}

@@ -103,8 +103,10 @@ export const IconStyled = styled.div<IconStyledProps>`
   margin: 6px 0;
   cursor: pointer;
   background-color: transparent;
-  &:hover {
-    background-color: ${theme.dividerGrey};
+  @media screen and (min-width: 960px) {
+    &:hover {
+      background-color: ${theme.dividerGrey};
+    }
   }
   ${(props) =>
     props.horizontal &&
@@ -116,8 +118,10 @@ export const IconStyled = styled.div<IconStyledProps>`
       padding: 8px;
       border-radius: 8px;
       margin: 0 3px;
-      &:hover {
-        background-color: ${theme.hoverBlue};
+      @media screen and (min-width: 960px) {
+        &:hover {
+          background-color: ${theme.hoverBlue};
+        }
       }
     `};
   ${(props) =>
@@ -127,8 +131,10 @@ export const IconStyled = styled.div<IconStyledProps>`
       border-radius: 24px;
       border: 1px solid ${theme.primaryGrey};
       margin: 0 8px 0 0;
-      &:hover {
-        background-color: ${theme.hoverBlue};
+      @media screen and (min-width: 960px) {
+        &:hover {
+          background-color: ${theme.hoverBlue};
+        }
       }
     `};
   ${(props) =>

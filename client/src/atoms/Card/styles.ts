@@ -108,3 +108,8 @@ export const ComponentCardFooterStyled = styled.div<ComponentCardFooterProps>`
 `
 
 export const ComponentCardHeaderStyled = styled.div``
+
+export const CardHeaderStyled = styled.div`
+  padding: 12px 24px;
+  display: flex;
+`

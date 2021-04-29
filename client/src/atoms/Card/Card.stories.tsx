@@ -2,7 +2,11 @@ import React from 'react'
 import CardComponent from 'atoms/Card/CardComponent'
 
 const CardTemplate = (args: any) => {
-  return <CardComponent {...args} />
+  return (
+    <div style={{width: '200px', height: '200px'}}>
+      <CardComponent {...args} />
+    </div>
+  )
 }
 
 // Primary
@@ -13,7 +17,9 @@ Primary.args = {
   theme: 'primary',
   hover: false,
   footer: 'Footer',
-  header: 'Label'
+  header: 'Label',
+  fullWidth: true,
+  fullHeight: true
 }
 
 export const Secondary: any = CardTemplate.bind({})
@@ -23,7 +29,9 @@ Secondary.args = {
   theme: 'secondary',
   hover: false,
   footer: 'Footer',
-  header: 'Label'
+  header: 'Label',
+  fullWidth: true,
+  fullHeight: true
 }
 
 export const Selected: any = CardTemplate.bind({})
@@ -34,7 +42,23 @@ Selected.args = {
   hover: false,
   footer: 'Footer',
   header: 'Label',
-  selected: true
+  selected: true,
+  fullWidth: true,
+  fullHeight: true
+}
+
+// Status
+export const Status: any = CardTemplate.bind({})
+
+Status.args = {
+  text: 'Primary',
+  theme: 'primary',
+  hover: false,
+  footer: 'Footer',
+  header: 'Label',
+  fullWidth: true,
+  fullHeight: true,
+  status: true
 }
 
 export const Hover: any = CardTemplate.bind({})
@@ -44,7 +68,9 @@ Hover.args = {
   theme: 'secondary',
   footer: 'Footer',
   header: 'Label',
-  hover: true
+  hover: true,
+  fullWidth: true,
+  fullHeight: true
 }
 
 export const Card: any = CardTemplate.bind({})
@@ -52,7 +78,9 @@ export const Card: any = CardTemplate.bind({})
 Card.args = {
   text: 'Card',
   theme: 'primary',
-  hover: true
+  hover: true,
+  fullWidth: true,
+  fullHeight: true
 }
 
 // CardWithPadding
@@ -64,7 +92,9 @@ CardWithPadding.args = {
   hover: false,
   footer: 'Footer',
   header: 'Label',
-  padding: true
+  padding: true,
+  fullWidth: true,
+  fullHeight: true
 }
 
 // CardNoBorder
@@ -76,7 +106,9 @@ CardNoBorder.args = {
   hover: false,
   footer: 'Footer',
   header: 'Label',
-  noBorder: true
+  noBorder: true,
+  fullWidth: true,
+  fullHeight: true
 }
 
 // CardWithFullWidth
@@ -86,7 +118,8 @@ CardWithFullWidth.args = {
   text: 'Card fullwidth',
   theme: 'primary',
   hover: false,
-  fullWidth: true
+  fullWidth: true,
+  fullHeight: true
 }
 
 export default {
