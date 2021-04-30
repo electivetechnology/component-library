@@ -1,10 +1,11 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { CardType } from 'atoms/Card/base'
 
 type CardContainerProps = {
   selected?: boolean
   hover?: boolean
-  theme: string
+  theme: CardType
   padding?: boolean
   fullWidth?: boolean
   fullHeight?: boolean
