@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Pages from 'molecules/Pages/Pages'
 import { PageContext } from './base'
 
