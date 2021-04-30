@@ -9,7 +9,7 @@ import Font from 'atoms/Font/Font'
 
 type Props = {
   theme: string
-  hover: boolean
+  hover?: boolean
   footer?: string
   header?: string
   padding?: boolean
