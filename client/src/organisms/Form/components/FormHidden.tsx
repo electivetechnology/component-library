@@ -1,22 +1,12 @@
-import React, { FC, ReactElement, useContext } from 'react'
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
+import React, {forwardRef} from 'react'
+import { useFormSave } from 'organisms/Form/hooks'
 
-interface Props {
-  label: string
-  handleSave: any
-  disabled?: boolean
-  icon?: ReactElement<SvgIconProps>
-  fullWidth?: boolean
+type Props =  {
+  handleSave: Function
 }
 
-export const FormHidden = React.forwardRef<any, any>(({ label }, ref) => {
-  const handleButton = (event: object) => {
-    // addStatus('textInput', 'error', 'some error with text')
-    // addStatus('newInput', 'error', 'some error with text area')
-    console.group('handleButton')
-    console.log(event)
-    console.groupEnd()
-  }
+export const FormHidden = forwardRef<any, Props>(({ handleSave }, ref) => {
+  const { handleAction } = useFormSave(handleSave)
 
-  return <button ref={ref} onClick={handleButton} style={{ visibility: 'hidden' }}/>
+  return <button ref={ref} onClick={handleAction} style={{ visibility: 'hidden' }}/>
 })

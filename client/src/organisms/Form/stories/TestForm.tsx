@@ -10,8 +10,6 @@ const TestForm: FC = () => {
 
   const { hiddenRef, handleHidden } = useFormHidden()
 
-
-
   const handleUpdate = (name: string, value: string) => {
     console.group('handleUpdate')
     console.log(name)
@@ -31,7 +29,7 @@ const TestForm: FC = () => {
   return (
     <Form statuses={statuses}>
       <button onClick={handleHidden}>Trigger Ref</button>
-      <FormHidden ref={hiddenRef}/>
+      <FormHidden ref={hiddenRef} handleSave={handleSave}/>
       <FormInput
         label='Text Input'
         name='textInput'
