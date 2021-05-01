@@ -68,6 +68,7 @@ export type FormProps = {
   disableForm?: boolean
   darkMode?: boolean
   outlineInputs?: boolean
+  setSubmit?: any
 }
 
 export type FormContextType = {

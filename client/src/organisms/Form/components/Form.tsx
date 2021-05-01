@@ -8,17 +8,18 @@ const Form: FunctionComponent<FormProps> = ({
   statuses,
   disableForm = false,
   darkMode = false,
-  outlineInputs = true
+  outlineInputs = true,
+  setSubmit
 }) => {
   const { items: inputs, updateItem: updateInput } = useFormItems()
 
   const { items: requiredErrors, updateItem: updateRequired } = useFormItems()
 
-
   const onBlur = (name: string) => {
     const value = inputs[name]
 
     handleUpdate && handleUpdate(name, value)
+    setSubmit && setSubmit(inputs)
   }
 
   useEffect(() => {
@@ -27,6 +28,10 @@ const Form: FunctionComponent<FormProps> = ({
       required && updateRequired(name, false)
     })
   }, [])
+
+  useEffect(() => {
+    setSubmit(inputs)
+  }, [inputs])
 
   return (
     <FormContext.Provider

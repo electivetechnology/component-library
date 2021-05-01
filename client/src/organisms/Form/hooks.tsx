@@ -107,3 +107,19 @@ export const useFormStatus = () => {
     clearStatus
   }
 }
+
+
+
+
+export const useFormSubmit = () => {
+  const [values, setValues] = useState({})
+
+  const setSubmit = (submit: any) => {
+    setValues(submit)
+  }
+
+  return {
+    submit: values,
+    setSubmit
+  }
+}

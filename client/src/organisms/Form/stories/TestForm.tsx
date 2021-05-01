@@ -2,10 +2,17 @@ import React, { FC, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { candidateStatusOptions } from 'organisms/Form/mock'
-import { useFormStatus } from 'organisms/Form/hooks'
+import { useFormStatus, useFormSubmit } from 'organisms/Form/hooks'
 
 const TestForm: FC = () => {
   const { statuses, addStatus } = useFormStatus()
+
+  const { submit, setSubmit } = useFormSubmit()
+
+  console.group('submit')
+  console.log(submit)
+  console.groupEnd()
+
 
   const handleUpdate = (name: string, value: string) => {
     console.group('handleUpdate')
@@ -24,8 +31,7 @@ const TestForm: FC = () => {
   }
 
   return (
-    // <Form handleUpdate={handleUpdate} statuses={statuses}>
-    <Form statuses={statuses}>
+    <Form statuses={statuses} setSubmit={setSubmit}>
       <FormInput
         label='Text Input'
         name='textInput'
