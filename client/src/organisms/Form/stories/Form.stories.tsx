@@ -10,23 +10,8 @@ import {
 import AddIcon from '@material-ui/icons/Add'
 
 const handleUpdate = () => {}
-const handleAction = () => {}
 
 const Template = (args: any) => <Form {...args} handleUpdate={handleUpdate} />
-
-// FormAction
-export const Action: any = Template.bind({})
-
-Action.args = {
-  handleUpdate,
-  children: (
-    <FormAction
-      label='Set Primary'
-      handleAction={handleAction}
-      icon={<AddIcon />}
-    />
-  )
-}
 
 // FormCheckbox
 export const Checkbox: any = Template.bind({})
@@ -213,8 +198,11 @@ Text.args = {
         name='text'
         value='some text'
         type='text'
-        required={true}
-      />
+        options={{
+          prefix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }} />
+      <FormInput label='Text suffix' name='text' value='some text' type='text' /> */}
       <FormInput
         label='Text multiline'
         name='textarea'

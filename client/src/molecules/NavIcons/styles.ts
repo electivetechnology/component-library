@@ -15,22 +15,24 @@ type NavigationContainerProps = {
   horizontal?: boolean
   expandSubMenu?: boolean
   showSubMenu?: boolean
+  backgroundColor: string
 }
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
   width: auto;
   background-color: ${theme.grayAthens};
+  max-width: 56px;
   ${(props) =>
     props.horizontal &&
     `
       width: 100%;
-      height: 60px;
+      height: auto;
       background-color: ${theme.grayAthens};
       box-shadow: 0px 1px 3px ${theme.borderGrey};
       border-radius: 12px;
-      padding: 6px 24px;
+      padding: 6px 18px;
       width: revert;
-      height: 100%;
+      max-width: none;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&
@@ -41,6 +43,11 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
     props.horizontal && props.showSubMenu &&
     `
       border-radius: 0 0 12px 12px;
+    `};
+  ${(props) =>
+    props.backgroundColor && 
+    `
+      background-color: ${props.backgroundColor};
     `};
 `
 
@@ -60,11 +67,15 @@ export const NavigationContentStyled = styled.div<NavigationContentProps>`
       margin: 0;
       display: grid;
       grid-template-columns: auto auto;
+      height: 36px;
     `};
 `
 
 export const SubMenuStyled = styled.div`
-  margin-left: auto;
+  margin: auto 0 auto auto;
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
 `
 
 export const VerticalDividerStyled = styled.div`
@@ -90,14 +101,11 @@ export const IconStyled = styled.div<IconStyledProps>`
   display: flex;
   justify-content: center;
   margin: 6px 0;
+  cursor: pointer;
+  background-color: transparent;
   &:hover {
     background-color: ${theme.dividerGrey};
   }
-  ${(props) =>
-    props.selected &&
-    `
-      background-color: ${theme.primaryGrey};
-    `};
   ${(props) =>
     props.horizontal &&
     `
@@ -122,6 +130,11 @@ export const IconStyled = styled.div<IconStyledProps>`
       &:hover {
         background-color: ${theme.hoverBlue};
       }
+    `};
+  ${(props) =>
+    props.selected &&
+    `
+      background-color: ${theme.primaryGrey};
     `};
 `
 

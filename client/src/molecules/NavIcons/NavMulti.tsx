@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import NavSection, {
   sectionContext
 } from 'molecules/NavIcons/NavSection'
@@ -9,12 +9,18 @@ const { Provider } = sectionContext
 
 type Props = {
   initial: Array<string>
-  divider: DividerType
+  divider?: DividerType
   position?: PositionType
+  title?: string
 }
 
-const NavMulti: FC<Props> = ({ children, initial, divider, position= 'start' }) => {
+const NavMulti: FC<Props> = ({ children, initial, divider, position, title }) => {
+  
   const [activeNames, setActiveNames] = useState(initial)
+
+  useEffect(() => {
+    setActiveNames(initial)
+  }, [initial])
 
   const handleClick = (name: any) => {
     const exists = activeNames.find((activeName) => activeName === name)
@@ -32,7 +38,7 @@ const NavMulti: FC<Props> = ({ children, initial, divider, position= 'start' }) 
 
   return (
     <Provider value={{ activeName: '', activeNames, handleClick }}>
-      <NavSection divider={divider} position={position}>{children}</NavSection>
+      <NavSection title={title} divider={divider} position={position}>{children}</NavSection>
     </Provider>
   )
 }

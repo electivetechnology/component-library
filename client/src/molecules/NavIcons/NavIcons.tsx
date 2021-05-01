@@ -6,6 +6,7 @@ import {
 } from 'molecules/NavIcons/styles'
 import { LayoutType } from 'molecules/NavIcons/base'
 import MoreHoriz from '@material-ui/icons/MoreHoriz'
+import { theme } from 'styles/theme'
 
 export const navContext = React.createContext({
   layout: 'vertical'
@@ -17,9 +18,16 @@ type Props = {
   layout: LayoutType
   subMenu?: boolean
   subMenuContents?: any
+  backgroundColor?: string
 }
 
-const NavIcons: React.FC<Props> = ({ children, layout, subMenu = false, subMenuContents }) => {
+const NavIcons: React.FC<Props> = ({
+  children,
+  layout,
+  subMenu = false,
+  subMenuContents,
+  backgroundColor = 'transparent'
+}) => {
   const horizontal = layout === 'horizontal'
   const [expandSubMenu, setExpandSubMenu] = useState(false)
 
@@ -28,7 +36,7 @@ const NavIcons: React.FC<Props> = ({ children, layout, subMenu = false, subMenuC
   }
   return (
     <Provider value={{ layout }}>
-      <NavigationContainerStyled horizontal={horizontal} expandSubMenu={expandSubMenu}>
+      <NavigationContainerStyled horizontal={horizontal} expandSubMenu={expandSubMenu} backgroundColor={backgroundColor}>
         <NavigationContentStyled horizontal={horizontal}>
           {children}
           {subMenu && <SubMenuStyled onClick={handleExpendSubMenu}>
@@ -36,7 +44,7 @@ const NavIcons: React.FC<Props> = ({ children, layout, subMenu = false, subMenuC
           </SubMenuStyled>}
         </NavigationContentStyled>
       </NavigationContainerStyled>
-      {expandSubMenu && <NavigationContainerStyled horizontal={horizontal} showSubMenu={expandSubMenu}>
+      {expandSubMenu && <NavigationContainerStyled horizontal={horizontal} showSubMenu={expandSubMenu} backgroundColor={backgroundColor}>
         <NavigationContentStyled horizontal={horizontal}>
           {subMenuContents}
         </NavigationContentStyled>

@@ -78,7 +78,7 @@ const FormTextArea: FunctionComponent<Props> = ({
         width: '18px',
         margin: 'auto',
         height: '18px',
-        fill: darkMode ? theme.white : theme.grey
+        fill: darkMode ? theme.white : theme.primaryColorValencia
       }} />}
     </div>
   )

@@ -72,12 +72,16 @@ const FormText: FunctionComponent = () => {
             onChange={onChange}
             handleBlur={handleBlur}
             value={value}
+<<<<<<< HEAD
             placeholder={value ? '' : fieldPlaceholder}
+=======
+            placeholder={value ? '' : placeholder}
+>>>>>>> master
             disabled={disabled}
             error={error}
           />
         ) : (
-          <div>
+          <div style={{display: 'inline-flex'}}>
             <TextInputStyled
               darkMode={darkMode}
               id={name}
@@ -85,7 +89,11 @@ const FormText: FunctionComponent = () => {
               onBlur={handleBlur}
               type={type}
               value={value}
+<<<<<<< HEAD
               placeholder={value ? '' : fieldPlaceholder}
+=======
+              placeholder={value ? '' : placeholder}
+>>>>>>> master
               disabled={disabled}
               error={error}
             />
@@ -93,7 +101,7 @@ const FormText: FunctionComponent = () => {
               width: '18px',
               margin: 'auto',
               height: '18px',
-              fill: darkMode ? theme.white : theme.grey
+              fill: darkMode ? theme.white : theme.primaryColorValencia
             }} />}
           </div>
         )}
