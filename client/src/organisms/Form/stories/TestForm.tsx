@@ -1,18 +1,16 @@
-import React, { FC, useContext, useState } from 'react'
+import React, { FC } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { candidateStatusOptions } from 'organisms/Form/mock'
-import { useFormStatus } from 'organisms/Form/hooks'
-import { FormContext } from 'organisms/Form/base'
-import isEmpty from 'lodash/isEmpty'
-import isNull from 'lodash/isNull'
-import { ButtonWrapperStyled } from 'organisms/Form/styles'
-import { Button } from 'atoms'
-import TextField from '@material-ui/core/TextField'
+import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import { FormHidden } from 'organisms/Form/components/FormHidden'
 
 const TestForm: FC = () => {
   const { statuses, addStatus } = useFormStatus()
+
+  const { hiddenRef, handleHidden } = useFormHidden()
+
+
 
   const handleUpdate = (name: string, value: string) => {
     console.group('handleUpdate')
@@ -30,18 +28,10 @@ const TestForm: FC = () => {
     console.groupEnd()
   }
 
-  const txtField: any = React.useRef(null)
-  const handleRef = (ref: any) => {
-    if (txtField && txtField.current) {
-      txtField.current.click()
-    }
-  }
-
   return (
     <Form statuses={statuses}>
-      <button onClick={handleRef}>Trigger Ref</button>
-      <FormHidden ref={txtField}/>
-      {/*<FormRef inputRef={txtField} label={'Save'} />*/}
+      <button onClick={handleHidden}>Trigger Ref</button>
+      <FormHidden ref={hiddenRef}/>
       <FormInput
         label='Text Input'
         name='textInput'

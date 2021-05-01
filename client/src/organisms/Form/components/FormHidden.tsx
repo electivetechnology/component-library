@@ -1,10 +1,5 @@
 import React, { FC, ReactElement, useContext } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import { FormContext } from 'organisms/Form/base'
-import isNull from 'lodash/isNull'
-import isEmpty from 'lodash/isEmpty'
-import { Button } from 'atoms'
-import { ButtonWrapperStyled } from 'organisms/Form/styles'
 
 interface Props {
   label: string

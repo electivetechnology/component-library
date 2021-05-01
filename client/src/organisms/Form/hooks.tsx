@@ -1,7 +1,9 @@
-import { useContext, useReducer, useState } from 'react'
+import React, { useContext, useReducer, useState } from 'react'
 import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
 import { FormContext, StatusTypeType } from 'organisms/Form/base'
+import isEmpty from 'lodash/isEmpty'
+import isNull from 'lodash/isNull'
 
 export enum ItemsConst {
   UPDATE = 'UPDATE'
@@ -105,5 +107,40 @@ export const useFormStatus = () => {
     addStatus,
     removeStatus,
     clearStatus
+  }
+}
+
+export const useFormHidden = () => {
+  const ref: any = React.useRef(null)
+  const handleHidden = () => {
+    if (ref && ref.current) {
+      ref.current.click()
+    }
+  }
+
+  return {
+    hiddenRef: ref,
+    handleHidden
+  }
+}
+
+export const useFormSave = (handleSave: Function) => {
+  const { inputs, requiredErrors, updateRequired } = useContext(FormContext)
+
+  const handleAction = () => {
+    const hasErrors = Object.keys(requiredErrors).filter((inputName: any) => {
+      const inputValue = inputs[inputName]
+      const error = isEmpty(inputValue) || isNull(inputValue)
+
+      updateRequired(inputName, error)
+
+      return error
+    })
+
+    handleSave(isEmpty(hasErrors) ? inputs : false)
+  }
+
+  return {
+    handleAction
   }
 }
