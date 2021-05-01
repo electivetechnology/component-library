@@ -1,8 +1,15 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useContext, useState } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { candidateStatusOptions } from 'organisms/Form/mock'
 import { useFormStatus } from 'organisms/Form/hooks'
+import { FormContext } from 'organisms/Form/base'
+import isEmpty from 'lodash/isEmpty'
+import isNull from 'lodash/isNull'
+import { ButtonWrapperStyled } from 'organisms/Form/styles'
+import { Button } from 'atoms'
+import TextField from '@material-ui/core/TextField'
+import { FormHidden } from 'organisms/Form/components/FormHidden'
 
 const TestForm: FC = () => {
   const { statuses, addStatus } = useFormStatus()
@@ -23,9 +30,18 @@ const TestForm: FC = () => {
     console.groupEnd()
   }
 
+  const txtField: any = React.useRef(null)
+  const handleRef = (ref: any) => {
+    if (txtField && txtField.current) {
+      txtField.current.click()
+    }
+  }
+
   return (
-    // <Form handleUpdate={handleUpdate} statuses={statuses}>
     <Form statuses={statuses}>
+      <button onClick={handleRef}>Trigger Ref</button>
+      <FormHidden ref={txtField}/>
+      {/*<FormRef inputRef={txtField} label={'Save'} />*/}
       <FormInput
         label='Text Input'
         name='textInput'
@@ -33,6 +49,7 @@ const TestForm: FC = () => {
         type='text'
         required
       />
+
       <FormInput
         label='Text Input2'
         name='textInput2'
