@@ -104,8 +104,6 @@ export const InputContext = createContext<InputContextType>(
 )
 
 export const handleFormColor = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
-  console.log(darkMode, disabled);
-  
   if (darkMode) {
     return theme.white
   } else if (disabled) {

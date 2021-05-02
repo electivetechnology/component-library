@@ -200,6 +200,39 @@ Text.args = {
   )
 }
 
+// FormTextIcons
+export const TextIcons: any = Template.bind({})
+
+TextIcons.args = {
+  handleUpdate,
+  darkMode: true,
+  children: (
+    <Fragment>
+      <FormInput
+        label='Text Area'
+        name='text'
+        value='some text'
+        type='text'
+        options={{
+          prefix: true, 
+          icon: <AddIcon style={{fill: 'white'}} />,
+          suffix: true
+        }} />
+      <FormInput
+        label='Text multiline'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{
+          multiline: true,
+          prefix: true, 
+          icon: <AddIcon style={{margin: 'auto', fill: 'white'}} />,
+          suffix: true }}
+      />
+    </Fragment>
+  )
+}
+
 
 // FormCopy
 export const TextCopy: any = Template.bind({})

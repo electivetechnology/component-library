@@ -57,15 +57,11 @@ const FormInput: FunctionComponent<InputProps> = ({
         requiredError
       }}
     >
-      {options && options.isDelete || options && options.prefix || options && options.suffix || download? (
-        <div>
-          <FormRow>
-            {options && options.prefix && options.icon}
-            <FormInputs type={type} />
-            {download && <FormDownload label={label} value={value} />}
-            {options && options.suffix && options.icon}
-          </FormRow>
-        </div>
+      {download? (
+        <FormRow>
+          <FormInputs type={type} />
+          {download && <FormDownload label={label} value={value} />}
+        </FormRow>
       ) : (
         <FormInputs type={type} />
       )}

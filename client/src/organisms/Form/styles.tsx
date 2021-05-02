@@ -207,6 +207,7 @@ type TextInputProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
+  icon: boolean
 }
 
 export const TextInputStyled = styled.input<TextInputProps>`
@@ -228,6 +229,84 @@ export const TextInputStyled = styled.input<TextInputProps>`
   ${(props) =>
     props.disabled &&
     `
+      border: none;
+      color: ${theme.disabledTextGrey};
+      border-bottom: 1px dotted ${theme.dividerGrey};
+      background-color: transparent;
+        &:focus {
+          outline: none;
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+        &:hover {
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+        &:active {
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+    `}
+  ${(props) =>
+    props.error &&
+    `
+      border-bottom: 1px solid ${theme.primaryRed};
+    `}
+  ${(props) =>
+    props.darkMode &&
+    `
+      border: none;
+      color: ${theme.white}; 
+      border-bottom: 1px solid ${theme.grey};
+      background-color: transparent;
+      &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
+      &:active {
+        border-bottom: 1px solid ${theme.white};
+      }
+    `}
+  ${(props) =>
+    props.icon &&
+    `
+      border-bottom: none;
+      &:focus {
+        outline: none;
+        border-bottom: none;
+      }
+      &:hover {
+        border-bottom: none;
+      }
+      &:active {
+        border-bottom: none;
+      }
+    `}
+`
+
+type TextAreaProps = {
+  disabled: boolean
+  darkMode: boolean
+  error: boolean
+  icon: boolean
+}
+export const TextAreaStyled = styled.div<TextAreaProps>`
+  ${(props) =>
+    props.icon &&
+    `
+      display: inline-flex;
+      width: 100%;
+      border-bottom: 1px solid ${theme.dividerGrey};
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid ${theme.grey};
+      }
+      &:hover {
+        border-bottom: 1px solid ${theme.grey};
+      }
+      &:active {
+        border-bottom: 1px solid ${theme.grey};
+      }
+    `}
+  ${(props) =>
+    props.disabled && props.icon &&
+    `
     border: none;
     color: ${theme.disabledTextGrey};
     border-bottom: 1px dotted ${theme.dividerGrey};
@@ -244,12 +323,12 @@ export const TextInputStyled = styled.input<TextInputProps>`
       }
     `}
   ${(props) =>
-    props.error &&
+    props.error && props.icon &&
     `
     border-bottom: 1px solid ${theme.primaryRed};
     `}
   ${(props) =>
-    props.darkMode &&
+    props.darkMode && props.icon &&
     `
     border: none;
     color: ${theme.white}; 
@@ -325,6 +404,7 @@ type TextareaProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
+  icon: boolean
 }
 
 export const TextareaStyled = styled.textarea<TextareaProps>`
@@ -388,6 +468,21 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
       }
       &:active {
         border-bottom: 1px solid ${theme.white};
+      }
+    `}
+  ${(props) =>
+    props.icon &&
+    `
+      border-bottom: none;
+      &:focus {
+        outline: none;
+        border-bottom: none;
+      }
+      &:hover {
+        border-bottom: none;
+      }
+      &:active {
+        border-bottom: none;
       }
     `}
 `

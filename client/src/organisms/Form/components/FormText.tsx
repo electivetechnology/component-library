@@ -4,7 +4,8 @@ import {
   FormTextContainerStyled,
   TextInputStyled,
   LabelStyled,
-  RequiredStyled
+  RequiredStyled,
+  TextAreaStyled
 } from 'organisms/Form/styles'
 import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
@@ -12,6 +13,7 @@ import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 import FormDelete from './FormDelete'
+import AddIcon from '@material-ui/icons/Add'
 
 const FormText: FunctionComponent = () => {
   const {
@@ -66,18 +68,32 @@ const FormText: FunctionComponent = () => {
           </div>
         )}
         {options && options.multiline ? (
-          <FormTextArea
-            darkMode={darkMode}
-            name={name}
-            onChange={onChange}
-            handleBlur={handleBlur}
-            value={value}
-            placeholder={value ? '' : fieldPlaceholder}
+          <TextAreaStyled
             disabled={disabled}
+            darkMode={darkMode}
             error={error}
-          />
+            icon={options?.suffix || options?.prefix}>
+            {options && options.prefix && options.icon}
+            <FormTextArea
+              icon={options?.suffix || options?.prefix}
+              darkMode={darkMode}
+              name={name}
+              onChange={onChange}
+              handleBlur={handleBlur}
+              value={value}
+              placeholder={value ? '' : fieldPlaceholder}
+              disabled={disabled}
+              error={error}
+            />
+            {options && options.suffix && options.icon}
+          </TextAreaStyled>
         ) : (
-          <div style={{display: 'inline-flex', width: '100%'}}>
+          <TextAreaStyled
+            disabled={disabled}
+            darkMode={darkMode}
+            error={error}
+            icon={options?.suffix || options?.prefix}>
+            {options && options.prefix && options.icon}
             <TextInputStyled
               darkMode={darkMode}
               id={name}
@@ -88,6 +104,7 @@ const FormText: FunctionComponent = () => {
               placeholder={value ? '' : fieldPlaceholder}
               disabled={disabled}
               error={error}
+              icon={options?.suffix || options?.prefix}
             />
             {error && <WarningIcon style={{
               width: '18px',
@@ -95,7 +112,8 @@ const FormText: FunctionComponent = () => {
               height: '18px',
               fill: darkMode ? theme.white : theme.primaryColorValencia
             }} />}
-          </div>
+            {options && options.suffix && options.icon}
+          </TextAreaStyled>
         )}
       </div>
       {options && 
