@@ -6,7 +6,7 @@ import {
   LabelStyled,
   RequiredStyled
 } from 'organisms/Form/styles'
-import { FormContext, InputContext } from 'organisms/Form/base'
+import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
@@ -21,7 +21,7 @@ const FormText: FunctionComponent = () => {
     label,
     options,
     outlined,
-    disabled,
+    disabled = false,
     required,
     status,
     requiredError,
@@ -33,7 +33,7 @@ const FormText: FunctionComponent = () => {
 
   const error = statusType === 'error' || requiredError
 
-  const { onBlur, darkMode, inputs } = useContext(FormContext)
+  const { onBlur, darkMode = false, inputs } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
@@ -59,10 +59,10 @@ const FormText: FunctionComponent = () => {
       <div style={{width: '100%'}}>
         {value && (
           <div>
-            <LabelStyled darkMode={darkMode} htmlFor={name}>
+            <LabelStyled color={handleFormColor(theme.grey, darkMode, disabled)} htmlFor={name}>
               {label}
             </LabelStyled>
-            {required && <RequiredStyled>*</RequiredStyled>}
+            {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
           </div>
         )}
         {options && options.multiline ? (
@@ -72,16 +72,12 @@ const FormText: FunctionComponent = () => {
             onChange={onChange}
             handleBlur={handleBlur}
             value={value}
-<<<<<<< HEAD
             placeholder={value ? '' : fieldPlaceholder}
-=======
-            placeholder={value ? '' : placeholder}
->>>>>>> master
             disabled={disabled}
             error={error}
           />
         ) : (
-          <div style={{display: 'inline-flex'}}>
+          <div style={{display: 'inline-flex', width: '100%'}}>
             <TextInputStyled
               darkMode={darkMode}
               id={name}
@@ -89,11 +85,7 @@ const FormText: FunctionComponent = () => {
               onBlur={handleBlur}
               type={type}
               value={value}
-<<<<<<< HEAD
               placeholder={value ? '' : fieldPlaceholder}
-=======
-              placeholder={value ? '' : placeholder}
->>>>>>> master
               disabled={disabled}
               error={error}
             />

@@ -12,6 +12,7 @@ import {
   SwitchTextStyled
 } from './style'
 import { RequiredStyled } from 'organisms/Form/styles'
+import { handleFormColor } from 'organisms/Form/base';
 
 type Props = {
   isActive: boolean
@@ -30,7 +31,7 @@ const Toggle: FunctionComponent<Props> = ({
   label,
   activeLabel,
   inactiveLabel,
-  darkMode,
+  darkMode = false,
   required,
   disabled = false
 }) => {
@@ -49,8 +50,8 @@ const Toggle: FunctionComponent<Props> = ({
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
-        <Font variant='body2' color={darkMode ? theme.white : theme.grey}>{label}</Font>
-        {required && <RequiredStyled>*</RequiredStyled>}
+        <Font variant='body2' color={handleFormColor(theme.grey, darkMode, disabled)}>{label}</Font>
+        {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>

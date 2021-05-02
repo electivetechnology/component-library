@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+import { theme } from 'styles/theme';
 
 export type InputType =
   | 'text'
@@ -101,3 +102,25 @@ export type InputContextType = {
 export const InputContext = createContext<InputContextType>(
   {} as InputContextType
 )
+
+export const handleFormColor = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
+  console.log(darkMode, disabled);
+  
+  if (darkMode) {
+    return theme.white
+  } else if (disabled) {
+    return theme.disabledGrey
+  } else {
+    return defaultColor
+  }
+}
+
+export const handleFormBorder = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
+  if (darkMode) {
+    return `1px solid ${theme.white}`
+  } else if (disabled) {
+    return `1px solid ${theme.disabledGrey}`
+  } else {
+    return `1px solid ${defaultColor}`
+  }
+}

@@ -202,7 +202,7 @@ Text.args = {
           prefix: true, 
           icon: <AddIcon style={{position: 'relative', top: '44px'}} />
         }} />
-      <FormInput label='Text suffix' name='text' value='some text' type='text' /> */}
+      <FormInput label='Text suffix' name='text' value='some text' type='text' />
       <FormInput
         label='Text multiline'
         name='textarea'

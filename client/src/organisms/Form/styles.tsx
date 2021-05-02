@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 import { makeStyles } from '@material-ui/core'
+import { handleFormBorder } from './base';
 
 type FormTextStyledProps = {
   margin?: string
@@ -169,6 +170,7 @@ export const FormTextContainerStyled = styled.div`
 
 type RequiredProp = {
   fontSize?: string
+  disabled: boolean
 }
 
 export const RequiredStyled = styled.span<RequiredProp>`
@@ -179,10 +181,15 @@ export const RequiredStyled = styled.span<RequiredProp>`
     `
     font-size: ${props.fontSize}px;
     `}
+  ${(props) =>
+    props.disabled &&
+    `
+    color: ${theme.disabledGrey};
+    `}
 `
 
 type LabelProps = {
-  darkMode: boolean
+  color: string
 }
 
 export const LabelStyled = styled.label<LabelProps>`
@@ -190,9 +197,9 @@ export const LabelStyled = styled.label<LabelProps>`
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   ${(props) =>
-    props.darkMode &&
+    props.color &&
     `
-    color: ${theme.white};
+    color: ${props.color};
     `}
 `
 
@@ -394,7 +401,7 @@ export const DateStyles = makeStyles({
       borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
     },
     '&.MuiInput-underline:hover:before': {
-      borderBottom: props.darkMode ? `1px solid ${theme.white}` : `1px solid ${theme.grey}`,
+      borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled),
     },
   }),
 })
@@ -407,6 +414,7 @@ export const DateWrapperStyled = styled.div`
 
 type DateLabelProps = {
   darkMode?: boolean
+  disabled: boolean
 }
 
 export const DateLabelStyled = styled.div<DateLabelProps>`
@@ -421,6 +429,11 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
     props.darkMode &&
     `
     color: ${theme.white};
+    `}
+  ${(props) =>
+    props.disabled &&
+    `
+    color: ${theme.disabledGrey};
     `}
 `
 
