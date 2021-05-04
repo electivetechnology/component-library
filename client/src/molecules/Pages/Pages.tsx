@@ -5,11 +5,11 @@ import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordO
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
 import AlbumOutlinedIcon from '@material-ui/icons/AlbumOutlined'
 import { PageContext } from './base'
-import { CloseIconStyled } from 'molecules/Pages/styles'
+import { CloseIconStyled, PagesContainerStyled, ProgressContainerStyled, ProgressBarStyled, ProgressIndicatorStyled, HelperTextStyled } from 'molecules/Pages/styles'
 import CloseIcon from '@material-ui/icons/Close'
 
 const Pages: FC = () => {
-  const { back, next, progress, handleClose, currentStep, finalStep } = useContext(
+  const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
     PageContext
   )
 
@@ -29,22 +29,31 @@ const Pages: FC = () => {
   }
 
   return (
-    <Card theme="primary" fullWidth>
-      {handleClose && (
-        <CloseIconStyled onClick={handleClose}>
-          <CloseIcon />
-        </CloseIconStyled>
-      )}
-      <Font variant="h4" component="h1" gutterBottom align="center">
-        {back && <Page handleClick={back} label={'Back'} />}
-        {renderProgress}
-        {next && (
-          <Page
-            handleClick={next}
-            label={currentStep === finalStep ? 'Finish' : 'Next'}
-          />
+    <Card theme="primary" fullWidth noBorder>
+      <PagesContainerStyled>
+        {handleClose && (
+          <CloseIconStyled onClick={handleClose}>
+            <CloseIcon />
+          </CloseIconStyled>
         )}
-      </Font>
+        {back && <Page handleClick={back} label={'Back'} />}
+        <ProgressContainerStyled>
+          <ProgressIndicatorStyled>
+            <ProgressBarStyled>
+              {renderProgress}
+            </ProgressBarStyled>
+            {next && (
+              <Page
+                handleClick={next}
+                label={currentStep === finalStep ? 'Finish' : 'Next'}
+              />
+            )}
+          </ProgressIndicatorStyled>
+          <HelperTextStyled>
+            {helperText}
+          </HelperTextStyled>
+        </ProgressContainerStyled>
+      </PagesContainerStyled>
     </Card>
   )
 }

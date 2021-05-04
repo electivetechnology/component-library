@@ -10,5 +10,6 @@ export type PageContextType = {
   back?: () => void | null
   setBack: Function
   progress: number
+  helperText?: string
 }
 export const PageContext = createContext<PageContextType>({} as PageContextType)
