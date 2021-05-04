@@ -13,7 +13,6 @@ import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 import FormDelete from './FormDelete'
-import AddIcon from '@material-ui/icons/Add'
 
 const FormText: FunctionComponent = () => {
   const {
