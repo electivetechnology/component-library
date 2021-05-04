@@ -19,12 +19,16 @@ type Props = {
   noBorder?: boolean
   onClick?: any
   scroll?: boolean
+  height?: string
+  width?: string
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
   children,
   selected,
   onClick,
+  height,
+  width,
   theme = 'Primary',
   footer = false,
   header = false,
@@ -45,6 +49,8 @@ const ComponentCard: React.FC<Props> = ({
       fullHeight={fullHeight}
       noBorder={noBorder}
       scroll={scroll}
+      height={height}
+      width={width}
     >
       {header && (
         <ComponentCardHeaderStyled>

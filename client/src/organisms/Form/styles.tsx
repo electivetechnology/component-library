@@ -284,7 +284,7 @@ type TextAreaProps = {
   disabled: boolean
   darkMode: boolean
   error: boolean
-  icon: boolean
+  icon: boolean | undefined
 }
 export const TextAreaStyled = styled.div<TextAreaProps>`
   ${(props) =>
