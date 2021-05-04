@@ -12,9 +12,13 @@ import { theme } from 'styles/theme'
 interface Props {
   value: string
   darkMode: boolean
+  isHovered: boolean
 }
-const FormCopy: FunctionComponent<Props> = ({ value, darkMode }) => {
-  const [isHovered, setIsHovered] = useState(false)
+const FormCopy: FunctionComponent<Props> = ({ 
+  value, 
+  darkMode,
+  isHovered
+}) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const handleCopy = () => {
@@ -25,20 +29,9 @@ const FormCopy: FunctionComponent<Props> = ({ value, darkMode }) => {
     }, 2000)
   }
 
-  const handleMouseHover = () => {
-    setIsHovered(true)
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-  }
-
   return (
     <CopyElementStyled
-      onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseLeave}
-      isActive={isHovered}
-    >
+      isActive={isHovered}>
       <CopyIconStyled onClick={handleCopy} isActive={isHovered}>
         {isCopied ? (
           <CopiedStyled>

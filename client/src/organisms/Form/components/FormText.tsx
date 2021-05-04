@@ -1,16 +1,18 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FunctionComponent, memo, useContext, useState } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
   TextInputStyled,
   LabelStyled,
-  RequiredStyled
+  RequiredStyled,
+  TextAreaStyled
 } from 'organisms/Form/styles'
-import { FormContext, InputContext } from 'organisms/Form/base'
+import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import FormDelete from './FormDelete'
 
 const FormText: FunctionComponent = () => {
   const {
@@ -20,17 +22,19 @@ const FormText: FunctionComponent = () => {
     label,
     options,
     outlined,
-    disabled,
+    disabled = false,
     required,
     status,
     requiredError,
   } = useContext(InputContext)
+  
+  const [isHovered, setIsHovered] = useState(false)
 
   const { statusType } = status || {}
 
   const error = statusType === 'error' || requiredError
 
-  const { onBlur, darkMode } = useContext(FormContext)
+  const { onBlur, darkMode = false, inputs } = useContext(FormContext)
 
   const { value, onChange } = useFormInput(name, inputValue)
 
@@ -38,30 +42,57 @@ const FormText: FunctionComponent = () => {
     onBlur(name)
   }
 
+  const handleMouseHover = () => {
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
+
+  const fieldPlaceholder = required ? `${label}*` : label
+
   return (
-    <FormTextContainerStyled data-testid='FormText'>
-      <div>
+    <FormTextContainerStyled 
+      data-testid='FormText'
+      onMouseEnter={handleMouseHover}
+      onMouseLeave={handleMouseLeave}>
+      <div style={{width: '100%'}}>
         {value && (
           <div>
-            <LabelStyled darkMode={darkMode} htmlFor={name}>
+            <LabelStyled color={handleFormColor(theme.grey, darkMode, disabled)} htmlFor={name}>
               {label}
             </LabelStyled>
-            {required && <RequiredStyled>*</RequiredStyled>}
+            {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
           </div>
         )}
         {options && options.multiline ? (
-          <FormTextArea
-            darkMode={darkMode}
-            name={name}
-            onChange={onChange}
-            handleBlur={handleBlur}
-            value={value}
-            placeholder={value ? '' : label}
+          <TextAreaStyled
             disabled={disabled}
+            darkMode={darkMode}
             error={error}
-          />
+            icon={options?.suffix || options?.prefix}>
+            {options && options.prefix && options.icon}
+            <FormTextArea
+              icon={options?.suffix || options?.prefix}
+              darkMode={darkMode}
+              name={name}
+              onChange={onChange}
+              handleBlur={handleBlur}
+              value={value}
+              placeholder={value ? '' : fieldPlaceholder}
+              disabled={disabled}
+              error={error}
+            />
+            {options && options.suffix && options.icon}
+          </TextAreaStyled>
         ) : (
-          <div>
+          <TextAreaStyled
+            disabled={disabled}
+            darkMode={darkMode}
+            error={error}
+            icon={options?.suffix || options?.prefix}>
+            {options && options.prefix && options.icon}
             <TextInputStyled
               darkMode={darkMode}
               id={name}
@@ -69,20 +100,25 @@ const FormText: FunctionComponent = () => {
               onBlur={handleBlur}
               type={type}
               value={value}
-              placeholder={value ? '' : label}
+              placeholder={value ? '' : fieldPlaceholder}
               disabled={disabled}
               error={error}
+              icon={options?.suffix || options?.prefix}
             />
             {error && <WarningIcon style={{
               width: '18px',
               margin: 'auto',
               height: '18px',
-              fill: darkMode ? theme.white : theme.grey
+              fill: darkMode ? theme.white : theme.primaryColorValencia
             }} />}
-          </div>
+            {options && options.suffix && options.icon}
+          </TextAreaStyled>
         )}
       </div>
-      {options && options.copy && <FormCopy value={value} darkMode={darkMode} />}
+      {options && 
+        options.copy && 
+        <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />}
+      {options && options.isDelete && <FormDelete id={inputs.id} isHovered={isHovered} />}
     </FormTextContainerStyled>
   )
 }

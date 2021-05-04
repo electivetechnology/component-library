@@ -1,15 +1,18 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { CardType } from 'atoms/Card/base'
 
 type CardContainerProps = {
   selected?: boolean
   hover?: boolean
-  theme: string
+  theme: CardType
   padding?: boolean
   fullWidth?: boolean
   fullHeight?: boolean
   noBorder?: boolean
   scroll?: boolean
+  width?: string
+  height?: string
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
@@ -86,6 +89,16 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     `
       overflow: scroll;
     `};
+  ${(props) =>
+    props.height &&
+    `
+      height: ${props.height};
+    `};
+  ${(props) =>
+    props.width &&
+    `
+      width: ${props.width};
+    `};
 `
 
 export const CardBorderStyled = styled.div`
@@ -108,3 +121,8 @@ export const ComponentCardFooterStyled = styled.div<ComponentCardFooterProps>`
 `
 
 export const ComponentCardHeaderStyled = styled.div``
+
+export const CardHeaderStyled = styled.div`
+  padding: 12px 24px;
+  display: flex;
+`

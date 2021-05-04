@@ -5,7 +5,6 @@ import { Font } from 'atoms'
 import isUndefined from 'lodash/isUndefined'
 import FormDownload from 'organisms/Form/components/FormDownload'
 import FormHelper from 'organisms/Form/components/FormHelper'
-import FormDelete from './FormDelete'
 import FormInputs from './FormInputs'
 import FormRow from './FormRow'
 
@@ -57,16 +56,12 @@ const FormInput: FunctionComponent<InputProps> = ({
         requiredError
       }}
     >
-      {options?.isDelete || options?.prefix || options?.suffix || download ? (
-        <div>
-          <FormRow>
-            {options?.prefix && options.icon}
-            <FormInputs type={type} />
-            {download && <FormDownload label={label} value={value} />}
-            {options?.isDelete && <FormDelete id={inputs.id} />}
-            {options?.suffix && options.icon}
-          </FormRow>
-        </div>
+
+      {download? (
+        <FormRow>
+          <FormInputs type={type} />
+          {download && <FormDownload label={label} value={value} />}
+        </FormRow>
       ) : (
         <FormInputs type={type} />
       )}
