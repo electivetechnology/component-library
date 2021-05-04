@@ -395,6 +395,6 @@ Toggle.args = {
 }
 
 export default {
-  title: 'organisms/FormDarkMode',
+  title: 'organisms/Form/DarkMode',
   component: Form
 }

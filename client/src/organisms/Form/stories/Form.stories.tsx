@@ -396,6 +396,6 @@ Toggle.args = {
 }
 
 export default {
-  title: 'organisms/Form',
+  title: 'organisms/Form/Standard',
   component: Form
 }
