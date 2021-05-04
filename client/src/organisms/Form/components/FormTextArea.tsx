@@ -18,7 +18,7 @@ type Props = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
-  icon: boolean
+  icon?: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
   name,
