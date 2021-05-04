@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 import { makeStyles } from '@material-ui/core'
-import { handleFormBorder } from './base';
+import { handleFormBorder } from './base'
 
 type FormTextStyledProps = {
   margin?: string
