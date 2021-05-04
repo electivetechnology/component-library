@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import CardComponent from 'atoms/Card/Card'
-import { Pill } from 'atoms'
+import { Pill, Font } from 'atoms'
 import { renderStatus } from 'atoms/Pill/base'
 
 const CardTemplate = (args: any) => {
@@ -57,7 +57,12 @@ Status.args = {
   theme: 'primary',
   hover: false,
   footer: 'Footer',
-  header: <Fragment>Label <Pill color={renderStatus('primary')} /></Fragment>,
+  headerContent: <div style={{width: '100%', display: 'inline-flex'}}>
+      <Font variant='h4'>
+        Label 
+      </Font>
+      <Pill color={renderStatus('primary')} />
+    </div>,
   fullWidth: true,
   fullHeight: true,
 }

@@ -13,7 +13,7 @@ type Props = {
   theme: CardType
   hover: boolean
   footer?: string
-  header?: string | ReactElement
+  header?: string
   padding?: boolean
   fullWidth?: boolean
   selected?: boolean
@@ -21,12 +21,14 @@ type Props = {
   noBorder?: boolean
   onClick?: any
   scroll?: boolean
+  headerContent?: ReactElement
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
   children,
   selected,
   onClick,
+  headerContent,
   theme = 'Primary',
   footer = false,
   header = false,
@@ -48,14 +50,15 @@ const ComponentCard: React.FC<Props> = ({
       noBorder={noBorder}
       scroll={scroll}
     >
-      {header && (
+      {header || headerContent ? (
         <ComponentCardHeaderStyled>
           <CardHeaderStyled>
-            <Font variant='h4'>{header}</Font>
+            {header && <Font variant='h4'>{header}</Font>}
+            {headerContent && headerContent}
           </CardHeaderStyled>
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
-      )}
+      ) : ''}
       {children}
       {footer && (
         <ComponentCardFooterStyled padding={padding}>
