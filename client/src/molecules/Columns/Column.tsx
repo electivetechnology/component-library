@@ -8,7 +8,8 @@ import {
   ColumnContentStyled,
   SideColumnMobiledStyled,
   SideColumnDesktopdStyled,
-  MobileButtonLabelStyled
+  MobileButtonLabelStyled,
+  iconMobileLeftStyle
 } from 'molecules/Columns/styles'
 import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
@@ -73,7 +74,7 @@ const Column: FC<Props> = ({
       backgroundColor={backgroundColor}
     >
       <SideColumnMobiledStyled onClick={onClose} isClosable={isClosable}>
-        <ArrowBackIcon style={iconLeftStyle} />
+        <ArrowBackIcon style={iconMobileLeftStyle} />
         <MobileButtonLabelStyled>Back</MobileButtonLabelStyled>
       </SideColumnMobiledStyled>
       <SideColumnDesktopdStyled>

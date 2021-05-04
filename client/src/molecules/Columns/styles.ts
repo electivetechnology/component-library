@@ -14,6 +14,13 @@ export const iconLeftStyle = {
   paddingLeft: '4px'
 }
 
+export const iconMobileLeftStyle = {
+  cursor: 'pointer',
+  paddingLeft: '4px',
+  fill: theme.primaryGrey,
+  width: '22px',
+}
+
 type ColumnsStyledProps = {
   width?: number
   height?: number
@@ -146,5 +153,5 @@ export const MobileButtonLabelStyled = styled.span`
   font-size: 14px;
   color: ${theme.primaryGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  padding: 4px 0 0 4px;
+  padding: 2px 0 0 4px;
 `
