@@ -11,7 +11,7 @@ import { CardType } from 'atoms/Card/base'
 
 type Props = {
   theme: CardType
-  hover: boolean
+  hover?: boolean
   footer?: string
   header?: string
   padding?: boolean
