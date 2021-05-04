@@ -1,19 +1,18 @@
-export enum StatuConst {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  TERTIARY = 'tertiary',
-  FAILURE = 'failure'
-}
+export type StatusType =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'failure'
 
-export const renderStatus = (status: StatuConst) => {
+export const renderStatus = (status: StatusType) => {
   switch (status) {
-    case StatuConst.PRIMARY:
+    case 'primary':
       return '#22D422'
-    case StatuConst.SECONDARY:
+    case 'secondary':
       return '#F9A725'
-    case StatuConst.TERTIARY:
+    case 'tertiary':
       return '#EBEBEB'
-    case StatuConst.FAILURE:
+    case 'failure':
       return '#D53947'
     default:
       return ''
