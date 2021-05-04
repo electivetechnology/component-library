@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { InlineStyle, IconOutlineStyled, iconStyles } from 'molecules/Channels/styles'
 import TextSms from '@material-ui/icons/TextsmsOutlined'
 import Smartphone from '@material-ui/icons/SmartphoneOutlined'
@@ -10,7 +10,7 @@ type Props = {
   webChat: boolean
 }
 
-const Channels: FunctionComponent<Props> = ({ sms, phone, webChat }) => {
+const Channels: FC<Props> = ({ sms, phone, webChat }) => {
   const classes = iconStyles({ sms, phone, webChat })
 
   return (

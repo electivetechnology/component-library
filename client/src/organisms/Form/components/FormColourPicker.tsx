@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent,
+  FC,
   memo,
   useState,
   Fragment,
@@ -12,7 +12,7 @@ import { Font } from 'atoms'
 import { InputContext, FormContext, handleFormColor } from 'organisms/Form/base'
 import { theme } from 'styles/theme'
 
-const FormColourPicker: FunctionComponent = () => {
+const FormColourPicker: FC = () => {
   const { inputValue, name, label, disabled = false, required = false} = useContext(InputContext)
 
   const { updateInput, onBlur, darkMode } = useContext(FormContext)

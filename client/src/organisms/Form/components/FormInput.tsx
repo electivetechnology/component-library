@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext, useEffect } from 'react'
+import React, { FC, memo, useContext, useEffect } from 'react'
 import { FormContext, InputContext, InputProps } from 'organisms/Form/base'
 import { AffixStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
@@ -8,7 +8,7 @@ import FormHelper from 'organisms/Form/components/FormHelper'
 import FormInputs from './FormInputs'
 import FormRow from './FormRow'
 
-const FormInput: FunctionComponent<InputProps> = ({
+const FormInput: FC<InputProps> = ({
   label,
   name,
   value,

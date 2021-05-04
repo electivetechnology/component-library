@@ -1,8 +1,8 @@
-import React, { Children, FunctionComponent, useEffect, useState } from 'react'
+import React, { Children, FC, useEffect, useState } from 'react'
 import { useFormItems } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
 
-const Form: FunctionComponent<FormProps> = ({
+const Form: FC<FormProps> = ({
   children,
   handleUpdate,
   statuses,

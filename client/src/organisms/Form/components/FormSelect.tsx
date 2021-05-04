@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent,
+  FC,
   memo,
   useContext,
   useEffect,
@@ -12,7 +12,7 @@ import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
 import FormDelete from './FormDelete'
 
-const FormSelect: FunctionComponent = () => {
+const FormSelect: FC = () => {
   const {
     inputValue,
     name,

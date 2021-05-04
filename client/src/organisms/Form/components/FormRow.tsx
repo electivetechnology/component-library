@@ -1,11 +1,11 @@
-import React, { FunctionComponent, memo } from 'react'
+import React, { FC, memo } from 'react'
 import { FormRowStyled } from '../styles'
 
 type Props = {
   children: any
 }
 
-const FormRow: FunctionComponent<Props> = ({ children }) => {
+const FormRow: FC<Props> = ({ children }) => {
   return <FormRowStyled>{children}</FormRowStyled>
 }
 

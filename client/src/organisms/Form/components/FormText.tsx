@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext, useState } from 'react'
+import React, { FC, memo, useContext, useState } from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
@@ -14,7 +14,7 @@ import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 import FormDelete from './FormDelete'
 
-const FormText: FunctionComponent = () => {
+const FormText: FC = () => {
   const {
     inputValue,
     name,
@@ -27,7 +27,7 @@ const FormText: FunctionComponent = () => {
     status,
     requiredError,
   } = useContext(InputContext)
-  
+
   const [isHovered, setIsHovered] = useState(false)
 
   const { statusType } = status || {}
@@ -53,7 +53,7 @@ const FormText: FunctionComponent = () => {
   const fieldPlaceholder = required ? `${label}*` : label
 
   return (
-    <FormTextContainerStyled 
+    <FormTextContainerStyled
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}>
@@ -115,8 +115,8 @@ const FormText: FunctionComponent = () => {
           </TextAreaStyled>
         )}
       </div>
-      {options && 
-        options.copy && 
+      {options &&
+        options.copy &&
         <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />}
       {options && options.isDelete && <FormDelete id={inputs.id} isHovered={isHovered} />}
     </FormTextContainerStyled>

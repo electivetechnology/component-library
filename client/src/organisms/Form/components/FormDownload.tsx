@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FC, memo, useContext } from 'react'
 import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
 import { ActionButtonStyled } from 'organisms/Form/styles'
 import { FormContext } from '../base'
@@ -9,7 +9,7 @@ type Props = {
   value: string
 }
 
-const FormDownload: FunctionComponent<Props> = ({ label, value }) => {
+const FormDownload: FC<Props> = ({ label, value }) => {
   const { darkMode } = useContext(FormContext)
 
   const onDownload = () => {

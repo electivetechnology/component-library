@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useContext } from 'react'
+import React, { FC, useContext } from 'react'
 import { useStyles } from 'molecules/Alert/styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
 import { CloseButton } from 'atoms'
 import AlertMessage from 'molecules/Alert/AlertMessage'
 import { AlertContext } from 'molecules/Alert/base'
 
-const AlertContent: FunctionComponent = () => {
+const AlertContent: FC = () => {
   const {
     alert: { alertType },
     handleClose

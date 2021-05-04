@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent,
+  FC,
   memo,
   useRef,
   useState,
@@ -20,7 +20,7 @@ type Props = {
   error: boolean
   icon?: boolean
 }
-const FormTextArea: FunctionComponent<Props> = ({
+const FormTextArea: FC<Props> = ({
   name,
   value,
   onChange,

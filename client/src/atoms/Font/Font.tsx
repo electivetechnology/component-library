@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { useStyles } from 'atoms/Font/styles'
 
@@ -15,7 +15,7 @@ type Props = {
   multilineOverflow?: boolean
 }
 
-const Font: FunctionComponent<Props> = ({
+const Font: FC<Props> = ({
   variant = 'body1',
   component,
   gutterBottom = false,

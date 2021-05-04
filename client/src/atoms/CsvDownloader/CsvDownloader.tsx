@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import CsvDownloader from 'react-csv-downloader'
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   columns: Array<any>
 }
 
-const CsvDownloaderComponent: FunctionComponent<Props> = ({
+const CsvDownloaderComponent: FC<Props> = ({
   datas,
   fileName,
   columns,

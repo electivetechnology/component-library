@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import MaterialFab from '@material-ui/core/Fab'
 import { IconWrapper, useStyles } from 'atoms/Fab/styles'
 
@@ -8,7 +8,7 @@ type Props = {
   isHelpPage?: boolean
 }
 
-const Fab: FunctionComponent<Props> = ({
+const Fab: FC<Props> = ({
   icon,
   isActive,
   isHelpPage = false

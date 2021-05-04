@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, useContext } from 'react'
+import React, { FC, memo, useContext } from 'react'
 import { InputContext } from 'organisms/Form/base'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
@@ -6,7 +6,7 @@ import { theme } from 'styles/theme'
 type Props = {
   helperText?: string
 }
-const FormHelper: FunctionComponent<Props> = ({ helperText }) => {
+const FormHelper: FC<Props> = ({ helperText }) => {
   const { status, requiredError } = useContext(InputContext)
 
   const { statusType, message } = status || {}

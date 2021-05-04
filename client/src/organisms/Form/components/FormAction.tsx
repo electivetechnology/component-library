@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
+import React, { FC, memo, ReactElement, useContext } from 'react'
 import { ActionTextStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
@@ -10,7 +10,7 @@ interface Props {
   handleAction: any
   icon?: ReactElement<SvgIconProps>
 }
-const FormAction: FunctionComponent<Props> = ({
+const FormAction: FC<Props> = ({
   label,
   handleAction,
   icon

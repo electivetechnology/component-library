@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react'
+import React, { FC, memo } from 'react'
 import { theme } from 'styles/theme'
 import Font from 'atoms/Font/Font'
 import {
@@ -24,7 +24,7 @@ type Props = {
   required?: boolean
 }
 
-const Toggle: FunctionComponent<Props> = ({
+const Toggle: FC<Props> = ({
   isActive,
   onChange,
   label,
