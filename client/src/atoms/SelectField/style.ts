@@ -27,7 +27,7 @@ export const inputBorderHover = (outlined: boolean, darkMode: boolean) => {
 
 export const useLabelStyles = makeStyles({
   label: (props: any) => ({
-    color: props.darkMode ? theme.white : theme.grey,
+    color: props.darkMode ? theme.white : (theme.grey),
     fontSize: '14px !important',
     whiteSpace: 'nowrap',
     '&.Mui-focused': {

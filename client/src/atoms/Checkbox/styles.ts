@@ -5,10 +5,26 @@ export const CheckboxContainerStyled = styled.div`
   display: inline-flex;
 `
 
-export const CheckboxLabelStyled = styled.div`
+type CheckboxLabelProps = {
+  darkMode?: boolean
+  disabled: boolean
+}
+
+export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
   padding: 12px 0 0;
   font-size: 16px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: ${theme.grey};
+  ${(props) =>
+    props.darkMode &&
+    `
+      color: ${theme.white};
+  `};
+  ${(props) =>
+    props.disabled &&
+    `
+      color: ${theme.disabledGrey};
+  `};
 `
 
 export const CheckboxWithStyled = {

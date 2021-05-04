@@ -18,6 +18,7 @@ type Props = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
+  icon?: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
   name,
@@ -27,7 +28,8 @@ const FormTextArea: FunctionComponent<Props> = ({
   placeholder,
   disabled,
   darkMode,
-  error
+  error,
+  icon
 }) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const [text, setText] = useState('')
@@ -73,6 +75,7 @@ const FormTextArea: FunctionComponent<Props> = ({
         placeholder={placeholder}
         disabled={disabled}
         error={error}
+        icon={icon}
       />
       {error && <WarningIcon style={{
         width: '18px',

@@ -21,7 +21,7 @@ const FormDownload: FunctionComponent<Props> = ({ label, value }) => {
     element.click()
   }
   return (
-    <ActionButtonStyled data-testid="FormDownload">
+    <ActionButtonStyled data-testid="FormDownload" isActive>
       <CloudDownloadOutlinedIcon onClick={onDownload} style={{fill: darkMode ? theme.white : theme.grey }} />
     </ActionButtonStyled>
   )
