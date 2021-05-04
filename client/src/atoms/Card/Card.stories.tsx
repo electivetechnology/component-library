@@ -1,5 +1,7 @@
-import React from 'react'
-import CardComponent from 'atoms/Card/CardComponent'
+import React, {Fragment} from 'react'
+import CardComponent from 'atoms/Card/Card'
+import { Pill, Font } from 'atoms'
+import { renderStatus } from 'atoms/Pill/base'
 
 const CardTemplate = (args: any) => {
   return (
@@ -55,10 +57,14 @@ Status.args = {
   theme: 'primary',
   hover: false,
   footer: 'Footer',
-  header: 'Label',
+  headerContent: <div style={{width: '100%', display: 'inline-flex'}}>
+      <Font variant='h4'>
+        Label 
+      </Font>
+      <Pill color={renderStatus('primary')} />
+    </div>,
   fullWidth: true,
   fullHeight: true,
-  status: true
 }
 
 export const Hover: any = CardTemplate.bind({})
