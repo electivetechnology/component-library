@@ -207,7 +207,7 @@ type TextInputProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
-  icon: boolean
+  icon?: boolean
 }
 
 export const TextInputStyled = styled.input<TextInputProps>`
@@ -284,7 +284,7 @@ type TextAreaProps = {
   disabled: boolean
   darkMode: boolean
   error: boolean
-  icon: any
+  icon?: boolean
 }
 export const TextAreaStyled = styled.div<TextAreaProps>`
   ${(props) =>
@@ -404,7 +404,7 @@ type TextareaProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
-  icon: boolean
+  icon?: boolean
 }
 
 export const TextareaStyled = styled.textarea<TextareaProps>`
