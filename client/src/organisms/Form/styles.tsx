@@ -125,12 +125,21 @@ export const BrandStyled = styled.div`
   padding: 8px;
 `
 
-export const ColorStyled = styled.div`
+type ColorProp = {
+  disabled: boolean
+}
+
+export const ColorStyled = styled.div<ColorProp>`
   height: 40px;
   width: 40px;
   border-radius: 50%;
   display: inline-block;
   margin: auto 0;
+  ${(props) =>
+    props.disabled &&
+    `
+      background: linear-gradient(to left top, transparent 47.75%, black 49.5%, black 50.5%, transparent 52.25%);
+    `}
 `
 
 export const BrandTextStyled = styled.div`
