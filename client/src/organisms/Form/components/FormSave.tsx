@@ -5,10 +5,11 @@ import isNull from 'lodash/isNull'
 import isEmpty from 'lodash/isEmpty'
 import { Button } from 'atoms'
 import { ButtonWrapperStyled } from 'organisms/Form/styles'
+import { useFormSave } from 'organisms/Form/hooks'
 
 interface Props {
   label: string
-  handleSave: any
+  handleSave: Function
   disabled?: boolean
   icon?: ReactElement<SvgIconProps>
   fullWidth?: boolean
@@ -20,20 +21,7 @@ const FormSave: FunctionComponent<Props> = ({
   icon,
   fullWidth = false
 }) => {
-  const { inputs, requiredErrors, updateRequired } = useContext(FormContext)
-
-  const handleAction = () => {
-    const hasErrors = Object.keys(requiredErrors).filter((inputName: any) => {
-      const inputValue = inputs[inputName]
-      const error = isEmpty(inputValue) || isNull(inputValue)
-
-      updateRequired(inputName, error)
-
-      return error
-    })
-
-    handleSave(isEmpty(hasErrors) ? inputs : false)
-  }
+  const { handleAction } = useFormSave(handleSave)
 
   return (
     <ButtonWrapperStyled>

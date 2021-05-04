@@ -1,11 +1,14 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { Form, FormSave, FormInput } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { candidateStatusOptions } from 'organisms/Form/mock'
-import { useFormStatus } from 'organisms/Form/hooks'
+import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
+import { FormHidden } from 'organisms/Form/components/FormHidden'
 
 const TestForm: FC = () => {
   const { statuses, addStatus } = useFormStatus()
+
+  const { hiddenRef, handleHidden } = useFormHidden()
 
   const handleUpdate = (name: string, value: string) => {
     console.group('handleUpdate')
@@ -24,8 +27,9 @@ const TestForm: FC = () => {
   }
 
   return (
-    // <Form handleUpdate={handleUpdate} statuses={statuses}>
     <Form statuses={statuses}>
+      <button onClick={handleHidden}>Trigger Ref</button>
+      <FormHidden ref={hiddenRef} handleSave={handleSave}/>
       <FormInput
         label='Text Input'
         name='textInput'
@@ -33,6 +37,7 @@ const TestForm: FC = () => {
         type='text'
         required
       />
+
       <FormInput
         label='Text Input2'
         name='textInput2'
