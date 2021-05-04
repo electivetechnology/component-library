@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 import { makeStyles } from '@material-ui/core'
+import { handleFormBorder } from './base'
 
 type FormTextStyledProps = {
   margin?: string
@@ -23,12 +24,22 @@ export const SectionTitleStyled = styled.div`
   margin-top: 8px;
 `
 
-export const ActionButtonStyled = styled.div`
+type deleteProp = {
+  isActive?: boolean
+}
+
+export const ActionButtonStyled = styled.div<deleteProp>`
   cursor: pointer;
   margin-top: auto;
-  top: 12px;
+  top: 4px;
   position: relative;
-  padding: 8px;
+  padding: 8px 8px 0;
+  display: none;
+  ${(props) =>
+    props.isActive &&
+    `
+      display: block;
+    `}
 `
 
 export const ActionTextStyled = styled.div`
@@ -159,6 +170,7 @@ export const FormTextContainerStyled = styled.div`
 
 type RequiredProp = {
   fontSize?: string
+  disabled: boolean
 }
 
 export const RequiredStyled = styled.span<RequiredProp>`
@@ -169,10 +181,15 @@ export const RequiredStyled = styled.span<RequiredProp>`
     `
     font-size: ${props.fontSize}px;
     `}
+  ${(props) =>
+    props.disabled &&
+    `
+    color: ${theme.disabledGrey};
+    `}
 `
 
 type LabelProps = {
-  darkMode: boolean
+  color: string
 }
 
 export const LabelStyled = styled.label<LabelProps>`
@@ -180,9 +197,9 @@ export const LabelStyled = styled.label<LabelProps>`
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   ${(props) =>
-    props.darkMode &&
+    props.color &&
     `
-    color: ${theme.white};
+    color: ${props.color};
     `}
 `
 
@@ -190,6 +207,7 @@ type TextInputProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
+  icon?: boolean
 }
 
 export const TextInputStyled = styled.input<TextInputProps>`
@@ -211,6 +229,84 @@ export const TextInputStyled = styled.input<TextInputProps>`
   ${(props) =>
     props.disabled &&
     `
+      border: none;
+      color: ${theme.disabledTextGrey};
+      border-bottom: 1px dotted ${theme.dividerGrey};
+      background-color: transparent;
+        &:focus {
+          outline: none;
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+        &:hover {
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+        &:active {
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+    `}
+  ${(props) =>
+    props.error &&
+    `
+      border-bottom: 1px solid ${theme.primaryRed};
+    `}
+  ${(props) =>
+    props.darkMode &&
+    `
+      border: none;
+      color: ${theme.white}; 
+      border-bottom: 1px solid ${theme.grey};
+      background-color: transparent;
+      &:hover {
+        border-bottom: 1px solid ${theme.white};
+      }
+      &:active {
+        border-bottom: 1px solid ${theme.white};
+      }
+    `}
+  ${(props) =>
+    props.icon &&
+    `
+      border-bottom: none;
+      &:focus {
+        outline: none;
+        border-bottom: none;
+      }
+      &:hover {
+        border-bottom: none;
+      }
+      &:active {
+        border-bottom: none;
+      }
+    `}
+`
+
+type TextAreaProps = {
+  disabled: boolean
+  darkMode: boolean
+  error: boolean
+  icon?: boolean
+}
+export const TextAreaStyled = styled.div<TextAreaProps>`
+  ${(props) =>
+    props.icon &&
+    `
+      display: inline-flex;
+      width: 100%;
+      border-bottom: 1px solid ${theme.dividerGrey};
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid ${theme.grey};
+      }
+      &:hover {
+        border-bottom: 1px solid ${theme.grey};
+      }
+      &:active {
+        border-bottom: 1px solid ${theme.grey};
+      }
+    `}
+  ${(props) =>
+    props.disabled && props.icon &&
+    `
     border: none;
     color: ${theme.disabledTextGrey};
     border-bottom: 1px dotted ${theme.dividerGrey};
@@ -227,12 +323,12 @@ export const TextInputStyled = styled.input<TextInputProps>`
       }
     `}
   ${(props) =>
-    props.error &&
+    props.error && props.icon &&
     `
     border-bottom: 1px solid ${theme.primaryRed};
     `}
   ${(props) =>
-    props.darkMode &&
+    props.darkMode && props.icon &&
     `
     border: none;
     color: ${theme.white}; 
@@ -308,6 +404,7 @@ type TextareaProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
+  icon?: boolean
 }
 
 export const TextareaStyled = styled.textarea<TextareaProps>`
@@ -373,6 +470,21 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
         border-bottom: 1px solid ${theme.white};
       }
     `}
+  ${(props) =>
+    props.icon &&
+    `
+      border-bottom: none;
+      &:focus {
+        outline: none;
+        border-bottom: none;
+      }
+      &:hover {
+        border-bottom: none;
+      }
+      &:active {
+        border-bottom: none;
+      }
+    `}
 `
 
 export const DateStyles = makeStyles({
@@ -384,7 +496,7 @@ export const DateStyles = makeStyles({
       borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
     },
     '&.MuiInput-underline:hover:before': {
-      borderBottom: props.darkMode ? `1px solid ${theme.white}` : `1px solid ${theme.grey}`,
+      borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled),
     },
   }),
 })
@@ -397,6 +509,7 @@ export const DateWrapperStyled = styled.div`
 
 type DateLabelProps = {
   darkMode?: boolean
+  disabled: boolean
 }
 
 export const DateLabelStyled = styled.div<DateLabelProps>`
@@ -411,6 +524,11 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
     props.darkMode &&
     `
     color: ${theme.white};
+    `}
+  ${(props) =>
+    props.disabled &&
+    `
+    color: ${theme.disabledGrey};
     `}
 `
 

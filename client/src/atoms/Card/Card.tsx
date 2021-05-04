@@ -22,6 +22,8 @@ type Props = {
   onClick?: any
   scroll?: boolean
   headerContent?: ReactElement
+  height?: string
+  width?: string
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
@@ -29,6 +31,8 @@ const ComponentCard: React.FC<Props> = ({
   selected,
   onClick,
   headerContent,
+  height,
+  width,
   theme = 'Primary',
   footer = false,
   header = false,
@@ -49,6 +53,8 @@ const ComponentCard: React.FC<Props> = ({
       fullHeight={fullHeight}
       noBorder={noBorder}
       scroll={scroll}
+      height={height}
+      width={width}
     >
       {header || headerContent ? (
         <ComponentCardHeaderStyled>

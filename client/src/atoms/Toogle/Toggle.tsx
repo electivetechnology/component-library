@@ -30,7 +30,7 @@ const Toggle: FunctionComponent<Props> = ({
   label,
   activeLabel,
   inactiveLabel,
-  darkMode,
+  darkMode = false,
   required,
   disabled = false
 }) => {
@@ -46,11 +46,21 @@ const Toggle: FunctionComponent<Props> = ({
     }
   }
 
+  const handleFormColor = () => {
+    if (darkMode) {
+      return theme.white
+    } else if (disabled) {
+      return theme.disabledGrey
+    } else {
+      return theme.grey
+    }
+  }
+
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
-        <Font variant='body2' color={darkMode ? theme.white : theme.grey}>{label}</Font>
-        {required && <RequiredStyled>*</RequiredStyled>}
+        <Font variant='body2' color={handleFormColor()}>{label}</Font>
+        {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
       </ToggleLabelStyled>
       <SwitchContainerStyled>
         <SwitchStyled>

@@ -159,6 +159,28 @@ Select.args = {
           icon: <AddIcon style={{position: 'relative', top: '44px'}} />
         }}
       />   
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        required={true}
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          suffix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />   
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        required={true}
+        options={{ 
+          isDelete: true
+        }}
+      />   
     </Fragment>
   )
 }
@@ -171,22 +193,50 @@ Text.args = {
   children: (
     <Fragment>
       <FormInput label='Text field' name='text' value='some text' type='text' />
-      {/* <FormInput 
-        label='Text prefix' 
-        name='text' 
-        value='some text' 
-        type='text'
-        options={{
-          prefix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
-        }} />
-      <FormInput label='Text suffix' name='text' value='some text' type='text' /> */}
+      <FormInput
+        label='Text Area'
+        name='text'
+        value='some text'
+        type='text' />
+      <FormInput label='Text suffix' name='text' value='some text' type='text' />
       <FormInput
         label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
-        options={{ multiline: true }}
+        options={{
+          multiline: true }} />
+    </Fragment>
+  )
+}
+
+// FormTextIcons
+export const TextIcons: any = Template.bind({})
+
+TextIcons.args = {
+  handleUpdate,
+  children: (
+    <Fragment>
+      <FormInput
+        label='Text Area'
+        name='text'
+        value='some text'
+        type='text'
+        options={{
+          prefix: true, 
+          icon: <AddIcon />,
+          suffix: true
+        }} />
+      <FormInput
+        label='Text multiline'
+        name='textarea'
+        value='some textarea'
+        type='text'
+        options={{
+          multiline: true,
+          prefix: true, 
+          icon: <AddIcon style={{margin: 'auto'}} />,
+          suffix: true }}
       />
     </Fragment>
   )

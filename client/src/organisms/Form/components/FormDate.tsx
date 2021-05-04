@@ -6,7 +6,7 @@ import React, {
   useState
 } from 'react'
 import { DateLabelStyled, DateWrapperStyled, DateStyles, RequiredStyled } from 'organisms/Form/styles'
-import { FormContext, InputContext } from 'organisms/Form/base'
+import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
   KeyboardDatePicker,
@@ -17,7 +17,7 @@ import { theme } from 'styles/theme'
 import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
 
 const FormDate: FunctionComponent = () => {
-  const { inputValue, name, label, disabled, required = false } = useContext(InputContext)
+  const { inputValue, name, label, disabled = false, required = false } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -25,7 +25,7 @@ const FormDate: FunctionComponent = () => {
 
   const [isNewDate, setIsNewDate] = useState(0)
 
-  const classes = DateStyles({darkMode})
+  const classes = DateStyles({darkMode, disabled})
 
   useEffect(() => {
     isNewDate && onBlur(name)
@@ -38,9 +38,9 @@ const FormDate: FunctionComponent = () => {
 
   return (
     <DateWrapperStyled>
-      <DateLabelStyled darkMode={darkMode}>
+      <DateLabelStyled darkMode={darkMode} disabled={disabled}>
         {label}
-        {required && <RequiredStyled>*</RequiredStyled>}
+        {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
       </DateLabelStyled>
       <MuiPickersUtilsProvider utils={DateUtils}>
         <KeyboardDatePicker
@@ -62,7 +62,7 @@ const FormDate: FunctionComponent = () => {
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
           fullWidth
-          keyboardIcon={<InsertInvitation style={{color: darkMode ? theme.white : theme.primaryGrey}} />}
+          keyboardIcon={<InsertInvitation style={{color: handleFormColor(theme.primaryGrey, darkMode, disabled)}} />}
         />
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>

@@ -34,7 +34,7 @@ const Checkbox: FunctionComponent<Props> = ({
   onChange,
   onBlur,
   value,
-  disabled,
+  disabled = false,
   fontSize,
   darkMode,
   required
@@ -62,11 +62,11 @@ const Checkbox: FunctionComponent<Props> = ({
         disabled={disabled}
         style={{color: darkMode ? theme.white :  theme.grey}}
       />
-      <CheckboxLabelStyled>
-        <label htmlFor={`label-${label}`} style={{ fontSize: fontSize, color: darkMode ? theme.white :  theme.grey }}>
+      <CheckboxLabelStyled disabled={disabled} darkMode={darkMode}>
+        <label htmlFor={`label-${label}`} style={{ fontSize: fontSize }}>
           {label}
         </label>
-        {required && <RequiredStyled>*</RequiredStyled>}
+        {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
       </CheckboxLabelStyled>
     </CheckboxContainerStyled>
   )
