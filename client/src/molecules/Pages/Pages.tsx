@@ -1,12 +1,11 @@
 import React, { FC, useContext } from 'react'
-import { Card, Font } from 'atoms'
+import { Card } from 'atoms'
 import Page from 'molecules/Pages/Page'
-import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordOutlined'
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
-import AlbumOutlinedIcon from '@material-ui/icons/AlbumOutlined'
 import { PageContext } from './base'
 import { CloseIconStyled, PagesContainerStyled, ProgressContainerStyled, ProgressBarStyled, ProgressIndicatorStyled, HelperTextStyled } from 'molecules/Pages/styles'
 import CloseIcon from '@material-ui/icons/Close'
+import Progress from 'atoms/Progress/Progress';
+import { theme } from 'styles/theme';
 
 const Pages: FC = () => {
   const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
@@ -18,11 +17,24 @@ const Pages: FC = () => {
   for (let startIncrement = 1; startIncrement <= finalStep; startIncrement++) {
     const star =
       startIncrement <= currentStep ? (
-        <FiberManualRecordIcon />
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.primaryColorValencia}
+          borderColor={theme.primaryColorValencia}
+        />
       ) : startIncrement <= progress ? (
-        <AlbumOutlinedIcon />
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.white}
+          progressFill={theme.primaryColorValencia}
+          borderColor={theme.primaryColorValencia}
+        />
       ) : (
-        <FiberManualRecordOutlinedIcon />
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.grey}
+          borderColor={theme.grey}
+        />
       )
 
     renderProgress.push(star)

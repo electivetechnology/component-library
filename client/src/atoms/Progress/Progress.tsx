@@ -7,16 +7,18 @@ type Props = {
   label: string
   progressColor: string
   progressFill?: string
+  borderColor: string
 }
 const Progress: React.FC<Props> = ({
   label,
+  borderColor = theme.primaryColorValencia,
   progressFill = 'transparent',
   progressColor = theme.primaryColorValencia
 }) => {
 
   return (
-    <ProgressStyled borderColor={progressColor} fill={progressFill}>
-      <Font variant="h5" color={progressColor} align="center">
+    <ProgressStyled borderColor={borderColor} fill={progressFill}>
+      <Font variant="body1" color={progressColor} align="center">
         {label}
       </Font>
     </ProgressStyled>

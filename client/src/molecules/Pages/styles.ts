@@ -33,7 +33,9 @@ export const ProgressContainerStyled = styled.div`
 `
 
 export const ProgressBarStyled = styled.div`
-  padding-right: 12px;
+  padding: 0 12px 8px 0;
+  display: inline-flex;
+  grid-gap: 12px;
 `
 
 export const HelperTextStyled = styled.div`

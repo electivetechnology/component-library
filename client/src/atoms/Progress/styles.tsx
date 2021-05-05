@@ -10,6 +10,9 @@ export const ProgressStyled = styled.div<ProgressProps>`
   height: 36px;
   width: 36px;
   border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   ${(props) =>
     props.borderColor &&
     `
