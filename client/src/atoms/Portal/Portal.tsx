@@ -1,24 +1,27 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import React, { Component } from 'react'
 import { createPortal } from 'react-dom'
 
-const Portal: FunctionComponent = ({ children }) => {
-  const modalRoot = document.getElementById('pop-up')
-  const el = document.createElement('div')
+type Props = {
+  root: HTMLElement
+}
+class Portal extends Component<Props> {
+  private el: any
+  constructor(props: any) {
+    super(props)
+    this.el = document.createElement('div')
+  }
 
-  useEffect(() => {
-    modalRoot && modalRoot.appendChild(el)
-  }, [])
+  componentDidMount() {
+    this.props.root.appendChild(this.el)
+  }
 
-  useEffect(() => {
-    const remove = () => () => {
-      if (modalRoot && modalRoot.hasChildNodes()) {
-        modalRoot.removeChild(el)
-      }
-    }
-    return remove()
-  })
+  componentWillUnmount() {
+    this.props.root.removeChild(this.el)
+  }
 
-  return createPortal(children, el)
+  render() {
+    return createPortal(this.props.children, this.el)
+  }
 }
 
 export default Portal

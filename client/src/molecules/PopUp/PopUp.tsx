@@ -23,8 +23,11 @@ const PopUp: FunctionComponent<Props> = ({
   const handleClose = () => {
     setOpen(false)
   }
+
+  const root: any = document.getElementById('pop-up')
+
   return (
-    <Portal>
+    <Portal root={root}>
       {open && (
         <Fragment>
           <Overlay />
