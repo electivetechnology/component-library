@@ -22,7 +22,8 @@ Primary.args = {
   setNext: mockFunction,
   back: () => mockFunction,
   setBack: mockFunction,
-  progress: 2
+  progress: 2,
+  helperText: "some helper text"
 }
 
 export default {

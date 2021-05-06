@@ -11,7 +11,7 @@ type Props = {
 const Page: FC<Props> = ({ handleClick, label, align = 'right' }) => {
   return (
     <PageStyled align={align}>
-      <Button label={label} theme="secondary" onClick={handleClick} />
+      <Button label={label} theme={'primary'} onClick={handleClick} />
     </PageStyled>
   )
 }

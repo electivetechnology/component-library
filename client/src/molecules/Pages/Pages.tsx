@@ -1,15 +1,14 @@
 import React, { FC, useContext } from 'react'
-import { Card, Font } from 'atoms'
+import { Card } from 'atoms'
 import Page from 'molecules/Pages/Page'
-import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordOutlined'
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
-import AlbumOutlinedIcon from '@material-ui/icons/AlbumOutlined'
 import { PageContext } from './base'
-import { CloseIconStyled } from 'molecules/Pages/styles'
+import { CloseIconStyled, PagesContainerStyled, ProgressContainerStyled, ProgressBarStyled, ProgressIndicatorStyled, HelperTextStyled } from 'molecules/Pages/styles'
 import CloseIcon from '@material-ui/icons/Close'
+import Progress from 'atoms/Progress/Progress';
+import { theme } from 'styles/theme';
 
 const Pages: FC = () => {
-  const { back, next, progress, handleClose, currentStep, finalStep } = useContext(
+  const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
     PageContext
   )
 
@@ -18,33 +17,55 @@ const Pages: FC = () => {
   for (let startIncrement = 1; startIncrement <= finalStep; startIncrement++) {
     const star =
       startIncrement <= currentStep ? (
-        <FiberManualRecordIcon />
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.primaryColorValencia}
+          borderColor={theme.primaryColorValencia}
+        />
       ) : startIncrement <= progress ? (
-        <AlbumOutlinedIcon />
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.white}
+          progressFill={theme.primaryColorValencia}
+          borderColor={theme.primaryColorValencia}
+        />
       ) : (
-        <FiberManualRecordOutlinedIcon />
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.grey}
+          borderColor={theme.grey}
+        />
       )
 
     renderProgress.push(star)
   }
 
   return (
-    <Card theme="primary" fullWidth>
-      {handleClose && (
-        <CloseIconStyled onClick={handleClose}>
-          <CloseIcon />
-        </CloseIconStyled>
-      )}
-      <Font variant="h4" component="h1" gutterBottom align="center">
-        {back && <Page handleClick={back} label={'Back'} />}
-        {renderProgress}
-        {next && (
-          <Page
-            handleClick={next}
-            label={currentStep === finalStep ? 'Finish' : 'Next'}
-          />
+    <Card theme="primary" fullWidth noBorder>
+      <PagesContainerStyled>
+        {handleClose && (
+          <CloseIconStyled onClick={handleClose}>
+            <CloseIcon />
+          </CloseIconStyled>
         )}
-      </Font>
+        {back && <Page handleClick={back} label={'Back'} />}
+        <ProgressContainerStyled>
+          <ProgressIndicatorStyled>
+            <ProgressBarStyled>
+              {renderProgress}
+            </ProgressBarStyled>
+            {next && (
+              <Page
+                handleClick={next}
+                label={currentStep === finalStep ? 'Finish' : 'Next'}
+              />
+            )}
+          </ProgressIndicatorStyled>
+          <HelperTextStyled>
+            {helperText}
+          </HelperTextStyled>
+        </ProgressContainerStyled>
+      </PagesContainerStyled>
     </Card>
   )
 }
