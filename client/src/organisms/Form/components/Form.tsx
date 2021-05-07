@@ -23,7 +23,7 @@ const Form: FunctionComponent<FormProps> = ({
 
   useEffect(() => {
     Children.map(children, (child: any) => {
-      const { required, name } = child.props
+      const { required, name } = child?.props || {}
       required && updateRequired(name, false)
     })
   }, [])

@@ -19,7 +19,8 @@ const FormInput: FunctionComponent<InputProps> = ({
   options,
   outlined,
   disabled,
-  required
+  required,
+                                                    handleDelete
 }) => {
   const {
     updateInput,
@@ -53,7 +54,8 @@ const FormInput: FunctionComponent<InputProps> = ({
         required,
         outlined: applyOutline,
         status: statuses && statuses[name] && statuses[name],
-        requiredError
+        requiredError,
+        handleDelete
       }}
     >
 
