@@ -27,6 +27,7 @@ export interface InputProps {
   outlined?: boolean
   disabled?: boolean
   required?: boolean
+  handleDelete?: () => void
 }
 
 export interface FormOptionType {
@@ -97,6 +98,7 @@ export type InputContextType = {
   outlined?: boolean
   status?: StatusType
   requiredError: boolean
+  handleDelete?: () => void
 }
 
 export const InputContext = createContext<InputContextType>(
