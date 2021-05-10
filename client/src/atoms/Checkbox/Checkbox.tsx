@@ -49,6 +49,18 @@ const Checkbox: FunctionComponent<Props> = ({
     setCheckbox(value)
   }, [value])
 
+  const handleCheckboxTheme = () => {
+    if (darkMode && disabled) {
+      return theme.disabledTextGrey
+    } else if (darkMode && !disabled) {
+      return theme.white
+    } else if (!darkMode && !disabled) {
+      return theme.primaryColorValencia
+    } else {
+      return theme.secondaryHover
+    } 
+  }
+
   return (
     <CheckboxContainerStyled data-testid='Checkbox'>
       <CheckboxStyled
@@ -60,7 +72,7 @@ const Checkbox: FunctionComponent<Props> = ({
         }}
         onBlur={onBlur}
         disabled={disabled}
-        style={{color: darkMode ? theme.white :  theme.grey}}
+        style={{color: handleCheckboxTheme()}}
       />
       <CheckboxLabelStyled disabled={disabled} darkMode={darkMode}>
         <label htmlFor={`label-${label}`} style={{ fontSize: fontSize }}>

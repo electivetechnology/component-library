@@ -42,11 +42,11 @@ const FormSelect: FunctionComponent = () => {
   }
 
   const handleMouseHover = () => {
-    setIsHovered(true)
+    disabled ? '' : setIsHovered(true)
   }
 
   const handleMouseLeave = () => {
-    setIsHovered(false)
+    disabled ? '' : setIsHovered(false)
   }
 
   useEffect(() => {

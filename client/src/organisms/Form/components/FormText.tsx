@@ -43,11 +43,11 @@ const FormText: FunctionComponent = () => {
   }
 
   const handleMouseHover = () => {
-    setIsHovered(true)
+    disabled ? '' : setIsHovered(true)
   }
 
   const handleMouseLeave = () => {
-    setIsHovered(false)
+    disabled ? '' : setIsHovered(false)
   }
 
   const fieldPlaceholder = required ? `${label}*` : label
@@ -112,7 +112,7 @@ const FormText: FunctionComponent = () => {
                 width: '18px',
                 margin: 'auto',
                 height: '18px',
-                fill: darkMode ? theme.white : theme.primaryColorValencia
+                fill: theme.primaryColorValencia
               }}
             />
           )}
@@ -122,7 +122,9 @@ const FormText: FunctionComponent = () => {
       {options?.copy && (
         <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />
       )}
-      <FormDelete isHovered={isHovered} />
+      {options?.isDelete && (
+        <FormDelete isHovered={isHovered} />
+      )}
     </FormTextContainerStyled>
   )
 }

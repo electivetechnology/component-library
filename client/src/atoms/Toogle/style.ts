@@ -53,7 +53,7 @@ export const SwitchTextContainerStyled = styled.span<SwitchTextProp>`
     props.disabled &&
     !props.checked &&
     `
-      border: 1px solid ${theme.toggleGrey};
+      border: 1px solid ${theme.disabledGrey};
     `};
   ${(props) =>
     props.disabled &&
@@ -103,7 +103,7 @@ export const SwitchHandleStyled = styled.span<SwitchHandleProp>`
     props.disabled &&
     !props.checked &&
     `
-      background-color: ${theme.toggleGrey};
+      background-color: ${theme.disabledGrey};
     `};
   ${(props) =>
     props.disabled &&
