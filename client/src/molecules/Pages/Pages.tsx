@@ -7,6 +7,8 @@ import Progress from 'atoms/Progress/Progress'
 import { theme } from 'styles/theme'
 
 const Pages: FC = () => {
+  const isMobile = window.innerWidth < 760
+
   const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
     PageContext
   )
@@ -22,13 +24,13 @@ const Pages: FC = () => {
           progressColor={theme.white}
           borderColor={theme.primaryColorValencia}
         />
-      ) : startIncrement <= progress ? (
+      ) : startIncrement <= progress && !isMobile ? (
         <Progress
           label={startIncrement.toString()}
           progressColor={theme.primaryColorValencia}
           borderColor={theme.primaryColorValencia}
         />
-      ) : (
+      ) : !isMobile && (
         <Progress
           label={startIncrement.toString()}
           progressColor={theme.grey}
