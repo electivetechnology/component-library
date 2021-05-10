@@ -1,21 +1,24 @@
 import React, { FunctionComponent, memo, useContext } from 'react'
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined'
-import { FormContext } from '../base'
+import { FormContext, InputContext } from '../base'
 import { ActionButtonStyled } from '../styles'
 import { theme } from 'styles/theme'
 
-
 interface Props {
-  id?: string
   isHovered?: boolean
 }
-const FormDelete: FunctionComponent<Props> = ({ id, isHovered}) => {
-  const { handleDelete, darkMode } = useContext(FormContext)
+const FormDelete: FunctionComponent<Props> = ({ isHovered }) => {
+  const { darkMode } = useContext(FormContext)
+  const { handleDelete } = useContext(InputContext)
+
+  if (!handleDelete) {
+    return null
+  }
   return (
-    <ActionButtonStyled data-testid="FormDelete" isActive={isHovered}>
+    <ActionButtonStyled data-testid='FormDelete' isActive={isHovered}>
       <DeleteOutlineOutlinedIcon
-        onClick={id ? handleDelete(id) : handleDelete}
-        style={{fill: darkMode ? theme.white : theme.grey }}
+        onClick={handleDelete}
+        style={{ fill: darkMode ? theme.white : theme.grey }}
       />
     </ActionButtonStyled>
   )

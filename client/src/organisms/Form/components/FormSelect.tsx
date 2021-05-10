@@ -68,7 +68,7 @@ const FormSelect: FunctionComponent = () => {
         darkMode={darkMode}
         outlined={outlined}
       />
-      {options && options.isDelete && <FormDelete id={inputs.id} isHovered={isHovered} />}
+      <FormDelete isHovered={isHovered} />
     </SelectStyled>
   )
 }
