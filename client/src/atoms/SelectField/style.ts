@@ -32,7 +32,10 @@ export const useLabelStyles = makeStyles({
     whiteSpace: 'nowrap',
     '&.Mui-focused': {
       color: props.darkMode ? theme.white : theme.grey
-    }
+    },
+    '&.MuiFormLabel-root.Mui-disabled': {
+      color: props.darkMode ? theme.disabledTextGrey : theme.disabledTextGrey,
+    },
   })
 })
 
@@ -51,13 +54,13 @@ export const useInputStyles = makeStyles({
       borderBottom: inputBorder(props.outlined, props.darkMode)
     },
     '&:hover:not(.Mui-disabled):before': {
-      borderBottom: inputBorderHover(props.outlined, props.darkMode)
+      borderBottom: props.disabled ? 'unset' : inputBorderHover(props.outlined, props.darkMode)
     },
     '&:focus': {
-      borderBottom: inputBorderHover(props.outlined, props.darkMode)
+      borderBottom: props.disabled ? 'unset' : inputBorderHover(props.outlined, props.darkMode)
     },
     '&:active': {
-      borderBottom: inputBorderHover(props.outlined, props.darkMode)
+      borderBottom: props.disabled ? 'unset' : inputBorderHover(props.outlined, props.darkMode)
     }
   }),
   root: () => ({

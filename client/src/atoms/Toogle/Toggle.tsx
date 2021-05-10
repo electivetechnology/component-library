@@ -47,10 +47,10 @@ const Toggle: FunctionComponent<Props> = ({
   }
 
   const handleFormColor = () => {
-    if (darkMode) {
+    if (darkMode && !disabled) {
       return theme.white
-    } else if (disabled) {
-      return theme.disabledGrey
+    } else if (darkMode && disabled) {
+      return theme.disabledTextGrey
     } else {
       return theme.grey
     }

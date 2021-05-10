@@ -4,8 +4,7 @@ import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline'
 import {
   CopyIconStyled,
   ToastStyled,
-  CopiedStyled,
-  CopyElementStyled
+  CopiedStyled
 } from 'organisms/Form/styles'
 import { theme } from 'styles/theme'
 
@@ -30,27 +29,24 @@ const FormCopy: FunctionComponent<Props> = ({
   }
 
   return (
-    <CopyElementStyled
-      isActive={isHovered}>
-      <CopyIconStyled onClick={handleCopy} isActive={isHovered}>
-        {isCopied ? (
-          <CopiedStyled>
-            <ToastStyled darkMode={darkMode}>Copied!</ToastStyled>
-            <CheckCircleOutline
-              style={{
-                top: '20px',
-                position: 'relative',
-                height: '20px',
-                marginTop: '4px',
-                color: darkMode ? theme.white : theme.grey
-              }}
-            />
-          </CopiedStyled>
-        ) : (
-          <FileCopyOutlined style={{ height: '20px', color: darkMode ? theme.white : theme.grey }} />
-        )}
-      </CopyIconStyled>
-    </CopyElementStyled>
+    <CopyIconStyled onClick={handleCopy} isActive={isHovered}>
+      {isCopied ? (
+        <CopiedStyled>
+          <ToastStyled darkMode={darkMode}>Copied!</ToastStyled>
+          <CheckCircleOutline
+            style={{
+              top: '20px',
+              position: 'relative',
+              height: '20px',
+              marginTop: '4px',
+              color: darkMode ? theme.white : theme.grey
+            }}
+          />
+        </CopiedStyled>
+      ) : (
+        <FileCopyOutlined style={{ height: '20px', color: darkMode ? theme.white : theme.grey }} />
+      )}
+    </CopyIconStyled>
   )
 }
 

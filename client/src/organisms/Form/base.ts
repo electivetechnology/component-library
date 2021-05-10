@@ -106,9 +106,23 @@ export const InputContext = createContext<InputContextType>(
 )
 
 export const handleFormColor = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
-  if (darkMode) {
+  if (darkMode && !disabled) {
     return theme.white
-  } else if (disabled) {
+  } else if (darkMode && disabled) {
+    return theme.disabledTextGrey
+  } else {
+    return defaultColor
+  }
+}
+
+export const handleFormComponentColor = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
+  if (darkMode && !disabled) {
+    return theme.white
+  } else if (darkMode && disabled) {
+    return theme.disabledTextGrey
+  } else if (!darkMode && !disabled) {
+    return theme.grey
+  } else if (!darkMode && disabled) {
     return theme.disabledGrey
   } else {
     return defaultColor
@@ -116,9 +130,9 @@ export const handleFormColor = (defaultColor: string, darkMode: boolean, disable
 }
 
 export const handleFormBorder = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
-  if (darkMode) {
+  if (darkMode && !disabled) {
     return `1px solid ${theme.white}`
-  } else if (disabled) {
+  } else if (darkMode && disabled) {
     return `1px solid ${theme.disabledGrey}`
   } else {
     return `1px solid ${defaultColor}`

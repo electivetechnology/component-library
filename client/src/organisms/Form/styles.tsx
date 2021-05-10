@@ -236,24 +236,6 @@ export const TextInputStyled = styled.input<TextInputProps>`
     border-bottom: 1px solid ${theme.grey};
   }
   ${(props) =>
-    props.disabled &&
-    `
-      border: none;
-      color: ${theme.disabledTextGrey};
-      border-bottom: 1px dotted ${theme.dividerGrey};
-      background-color: transparent;
-        &:focus {
-          outline: none;
-          border-bottom: 1px dotted ${theme.dividerGrey};
-        }
-        &:hover {
-          border-bottom: 1px dotted ${theme.dividerGrey};
-        }
-        &:active {
-          border-bottom: 1px dotted ${theme.dividerGrey};
-        }
-    `}
-  ${(props) =>
     props.error &&
     `
       border-bottom: 1px solid ${theme.primaryRed};
@@ -271,6 +253,24 @@ export const TextInputStyled = styled.input<TextInputProps>`
       &:active {
         border-bottom: 1px solid ${theme.white};
       }
+    `}
+  ${(props) =>
+    props.disabled &&
+    `
+      border: none;
+      color: ${theme.disabledTextGrey};
+      border-bottom: 1px dotted ${theme.dividerGrey};
+      background-color: transparent;
+        &:focus {
+          outline: none;
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+        &:hover {
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
+        &:active {
+          border-bottom: 1px dotted ${theme.dividerGrey};
+        }
     `}
   ${(props) =>
     props.icon &&
@@ -314,6 +314,27 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       }
     `}
   ${(props) =>
+    props.error && 
+    `
+      display: inline-flex;
+      width: 100%;
+      grid-gap: 8px;
+    `}
+  ${(props) =>
+    props.darkMode && props.icon &&
+    `
+      border: none;
+      color: ${theme.white}; 
+      border-bottom: 1px solid ${theme.grey};
+      background-color: transparent;
+        &:hover {
+          border-bottom: 1px solid ${theme.white};
+        }
+        &:active {
+          border-bottom: 1px solid ${theme.white};
+        }
+    `}
+  ${(props) =>
     props.disabled && props.icon &&
     `
     border: none;
@@ -329,25 +350,6 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       }
       &:active {
         border-bottom: 1px dotted ${theme.dividerGrey};
-      }
-    `}
-  ${(props) =>
-    props.error && props.icon &&
-    `
-    border-bottom: 1px solid ${theme.primaryRed};
-    `}
-  ${(props) =>
-    props.darkMode && props.icon &&
-    `
-    border: none;
-    color: ${theme.white}; 
-    border-bottom: 1px solid ${theme.grey};
-    background-color: transparent;
-      &:hover {
-        border-bottom: 1px solid ${theme.white};
-      }
-      &:active {
-        border-bottom: 1px solid ${theme.white};
       }
     `}
 `
@@ -374,19 +376,6 @@ export const CopiedStyled = styled.div`
 `
 
 // FORM COPY
-type CopyElementProp = {
-  isActive?: boolean
-}
-export const CopyElementStyled = styled.div<CopyElementProp>`
-  width: 48px;
-  padding-left: 8px;
-  cursor: pointer;
-  ${(props) =>
-    props.isActive &&
-    `
-      margin: auto 0;
-    `}
-`
 
 type ToastProps = {
   darkMode: boolean
@@ -448,6 +437,20 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     border-bottom: 1px solid ${theme.primaryRed};
     `}
   ${(props) =>
+    props.darkMode &&
+    `
+      border: none;
+      color: ${theme.white};
+      border-bottom: 1px solid ${theme.grey};
+      background-color: transparent;
+        &:hover {
+          border-bottom: 1px solid ${theme.white};
+        }
+        &:active {
+          border-bottom: 1px solid ${theme.white};
+        }
+    `}
+  ${(props) =>
     props.disabled &&
     `
     border: none;
@@ -463,20 +466,6 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
       }
       &:active {
         border-bottom: 1px dotted ${theme.dividerGrey};
-      }
-    `}
-  ${(props) =>
-    props.darkMode &&
-    `
-    border: none;
-    color: ${theme.white};
-    border-bottom: 1px solid ${theme.grey};
-    background-color: transparent;
-      &:hover {
-        border-bottom: 1px solid ${theme.white};
-      }
-      &:active {
-        border-bottom: 1px solid ${theme.white};
       }
     `}
   ${(props) =>
@@ -563,5 +552,6 @@ export const FormRowStyled = styled.div`
   width: 100%;
   @media screen and (min-width: 750px) {
     display: inline-flex;
+    grid-gap: 12px;
   }
   `
