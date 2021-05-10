@@ -11,20 +11,18 @@ const Pages: FC = () => {
     PageContext
   )
 
-  const isMobile = window.innerWidth < 760
-
   const renderProgress: any = []
 
   for (let startIncrement = 1; startIncrement <= finalStep; startIncrement++) {
     const star =
-      startIncrement <= progress ? (
+      startIncrement === currentStep ? (
         <Progress
           label={startIncrement.toString()}
-          progressColor={theme.white}
           progressFill={theme.primaryColorValencia}
+          progressColor={theme.white}
           borderColor={theme.primaryColorValencia}
         />
-      ) : startIncrement <= currentStep ? (
+      ) : startIncrement <= progress ? (
         <Progress
           label={startIncrement.toString()}
           progressColor={theme.primaryColorValencia}

@@ -35,7 +35,7 @@ export const PagesContainerStyled = styled.div`
   @media screen and (min-width: 750px) {
     position: relative;
     justify-content: unset;
-    width: 100%;
+    width: -webkit-fill-available;
     padding: 24px;
   }
 `
