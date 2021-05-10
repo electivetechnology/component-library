@@ -25,9 +25,9 @@ const FormText: FunctionComponent = () => {
     disabled = false,
     required,
     status,
-    requiredError,
+    requiredError
   } = useContext(InputContext)
-  
+
   const [isHovered, setIsHovered] = useState(false)
 
   const { statusType } = status || {}
@@ -53,26 +53,33 @@ const FormText: FunctionComponent = () => {
   const fieldPlaceholder = required ? `${label}*` : label
 
   return (
-    <FormTextContainerStyled 
+    <FormTextContainerStyled
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseLeave}>
-      <div style={{width: '100%'}}>
+      onMouseLeave={handleMouseLeave}
+    >
+      <div style={{ width: '100%' }}>
         {value && (
           <div>
-            <LabelStyled color={handleFormColor(theme.grey, darkMode, disabled)} htmlFor={name}>
+            <LabelStyled
+              color={handleFormColor(theme.grey, darkMode, disabled)}
+              htmlFor={name}
+            >
               {label}
             </LabelStyled>
             {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
           </div>
         )}
-        {options && options.multiline ? (
-          <TextAreaStyled
-            disabled={disabled}
-            darkMode={darkMode}
-            error={error}
-            icon={options?.suffix || options?.prefix}>
-            {options && options.prefix && options.icon}
+
+        <TextAreaStyled
+          disabled={disabled}
+          darkMode={darkMode}
+          error={error}
+          icon={options?.suffix || options?.prefix}
+        >
+          {options?.prefix && options?.icon}
+
+          {options?.multiline ? (
             <FormTextArea
               icon={options?.suffix || options?.prefix}
               darkMode={darkMode}
@@ -84,15 +91,7 @@ const FormText: FunctionComponent = () => {
               disabled={disabled}
               error={error}
             />
-            {options && options.suffix && options.icon}
-          </TextAreaStyled>
-        ) : (
-          <TextAreaStyled
-            disabled={disabled}
-            darkMode={darkMode}
-            error={error}
-            icon={options?.suffix || options?.prefix}>
-            {options && options.prefix && options.icon}
+          ) : (
             <TextInputStyled
               darkMode={darkMode}
               id={name}
@@ -105,20 +104,25 @@ const FormText: FunctionComponent = () => {
               error={error}
               icon={options?.suffix || options?.prefix}
             />
-            {error && <WarningIcon style={{
-              width: '18px',
-              margin: 'auto',
-              height: '18px',
-              fill: darkMode ? theme.white : theme.primaryColorValencia
-            }} />}
-            {options && options.suffix && options.icon}
-          </TextAreaStyled>
-        )}
+          )}
+
+          {error && (
+            <WarningIcon
+              style={{
+                width: '18px',
+                margin: 'auto',
+                height: '18px',
+                fill: darkMode ? theme.white : theme.primaryColorValencia
+              }}
+            />
+          )}
+          {options?.suffix && options?.icon}
+        </TextAreaStyled>
       </div>
-      {options && 
-        options.copy && 
-        <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />}
-      {options && options.isDelete && <FormDelete id={inputs.id} isHovered={isHovered} />}
+      {options?.copy && (
+        <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />
+      )}
+      <FormDelete isHovered={isHovered} />
     </FormTextContainerStyled>
   )
 }
