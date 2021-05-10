@@ -25,16 +25,19 @@ export const CloseIconStyled = styled.div`
 `
 
 export const PagesContainerStyled = styled.div`
-  padding: 12px 24px;
-  display: inline-flex;
+  background-color: ${theme.white};
+  padding: 8px 24px;
   bottom: 0;
   position: absolute;
   width: 90vw;
-  justify-content: space-between;
+  z-index: 1000;
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
   background-color: ${theme.white};
   @media screen and (min-width: 750px) {
+    display: inline-flex;
+    padding: 12px 24px;
     position: relative;
-    justify-content: unset;
     width: -webkit-fill-available;
     padding: 24px;
   }
@@ -58,12 +61,15 @@ type ProgressBarProps = {
 
 export const ProgressBarStyled = styled.div<ProgressBarProps>`
   padding: 0 12px 8px 0;
+  margin: auto;
   grid-gap: 12px;
   display: none;
   ${props =>
     props.isMobile &&
     `
+      padding: 0;
       display: inline-flex;
+      grid-column: 2;
     `};
   @media screen and (min-width: 750px) {
     display: inline-flex;
@@ -76,6 +82,8 @@ export const ProgressBarStyled = styled.div<ProgressBarProps>`
 `
 
 export const MobileProgressNavStyled = styled.div`
+  grid-column: 3;
+  margin-left: auto;
   @media screen and (min-width: 750px) {
     display: none;
   }
