@@ -17,20 +17,20 @@ const Pages: FC = () => {
 
   for (let startIncrement = 1; startIncrement <= finalStep; startIncrement++) {
     const star =
-      startIncrement <= currentStep ? (
-        <Progress
-          label={startIncrement.toString()}
-          progressColor={theme.primaryColorValencia}
-          borderColor={theme.primaryColorValencia}
-        />
-      ) : startIncrement <= progress && !isMobile ? (
+      startIncrement <= progress ? (
         <Progress
           label={startIncrement.toString()}
           progressColor={theme.white}
           progressFill={theme.primaryColorValencia}
           borderColor={theme.primaryColorValencia}
         />
-      ) : !isMobile && (
+      ) : startIncrement <= currentStep ? (
+        <Progress
+          label={startIncrement.toString()}
+          progressColor={theme.primaryColorValencia}
+          borderColor={theme.primaryColorValencia}
+        />
+      ) : (
         <Progress
           label={startIncrement.toString()}
           progressColor={theme.grey}
