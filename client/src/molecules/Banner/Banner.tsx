@@ -1,28 +1,49 @@
-import React, { useContext } from 'react'
-import Snackbar from '@material-ui/core/Snackbar'
-import BannerContent from 'molecules/Banner/BannerContent'
-import { CloseWrapper } from 'molecules/Banner/styles'
-import { BannerContext } from './base'
+import React, { FunctionComponent, Fragment } from 'react'
+import Portal from 'atoms/Portal/Portal'
+import BannerClose from './BannerClose'
+import {
+  BannerWrapperStyled,
+  Overlay,
+  BannerClosedStyled,
+  BannerContainer
+} from './styles'
 
-const Banner = () => {
-  const {
-    banner: { bannerType },
-    handleClose
-  } = useContext(BannerContext)
+type Props = {
+  open: boolean
+  setOpen: Function
+  isCloseable?: boolean
+}
+
+const Banner: FunctionComponent<Props> = ({
+  children,
+  open,
+  setOpen,
+  isCloseable = false
+}) => {
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const root: any = document.getElementById('banner')
 
   return (
-    <Snackbar
-      data-testid='Banner'
-      autoHideDuration={6000}
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      open={!!bannerType}
-      onClose={handleClose}
-      ContentProps={{
-        'aria-describedby': 'message-id'
-      }}
-    >
-      {!!bannerType ? <BannerContent /> : <CloseWrapper />}
-    </Snackbar>
+    <Portal root={root}>
+      {open && (
+        <Fragment>
+          <Overlay />
+          <BannerWrapperStyled data-testid='Banner'>
+            <BannerContainer>
+              {children}
+              {isCloseable && (
+                <BannerClosedStyled>
+                  <BannerClose handleClose={handleClose} />
+                </BannerClosedStyled>
+              )}
+            </BannerContainer>
+          </BannerWrapperStyled>
+        </Fragment>
+      )}
+    </Portal>
   )
 }
 
