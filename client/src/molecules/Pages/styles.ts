@@ -26,10 +26,10 @@ export const CloseIconStyled = styled.div`
 
 export const PagesContainerStyled = styled.div`
   background-color: ${theme.white};
-  padding: 8px 24px;
+  padding: 8px 24px 24px;
   bottom: 0;
   position: absolute;
-  width: 90vw;
+  width: 85vw;
   z-index: 1000;
   grid-template-columns: 1fr 1fr 1fr;
   display: grid;
