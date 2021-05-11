@@ -3,7 +3,6 @@ import Portal from 'atoms/Portal/Portal'
 import BannerClose from './BannerClose'
 import {
   BannerWrapperStyled,
-  Overlay,
   BannerClosedStyled,
   BannerContainer
 } from './styles'
@@ -29,19 +28,16 @@ const Banner: FunctionComponent<Props> = ({
   return (
     <Portal root={root}>
       {open && (
-        <Fragment>
-          <Overlay />
-          <BannerWrapperStyled data-testid='Banner'>
-            <BannerContainer>
-              {children}
-              {isCloseable && (
-                <BannerClosedStyled>
-                  <BannerClose handleClose={handleClose} />
-                </BannerClosedStyled>
-              )}
-            </BannerContainer>
-          </BannerWrapperStyled>
-        </Fragment>
+        <BannerWrapperStyled data-testid='Banner'>
+          <BannerContainer>
+            {children}
+            {isCloseable && (
+              <BannerClosedStyled>
+                <BannerClose handleClose={handleClose} />
+              </BannerClosedStyled>
+            )}
+          </BannerContainer>
+        </BannerWrapperStyled>
       )}
     </Portal>
   )

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme, zindex } from 'styles/theme'
+import { theme } from 'styles/theme'
 
 export const BannerWrapperStyled = styled.div`
   display: flex;
@@ -46,17 +46,4 @@ export const HeaderWrapperStyled = styled.div`
 
 export const BannerClosedStyled = styled.div`
   padding-top: 16px;
-`
-
-export const Overlay = styled.div`
-  background-color: rgba(0, 0, 0, 0);
-  transition: 0.4s;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  z-index: ${zindex.fabOverlay};
 `

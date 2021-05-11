@@ -5,12 +5,14 @@ import PopUp from 'molecules/PopUp/PopUp'
 
 afterEach(cleanup)
 
+const setOpen = () =>
+
 test('renders PopUp no close', () => {
-  const { getByTestId } = render(<PopUp />)
+  const { getByTestId } = render(<PopUp open={true} setOpen={setOpen}/>)
   expect(getByTestId('PopUp')).toBeDefined
 })
 
 test('renders PopUp close', () => {
-  const { getByTestId } = render(<PopUp />)
+  const { getByTestId } = render(<PopUp open={true} setOpen={setOpen}/>)
   expect(getByTestId('PopUp')).toBeDefined
 })
