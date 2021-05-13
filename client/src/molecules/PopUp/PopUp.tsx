@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from 'react'
+import React, { FunctionComponent, Fragment, useEffect, useState } from 'react'
 import Portal from 'atoms/Portal/Portal'
 import PopUpClose from './PopUpClose'
 import {
@@ -20,11 +20,19 @@ const PopUp: FunctionComponent<Props> = ({
   setOpen,
   isCloseable = false
 }) => {
+  const [root, setRoot] = useState<any>(document.getElementById('pop-up'))
+
   const handleClose = () => {
     setOpen(false)
   }
 
-  const root: any = document.getElementById('pop-up')
+  useEffect(() => {
+    setRoot(document.getElementById('pop-up'))
+  }, [])
+
+  if(!root){
+    return null
+  }
 
   return (
     <Portal root={root}>

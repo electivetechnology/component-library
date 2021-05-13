@@ -2,25 +2,14 @@ import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import PopUp from 'molecules/PopUp/PopUp'
-import ProviderWrapper from 'utils/ProviderWrapper'
-import { noCloseStore, closeStore } from 'molecules/PopUp/mocks'
 
 afterEach(cleanup)
 
 test('renders PopUp no close', () => {
   const { getByTestId } = render(
-    <ProviderWrapper store={noCloseStore}>
-      <PopUp />
-    </ProviderWrapper>
-  )
-  expect(getByTestId('PopUp')).toBeDefined
-})
-
-test('renders PopUp close', () => {
-  const { getByTestId } = render(
-    <ProviderWrapper store={closeStore}>
-      <PopUp />
-    </ProviderWrapper>
+    <div id='pop-up'>
+      <PopUp open={true} setOpen={() => {}} />
+    </div>
   )
   expect(getByTestId('PopUp')).toBeDefined
 })
