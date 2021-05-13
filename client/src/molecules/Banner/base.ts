@@ -1,16 +1,10 @@
-import { createContext } from 'react'
-
-export type BannerTypeType = 'success' | 'warning' | 'info' | 'error' | ''
-
-export interface BannerType {
-  bannerType: BannerTypeType
-  message: string
-}
+import { createContext, ReactElement } from 'react'
 
 export interface BannerContextType {
-  banner: BannerType
-  setBanner: Function
-  handleClose: any
+  banner: ReactElement | null
+  setBanner: any
 }
 
-export const BannerContext = createContext<BannerContextType>({} as BannerContextType)
+export const BannerContext = createContext<BannerContextType>(
+  {} as BannerContextType
+)
