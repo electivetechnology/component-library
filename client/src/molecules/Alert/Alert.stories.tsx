@@ -1,7 +1,6 @@
 import React from 'react'
 import Alert from 'molecules/Alert/Alert'
 import AlertContent from 'molecules/Alert/AlertContent'
-
 import AlertMessage from 'molecules/Alert/AlertMessage'
 import {
   successContextMock,

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { CloseIconStyled } from 'molecules/PopUp/styles'
+import { CloseIconStyled } from './styles'
 import Close from '@material-ui/icons/Close'
 
 type Props = {

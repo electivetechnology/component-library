@@ -1,37 +1,58 @@
-import React, { FunctionComponent, Fragment } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getPopUp, resetPopUp } from 'molecules/PopUp/reducer'
+import React, { FunctionComponent, Fragment, useEffect, useState } from 'react'
+import Portal from 'atoms/Portal/Portal'
+import PopUpClose from './PopUpClose'
 import {
   PopUpWrapperStyled,
   Overlay,
   PopupClosedStyled,
   PopupContainer
-} from 'molecules/PopUp/styles'
-import PopUpClose from 'molecules/PopUp/PopUpClose'
+} from './styles'
 
-const PopUp: FunctionComponent = ({ children }) => {
-  const dispatch = useDispatch()
-  const { popUpType, isCloseable } = useSelector(getPopUp)
+type Props = {
+  open: boolean
+  setOpen: Function
+  isCloseable?: boolean
+}
+
+const PopUp: FunctionComponent<Props> = ({
+  children,
+  open,
+  setOpen,
+  isCloseable = false
+}) => {
+  const [root, setRoot] = useState<any>(document.getElementById('pop-up'))
 
   const handleClose = () => {
-    dispatch(resetPopUp())
+    setOpen(false)
   }
 
-  return !!popUpType ? (
-    <Fragment>
-      <Overlay />
-      <PopUpWrapperStyled data-testid='PopUp'>
-        <PopupContainer>
-          {children}
-          {isCloseable && (
-            <PopupClosedStyled>
-              <PopUpClose handleClose={handleClose} />
-            </PopupClosedStyled>
-          )}
-        </PopupContainer>
-      </PopUpWrapperStyled>
-    </Fragment>
-  ) : null
+  useEffect(() => {
+    setRoot(document.getElementById('pop-up'))
+  }, [])
+
+  if(!root){
+    return null
+  }
+
+  return (
+    <Portal root={root}>
+      {open && (
+        <Fragment>
+          <Overlay />
+          <PopUpWrapperStyled data-testid='PopUp'>
+            <PopupContainer>
+              {children}
+              {isCloseable && (
+                <PopupClosedStyled>
+                  <PopUpClose handleClose={handleClose} />
+                </PopupClosedStyled>
+              )}
+            </PopupContainer>
+          </PopUpWrapperStyled>
+        </Fragment>
+      )}
+    </Portal>
+  )
 }
 
 export default PopUp
