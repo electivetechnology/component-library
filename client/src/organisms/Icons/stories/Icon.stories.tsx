@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import Icon from 'icons/icons/Icon'
+import React from 'react'
+import Icon from '../icons/Icon'
 
 const Template = (args: any) => <Icon {...args} />
 
@@ -389,6 +389,6 @@ WorkOff.args = {
 }
 
 export default {
-  title: 'organisms/Icon/Icons',
+  title: 'organisms/Icons',
   component: Icon
 }

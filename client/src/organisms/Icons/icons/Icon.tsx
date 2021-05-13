@@ -1,7 +1,7 @@
 import React, { 
   FunctionComponent
 } from 'react'
-import { renderIcon, IconsConst } from 'icons/base'
+import { renderIcon, IconsConst } from 'organisms/Icons/base'
 
 type Props = {
   icon: IconsConst

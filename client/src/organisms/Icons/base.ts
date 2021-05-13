@@ -1,4 +1,4 @@
-import { admin, add, api, back, billing, business, briefs, call, candidates, completed, contacts, conversation, remove, download, email, engagement, list, help, home, upload, inbox, invite, invited, label, linkOut, meeting, newServiceAccounts, newUser, pending, permissions, phone, placed, rejected, roles, serviceAccounts, settings, folder, signout, sms, sort, support, sync, unsuccessful, users, web, work, filter, checked } from "icons"
+import { admin, add, api, back, billing, business, briefs, call, candidates, completed, contacts, conversation, remove, download, email, engagement, list, help, home, upload, inbox, invite, invited, label, linkOut, meeting, newServiceAccounts, newUser, pending, permissions, phone, placed, rejected, roles, serviceAccounts, settings, folder, signout, sms, sort, support, sync, unsuccessful, users, web, work, filter, checked } from "organisms/Icons"
 
 export enum IconsConst {
   ADD = 'Add',
