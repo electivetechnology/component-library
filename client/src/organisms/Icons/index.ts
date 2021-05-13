@@ -37,6 +37,7 @@ import questions from './icons/questions.svg'
 import rejected from './icons/rejected.svg'
 import remove from './icons/remove.svg'
 import roles from './icons/roles.svg'
+import save from './icons/save.svg'
 import serviceAccounts from './icons/serviceAccounts.svg'
 import settings from './icons/settings.svg'
 import signout from './icons/signout.svg'
@@ -92,6 +93,7 @@ export {
   rejected,
   remove,
   roles,
+  save,
   serviceAccounts,
   settings,
   signout,
