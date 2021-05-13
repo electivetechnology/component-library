@@ -1,26 +1,16 @@
-import React, { FunctionComponent, useContext } from 'react'
-import { useStyles } from 'molecules/Banner/styles'
-import SnackbarContent from '@material-ui/core/SnackbarContent'
-import { CloseButton } from 'atoms'
-import BannerMessage from 'molecules/Banner/BannerMessage'
-import { BannerContext } from 'molecules/Banner/base'
+import React, { FC, ReactElement, Fragment } from 'react'
 
-const BannerContent: FunctionComponent = () => {
-  const {
-    banner: { bannerType },
-    handleClose
-  } = useContext(BannerContext)
+type Props = {
+  message: string
+  buttons: Array<ReactElement>
+}
 
-  const classes = useStyles()
-
+const BannerContent: FC<Props> = ({ message, buttons }) => {
   return (
-    <SnackbarContent
-      data-testid='BannerContent'
-      className={!!bannerType ? classes[bannerType] : ''}
-      aria-describedby='client-snackbar'
-      message={<BannerMessage />}
-      action={<CloseButton handleClose={handleClose} />}
-    />
+    <Fragment>
+      {message}
+      {buttons.map(button => button)}
+    </Fragment>
   )
 }
 

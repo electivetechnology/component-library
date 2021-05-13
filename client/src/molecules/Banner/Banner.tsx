@@ -1,29 +1,10 @@
-import React, { useContext } from 'react'
-import Snackbar from '@material-ui/core/Snackbar'
-import BannerContent from 'molecules/Banner/BannerContent'
-import { CloseWrapper } from 'molecules/Banner/styles'
-import { BannerContext } from './base'
+import React, { useContext, Fragment, createContext } from 'react'
+import { BannerContext } from 'molecules/Banner/base'
 
 const Banner = () => {
-  const {
-    banner: { bannerType },
-    handleClose
-  } = useContext(BannerContext)
+  const { banner } = useContext(BannerContext)
 
-  return (
-    <Snackbar
-      data-testid='Banner'
-      autoHideDuration={6000}
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      open={!!bannerType}
-      onClose={handleClose}
-      ContentProps={{
-        'aria-describedby': 'message-id'
-      }}
-    >
-      {!!bannerType ? <BannerContent /> : <CloseWrapper />}
-    </Snackbar>
-  )
+  return <Fragment>{banner && banner}</Fragment>
 }
 
 export default Banner
