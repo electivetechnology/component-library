@@ -10,11 +10,11 @@ type Props = {
 const BannerContent: FC<Props> = ({ message, buttons }) => {
   return (
     <Fragment>
-      <Font variant="body1">
-        {message}
-      </Font>
+      <Font variant='body1'>{message}</Font>
       <ButtonStyled>
-        {buttons.map(button => button)}
+        {buttons.map((button, index) => (
+          <Fragment key={index}>{button}</Fragment>
+        ))}
       </ButtonStyled>
     </Fragment>
   )

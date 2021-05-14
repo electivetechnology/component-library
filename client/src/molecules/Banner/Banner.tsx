@@ -8,7 +8,7 @@ const Banner = () => {
   const { banner } = useContext(BannerContext)
 
   return (
-    <BannerContainerStyled>
+    <BannerContainerStyled data-testid='Banner'>
       {banner && banner}
     </BannerContainerStyled>)
 }
