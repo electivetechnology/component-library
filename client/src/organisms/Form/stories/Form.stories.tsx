@@ -178,10 +178,7 @@ Select.args = {
         type='select'
         required={true}
         handleDelete={() => {}}
-        options={{ 
-          isDelete: true
-        }}
-      />   
+      />
     </Fragment>
   )
 }
@@ -281,7 +278,6 @@ TextDelete.args = {
         value='some text'
         type='text'
         handleDelete={() => {}}
-        options={{ isDelete: true }}
       />
       <FormInput
         label='Text multiline'
@@ -289,7 +285,7 @@ TextDelete.args = {
         value='some textarea'
         type='text'
         handleDelete={() => {}}
-        options={{ isDelete: true, multiline: true }}
+        options={{ multiline: true }}
       />
     </Fragment>
   )
