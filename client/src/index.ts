@@ -13,7 +13,8 @@ export {
   Font,
   Grid,
   GridColumn,
-  Chart
+  Chart,
+  Pill
 } from 'atoms'
 
 // MOLECULES

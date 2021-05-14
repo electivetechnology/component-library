@@ -6,7 +6,7 @@ import React, {
   useState
 } from 'react'
 import { DateLabelStyled, DateWrapperStyled, DateStyles, RequiredStyled } from 'organisms/Form/styles'
-import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
+import { FormContext, InputContext, handleFormComponentColor } from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
   KeyboardDatePicker,
@@ -62,7 +62,7 @@ const FormDate: FunctionComponent = () => {
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
           fullWidth
-          keyboardIcon={<InsertInvitation style={{color: handleFormColor(theme.primaryGrey, darkMode, disabled)}} />}
+          keyboardIcon={<InsertInvitation style={{color: handleFormComponentColor(theme.primaryGrey, darkMode, disabled)}} />}
         />
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>
