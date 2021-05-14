@@ -1,21 +1,28 @@
-import React from 'react'
+import React, { Fragment, FC, useState } from 'react'
 import PopUp from 'molecules/PopUp/PopUp'
-import ProviderWrapper from 'utils/ProviderWrapper'
-import { noCloseStore, closeStore } from 'molecules/PopUp/mocks'
+
+const Version: FC = () => {
+  return <Fragment>Hello pop up</Fragment>
+}
+
+const Template = (args: any) => <PopUp {...args} />
+
+// Default
+export const Default: any = Template.bind({})
+
+Default.args = {
+  open: true,
+  children: <Version />
+}
 
 export default {
   title: 'molecules/PopUp',
-  component: PopUp
+  component: PopUp,
+  decorators: [
+    (Story: any) => (
+      <div id='pop-up'>
+        <Story />
+      </div>
+    )
+  ]
 }
-
-export const NoClosePopUp = () => (
-  <ProviderWrapper store={noCloseStore}>
-    <PopUp>Do not allow close</PopUp>
-  </ProviderWrapper>
-)
-
-export const ClosePopUp = () => (
-  <ProviderWrapper store={closeStore}>
-    <PopUp>Allow close</PopUp>
-  </ProviderWrapper>
-)

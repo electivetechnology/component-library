@@ -14,11 +14,18 @@ const AlertContainer: FC = ({ children }) => {
     })
   }
 
+  const handleAlert = (alertType: AlertTypeType, message: string) => {
+    setAlert({
+      alertType,
+      message
+    })
+  }
+
   return (
     <AlertContext.Provider
       value={{
         alert,
-        setAlert,
+        setAlert: handleAlert,
         handleClose
       }}
     >
