@@ -18,7 +18,7 @@ export {
 
 // MOLECULES
 export { Alert, AlertContext, AlertContainer } from 'molecules/Alert'
-export { Banner, BannerContent } from 'molecules/Banner'
+export { Banner, BannerContent, BannerContext } from 'molecules/Banner'
 export { default as Channels } from 'molecules/Channels/Channels'
 export { NavIcons, NavToggle, NavMulti, NavIcon } from 'molecules/NavIcons'
 export { Columns, Column } from 'molecules/Columns'
