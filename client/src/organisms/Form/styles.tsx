@@ -406,7 +406,7 @@ type TextareaProps = {
 }
 
 export const TextareaStyled = styled.textarea<TextareaProps>`
-  border: none;
+  border: 1px solid transparent;
   width: 100%;
   font-size: 14px;
   background-color: transparent;
