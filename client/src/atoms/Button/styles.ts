@@ -59,11 +59,11 @@ export const Wrapper = styled.div<WrapperProps>`
   `};
 `
 
-type IcronProps = {
+type IconProps = {
   variant: string
-  label: boolean
+  hasLabel: boolean
 }
-export const Icon = styled.div<IcronProps>`
+export const Icon = styled.div<IconProps>`
   padding-right: 8px;
   display: grid;
   align-items: center;
@@ -73,7 +73,7 @@ export const Icon = styled.div<IcronProps>`
       padding-right: 0;
   `};
   ${(props) =>
-    !props.label &&
+    !props.hasLabel &&
     `
       padding: 0;
       margin: auto;

@@ -19,6 +19,7 @@ const Pages: FC = () => {
     const star =
       startIncrement === currentStep ? (
         <Progress
+          key={startIncrement}
           label={startIncrement.toString()}
           progressFill={theme.primaryColorValencia}
           progressColor={theme.white}
@@ -26,12 +27,14 @@ const Pages: FC = () => {
         />
       ) : startIncrement <= progress && !isMobile ? (
         <Progress
+          key={startIncrement}
           label={startIncrement.toString()}
           progressColor={theme.primaryColorValencia}
           borderColor={theme.primaryColorValencia}
         />
       ) : !isMobile && (
         <Progress
+          key={startIncrement}
           label={startIncrement.toString()}
           progressColor={theme.grey}
           borderColor={theme.grey}

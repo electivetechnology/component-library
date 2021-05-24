@@ -28,7 +28,7 @@ const Button: React.FC<Props> = ({
     href && setRedirect(true)
   }
 
-  const hasLabel = label ? true : false
+  const hasLabel = !!label
 
   return (
     <ButtonComponent
@@ -40,7 +40,7 @@ const Button: React.FC<Props> = ({
     >
       <Wrapper icon={icon} variant={theme} hasLabel={hasLabel}>
         {icon && (
-          <Icon variant={theme} label={hasLabel}>
+          <Icon variant={theme} hasLabel={hasLabel}>
             {icon}
           </Icon>
         )}
