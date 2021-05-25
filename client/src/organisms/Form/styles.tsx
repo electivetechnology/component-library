@@ -411,6 +411,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   font-size: 14px;
   background-color: transparent;
   width: 100%;
+  color: red;
   border-bottom: 1px solid ${theme.dividerGrey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   overflow: hidden;
