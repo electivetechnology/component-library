@@ -6,7 +6,7 @@ import React, {
   useEffect,
   Fragment
 } from 'react'
-import { TextareaStyled,  } from 'organisms/Form/styles'
+import { TextareaStyled } from 'organisms/Form/styles'
 
 type Props = {
   name: string
