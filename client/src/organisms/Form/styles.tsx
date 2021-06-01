@@ -486,35 +486,6 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     `}
 `
 
-export const TextareaComp = styled.textarea`
-  min-height: 60px;
-  resize: none;
-  border: 1px solid transparent;
-  width: 100%;
-  font-size: 14px;
-  background-color: transparent;
-  border-bottom: 1px solid ${theme.dividerGrey};
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  overflow: hidden;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  // hide scroll bar on firefox
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid ${theme.grey};
-  }
-  &:hover {
-    border-bottom: 1px solid ${theme.grey};
-  }
-  &:active {
-    border-bottom: 1px solid ${theme.grey};
-  }
-`
-
 export const DateStyles = makeStyles({
   input: (props: any) => ({
     '&:after': {
