@@ -3,9 +3,10 @@ import React, {
   memo,
   useRef,
   useState,
-  useEffect
+  useEffect,
+  Fragment
 } from 'react'
-import { TextareaStyled } from 'organisms/Form/styles'
+import { TextareaComp, TextareaStyled,  } from 'organisms/Form/styles'
 
 type Props = {
   name: string
@@ -29,20 +30,18 @@ const FormTextArea: FunctionComponent<Props> = ({
   error,
   icon
 }) => {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null)
-  const [text, setText] = useState('')
-  const [textAreaHeight, setTextAreaHeight] = useState('60px')
-  const [parentHeight, setParentHeight] = useState('60px')
+  const textareaRef: any = React.useRef(null)
+
+  const [currentValue, setCurrentValue ] = useState("")
 
   useEffect(() => {
-    setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
-    setTextAreaHeight(`${textAreaRef.current!.scrollHeight}px`)
-  }, [text, value])
+    textareaRef.current.style.height = "0px";
+    const scrollHeight = textareaRef.current.scrollHeight;
+    textareaRef.current.style.height = scrollHeight + "px";
+  }, [value, currentValue])
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTextAreaHeight('auto')
-    setParentHeight(`${textAreaRef.current!.scrollHeight}px`)
-    setText(event.target.value)
+    setCurrentValue(event.target.value)
 
     if (onChange) {
       onChange(event)
@@ -52,7 +51,7 @@ const FormTextArea: FunctionComponent<Props> = ({
   return (
     <div
       style={{
-        minHeight: parentHeight,
+        minHeight: '60px',
         width: '100%',
         display: 'inline-flex'
       }}
@@ -64,10 +63,9 @@ const FormTextArea: FunctionComponent<Props> = ({
         onChange={handleChange}
         onBlur={handleBlur}
         value={value}
-        ref={textAreaRef}
+        ref={textareaRef}
         rows={1}
         style={{
-          height: textAreaHeight,
           resize: 'none'
         }}
         placeholder={placeholder}
