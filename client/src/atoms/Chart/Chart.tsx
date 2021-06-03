@@ -40,9 +40,7 @@ const Chart: React.FC<Props> = ({
 
   return (
     <div style={{height: 'auto', width: 'auto'}}>
-      <svg viewBox={handleViewBoxSize()} width='100%' height='100%'
-        preserveAspectRatio="xMinYMidn meet"
-      >
+      <svg viewBox={handleViewBoxSize()} width='100%' height='100%'>
         <VictorySharedEvents
           events={[{
             childName: ["pie", "legend"],
