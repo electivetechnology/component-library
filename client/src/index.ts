@@ -28,4 +28,4 @@ export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'
 export { Pages, PageContext } from 'molecules/Pages'
 
 // ORGANISMS
-export { Form, FormInput, FormSave, useFormStatus } from 'organisms/Form'
+export { Form, FormInput, FormSave, useFormStatus, FormRow } from 'organisms/Form'
