@@ -14,15 +14,9 @@ const Template = (args: any) => {
   }
 
   const handleReset = () => {
-    console.group('handleReset')
-    console.log(blankValue)
-    console.groupEnd()
-    setValue(blankValue)
+    setValue({ label: 'reset', value: '0' })
   }
 
-  console.group('value')
-  console.log(value)
-  console.groupEnd()
   return (
     <Fragment>
       <Button theme='primary' label={'reset'} onClick={handleReset} />
