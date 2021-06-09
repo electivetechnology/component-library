@@ -1,7 +1,9 @@
 import { createContext } from 'react'
 
+export interface OptionType { label: string, value: string }
+
 export interface SelectContextType {
-  selected: { label: string, value: string }
+  selected: OptionType
   setSelected: Function
 }
 
