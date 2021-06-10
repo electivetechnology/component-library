@@ -3,10 +3,10 @@ import { OptionType, SelectContext, SelectMultiContext } from './base'
 import { SelectContainerStyled, SelectStyled } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 
-const OptionsSingle: FC = () => {
+const OptionsMulti: FC = () => {
   const {
     initialValue,
-    selected: { value: selectedValue, label: selectedLabel},
+    selected: { value: selectedValue, label: selectedLabel },
     setSelected,
     onChange,
     required,
@@ -27,10 +27,9 @@ const OptionsSingle: FC = () => {
   return (
     <Fragment>
       <SelectStyled>{selectedLabel ? selectedLabel : 'None'}</SelectStyled>
-      {!required && <Option label='' value='' />}
       {children}
     </Fragment>
   )
 }
 
-export default OptionsSingle
+export default OptionsMulti

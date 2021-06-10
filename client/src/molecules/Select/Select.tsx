@@ -40,14 +40,14 @@ const Select: FC<Props> = ({
         initialValue,
         onChange,
         required,
+        showOptions,
         children,
         selected,
         setSelected
       }}
     >
       <SelectContainerStyled onClick={handleActive}>
-        <SelectStyled>{selectedLabel ? selectedLabel : 'None'}</SelectStyled>
-        {showOptions && renderOptions()}
+        {renderOptions()}
       </SelectContainerStyled>
     </SelectContext.Provider>
   )

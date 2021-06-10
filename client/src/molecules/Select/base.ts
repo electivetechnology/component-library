@@ -9,6 +9,7 @@ export interface SelectContextType {
   required: boolean
   selected: OptionType
   setSelected: Function
+  showOptions: boolean
 }
 
 export const SelectContext = createContext<SelectContextType>({} as SelectContextType)

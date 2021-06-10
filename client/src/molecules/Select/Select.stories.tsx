@@ -3,6 +3,12 @@ import { Select, Option } from 'molecules/Select'
 import { Button } from 'atoms'
 import OptionHeader from 'molecules/Select/OptionHeader'
 
+const selectConst = {
+  OPTION_1 : {label: 'Option 1', value: '1'},
+  OPTION_2 : {label: 'Option 2', value: '2'},
+  OPTION_3 : {label: 'Option 3', value: '3'}
+}
+
 const Template = (args: any) => {
   const blankValue = { label: '', value: '' }
   const [value, setValue] = useState(blankValue)
@@ -33,8 +39,8 @@ Default.args = {
   children: (
     <Fragment>
       <OptionHeader label='Initial set'/>
-      <Option label='Option 1' value='1' />
-      <Option label='Option 2' value='2' />
+      <Option option={selectConst.OPTION_1} />
+      <Option option={selectConst.OPTION_2} />
     </Fragment>
   )
 }

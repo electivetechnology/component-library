@@ -6,11 +6,12 @@ import Option from 'molecules/Select/Option'
 const OptionsSingle: FC = () => {
   const {
     initialValue,
-    selected: { value: selectedValue, label: selectedLabel},
+    selected: { value: selectedValue, label: selectedLabel },
     setSelected,
     onChange,
     required,
-    children
+    children,
+    showOptions
   } = useContext(SelectContext)
 
   useEffect(() => {
@@ -26,8 +27,13 @@ const OptionsSingle: FC = () => {
 
   return (
     <Fragment>
-      {!required && <Option label='' value='' />}
-      {children}
+      <SelectStyled>{selectedLabel ? selectedLabel : 'None'}</SelectStyled>
+      {showOptions && (
+        <Fragment>
+          {!required && <Option option={{ label: '', value: '' }} />}
+          {children}
+        </Fragment>
+      )}
     </Fragment>
   )
 }
