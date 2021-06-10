@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({
   children,
   headerTheme = 'primary'
 }) => {
-  const defaultShowSection = window.innerWidth <= 400 ? false : true
+  const defaultShowSection = window.innerWidth > 400
   const [showSection, setShowSection] = useState(defaultShowSection)
 
   const handleShowSection = () => {
