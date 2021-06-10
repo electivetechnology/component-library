@@ -18,11 +18,10 @@ const Select: FC<Props> = ({
   required = false,
   multi = false
 }) => {
-  const defaultSelected = initialValue ? initialValue : { label: '', value: '' }
-  const defaultSelectedMulti = initialValue ? initialValue : []
-
-  const [selected, setSelected] = useState(defaultSelected)
-  const [selectedMulti, setSelectedMulti] = useState(defaultSelectedMulti)
+  const [selected, setSelected] = useState({ label: '', value: '' })
+  const [selectedMulti, setSelectedMulti] = useState(
+    [] as Array<{ label: ''; value: '' }>
+  )
 
   const [showOptions, setShowOptions] = useState(false)
 
@@ -30,9 +29,19 @@ const Select: FC<Props> = ({
     setShowOptions(!showOptions)
   }
 
+  const handleSelect = (options: OptionType) => {
+    if (multi) {
+      const newSelected: any = options
+      selectedMulti.push(newSelected)
+      setSelectedMulti(selectedMulti)
+    } else {
+      setSelected(options)
+    }
+  }
+
   const { label: selectedLabel } = selected
 
-  const renderOptions = () => (!multi ? <OptionsSingle /> : <OptionsMulti />)
+  const renderOptions = () => (multi ? <OptionsMulti /> : <OptionsSingle />)
 
   return (
     <SelectContext.Provider
@@ -43,7 +52,8 @@ const Select: FC<Props> = ({
         showOptions,
         children,
         selected,
-        setSelected
+        selectedMulti,
+        handleSelect
       }}
     >
       <SelectContainerStyled onClick={handleActive}>

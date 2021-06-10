@@ -12,15 +12,15 @@ type Props = {
 const Option: FC<Props> = ({ option : {label, value }}) => {
   const {
     selected: { value: selectedValue },
-    setSelected
+    handleSelect
   } = useContext(SelectContext)
 
-  const handleSelect = () => {
-    setSelected({ label, value })
+  const onSelect = () => {
+    handleSelect({ label, value })
   }
 
   return (
-    <OptionStyled onClick={handleSelect} active={selectedValue === value}>
+    <OptionStyled onClick={onSelect} active={selectedValue === value}>
       {label} - {value}
     </OptionStyled>
   )

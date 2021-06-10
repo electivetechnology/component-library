@@ -1,13 +1,13 @@
-import React, { useContext, FC, useState, useEffect, Fragment } from 'react'
-import { OptionType, SelectContext, SelectMultiContext } from './base'
-import { SelectContainerStyled, SelectStyled } from 'molecules/Select/styles'
+import React, { useContext, FC, useEffect, Fragment } from 'react'
+import { SelectContext } from './base'
+import { SelectStyled } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 
 const OptionsSingle: FC = () => {
   const {
     initialValue,
     selected: { value: selectedValue, label: selectedLabel },
-    setSelected,
+    handleSelect,
     onChange,
     required,
     children,
@@ -22,7 +22,7 @@ const OptionsSingle: FC = () => {
     console.group('initialValues')
     console.log(initialValue)
     console.groupEnd()
-    setSelected(initialValue)
+    // handleSelect(initialValue)
   }, [initialValue])
 
   return (

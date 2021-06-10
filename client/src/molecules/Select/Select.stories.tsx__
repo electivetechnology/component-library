@@ -4,13 +4,12 @@ import { Button } from 'atoms'
 import OptionHeader from 'molecules/Select/OptionHeader'
 
 const selectConst = {
-  OPTION_1: { label: 'Option 1', value: '1' },
-  OPTION_2: { label: 'Option 2', value: '2' },
-  OPTION_3: { label: 'Option 3', value: '3' }
+  OPTION_1 : {label: 'Option 1', value: '1'},
+  OPTION_2 : {label: 'Option 2', value: '2'},
+  OPTION_3 : {label: 'Option 3', value: '3'}
 }
 
-const Template = (args: any) => {
-  const { initialValue } = args
+const Template = (initialValue: any) => {
   const [value, setValue] = useState(initialValue)
 
   const handleChange = (value: string) => {
@@ -26,35 +25,37 @@ const Template = (args: any) => {
   return (
     <Fragment>
       <Button theme='primary' label={'reset'} onClick={handleReset} />
-      <Select {...args} onChange={handleChange} initialValue={value} />
+      <Select onChange={handleChange} initialValue={value} />
     </Fragment>
   )
 }
 
-const renderOptions = () => {
-  return (<Fragment>
-    <OptionHeader label='Initial set' />
-    <Option option={selectConst.OPTION_1} />
-    <Option option={selectConst.OPTION_2} />
-  </Fragment>)
-}
-
 // Single
-export const Single: any = Template.bind({})
+export const Single: any = Template.bind({ label: '', value: '' })
 
 Single.args = {
-  initialValue: { label: '', value: '' },
   open: true,
-  children: renderOptions()
+  children: (
+    <Fragment>
+      <OptionHeader label='Initial set'/>
+      <Option option={selectConst.OPTION_1} />
+      <Option option={selectConst.OPTION_2} />
+    </Fragment>
+  )
 }
 
 // Multi
 export const Multi: any = Template.bind({})
 
 Multi.args = {
-  initialValue: [],
   open: true,
-  children:  renderOptions()
+  children: (
+    <Fragment>
+      <OptionHeader label='Initial set'/>
+      <Option option={selectConst.OPTION_1} />
+      <Option option={selectConst.OPTION_2} />
+    </Fragment>
+  )
 }
 
 export default {
