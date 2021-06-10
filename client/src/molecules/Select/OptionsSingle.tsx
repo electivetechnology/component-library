@@ -19,10 +19,7 @@ const OptionsSingle: FC = () => {
   }, [selectedValue])
 
   useEffect(() => {
-    console.group('initialValues')
-    console.log(initialValue)
-    console.groupEnd()
-    // handleSelect(initialValue)
+    handleSelect(initialValue)
   }, [initialValue])
 
   return (

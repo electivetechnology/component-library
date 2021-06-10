@@ -7,9 +7,8 @@ type Props = {
     label: string
     value: string
   }
-
 }
-const Option: FC<Props> = ({ option : {label, value }}) => {
+const Option: FC<Props> = ({ option: { label, value } }) => {
   const {
     selected: { value: selectedValue },
     handleSelect

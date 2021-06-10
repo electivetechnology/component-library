@@ -1,5 +1,7 @@
 import React, { useContext, FC, useEffect, Fragment } from 'react'
 import { SelectContext } from './base'
+import { SelectStyled, TagStyled } from 'molecules/Select/styles'
+import isEmpty from 'lodash/isEmpty'
 
 const OptionsMulti: FC = () => {
   const {
@@ -8,7 +10,8 @@ const OptionsMulti: FC = () => {
     handleSelect,
     onChange,
     required,
-    children
+    children,
+    showOptions
   } = useContext(SelectContext)
 
   useEffect(() => {
@@ -16,15 +19,19 @@ const OptionsMulti: FC = () => {
   }, [selectedMulti])
 
   useEffect(() => {
-    console.group('initialValues')
-    console.log(initialValue)
-    console.groupEnd()
     handleSelect(initialValue)
   }, [initialValue])
 
   return (
     <Fragment>
-      {children}
+      <SelectStyled>
+        {!isEmpty(selectedMulti)
+          ? selectedMulti.map((selected) => (
+              <TagStyled>{selected.label}</TagStyled>
+            ))
+          : 'None'}
+      </SelectStyled>
+      {showOptions && children}
     </Fragment>
   )
 }

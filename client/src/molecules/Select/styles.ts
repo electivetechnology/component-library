@@ -32,3 +32,8 @@ export const OptionStyled = styled.div<OptionProp>`
 export const OptionHeaderStyled = styled.div`
   border: 1px ${theme.Gray} solid;
 `
+
+export const TagStyled = styled.div`
+  border: 1px ${theme.Gray} solid;
+  color: green
+`

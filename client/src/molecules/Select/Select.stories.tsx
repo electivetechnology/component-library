@@ -52,6 +52,7 @@ Single.args = {
 export const Multi: any = Template.bind({})
 
 Multi.args = {
+  multi: true,
   initialValue: [],
   open: true,
   children:  renderOptions()

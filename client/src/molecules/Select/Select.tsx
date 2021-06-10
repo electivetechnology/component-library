@@ -1,6 +1,6 @@
-import React, { useContext, FC, useState, useEffect } from 'react'
+import React, { FC, useState } from 'react'
 import { OptionType, SelectContext } from './base'
-import { SelectContainerStyled, SelectStyled } from 'molecules/Select/styles'
+import { SelectContainerStyled } from 'molecules/Select/styles'
 import OptionsSingle from 'molecules/Select/OptionsSingle'
 import OptionsMulti from 'molecules/Select/OptionsMulti'
 
