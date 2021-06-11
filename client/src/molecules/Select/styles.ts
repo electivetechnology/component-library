@@ -1,17 +1,11 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 
-
-
 export const SelectContainerStyled = styled.div`
   border: 1px ${theme.Gray} solid;
 `
 
-type SelectProp = {
-
-}
-
-export const SelectStyled = styled.div<SelectProp>`
+export const SelectStyled = styled.div`
   border: 1px ${theme.Gray} solid;
 `
 
@@ -31,4 +25,9 @@ export const OptionStyled = styled.div<OptionProp>`
 
 export const OptionHeaderStyled = styled.div`
   border: 1px ${theme.Gray} solid;
+`
+
+export const TagStyled = styled.div`
+  border: 1px ${theme.Gray} solid;
+  color: green;
 `
