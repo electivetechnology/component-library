@@ -26,6 +26,7 @@ export { Columns, Column } from 'molecules/Columns'
 export { default as PopUp } from 'molecules/PopUp/PopUp'
 export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'
 export { Pages, PageContext } from 'molecules/Pages'
+export { Select, Option, OptionHeader } from 'molecules/Select'
 
 // ORGANISMS
 export { Form, FormInput, FormSave, useFormStatus, FormRow } from 'organisms/Form'

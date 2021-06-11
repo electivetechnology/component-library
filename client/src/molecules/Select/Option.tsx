@@ -6,7 +6,7 @@ type Props = {
   label: string
   value: string
 }
-const Select: FC<Props> = ({ label, value }) => {
+const Option: FC<Props> = ({ label, value }) => {
   const {
     selected: { value: selectedValue },
     setSelected
@@ -23,4 +23,4 @@ const Select: FC<Props> = ({ label, value }) => {
   )
 }
 
-export default Select
+export default Option
