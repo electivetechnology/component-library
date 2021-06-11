@@ -33,6 +33,7 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       padding: 6px 18px;
       width: revert;
       max-width: none;
+      overflow-x: scroll;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&

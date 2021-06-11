@@ -1,7 +1,11 @@
-import React, { useContext, FC, cloneElement } from 'react'
+import React, { useContext, FC, cloneElement, Fragment } from 'react'
 import { navContext } from 'molecules/NavIcons/NavIcons'
 import { sectionContext } from 'molecules/NavIcons/NavSection'
-import { IconStyled, iconStyles } from 'molecules/NavIcons/styles'
+import {
+  IconStyled,
+  iconStyles,
+  NavIconMenuStyled
+} from 'molecules/NavIcons/styles'
 import Tooltip from '@material-ui/core/Tooltip'
 
 type Props = {
@@ -9,9 +13,22 @@ type Props = {
   name: string
   handleUpdate: Function
   roundIcon?: boolean
+  menu?: boolean
+  menuContent?: any
+  showMenu?: boolean
+  setShowMenu?: any
 }
 
-const NavIcon: FC<Props> = ({ children, name, handleUpdate, roundIcon }) => {
+const NavIcon: FC<Props> = ({
+  children,
+  name,
+  handleUpdate,
+  menu = false,
+  menuContent,
+  roundIcon,
+  setShowMenu,
+  showMenu,
+}) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)
   const horizontal = layout === 'horizontal'
@@ -27,19 +44,23 @@ const NavIcon: FC<Props> = ({ children, name, handleUpdate, roundIcon }) => {
   const onClick = () => {
     handleUpdate()
     handleClick(name)
+    menu && setShowMenu(!showMenu)
   }
 
   return (
-    <IconStyled
-      selected={selected}
-      onClick={onClick}
-      horizontal={horizontal}
-      roundIcon={roundIcon}
-    >
-      <Tooltip title={name} placement={placement}>
-        {childrenStyled}
-      </Tooltip>
-    </IconStyled>
+    <Fragment>
+      <IconStyled
+        selected={selected}
+        onClick={onClick}
+        horizontal={horizontal}
+        roundIcon={roundIcon}
+      >
+        <Tooltip title={name} placement={placement}>
+          {childrenStyled}
+        </Tooltip>
+      </IconStyled>
+      {menu && showMenu && <NavIconMenuStyled>{menuContent}</NavIconMenuStyled>}
+    </Fragment>
   )
 }
 
