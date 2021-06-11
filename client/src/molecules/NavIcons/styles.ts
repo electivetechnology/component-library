@@ -177,8 +177,11 @@ export const NavIconMenuStyled = styled.div`
   box-shadow: 0px 3px 5px ${theme.borderGrey};
   background-color: ${theme.white};
   right: 24px;
+  @media screen and (min-width: 750px) {
+    top: 76px;
+  }
   @media screen and (min-width: 960px) {
     top: 68px;
-    right: 0;
+    right: auto;
   }
 `
