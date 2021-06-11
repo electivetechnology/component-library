@@ -33,6 +33,7 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       padding: 6px 18px;
       width: revert;
       max-width: none;
+      overflow-x: scroll;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&
@@ -166,4 +167,12 @@ export const HorizontalRightTitleStyled = styled.div`
 
 export const HorizontalBarItemsStyled = styled.div`
   display: inline-flex;
+`
+
+export const NavIconMenuStyled = styled.div`
+  position: absolute;
+  top: 64px;
+  z-index: 100;
+  width: fit-content;
+  box-shadow: 0px 3px 5px ${theme.borderGrey};
 `

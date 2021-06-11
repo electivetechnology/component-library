@@ -18,6 +18,8 @@ const Template = (args: any) => <NavIcons {...args} />
 
 const handleUpdate = () => {}
 
+const handleMenu = () => {}
+
 const renderLabels = () => (
   <NavToggle initial='Shortlist' title='Labels:'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
@@ -29,7 +31,7 @@ const renderLabels = () => (
     <NavIcon name='WithClient' handleUpdate={handleUpdate}>
       <DomainOutlined />
     </NavIcon>
-    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate}>
+    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} menu menuContent={<div>menu menu menu</div>}>
       <WorkOffOutlined />
     </NavIcon>
   </NavToggle>
@@ -37,7 +39,7 @@ const renderLabels = () => (
 
 const renderActions = () => (
   <NavToggle initial='' title='Actions' position='end'>
-    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon>
+    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon menu menuContent={<div>menu menu menu</div>}>
       <ArchiveOutlined />
     </NavIcon>
     <NavIcon name='Seen' handleUpdate={handleUpdate} roundIcon>
@@ -48,7 +50,7 @@ const renderActions = () => (
 
 const renderHorizontal = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
+    <NavIcon name='Inbox' handleUpdate={handleMenu}>
       <InboxIcon />
     </NavIcon>
     <NavIcon name='Accepted' handleUpdate={handleUpdate}>
