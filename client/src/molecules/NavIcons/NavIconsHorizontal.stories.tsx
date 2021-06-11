@@ -31,7 +31,7 @@ const renderLabels = () => (
     <NavIcon name='WithClient' handleUpdate={handleUpdate}>
       <DomainOutlined />
     </NavIcon>
-    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate} menu menuContent={<div>menu menu menu</div>}>
+    <NavIcon name='Unsuccessful' handleUpdate={handleUpdate}>
       <WorkOffOutlined />
     </NavIcon>
   </NavToggle>
@@ -39,7 +39,7 @@ const renderLabels = () => (
 
 const renderActions = () => (
   <NavToggle initial='' title='Actions' position='end'>
-    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon menu menuContent={<div>menu menu menu</div>}>
+    <NavIcon name='Download' handleUpdate={handleUpdate} roundIcon>
       <ArchiveOutlined />
     </NavIcon>
     <NavIcon name='Seen' handleUpdate={handleUpdate} roundIcon>
