@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export const iconStyles = makeStyles({
   Icon: (props: any) => ({
-    fill: props.selected ? theme.white : theme.primaryGrey,
+    fill: props.selected && !props.roundIcon ? theme.white : theme.primaryGrey,
     margin: props.horizontal ? 'unset' : 'auto',
     height: '24px',
     width: '24px'
@@ -171,9 +171,14 @@ export const HorizontalBarItemsStyled = styled.div`
 
 export const NavIconMenuStyled = styled.div`
   position: absolute;
-  top: 68px;
+  top: 95px;
   z-index: 100;
   width: fit-content;
   box-shadow: 0px 3px 5px ${theme.borderGrey};
   background-color: ${theme.white};
+  right: 24px;
+  @media screen and (min-width: 960px) {
+    top: 68px;
+    right: 0;
+  }
 `

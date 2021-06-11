@@ -35,7 +35,7 @@ const NavIcon: FC<Props> = ({
 
   const selected = activeName === name || activeNames.includes(name)
 
-  const classes = iconStyles({ selected, horizontal })
+  const classes = iconStyles({ selected, horizontal, roundIcon })
 
   const childrenStyled = cloneElement(children, { className: classes.Icon })
 
@@ -50,7 +50,7 @@ const NavIcon: FC<Props> = ({
   return (
     <Fragment>
       <IconStyled
-        selected={selected}
+        selected={!roundIcon && selected}
         onClick={onClick}
         horizontal={horizontal}
         roundIcon={roundIcon}
