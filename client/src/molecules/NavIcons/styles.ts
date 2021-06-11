@@ -167,3 +167,12 @@ export const HorizontalRightTitleStyled = styled.div`
 export const HorizontalBarItemsStyled = styled.div`
   display: inline-flex;
 `
+
+export const NavIconMenuStyled = styled.div`
+  position: absolute;
+  top: 68px;
+  z-index: 100;
+  width: fit-content;
+  box-shadow: 0px 3px 5px ${theme.borderGrey};
+  background-color: ${theme.white};
+`
