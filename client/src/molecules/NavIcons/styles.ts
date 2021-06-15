@@ -34,6 +34,13 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       width: revert;
       max-width: none;
       overflow-x: scroll;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      // hide scroll bar on firefox
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&
