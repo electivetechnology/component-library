@@ -33,32 +33,29 @@ const Header: React.FC<Props> = ({
     headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
   return (
     <HeaderContainer>
-      <HeaderContenContainStyled>
-        <HeaderBorder />
-        <div>
-          {title ? (
-            <HeaderContentStyled>
-              <div style={{ paddingTop: '4px' }}>
-                <Font variant='body1' color={fontColor} fontWeight={600}>
-                  {title}
-                </Font>
-              </div>
-              {showSection ? (
-                <ExpandLessIcon
-                  style={expandIconStyles}
-                  onClick={handleShowSection}
-                />
-              ) : (
-                <ExpandMoreIcon
-                  style={expandIconStyles}
-                  onClick={handleShowSection}
-                />
-              )}
-            </HeaderContentStyled>
-          ) : null}
-        </div>
-        <HeaderContent showSection={showSection}>{children}</HeaderContent>
-      </HeaderContenContainStyled>
+      {title ? (
+        <HeaderContentStyled>
+          <div style={{ paddingTop: '4px' }}>
+            <Font variant='body1' color={fontColor} fontWeight={600}>
+              {title}
+            </Font>
+          </div>
+          {showSection ? (
+            <ExpandLessIcon
+              style={expandIconStyles}
+              onClick={handleShowSection}
+            />
+          ) : (
+            <ExpandMoreIcon
+              style={expandIconStyles}
+              onClick={handleShowSection}
+            />
+          )}
+        </HeaderContentStyled>
+      ) : null}
+      <HeaderContent showSection={showSection}>
+        {children}
+      </HeaderContent>
     </HeaderContainer>
   )
 }

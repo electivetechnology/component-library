@@ -11,14 +11,19 @@ const content = () => (
 const HearderTemplate = (args: any) => <Header {...args} />
 
 const HearderRowTemplate = (args: any) => (
-  <div>
-    <Header {...args} />
-    <Header {...args} >
-      <div style={{height: '800px'}}>
-        Content
-      </div>
+  <div style={{
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    width: '320px',
+    height: '40vh',
+    border: '1px solid black'
+  }}>
+    <Header title="Header 1">
+      {content()}
+      {content()}
     </Header>
-  </div>
+    <Header {...args} />
+</div>
 )
 
 // Primary
@@ -50,6 +55,16 @@ Row.args = {
   title: 'DASHBOARD',
   children: (
     <div>
+      {content()}
+      {content()}
+      {content()}
+      {content()}
+      {content()}
+      {content()}
+      {content()}
+      {content()}
+      {content()}
+      {content()}
       {content()}
       {content()}
       {content()}
