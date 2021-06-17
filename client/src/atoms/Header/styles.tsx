@@ -7,8 +7,7 @@ export const HeaderBorder = styled.div`
 `
 
 export const HeaderContainer = styled.div`
-  display: table;
-  width: 100%;
+  display: contents;
 `
 
 export const HeaderContenContainStyled = styled.div`
@@ -29,7 +28,7 @@ export const HeaderContent = styled.div<HeaderContentProp>`
     props.showSection &&
     `
         display: block;
-        flex-grow: inherit;
+        flex-grow: 1;
         max-height: fit-content;
         overflow-x: hidden;
         overflow-y: auto;
