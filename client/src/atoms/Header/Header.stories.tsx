@@ -13,12 +13,14 @@ const HearderTemplate = (args: any) => <Header {...args} />
 const HearderRowTemplate = (args: any) => (
   <div style={{
     display: 'flex',
-    flexFlow: 'column nowrap',
+    flexFlow: 'column',
     width: '320px',
     height: '40vh',
-    border: '1px solid black'
+    justifyContent: 'flex-start'
   }}>
-    <Header title="Header 1">
+    <Header title="Header 1" noScroll>
+      {content()}
+      {content()}
       {content()}
       {content()}
     </Header>
