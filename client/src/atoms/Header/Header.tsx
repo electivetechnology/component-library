@@ -7,7 +7,6 @@ import {
   expandIconStyles,
   HeaderContent,
   HeaderContainer,
-  HeaderContenContainStyled
 } from './styles'
 import Font from '../Font/Font'
 import { theme } from 'styles/theme'
@@ -15,12 +14,14 @@ import { theme } from 'styles/theme'
 type Props = {
   title?: string
   headerTheme?: string
+  noScroll?: boolean
 }
 
 const Header: React.FC<Props> = ({
   title,
   children,
-  headerTheme = 'primary'
+  headerTheme = 'primary',
+  noScroll = false
 }) => {
   const defaultShowSection = window.innerWidth <= 400 ? false : true
   const [showSection, setShowSection] = useState(defaultShowSection)
@@ -32,7 +33,8 @@ const Header: React.FC<Props> = ({
   const fontColor =
     headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
   return (
-    <HeaderContainer>
+    <HeaderContainer noScroll={noScroll}>
+      <HeaderBorder />
       {title ? (
         <HeaderContentStyled>
           <div style={{ paddingTop: '4px' }}>

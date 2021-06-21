@@ -6,12 +6,17 @@ export const HeaderBorder = styled.div`
   width: 100%;
 `
 
-export const HeaderContainer = styled.div`
-  display: contents;
-`
+type HeaderProps = {
+  noScroll: boolean
+}
 
-export const HeaderContenContainStyled = styled.div`
-  display: table-row;
+export const HeaderContainer = styled.div<HeaderProps>`
+  display: contents;
+  ${(props) =>
+    props.noScroll &&
+    `
+        display: table;
+    `};
 `
 
 export const HeaderContentStyled = styled.div`
