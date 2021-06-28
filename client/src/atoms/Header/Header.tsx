@@ -7,7 +7,6 @@ import {
   expandIconStyles,
   HeaderContent,
   HeaderContainer,
-  HeaderContenContainStyled
 } from './styles'
 import Font from '../Font/Font'
 import { theme } from 'styles/theme'
@@ -15,12 +14,14 @@ import { theme } from 'styles/theme'
 type Props = {
   title?: string
   headerTheme?: string
+  noScroll?: boolean
 }
 
 const Header: React.FC<Props> = ({
   title,
   children,
-  headerTheme = 'primary'
+  headerTheme = 'primary',
+  noScroll = false
 }) => {
   const defaultShowSection = window.innerWidth > 400
   const [showSection, setShowSection] = useState(defaultShowSection)
@@ -32,33 +33,31 @@ const Header: React.FC<Props> = ({
   const fontColor =
     headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
   return (
-    <HeaderContainer>
-      <HeaderContenContainStyled>
-        <HeaderBorder />
-        <div>
-          {title ? (
-            <HeaderContentStyled>
-              <div style={{ paddingTop: '4px' }}>
-                <Font variant='body1' color={fontColor} fontWeight={600}>
-                  {title}
-                </Font>
-              </div>
-              {showSection ? (
-                <ExpandLessIcon
-                  style={expandIconStyles}
-                  onClick={handleShowSection}
-                />
-              ) : (
-                <ExpandMoreIcon
-                  style={expandIconStyles}
-                  onClick={handleShowSection}
-                />
-              )}
-            </HeaderContentStyled>
-          ) : null}
-        </div>
-        <HeaderContent showSection={showSection}>{children}</HeaderContent>
-      </HeaderContenContainStyled>
+    <HeaderContainer noScroll={noScroll}>
+      <HeaderBorder />
+      {title ? (
+        <HeaderContentStyled>
+          <div style={{ paddingTop: '4px' }}>
+            <Font variant='body1' color={fontColor} fontWeight={600}>
+              {title}
+            </Font>
+          </div>
+          {showSection ? (
+            <ExpandLessIcon
+              style={expandIconStyles}
+              onClick={handleShowSection}
+            />
+          ) : (
+            <ExpandMoreIcon
+              style={expandIconStyles}
+              onClick={handleShowSection}
+            />
+          )}
+        </HeaderContentStyled>
+      ) : null}
+      <HeaderContent showSection={showSection}>
+        {children}
+      </HeaderContent>
     </HeaderContainer>
   )
 }

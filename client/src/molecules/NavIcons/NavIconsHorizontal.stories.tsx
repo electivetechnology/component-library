@@ -18,6 +18,8 @@ const Template = (args: any) => <NavIcons {...args} />
 
 const handleUpdate = () => {}
 
+const handleMenu = () => {}
+
 const renderLabels = () => (
   <NavToggle initial='Shortlist' title='Labels:'>
     <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
@@ -48,7 +50,7 @@ const renderActions = () => (
 
 const renderHorizontal = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' handleUpdate={handleUpdate}>
+    <NavIcon name='Inbox' handleUpdate={handleMenu}>
       <InboxIcon />
     </NavIcon>
     <NavIcon name='Accepted' handleUpdate={handleUpdate}>

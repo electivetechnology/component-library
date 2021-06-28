@@ -6,13 +6,17 @@ export const HeaderBorder = styled.div`
   width: 100%;
 `
 
-export const HeaderContainer = styled.div`
-  display: table;
-  width: 100%;
-`
+type HeaderProps = {
+  noScroll: boolean
+}
 
-export const HeaderContenContainStyled = styled.div`
-  display: table-row;
+export const HeaderContainer = styled.div<HeaderProps>`
+  display: contents;
+  ${(props) =>
+    props.noScroll &&
+    `
+        display: table;
+    `};
 `
 
 export const HeaderContentStyled = styled.div`
@@ -29,7 +33,7 @@ export const HeaderContent = styled.div<HeaderContentProp>`
     props.showSection &&
     `
         display: block;
-        flex-grow: inherit;
+        flex-grow: 1;
         max-height: fit-content;
         overflow-x: hidden;
         overflow-y: auto;

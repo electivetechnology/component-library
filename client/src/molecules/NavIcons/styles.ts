@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export const iconStyles = makeStyles({
   Icon: (props: any) => ({
-    fill: props.selected ? theme.white : theme.primaryGrey,
+    fill: props.selected && !props.roundIcon ? theme.white : theme.primaryGrey,
     margin: props.horizontal ? 'unset' : 'auto',
     height: '24px',
     width: '24px'
@@ -33,6 +33,14 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       padding: 6px 18px;
       width: revert;
       max-width: none;
+      overflow-x: scroll;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      // hide scroll bar on firefox
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     `};
   ${(props) =>
     props.horizontal && props.expandSubMenu &&
@@ -166,4 +174,21 @@ export const HorizontalRightTitleStyled = styled.div`
 
 export const HorizontalBarItemsStyled = styled.div`
   display: inline-flex;
+`
+
+export const NavIconMenuStyled = styled.div`
+  position: absolute;
+  top: 95px;
+  z-index: 100;
+  width: fit-content;
+  box-shadow: 0px 3px 5px ${theme.borderGrey};
+  background-color: ${theme.white};
+  right: 24px;
+  @media screen and (min-width: 750px) {
+    top: 76px;
+  }
+  @media screen and (min-width: 960px) {
+    top: 68px;
+    right: auto;
+  }
 `
