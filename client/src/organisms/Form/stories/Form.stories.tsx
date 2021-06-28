@@ -5,7 +5,8 @@ import {
   FormInfo,
   FormInput,
   FormRow,
-  FormTitle
+  FormTitle,
+  FormOption
 } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 
@@ -68,16 +69,11 @@ Date.args = {
   handleUpdate,
   children: (
     <Fragment>
+      <FormInput label='Date' type='date' name='date' value='' />
       <FormInput
         label='Date'
         type='date'
-        name="date"
-        value=''
-      />
-      <FormInput
-        label='Date'
-        type='date'
-        name="date"
+        name='date'
         value=''
         required={true}
       />
@@ -100,12 +96,7 @@ Phone.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <FormInput
-        label="Phone number"
-        name="phone"
-        value={'44'}
-        type="phone"
-      />
+      <FormInput label='Phone number' name='phone' value={'44'} type='phone' />
     </Fragment>
   )
 }
@@ -135,50 +126,62 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ selectOptions: [{ value: '', label: '' }] }}
-      />
-      <FormInput
-        label='Form Select prefix'
-        name='select'
-        value={status}
-        type='select'
-        options={{ 
-          selectOptions: [{ value: '', label: '' }],
-          prefix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        options={{
+          selectOptions: [
+            <FormOption type='option' label='Option One' value={status} />,
+            <FormOption type='option' label='Option Two' value={status} />
+          ]
         }}
       />
-      <FormInput
-        label='Form Select suffix'
-        name='select'
-        value={status}
-        type='select'
-        options={{ 
-          selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
-        }}
-      />   
-      <FormInput
-        label='Form Select suffix'
-        name='select'
-        value={status}
-        type='select'
-        required={true}
-        options={{ 
-          selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
-        }}
-      />   
-      <FormInput
-        label='Form Select suffix'
-        name='select'
-        value={status}
-        type='select'
-        required={true}
-        handleDelete={() => {}}
-      />
+      {/*<FormInput*/}
+      {/*  label='Form Select'*/}
+      {/*  name='select'*/}
+      {/*  value={status}*/}
+      {/*  type='select'*/}
+      {/*  options={{ selectOptions: [{ value: '', label: '' }] }}*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='Form Select prefix'*/}
+      {/*  name='select'*/}
+      {/*  value={status}*/}
+      {/*  type='select'*/}
+      {/*  options={{ */}
+      {/*    selectOptions: [{ value: '', label: '' }],*/}
+      {/*    prefix: true, */}
+      {/*    icon: <AddIcon style={{position: 'relative', top: '44px'}} />*/}
+      {/*  }}*/}
+      {/*/>*/}
+      {/*<FormInput*/}
+      {/*  label='Form Select suffix'*/}
+      {/*  name='select'*/}
+      {/*  value={status}*/}
+      {/*  type='select'*/}
+      {/*  options={{ */}
+      {/*    selectOptions: [{ value: '', label: '' }],*/}
+      {/*    suffix: true, */}
+      {/*    icon: <AddIcon style={{position: 'relative', top: '44px'}} />*/}
+      {/*  }}*/}
+      {/*/>   */}
+      {/*<FormInput*/}
+      {/*  label='Form Select suffix'*/}
+      {/*  name='select'*/}
+      {/*  value={status}*/}
+      {/*  type='select'*/}
+      {/*  required={true}*/}
+      {/*  options={{ */}
+      {/*    selectOptions: [{ value: '', label: '' }],*/}
+      {/*    suffix: true, */}
+      {/*    icon: <AddIcon style={{position: 'relative', top: '44px'}} />*/}
+      {/*  }}*/}
+      {/*/>   */}
+      {/*<FormInput*/}
+      {/*  label='Form Select suffix'*/}
+      {/*  name='select'*/}
+      {/*  value={status}*/}
+      {/*  type='select'*/}
+      {/*  required={true}*/}
+      {/*  handleDelete={() => {}}*/}
+      {/*/>*/}
     </Fragment>
   )
 }
@@ -191,19 +194,22 @@ Text.args = {
   children: (
     <Fragment>
       <FormInput label='Text field' name='text' value='some text' type='text' />
+      <FormInput label='Text Area' name='text' value='some text' type='text' />
       <FormInput
-        label='Text Area'
+        label='Text suffix'
         name='text'
         value='some text'
-        type='text' />
-      <FormInput label='Text suffix' name='text' value='some text' type='text' />
+        type='text'
+      />
       <FormInput
         label='Text multiline'
         name='textarea'
         value='some textarea'
         type='text'
         options={{
-          multiline: true }} />
+          multiline: true
+        }}
+      />
     </Fragment>
   )
 }
@@ -221,10 +227,11 @@ TextIcons.args = {
         value='some text'
         type='text'
         options={{
-          prefix: true, 
+          prefix: true,
           icon: <AddIcon />,
           suffix: true
-        }} />
+        }}
+      />
       <FormInput
         label='Text multiline'
         name='textarea'
@@ -232,9 +239,10 @@ TextIcons.args = {
         type='text'
         options={{
           multiline: true,
-          prefix: true, 
-          icon: <AddIcon style={{margin: 'auto'}} />,
-          suffix: true }}
+          prefix: true,
+          icon: <AddIcon style={{ margin: 'auto' }} />,
+          suffix: true
+        }}
       />
     </Fragment>
   )
@@ -347,7 +355,13 @@ TextRequired.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <FormInput label='Text field' name='text' value='some text' type='text' required={true} />
+      <FormInput
+        label='Text field'
+        name='text'
+        value='some text'
+        type='text'
+        required={true}
+      />
       <FormInput
         label='Text multiline'
         name='textarea'
@@ -375,13 +389,8 @@ Toggle.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <div style={{paddingBottom: '8px'}}>
-        <FormInput
-          label='Toggle'
-          name='toggle'
-          value={true}
-          type='toggle'
-        />
+      <div style={{ paddingBottom: '8px' }}>
+        <FormInput label='Toggle' name='toggle' value={true} type='toggle' />
       </div>
       <FormInput
         label='Toggle'

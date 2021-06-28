@@ -1,18 +1,9 @@
-import React, {
-  FunctionComponent,
-  memo,
-  useContext,
-  useEffect,
-  useRef,
-  useState
-} from 'react'
+import React, { FunctionComponent, memo, useContext } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
+import { Select } from 'molecules/Select'
 import { selectedOption } from 'organisms/Form/mock'
-import { SelectField } from 'atoms'
-import { SelectStyled } from '../styles'
-import FormDelete from './FormDelete'
 
-const FormSelect: FunctionComponent = () => {
+const FormSelect: FunctionComponent = ({ children }) => {
   const {
     inputValue,
     name,
@@ -22,54 +13,24 @@ const FormSelect: FunctionComponent = () => {
     outlined,
     required
   } = useContext(InputContext)
-  const [isHovered, setIsHovered] = useState(false)
-
   const { onBlur, updateInput, darkMode, inputs } = useContext(FormContext)
-  const valueRef = useRef()
-
-  const handleBlur = () => {
-    onBlur(name)
+  const handleChange = (event: any, newValue: any) => {
+    updateInput(name, newValue ? newValue.value : null)
   }
 
   const selectOptions =
     options && options.selectOptions ? options.selectOptions : []
 
+  console.group('debug')
+  console.log(selectOptions)
+  console.groupEnd()
+
   const selected = options ? selectedOption(selectOptions, inputValue) : null
 
-  const handleChange = (event: any, newValue: any) => {
-    valueRef.current = newValue
-    updateInput(name, newValue ? newValue.value : null)
-  }
-
-  const handleMouseHover = () => {
-    disabled ? '' : setIsHovered(true)
-  }
-
-  const handleMouseLeave = () => {
-    disabled ? '' : setIsHovered(false)
-  }
-
-  useEffect(() => {
-    valueRef.current && handleBlur()
-  }, [valueRef.current])
-
-  const fieldPlaceholder = required ? `${label}*` : label
-
   return (
-    <SelectStyled
-      onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseLeave}>
-      <SelectField
-        label={fieldPlaceholder}
-        value={selected}
-        options={selectOptions}
-        disabled={disabled}
-        onChange={handleChange}
-        darkMode={darkMode}
-        outlined={outlined}
-      />
-      <FormDelete isHovered={isHovered} />
-    </SelectStyled>
+    <Select onChange={handleChange} initialValue={selected}>
+      {selectOptions}
+    </Select>
   )
 }
 export default memo(FormSelect)

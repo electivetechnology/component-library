@@ -39,7 +39,7 @@ export interface OptionType {
   multiline?: boolean
   width?: number
   selected?: FormOptionType
-  selectOptions?: Array<FormOptionType>
+  selectOptions?: Array<Object>
   noOptionsMessage?: string
   isMulti?: boolean
   isDynamic?: boolean
