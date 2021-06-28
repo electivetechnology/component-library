@@ -1,15 +1,16 @@
+import { Font } from 'atoms'
 import React, {
-  FunctionComponent,
-  memo,
-  useContext,
-  useEffect,
-  useRef,
-  useState
+    FunctionComponent,
+    memo,
+    useContext,
+    useEffect,
+    useRef,
+    useState
 } from 'react'
-import { FormContext, InputContext } from 'organisms/Form/base'
-import { selectedOption } from 'organisms/Form/mock'
-import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
+import { FormSelectStyled, InputStyled, LabelStyled, OptionsStyled, SearchIconStyled, SelectDeleteStyled, SelectDropdownStyled, SelectInputStyled, SelectLabelStyled } from './styles'
+import Search from '@material-ui/icons/Search'
+import { FormContext, InputContext } from '../base'
 import FormDelete from './FormDelete'
 
 const FormSelect: FunctionComponent = () => {
@@ -18,28 +19,50 @@ const FormSelect: FunctionComponent = () => {
     name,
     label,
     options,
-    disabled,
+    disabled = false,
     outlined,
     required
   } = useContext(InputContext)
   const [isHovered, setIsHovered] = useState(false)
 
   const { onBlur, updateInput, darkMode, inputs } = useContext(FormContext)
-  const valueRef = useRef()
+
+  const [showDropDown, setShowDropDown] = useState(false)
+
+  const [value, setValue] = useState('')
 
   const handleBlur = () => {
     onBlur(name)
   }
 
-  const selectOptions =
-    options && options.selectOptions ? options.selectOptions : []
-
-  const selected = options ? selectedOption(selectOptions, inputValue) : null
-
-  const handleChange = (event: any, newValue: any) => {
-    valueRef.current = newValue
-    updateInput(name, newValue ? newValue.value : null)
+  const handleClick = () => {
+    setShowDropDown(!showDropDown)
   }
+
+  const handleSelectOption = (selectedValue: string) => {
+    setValue(selectedValue)
+    setShowDropDown(!showDropDown)
+  }
+
+  const handleChange = (event: any) => {
+    console.log('change', event.target.value);
+    setValue(event.target.value)
+    // updateInput(name, newValue ? newValue.value : null)
+  }
+
+  const arr = [{'value': 'a1'}, {'value': 'a2'}, {'value': 'a3'}, {'value':'a4'}, {'value':'a4'}, {'value':'a4'}, {'value':'a4'}]
+
+  const renderOptions = (
+    arr.map((option: any) => {
+      return (
+        <OptionsStyled onClick={() => handleSelectOption(option.value)}>
+          <Font variant="body1">
+            {option.value}
+          </Font>
+        </OptionsStyled>
+      )
+    })
+  )
 
   const handleMouseHover = () => {
     disabled ? '' : setIsHovered(true)
@@ -49,27 +72,37 @@ const FormSelect: FunctionComponent = () => {
     disabled ? '' : setIsHovered(false)
   }
 
-  useEffect(() => {
-    valueRef.current && handleBlur()
-  }, [valueRef.current])
-
   const fieldPlaceholder = required ? `${label}*` : label
 
   return (
-    <SelectStyled
+    <FormSelectStyled
+      onBlur={handleBlur}
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}>
-      <SelectField
-        label={fieldPlaceholder}
-        value={selected}
-        options={selectOptions}
-        disabled={disabled}
-        onChange={handleChange}
-        darkMode={darkMode}
-        outlined={outlined}
-      />
-      <FormDelete isHovered={isHovered} />
-    </SelectStyled>
+      <InputStyled darkMode={darkMode} disabled={disabled}>
+        <SelectLabelStyled>
+          <LabelStyled>{value ? fieldPlaceholder : ''}</LabelStyled>
+          <SelectInputStyled
+            placeholder={fieldPlaceholder}
+            list="brow"
+            disabled={disabled}
+            onClick={handleClick}
+            onChange={handleChange}
+            darkMode={darkMode}
+            value={value} />
+        </SelectLabelStyled>
+        <SearchIconStyled centerAlign={value ? true : false}>
+          <Search />
+        </SearchIconStyled>
+      </InputStyled>
+      <SelectDeleteStyled>
+        <FormDelete isHovered={isHovered} />
+      </SelectDeleteStyled>
+      <SelectDropdownStyled active={showDropDown}>
+        {renderOptions}
+      </SelectDropdownStyled>  
+    </FormSelectStyled>
   )
 }
 export default memo(FormSelect)
+  

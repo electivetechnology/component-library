@@ -1,11 +1,12 @@
 import React, { FunctionComponent, memo, Fragment } from 'react'
 import FormColourPicker from 'organisms/Form/components/FormColourPicker'
 import FormText from 'organisms/Form/components/FormText'
-import FormSelect from 'organisms/Form/components/FormSelect'
+import FormSearchSelect from 'organisms/Form/components/FormSearchSelect'
 import FormPhone from 'organisms/Form/components/FormPhone'
 import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
+import FormSelect from './FormSelect'
 
 type Props = {
   type: string

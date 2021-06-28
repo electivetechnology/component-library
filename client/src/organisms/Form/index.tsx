@@ -6,7 +6,7 @@ export { default as FormRow } from 'organisms/Form/components/FormRow'
 export { default as FormSave } from 'organisms/Form/components/FormSave'
 export { default as FormText } from 'organisms/Form/components/FormText'
 export { default as FormTitle } from 'organisms/Form/components/FormTitle'
-export { default as FormSelect } from 'organisms/Form/components/FormSelect'
+export { default as FormSearchSelect } from 'organisms/Form/components/FormSearchSelect'
 export { default as FormColourPicker } from 'organisms/Form/components/FormColourPicker'
 export { useFormStatus } from 'organisms/Form/hooks'
 
