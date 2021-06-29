@@ -28,10 +28,6 @@ const Select: FC<Props> = ({
 }) => {
   const [showOptions, setShowOptions] = useState(false)
 
-  const handleActive = () => {
-    setShowOptions(!showOptions)
-  }
-
   const renderOptions = () => (multi ? <OptionsMulti /> : <OptionsSingle />)
 
   return (
@@ -42,12 +38,13 @@ const Select: FC<Props> = ({
         onChange,
         required,
         showOptions,
+        setShowOptions,
         children,
         darkMode,
         disabled
       }}
     >
-      <SelectContainerStyled onClick={handleActive} data-testid='Select'>
+      <SelectContainerStyled data-testid='Select'>
         {renderOptions()}
       </SelectContainerStyled>
     </SelectContext.Provider>

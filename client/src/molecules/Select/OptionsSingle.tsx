@@ -17,6 +17,7 @@ const OptionsSingle: FC = () => {
     onChange,
     required,
     showOptions,
+    setShowOptions,
     children,
     darkMode,
     disabled
@@ -26,9 +27,14 @@ const OptionsSingle: FC = () => {
   const [search, setSearch] = useState('')
   const [filterOptions, setFilterOptions] = useState(false)
 
-  const handleSelect = (value: string) => {
+  const handleSelect = (value: string, hideOptions = true) => {
     setSelected(value)
     setFilterOptions(false)
+    hideOptions && setShowOptions(false)
+  }
+
+  const handleHideOptions = () => {
+    setShowOptions(true)
   }
 
   useEffect(() => {
@@ -37,7 +43,7 @@ const OptionsSingle: FC = () => {
   }, [selected])
 
   useEffect(() => {
-    handleSelect(initialValue)
+    handleSelect(initialValue, false)
     handleSearchLabel(initialValue)
   }, [initialValue])
 
@@ -86,10 +92,11 @@ const OptionsSingle: FC = () => {
           error={false}
           value={search}
           onChange={handleChange}
+          onClick={handleHideOptions}
         />
         <OptionSingleStyled isActive={showOptions}>
           {!required && <Option option={{ label: 'None', value: '' }} />}
-          {renderChildren()}
+          {showOptions && renderChildren()}
         </OptionSingleStyled>
       </Fragment>
     </OptionContext.Provider>
