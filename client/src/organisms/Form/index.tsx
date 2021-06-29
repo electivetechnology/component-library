@@ -7,6 +7,7 @@ export { default as FormSave } from 'organisms/Form/components/FormSave'
 export { default as FormText } from 'organisms/Form/components/FormText'
 export { default as FormTitle } from 'organisms/Form/components/FormTitle'
 export { default as FormSelect } from 'organisms/Form/components/FormSelect'
+export { default as FormOption } from 'organisms/Form/components/FormOption'
 export { default as FormColourPicker } from 'organisms/Form/components/FormColourPicker'
 export { useFormStatus } from 'organisms/Form/hooks'
 

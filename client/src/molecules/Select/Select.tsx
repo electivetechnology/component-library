@@ -56,7 +56,7 @@ const Select: FC<Props> = ({
         handleSelect
       }}
     >
-      <SelectContainerStyled onClick={handleActive}>
+      <SelectContainerStyled onClick={handleActive} data-testid='Select'>
         {renderOptions()}
       </SelectContainerStyled>
     </SelectContext.Provider>

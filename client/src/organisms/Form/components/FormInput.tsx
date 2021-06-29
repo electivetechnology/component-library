@@ -20,7 +20,7 @@ const FormInput: FunctionComponent<InputProps> = ({
   outlined,
   disabled,
   required,
-                                                    handleDelete
+  handleDelete
 }) => {
   const {
     updateInput,
@@ -58,8 +58,7 @@ const FormInput: FunctionComponent<InputProps> = ({
         handleDelete
       }}
     >
-
-      {download? (
+      {download ? (
         <FormRow>
           <FormInputs type={type} />
           {download && <FormDownload label={label} value={value} />}

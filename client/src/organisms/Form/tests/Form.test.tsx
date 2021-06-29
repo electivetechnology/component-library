@@ -54,7 +54,7 @@ test('renders basic form', () => {
   expect(getAllByTestId('FormTitle')).toBeDefined
   expect(getAllByTestId('FormText')).toBeDefined
   expect(getAllByTestId('FormTextarea')).toBeDefined
-  expect(getByLabelText('Form Select')).toBeDefined
+  expect(getAllByTestId('FormSelect')).toBeDefined
   expect(getByText('Form Colour')).toBeDefined
   expect(getByText('Form Info')).toBeDefined
   expect(getByTestId('FormAction')).toBeDefined
