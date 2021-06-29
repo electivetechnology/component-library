@@ -20,7 +20,7 @@ const Template = (args: any) => {
   }
 
   const handleReset = () => {
-    setValue({ label: 'reset', value: '0' })
+    setValue({ label: '', value: '' })
   }
 
   return (
@@ -32,11 +32,13 @@ const Template = (args: any) => {
 }
 
 const renderOptions = () => {
-  return (<Fragment>
-    <OptionHeader label='Initial set' />
-    <Option option={selectConst.OPTION_1} />
-    <Option option={selectConst.OPTION_2} />
-  </Fragment>)
+  return (
+    <Fragment>
+      <OptionHeader label='Option Header' />
+      <Option option={selectConst.OPTION_1} />
+      <Option option={selectConst.OPTION_2} />
+    </Fragment>
+  )
 }
 
 // Single
@@ -55,7 +57,7 @@ Multi.args = {
   multi: true,
   initialValue: [],
   open: true,
-  children:  renderOptions()
+  children: renderOptions()
 }
 
 export default {

@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { SelectContext } from './base'
+import { OptionContext, SelectContext } from './base'
 import { OptionStyled } from 'molecules/Select/styles'
 
 type Props = {
@@ -18,9 +18,11 @@ const Option: FC<Props> = ({ option: { label, value } }) => {
     handleSelect({ label, value })
   }
 
+  const isActive  = selectedValue === value && value != ''
+
   return (
-    <OptionStyled onClick={onSelect} active={selectedValue === value}>
-      {label} - {value}
+    <OptionStyled onClick={onSelect} isActive={isActive}>
+      {label}
     </OptionStyled>
   )
 }
