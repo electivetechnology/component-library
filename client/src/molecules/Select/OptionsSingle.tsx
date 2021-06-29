@@ -10,7 +10,7 @@ import { OptionContext, SelectContext } from './base'
 import { OptionSingleStyled, SearchInputStyled } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 
-const NONE = { label: '-- None --', value: '__none__' }
+const NONE = { label: '-- None --', value: '' }
 
 const OptionsSingle: FC = () => {
   const {
