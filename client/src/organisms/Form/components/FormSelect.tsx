@@ -2,6 +2,7 @@ import React, { FunctionComponent, memo, useContext } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { Select } from 'molecules/Select'
 import { selectedOption } from 'organisms/Form/mock'
+import { SelectStyled } from 'organisms/Form/styles'
 
 const FormSelect: FunctionComponent = ({ children }) => {
   const {
@@ -24,9 +25,11 @@ const FormSelect: FunctionComponent = ({ children }) => {
   const selected = options ? selectedOption(selectOptions, inputValue) : null
 
   return (
-    <Select onChange={handleChange} initialValue={selected} data-testid='FormSelect'>
-      {selectOptions}
-    </Select>
+    <SelectStyled data-testid='FormSelect'>
+      <Select onChange={handleChange} initialValue={selected} >
+        {selectOptions}
+      </Select>
+    </SelectStyled>
   )
 }
 export default memo(FormSelect)
