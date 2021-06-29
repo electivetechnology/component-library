@@ -7,10 +7,7 @@ import React, {
   Children
 } from 'react'
 import { OptionContext, SelectContext } from './base'
-import {
-  OptionSingleStyled,
-  SearchInputStyled,
-} from 'molecules/Select/styles'
+import { OptionSingleStyled, SearchInputStyled } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 
 const OptionsSingle: FC = () => {
@@ -27,9 +24,11 @@ const OptionsSingle: FC = () => {
 
   const [selected, setSelected] = useState('')
   const [search, setSearch] = useState('')
+  const [filterOptions, setFilterOptions] = useState(false)
 
   const handleSelect = (value: string) => {
     setSelected(value)
+    setFilterOptions(false)
   }
 
   useEffect(() => {
@@ -53,17 +52,22 @@ const OptionsSingle: FC = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value)
+    setFilterOptions(true)
   }
 
   const renderChildren = () => {
-    const matchingChildren: Array<any> = []
+    if (!filterOptions) {
+      return children
+    }
+
+    const filteredChildren: Array<any> = []
     Children.map(children, (child: any) => {
       const { label } = child?.props || {}
       if (label.toLowerCase().includes(search.toLowerCase())) {
-        matchingChildren.push(child)
+        filteredChildren.push(child)
       }
     })
-    return matchingChildren
+    return filteredChildren
   }
 
   return (
@@ -85,8 +89,7 @@ const OptionsSingle: FC = () => {
         />
         <OptionSingleStyled isActive={showOptions}>
           {!required && <Option option={{ label: 'None', value: '' }} />}
-          {children}
-          {/*{renderChildren()}*/}
+          {renderChildren()}
         </OptionSingleStyled>
       </Fragment>
     </OptionContext.Provider>
