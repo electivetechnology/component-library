@@ -21,14 +21,10 @@ const FormSelect: FunctionComponent = ({ children }) => {
   const selectOptions =
     options && options.selectOptions ? options.selectOptions : []
 
-  console.group('debug')
-  console.log(selectOptions)
-  console.groupEnd()
-
   const selected = options ? selectedOption(selectOptions, inputValue) : null
 
   return (
-    <Select onChange={handleChange} initialValue={selected}>
+    <Select onChange={handleChange} initialValue={selected} data-testid='FormSelect'>
       {selectOptions}
     </Select>
   )
