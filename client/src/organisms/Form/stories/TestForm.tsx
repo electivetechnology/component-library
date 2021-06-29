@@ -33,12 +33,15 @@ const TestForm: FC = () => {
       <FormInput
         label='Form Select'
         name='select'
-        value={status}
+        value='available'
+        required={true}
         type='select'
         options={{
           selectOptions: [
-            <FormOption type='option' label='Option One' value={status} />,
-            <FormOption type='option' label='Option Two' value={status} />
+            <FormOption type='option' label='Available' value='available' />,
+            <FormOption type='option' label='Not looking' value='notLooking' />,
+            <FormOption type='option' label='Archive' value='archive' />,
+            <FormOption type='option' label='Removed' value='removed' />,
           ]
         }}
       />

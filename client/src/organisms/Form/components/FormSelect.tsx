@@ -14,21 +14,26 @@ const FormSelect: FunctionComponent = ({ children }) => {
     required
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode, inputs } = useContext(FormContext)
-  const handleChange = (event: any, newValue: any) => {
-    updateInput(name, newValue ? newValue.value : null)
+
+  const handleChange = (newValue: any) => {
+    updateInput(name, newValue)
   }
 
   const selectOptions =
     options && options.selectOptions ? options.selectOptions : []
 
-  console.group('debug')
-  console.log(selectOptions)
-  console.groupEnd()
-
   const selected = options ? selectedOption(selectOptions, inputValue) : null
 
   return (
-    <Select onChange={handleChange} initialValue={selected}>
+    <Select
+      label={label}
+      onChange={handleChange}
+      initialValue={selected}
+      required={required}
+      outlined={outlined}
+      darkMode={darkMode}
+      disabled={disabled}
+    >
       {selectOptions}
     </Select>
   )
