@@ -117,6 +117,15 @@ Row.args = {
 // Select
 export const Select: any = Template.bind({})
 
+export const selectOptions: any = () => {
+  return (
+    <Fragment>
+      <FormOption type='option' label='Option One' value={status} />,
+      <FormOption type='option' label='Option Two' value={status} />
+    </Fragment>
+  )
+}
+
 Select.args = {
   handleUpdate,
   children: (
@@ -127,10 +136,7 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: [
-            <FormOption type='option' label='Option One' value={status} />,
-            <FormOption type='option' label='Option Two' value={status} />
-          ]
+          selectOptions: selectOptions()
         }}
       />
       <FormInput
@@ -139,12 +145,9 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: [
-            <FormOption type='option' label='Option One' value={status} />,
-            <FormOption type='option' label='Option Two' value={status} />
-          ],
+          selectOptions: selectOptions(),
           prefix: true,
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+          icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
         }}
       />
       <FormInput
@@ -153,12 +156,9 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: [
-            <FormOption type='option' label='Option One' value={status} />,
-            <FormOption type='option' label='Option Two' value={status} />
-          ],
+          selectOptions: selectOptions(),
           suffix: true,
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+          icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
         }}
       />
       <FormInput
@@ -168,12 +168,9 @@ Select.args = {
         type='select'
         required={true}
         options={{
-          selectOptions: [
-            <FormOption type='option' label='Option One' value={status} />,
-            <FormOption type='option' label='Option Two' value={status} />
-          ],
+          selectOptions: selectOptions(),
           suffix: true,
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+          icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
         }}
       />
       <FormInput
