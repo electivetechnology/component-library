@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Form, FormSave, FormInput } from 'organisms/Form'
+import { Form, FormSave, FormInput, FormOption } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { candidateStatusOptions } from 'organisms/Form/mock'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
@@ -27,9 +27,24 @@ const TestForm: FC = () => {
   }
 
   return (
-    <Form statuses={statuses}>
+    <Form statuses={statuses} handleUpdate={handleUpdate}>
       <button onClick={handleHidden}>Trigger Ref</button>
       <FormHidden ref={hiddenRef} handleSave={handleSave}/>
+      <FormInput
+        label='Form Select'
+        name='select'
+        value='available'
+        required={true}
+        type='select'
+        options={{
+          selectOptions: [
+            <FormOption type='option' label='Available' value='available' />,
+            <FormOption type='option' label='Not looking' value='notLooking' />,
+            <FormOption type='option' label='Archive' value='archive' />,
+            <FormOption type='option' label='Removed' value='removed' />,
+          ]
+        }}
+      />
       <FormInput
         label='Text Input'
         name='textInput'
@@ -51,13 +66,6 @@ const TestForm: FC = () => {
         value='new input'
         type='text'
         options={{ multiline: true }}
-      />
-      <FormInput
-        label='Select Input'
-        name='select'
-        value={''}
-        type='select'
-        options={{ selectOptions: candidateStatusOptions }}
       />
       <FormInput
         label='CheckBox'
