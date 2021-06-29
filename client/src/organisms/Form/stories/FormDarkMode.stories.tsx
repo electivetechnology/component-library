@@ -146,7 +146,7 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ selectOptions: selectOptions() }}
+        options={{ selectOptions }}
       />
       <FormInput
         label='Form Select prefix'
@@ -154,7 +154,7 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: selectOptions(),
+          selectOptions,
           prefix: true,
           icon: (
             <AddIcon
@@ -169,7 +169,7 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: selectOptions(),
+          selectOptions,
           suffix: true,
           icon: (
             <AddIcon

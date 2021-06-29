@@ -10,6 +10,8 @@ import { OptionContext, SelectContext } from './base'
 import { OptionSingleStyled, SearchInputStyled } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 
+const NONE = { label: '-- None --', value: '__none__' }
+
 const OptionsSingle: FC = () => {
   const {
     label,
@@ -31,6 +33,7 @@ const OptionsSingle: FC = () => {
     setSelected(value)
     setFilterOptions(false)
     hideOptions && setShowOptions(false)
+    value === NONE.value && setSearch(NONE.label)
   }
 
   const handleHideOptions = () => {
@@ -95,8 +98,12 @@ const OptionsSingle: FC = () => {
           onClick={handleHideOptions}
         />
         <OptionSingleStyled isActive={showOptions}>
-          {!required && <Option option={{ label: 'None', value: '' }} />}
-          {showOptions && renderChildren()}
+          {showOptions && (
+            <Fragment>
+              {!required && <Option option={NONE} />}
+              {renderChildren()}
+            </Fragment>
+          )}
         </OptionSingleStyled>
       </Fragment>
     </OptionContext.Provider>
