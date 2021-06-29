@@ -26,25 +26,10 @@ const Select: FC<Props> = ({
   disabled = false,
   multi = false
 }) => {
-  const [selected, setSelected] = useState({ label: '', value: '' })
-  const [selectedMulti, setSelectedMulti] = useState(
-    [] as Array<{ label: ''; value: '' }>
-  )
-
   const [showOptions, setShowOptions] = useState(false)
 
   const handleActive = () => {
     setShowOptions(!showOptions)
-  }
-
-  const handleSelect = (options: OptionType) => {
-    if (multi) {
-      const newSelected: any = options
-      selectedMulti.push(newSelected)
-      setSelectedMulti(selectedMulti)
-    } else {
-      setSelected(options)
-    }
   }
 
   const renderOptions = () => (multi ? <OptionsMulti /> : <OptionsSingle />)
@@ -58,9 +43,6 @@ const Select: FC<Props> = ({
         required,
         showOptions,
         children,
-        selected,
-        selectedMulti,
-        handleSelect,
         darkMode,
         disabled
       }}

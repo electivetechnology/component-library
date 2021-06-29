@@ -9,16 +9,13 @@ type Props = {
   }
 }
 const Option: FC<Props> = ({ option: { label, value } }) => {
-  const {
-    selected: { value: selectedValue },
-    handleSelect
-  } = useContext(SelectContext)
+  const { selected, handleSelect } = useContext(OptionContext)
 
   const onSelect = () => {
-    handleSelect({ label, value })
+    handleSelect(value)
   }
 
-  const isActive  = selectedValue === value && value != ''
+  const isActive = selected === value && value != ''
 
   return (
     <OptionStyled onClick={onSelect} isActive={isActive}>

@@ -27,7 +27,7 @@ const TestForm: FC = () => {
   }
 
   return (
-    <Form statuses={statuses}>
+    <Form statuses={statuses} handleUpdate={handleUpdate}>
       <button onClick={handleHidden}>Trigger Ref</button>
       <FormHidden ref={hiddenRef} handleSave={handleSave}/>
       <FormInput
