@@ -12,6 +12,7 @@ export interface SelectContextType {
   onChange: Function
   required: boolean
   showOptions: boolean
+  setShowOptions: Function
   darkMode: boolean
   disabled: boolean
 }

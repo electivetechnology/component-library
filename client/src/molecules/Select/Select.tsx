@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react'
 import { OptionType, SelectContext } from './base'
 import { SelectContainerStyled } from 'molecules/Select/styles'
 import OptionsSingle from 'molecules/Select/OptionsSingle'
-import OptionsMulti from 'molecules/Select/OptionsMulti'
 
 type Props = {
   label: string
@@ -23,16 +22,9 @@ const Select: FC<Props> = ({
   required = false,
   outlined = false,
   darkMode = false,
-  disabled = false,
-  multi = false
+  disabled = false
 }) => {
   const [showOptions, setShowOptions] = useState(false)
-
-  const handleActive = () => {
-    setShowOptions(!showOptions)
-  }
-
-  const renderOptions = () => (multi ? <OptionsMulti /> : <OptionsSingle />)
 
   return (
     <SelectContext.Provider
@@ -42,13 +34,14 @@ const Select: FC<Props> = ({
         onChange,
         required,
         showOptions,
+        setShowOptions,
         children,
         darkMode,
         disabled
       }}
     >
-      <SelectContainerStyled onClick={handleActive} data-testid='Select'>
-        {renderOptions()}
+      <SelectContainerStyled data-testid='Select'>
+        <OptionsSingle />
       </SelectContainerStyled>
     </SelectContext.Provider>
   )
