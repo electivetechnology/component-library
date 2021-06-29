@@ -6,12 +6,10 @@ import React, {
   useState,
   Children
 } from 'react'
-import { SelectContext } from './base'
+import { OptionContext, SelectContext } from './base'
 import {
-  SelectStyled,
   OptionSingleStyled,
   SearchInputStyled,
-  SelectContainerStyled
 } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 
@@ -19,8 +17,6 @@ const OptionsSingle: FC = () => {
   const {
     label,
     initialValue,
-    selected: { value: selectedValue },
-    handleSelect,
     onChange,
     required,
     showOptions,
@@ -29,12 +25,17 @@ const OptionsSingle: FC = () => {
     disabled
   } = useContext(SelectContext)
 
+  const [selected, setSelected] = useState('')
   const [search, setSearch] = useState('')
 
+  const handleSelect = (value: string) => {
+    setSelected(value)
+  }
+
   useEffect(() => {
-    onChange(selectedValue)
-    handleSearchLabel(selectedValue)
-  }, [selectedValue])
+    onChange(selected)
+    handleSearchLabel(selected)
+  }, [selected])
 
   useEffect(() => {
     handleSelect(initialValue)
@@ -66,21 +67,29 @@ const OptionsSingle: FC = () => {
   }
 
   return (
-    <Fragment>
-      <SearchInputStyled
-        darkMode={darkMode}
-        id='search'
-        placeholder={label}
-        disabled={disabled}
-        error={false}
-        value={search}
-        onChange={handleChange}
-      />
-      <OptionSingleStyled isActive={showOptions}>
-        {!required && <Option option={{ label: 'None', value: '' }} />}
-        {renderChildren()}
-      </OptionSingleStyled>
-    </Fragment>
+    <OptionContext.Provider
+      value={{
+        selected,
+        handleSelect
+      }}
+    >
+      <Fragment>
+        <SearchInputStyled
+          darkMode={darkMode}
+          id='search'
+          placeholder={label}
+          disabled={disabled}
+          error={false}
+          value={search}
+          onChange={handleChange}
+        />
+        <OptionSingleStyled isActive={showOptions}>
+          {!required && <Option option={{ label: 'None', value: '' }} />}
+          {children}
+          {/*{renderChildren()}*/}
+        </OptionSingleStyled>
+      </Fragment>
+    </OptionContext.Provider>
   )
 }
 
