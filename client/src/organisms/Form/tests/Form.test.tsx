@@ -8,7 +8,7 @@ import {
   FormTitle
 } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
-import { selectOptions } from 'organisms/Form/stories/Form.stories'
+import { selectOptions } from 'organisms/Form/stories/base'
 
 const { getAllByTestId, getByLabelText, getByText, getByTestId } = screen
 
