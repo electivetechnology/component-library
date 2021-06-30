@@ -32,7 +32,7 @@ const renderForm = () => {
         name='select'
         value={status}
         type='select'
-        options={{ selectOptions: selectOptions()}}
+        options={{ selectOptions }}
       />
       <FormInput
         label='Form Colour'

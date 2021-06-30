@@ -22,7 +22,7 @@ Select.args = {
       value=''
       type='select'
       options={{
-        selectOptions: selectOptions()
+        selectOptions
       }}
     />
   )
@@ -37,7 +37,7 @@ SelectPrefix.args = {
       value=''
       type='select'
       options={{
-        selectOptions: selectOptions(),
+        selectOptions,
         prefix: true,
         icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
       }}
@@ -54,7 +54,7 @@ SelectSuffix.args = {
       value=''
       type='select'
       options={{
-        selectOptions: selectOptions(),
+        selectOptions,
         suffix: true,
         icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
       }}
@@ -72,7 +72,7 @@ SelectRequired.args = {
       type='select'
       required={true}
       options={{
-        selectOptions: selectOptions(),
+        selectOptions,
         suffix: true,
         icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
       }}

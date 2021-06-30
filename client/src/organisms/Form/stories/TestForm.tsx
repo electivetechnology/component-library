@@ -1,9 +1,15 @@
 import React, { FC } from 'react'
 import { Form, FormSave, FormInput, FormOption } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
-import { candidateStatusOptions } from 'organisms/Form/mock'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import { FormHidden } from 'organisms/Form/components/FormHidden'
+
+const selectOptions = [
+  <FormOption type='option' label='Available' value='available' />,
+  <FormOption type='option' label='Not looking' value='notLooking' />,
+  <FormOption type='option' label='Archive' value='archive' />,
+  <FormOption type='option' label='Removed' value='removed' />,
+]
 
 const TestForm: FC = () => {
   const { statuses, addStatus } = useFormStatus()
@@ -26,23 +32,18 @@ const TestForm: FC = () => {
     console.groupEnd()
   }
 
+
+
   return (
     <Form statuses={statuses} handleUpdate={handleUpdate}>
-      <button onClick={handleHidden}>Trigger Ref</button>
-      <FormHidden ref={hiddenRef} handleSave={handleSave}/>
       <FormInput
         label='Form Select'
         name='select'
         value='available'
-        required={true}
+        required={false}
         type='select'
         options={{
-          selectOptions: [
-            <FormOption type='option' label='Available' value='available' />,
-            <FormOption type='option' label='Not looking' value='notLooking' />,
-            <FormOption type='option' label='Archive' value='archive' />,
-            <FormOption type='option' label='Removed' value='removed' />,
-          ]
+          selectOptions
         }}
       />
       <FormInput
@@ -92,6 +93,8 @@ const TestForm: FC = () => {
         value='some input'
         type='date'
       />
+      <button onClick={handleHidden}>Trigger Ref</button>
+      <FormHidden ref={hiddenRef} handleSave={handleSave}/>
       <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
     </Form>
   )
