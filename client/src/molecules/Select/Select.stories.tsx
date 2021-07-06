@@ -24,10 +24,12 @@ const Template = (args: any) => {
   }
 
   return (
-    <Fragment>
+    <div style={{display: 'inline-flex', width: '100%', gridGap: '8px', height: '44px'}}>
+      <div  style={{width: '100%'}}>
+        <Select {...args} onChange={handleChange} initialValue={value} />
+      </div>
       <Button theme='primary' label={'reset'} onClick={handleReset} />
-      <Select {...args} onChange={handleChange} initialValue={value} />
-    </Fragment>
+    </div>
   )
 }
 
@@ -47,7 +49,8 @@ export const Single: any = Template.bind({})
 Single.args = {
   initialValue: { label: '', value: '' },
   open: true,
-  children: renderOptions()
+  children: renderOptions(),
+  label: 'Label'
 }
 
 // Multi

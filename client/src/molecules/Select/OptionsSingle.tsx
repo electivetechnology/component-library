@@ -7,8 +7,11 @@ import React, {
   Children
 } from 'react'
 import { OptionContext, SelectContext } from './base'
-import { OptionSingleStyled, SearchInputStyled } from 'molecules/Select/styles'
+import { InputIconStyled, InputStyled, LabelStyled, OptionSingleStyled, SearchInputStyled, SelectLabelStyled } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
+import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
+import { theme } from 'styles/theme'
 
 const NONE = { label: '-- None --', value: '' }
 
@@ -37,7 +40,7 @@ const OptionsSingle: FC = () => {
   }
 
   const handleHideOptions = () => {
-    setShowOptions(true)
+    setShowOptions(!showOptions)
   }
 
   useEffect(() => {
@@ -79,6 +82,8 @@ const OptionsSingle: FC = () => {
     return filteredChildren
   }
 
+  const fieldPlaceholder = required ? `${label}*` : label
+
   return (
     <OptionContext.Provider
       value={{
@@ -86,26 +91,33 @@ const OptionsSingle: FC = () => {
         handleSelect
       }}
     >
-      <Fragment>
-        <SearchInputStyled
-          darkMode={darkMode}
-          id='search'
-          placeholder={label}
-          disabled={disabled}
-          error={false}
-          value={search}
-          onChange={handleChange}
-          onClick={handleHideOptions}
-        />
-        <OptionSingleStyled isActive={showOptions}>
-          {showOptions && (
-            <Fragment>
-              {!required && <Option option={NONE} />}
-              {renderChildren()}
-            </Fragment>
-          )}
-        </OptionSingleStyled>
-      </Fragment>
+      <InputStyled isActive={showOptions} onClick={handleHideOptions}>
+        <SelectLabelStyled>
+          {/* <LabelStyled>{fieldPlaceholder}</LabelStyled> */}
+          {/* TODO: implement later  */}
+          <SearchInputStyled
+            disabled={disabled}
+            id='search'
+            placeholder={fieldPlaceholder}
+            value={search}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+        </SelectLabelStyled>
+        <InputIconStyled>
+          {showOptions ?
+            <ArrowDropUp style={{fill: theme.grayGeyser }} /> :
+            <ArrowDropDown style={{fill: theme.grayGeyser }} />}
+        </InputIconStyled>
+      </InputStyled>
+      <OptionSingleStyled isActive={showOptions}>
+        {showOptions && (
+          <Fragment>
+            {!required && <Option option={NONE} isTitle />}
+            {renderChildren()}
+          </Fragment>
+        )}
+      </OptionSingleStyled>
     </OptionContext.Provider>
   )
 }
