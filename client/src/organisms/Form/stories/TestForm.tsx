@@ -3,13 +3,7 @@ import { Form, FormSave, FormInput, FormOption } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import { FormHidden } from 'organisms/Form/components/FormHidden'
-
-const selectOptions = [
-  <FormOption type='option' label='Available' value='available' />,
-  <FormOption type='option' label='Not looking' value='notLooking' />,
-  <FormOption type='option' label='Archive' value='archive' />,
-  <FormOption type='option' label='Removed' value='removed' />,
-]
+import { selectOptions } from './base'
 
 const TestForm: FC = () => {
   const { statuses, addStatus } = useFormStatus()
@@ -31,8 +25,6 @@ const TestForm: FC = () => {
     console.log(inputs)
     console.groupEnd()
   }
-
-
 
   return (
     <Form statuses={statuses} handleUpdate={handleUpdate}>
@@ -94,7 +86,7 @@ const TestForm: FC = () => {
         type='date'
       />
       <button onClick={handleHidden}>Trigger Ref</button>
-      <FormHidden ref={hiddenRef} handleSave={handleSave}/>
+      <FormHidden ref={hiddenRef} handleSave={handleSave} />
       <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
     </Form>
   )

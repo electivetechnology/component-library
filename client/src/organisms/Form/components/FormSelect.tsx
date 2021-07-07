@@ -56,7 +56,7 @@ const FormSelect: FunctionComponent = () => {
         darkMode={darkMode}
         disabled={disabled}
       >
-        {options?.selectOptions}
+        {options?.selectOptions?.map((option) => option)}
       </Select>
       <FormDelete isHovered={isHovered} />
     </SelectStyled>

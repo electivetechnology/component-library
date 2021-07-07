@@ -3,26 +3,25 @@ import { OptionContext, SelectContext } from './base'
 import { OptionStyled } from 'molecules/Select/styles'
 
 type Props = {
-  option: {
-    label: string
-    value: string
-  },
-  isTitle?: boolean
+  label: string
+  value: string
 }
-const Option: FC<Props> = ({ isTitle = false, option: { label, value } }) => {
+const Option: FC<Props> = ({ label, value }) => {
   const { selected, handleSelect } = useContext(OptionContext)
+
+  const hasValue = value != ''
 
   const onSelect = () => {
     handleSelect(value)
   }
 
-  const isActive = selected === value && value != ''
+  const isActive = selected === value && hasValue
 
   return (
     <OptionStyled
       onClick={onSelect}
       isActive={isActive}
-      isTitle={isTitle}>
+      hasValue={hasValue}>
       {label}
     </OptionStyled>
   )

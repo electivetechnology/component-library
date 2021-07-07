@@ -8,7 +8,7 @@ type Props = {
 }
 const FormOption: FC<Props> = ({ type, label, value = '' }) => {
   if (type === 'option') {
-    return <Option option={{ label, value }} />
+    return <Option label={label} value={value} />
   }
   return <OptionHeader label='Initial set' />
 }
