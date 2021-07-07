@@ -82,7 +82,7 @@ export const SelectStyled = styled.div`
 
 type OptionProp = {
   isActive: boolean
-  isTitle: boolean
+  hasValue: boolean
 }
 
 export const OptionStyled = styled.div<OptionProp>`
@@ -100,7 +100,7 @@ export const OptionStyled = styled.div<OptionProp>`
         color: green;
     `};
     ${(props) =>
-    props.isTitle &&
+    !props.hasValue &&
     `
         cursor: unset;
         font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;

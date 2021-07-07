@@ -122,9 +122,7 @@ const OptionsSingle: FC = () => {
       <OptionSingleStyled isActive={showOptions}>
         {showOptions && (
           <Fragment>
-            {!required && (
-              <Option label={NONE.label} value={NONE.value} isTitle />
-            )}
+            {!required && <Option label={NONE.label} value={NONE.value} />}
             {renderChildren()}
           </Fragment>
         )}
