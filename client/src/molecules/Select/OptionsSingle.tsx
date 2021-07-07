@@ -7,7 +7,14 @@ import React, {
   Children
 } from 'react'
 import { OptionContext, SelectContext } from './base'
-import { InputIconStyled, InputStyled, LabelStyled, OptionSingleStyled, SearchInputStyled, SelectLabelStyled } from 'molecules/Select/styles'
+import {
+  InputIconStyled,
+  InputStyled,
+  LabelStyled,
+  OptionSingleStyled,
+  SearchInputStyled,
+  SelectLabelStyled
+} from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
 import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
@@ -101,19 +108,23 @@ const OptionsSingle: FC = () => {
             placeholder={fieldPlaceholder}
             value={search}
             onChange={handleChange}
-            autoComplete="off"
+            autoComplete='off'
           />
         </SelectLabelStyled>
         <InputIconStyled>
-          {showOptions ?
-            <ArrowDropUp style={{fill: theme.grayGeyser }} /> :
-            <ArrowDropDown style={{fill: theme.grayGeyser }} />}
+          {showOptions ? (
+            <ArrowDropUp style={{ fill: theme.grayGeyser }} />
+          ) : (
+            <ArrowDropDown style={{ fill: theme.grayGeyser }} />
+          )}
         </InputIconStyled>
       </InputStyled>
       <OptionSingleStyled isActive={showOptions}>
         {showOptions && (
           <Fragment>
-            {!required && <Option option={NONE} isTitle />}
+            {!required && (
+              <Option label={NONE.label} value={NONE.value} isTitle />
+            )}
             {renderChildren()}
           </Fragment>
         )}
