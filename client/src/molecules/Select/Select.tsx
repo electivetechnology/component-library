@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, Fragment, useState } from 'react'
 import { OptionType, SelectContext } from './base'
 import { SelectContainerStyled } from 'molecules/Select/styles'
 import OptionsSingle from 'molecules/Select/OptionsSingle'
@@ -40,7 +40,11 @@ const Select: FC<Props> = ({
         disabled
       }}
     >
-      <SelectContainerStyled data-testid='Select'>
+      <SelectContainerStyled
+        darkMode={darkMode}
+        disabled={disabled}
+        error={false}
+        data-testid='Select'>
         <OptionsSingle />
       </SelectContainerStyled>
     </SelectContext.Provider>

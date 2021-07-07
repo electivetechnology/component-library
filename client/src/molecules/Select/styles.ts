@@ -1,45 +1,14 @@
 import styled from 'styled-components'
 import { theme } from 'styles/theme'
 
-export const SelectContainerStyled = styled.div`
-  border: 1px ${theme.Gray} solid;
+export const SelectLabelStyled = styled.div`
+  width: 100%;
 `
 
-export const SelectStyled = styled.div`
-  border: 1px ${theme.Gray} solid;
-`
-
-type OptionProp = {
-  isActive: boolean
-}
-
-export const OptionStyled = styled.div<OptionProp>`
-  cursor: pointer;
-  border: 1px ${theme.Gray} solid;
-  ${(props) =>
-    props.isActive &&
-    `
-        color: green;
-    `};
-`
-
-export const OptionHeaderStyled = styled.div`
-  border: 1px ${theme.Gray} solid;
-`
-
-export const TagStyled = styled.div`
-  border: 1px ${theme.Gray} solid;
-  color: green;
-`
-type OptionSingleProp = {
-  isActive: boolean
-}
-export const OptionSingleStyled = styled.div<OptionSingleProp>`
-  ${(props) =>
-  !props.isActive &&
-  `
-        overflow: hidden;
-    `};
+export const LabelStyled = styled.div`
+  color: ${theme.grey};
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
 `
 
 type SearchInputProps = {
@@ -48,12 +17,16 @@ type SearchInputProps = {
   error: boolean
 }
 
-export const SearchInputStyled = styled.input<SearchInputProps>`
+export const SelectContainerStyled = styled.div<SearchInputProps>`
   border: none;
-  font-size: 14px;
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
   width: 100%;
+  height: 44px;
+  border-bottom: 1px solid ${theme.dividerGrey};
+  background-color: transparent;
+  width: 100%;
+  height: 44px;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
@@ -101,6 +74,103 @@ export const SearchInputStyled = styled.input<SearchInputProps>`
           border-bottom: 1px dotted ${theme.dividerGrey};
         }
     `}
+`
+
+export const SelectStyled = styled.div`
+  border: 1px ${theme.Gray} solid;
+`
+
+type OptionProp = {
+  isActive: boolean
+  isTitle: boolean
+}
+
+export const OptionStyled = styled.div<OptionProp>`
+  cursor: pointer;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  &:hover {
+    background-color: ${theme.dividerGrey};
+  }
+  ${(props) =>
+    props.isActive &&
+    `
+        color: green;
+    `};
+    ${(props) =>
+    props.isTitle &&
+    `
+        cursor: unset;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        font-size: 12px;
+        color: ${theme.grey};
+    `};
+`
+
+export const OptionHeaderStyled = styled.div`
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  &:hover {
+    background-color: ${theme.dividerGrey};
+  }
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  color: ${theme.grey};
+`
+
+export const TagStyled = styled.div`
+  border: 1px ${theme.Gray} solid;
+  color: green;
+`
+type OptionSingleProp = {
+  isActive: boolean
+}
+export const OptionSingleStyled = styled.div<OptionSingleProp>`
+  overflow: hidden;
+  ${(props) =>
+    props.isActive &&
+    `
+      border: 1px solid ${theme.grayGeyser};
+      box-shadow: 0px 1px 3px ${theme.grayGeyser};
+      background-color: ${theme.white};
+      width: 100%;
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-size: 14px;
+    `};
+`
+
+type InputProps = {
+  isActive: boolean
+}
+
+export const InputStyled = styled.div<InputProps>`
+  display: inline-flex;
+  width: 100%;
+`
+
+export const InputIconStyled = styled.div`
+  margin: auto;
+`
+
+export const SearchInputStyled = styled.input`
+  border: none;
+  font-size: 14px;
+  background-color: transparent;
+  width: 100%;
+  height: 44px;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    border: none;
+  }
+  &:active {
+    border: none;
+  }
 `
 
 
