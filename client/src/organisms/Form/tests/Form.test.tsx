@@ -8,6 +8,7 @@ import {
   FormTitle
 } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
+import { selectOptions } from 'organisms/Form/stories/base'
 
 const { getAllByTestId, getByLabelText, getByText, getByTestId } = screen
 
@@ -31,7 +32,7 @@ const renderForm = () => {
         name='select'
         value={status}
         type='select'
-        options={{ selectOptions: [{ value: '', label: '' }] }}
+        options={{ selectOptions }}
       />
       <FormInput
         label='Form Colour'
@@ -54,7 +55,7 @@ test('renders basic form', () => {
   expect(getAllByTestId('FormTitle')).toBeDefined
   expect(getAllByTestId('FormText')).toBeDefined
   expect(getAllByTestId('FormTextarea')).toBeDefined
-  expect(getByLabelText('Form Select')).toBeDefined
+  expect(getAllByTestId('FormSelect')).toBeDefined
   expect(getByText('Form Colour')).toBeDefined
   expect(getByText('Form Info')).toBeDefined
   expect(getByTestId('FormAction')).toBeDefined

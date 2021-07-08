@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'organisms/Form/index'
+import { Form } from 'organisms/Form'
 import TestFormComponent from 'organisms/Form/stories/TestForm'
 
 const Template = (args: any) => <TestFormComponent {...args} />

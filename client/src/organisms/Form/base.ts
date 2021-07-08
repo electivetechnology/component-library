@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, ReactChildren } from 'react'
 import { theme } from 'styles/theme'
 
 export type InputType =
@@ -39,7 +39,7 @@ export interface OptionType {
   multiline?: boolean
   width?: number
   selected?: FormOptionType
-  selectOptions?: Array<FormOptionType>
+  selectOptions?: JSX.Element[]
   noOptionsMessage?: string
   isMulti?: boolean
   isDynamic?: boolean

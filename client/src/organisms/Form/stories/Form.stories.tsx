@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react'
 import {
   Form,
-  FormAction,
   FormInfo,
   FormInput,
   FormRow,
-  FormTitle
+  FormTitle,
 } from 'organisms/Form'
-import AddIcon from '@material-ui/icons/Add'
 
 const handleUpdate = () => {}
 
@@ -68,16 +66,11 @@ Date.args = {
   handleUpdate,
   children: (
     <Fragment>
+      <FormInput label='Date' type='date' name='date' value='' />
       <FormInput
         label='Date'
         type='date'
-        name="date"
-        value=''
-      />
-      <FormInput
-        label='Date'
-        type='date'
-        name="date"
+        name='date'
         value=''
         required={true}
       />
@@ -100,12 +93,7 @@ Phone.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <FormInput
-        label="Phone number"
-        name="phone"
-        value={'44'}
-        type="phone"
-      />
+      <FormInput label='Phone number' name='phone' value={'44'} type='phone' />
     </Fragment>
   )
 }
@@ -123,242 +111,7 @@ Row.args = {
   )
 }
 
-// Select
-export const Select: any = Template.bind({})
 
-Select.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput
-        label='Form Select'
-        name='select'
-        value={status}
-        type='select'
-        options={{ selectOptions: [{ value: '', label: '' }] }}
-      />
-      <FormInput
-        label='Form Select prefix'
-        name='select'
-        value={status}
-        type='select'
-        options={{ 
-          selectOptions: [{ value: '', label: '' }],
-          prefix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
-        }}
-      />
-      <FormInput
-        label='Form Select suffix'
-        name='select'
-        value={status}
-        type='select'
-        options={{ 
-          selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
-        }}
-      />   
-      <FormInput
-        label='Form Select suffix'
-        name='select'
-        value={status}
-        type='select'
-        required={true}
-        options={{ 
-          selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
-        }}
-      />   
-      <FormInput
-        label='Form Select suffix'
-        name='select'
-        value={status}
-        type='select'
-        required={true}
-        handleDelete={() => {}}
-      />
-    </Fragment>
-  )
-}
-
-// FormText
-export const Text: any = Template.bind({})
-
-Text.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput label='Text field' name='text' value='some text' type='text' />
-      <FormInput
-        label='Text Area'
-        name='text'
-        value='some text'
-        type='text' />
-      <FormInput label='Text suffix' name='text' value='some text' type='text' />
-      <FormInput
-        label='Text multiline'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        options={{
-          multiline: true }} />
-    </Fragment>
-  )
-}
-
-// FormTextIcons
-export const TextIcons: any = Template.bind({})
-
-TextIcons.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput
-        label='Text Area'
-        name='text'
-        value='some text'
-        type='text'
-        options={{
-          prefix: true, 
-          icon: <AddIcon />,
-          suffix: true
-        }} />
-      <FormInput
-        label='Text multiline'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        options={{
-          multiline: true,
-          prefix: true, 
-          icon: <AddIcon style={{margin: 'auto'}} />,
-          suffix: true }}
-      />
-    </Fragment>
-  )
-}
-
-// FormCopy
-export const TextCopy: any = Template.bind({})
-
-TextCopy.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput
-        label='Text field'
-        name='text'
-        value='some text'
-        type='text'
-        options={{ copy: true }}
-      />
-      <FormInput
-        label='Text multiline'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        options={{ multiline: true, copy: true }}
-      />
-    </Fragment>
-  )
-}
-
-// FormDelete
-export const TextDelete: any = Template.bind({})
-
-TextDelete.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput
-        label='Text field'
-        name='text'
-        value='some text'
-        type='text'
-        handleDelete={() => {}}
-      />
-      <FormInput
-        label='Text multiline'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        handleDelete={() => {}}
-        options={{ multiline: true }}
-      />
-    </Fragment>
-  )
-}
-
-// FormDownload
-export const TextDownload: any = Template.bind({})
-
-TextDownload.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput
-        label='Text field'
-        name='text'
-        value='some text'
-        type='text'
-        download={true}
-      />
-      <FormInput
-        label='Text multiline'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        options={{ multiline: true }}
-        download={true}
-      />
-    </Fragment>
-  )
-}
-
-// FormTextArea
-export const TextError: any = Template.bind({})
-
-TextError.args = {
-  handleUpdate,
-  statuses: {
-    text: { statusType: 'error' },
-    textArea: { statusType: 'error' }
-  },
-  children: (
-    <Fragment>
-      <FormInput label='Text field' name='text' value='some text' type='text' />
-      <FormInput
-        label='Text multiline'
-        name='textArea'
-        value='some textarea'
-        type='text'
-        options={{ multiline: true }}
-      />
-    </Fragment>
-  )
-}
-
-// FormTextRequired
-export const TextRequired: any = Template.bind({})
-
-TextRequired.args = {
-  handleUpdate,
-  children: (
-    <Fragment>
-      <FormInput label='Text field' name='text' value='some text' type='text' required={true} />
-      <FormInput
-        label='Text multiline'
-        name='textarea'
-        value='some textarea'
-        type='text'
-        options={{ multiline: true }}
-        required={true}
-      />
-    </Fragment>
-  )
-}
 
 // FormTitle
 export const Title: any = Template.bind({})
@@ -375,13 +128,8 @@ Toggle.args = {
   handleUpdate,
   children: (
     <Fragment>
-      <div style={{paddingBottom: '8px'}}>
-        <FormInput
-          label='Toggle'
-          name='toggle'
-          value={true}
-          type='toggle'
-        />
+      <div style={{ paddingBottom: '8px' }}>
+        <FormInput label='Toggle' name='toggle' value={true} type='toggle' />
       </div>
       <FormInput
         label='Toggle'

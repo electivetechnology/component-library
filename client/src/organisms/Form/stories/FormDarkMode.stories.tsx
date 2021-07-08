@@ -9,17 +9,20 @@ import {
 } from 'organisms/Form/index'
 import AddIcon from '@material-ui/icons/Add'
 import { theme } from 'styles/theme'
+import { selectOptions } from 'organisms/Form/stories/base'
 
 const handleUpdate = () => {}
 
 const Template = (args: any) => (
-  <div style={{
-    backgroundImage: `linear-gradient(
+  <div
+    style={{
+      backgroundImage: `linear-gradient(
         ${theme.gradientBlue},
         ${theme.gradientRed}
       )`,
-    height: '500px'
-    }}>
+      height: '500px'
+    }}
+  >
     <Form {...args} handleUpdate={handleUpdate} />
   </div>
 )
@@ -82,16 +85,11 @@ Date.args = {
   darkMode: true,
   children: (
     <Fragment>
+      <FormInput label='Date' type='date' name='date' value='' />
       <FormInput
         label='Date'
         type='date'
-        name="date"
-        value=''
-      />
-      <FormInput
-        label='Date'
-        type='date'
-        name="date"
+        name='date'
         value=''
         required={true}
       />
@@ -116,12 +114,7 @@ Phone.args = {
   darkMode: true,
   children: (
     <Fragment>
-      <FormInput
-        label="Phone number"
-        name="phone"
-        value={'44'}
-        type="phone"
-      />
+      <FormInput label='Phone number' name='phone' value={'44'} type='phone' />
     </Fragment>
   )
 }
@@ -153,7 +146,7 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ selectOptions: [{ value: '', label: '' }] }}
+        options={{ selectOptions }}
       />
       <FormInput
         label='Form Select prefix'
@@ -161,9 +154,13 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: [{ value: '', label: '' }],
+          selectOptions,
           prefix: true,
-          icon: <AddIcon style={{position: 'relative', top: '44px', fill: theme.white }} />
+          icon: (
+            <AddIcon
+              style={{ position: 'relative', top: '44px', fill: theme.white }}
+            />
+          )
         }}
       />
       <FormInput
@@ -172,9 +169,13 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions: [{ value: '', label: '' }],
+          selectOptions,
           suffix: true,
-          icon: <AddIcon style={{position: 'relative', top: '44px', fill: theme.white }} />
+          icon: (
+            <AddIcon
+              style={{ position: 'relative', top: '44px', fill: theme.white }}
+            />
+          )
         }}
       />
     </div>
@@ -214,10 +215,11 @@ TextIcons.args = {
         value='some text'
         type='text'
         options={{
-          prefix: true, 
-          icon: <AddIcon style={{fill: 'white'}} />,
+          prefix: true,
+          icon: <AddIcon style={{ fill: 'white' }} />,
           suffix: true
-        }} />
+        }}
+      />
       <FormInput
         label='Text multiline'
         name='textarea'
@@ -225,14 +227,14 @@ TextIcons.args = {
         type='text'
         options={{
           multiline: true,
-          prefix: true, 
-          icon: <AddIcon style={{margin: 'auto', fill: 'white'}} />,
-          suffix: true }}
+          prefix: true,
+          icon: <AddIcon style={{ margin: 'auto', fill: 'white' }} />,
+          suffix: true
+        }}
       />
     </Fragment>
   )
 }
-
 
 // FormCopy
 export const TextCopy: any = Template.bind({})
@@ -346,7 +348,13 @@ TextRequired.args = {
   darkMode: true,
   children: (
     <Fragment>
-      <FormInput label='Text field' name='text' value='some text' type='text' required={true} />
+      <FormInput
+        label='Text field'
+        name='text'
+        value='some text'
+        type='text'
+        required={true}
+      />
       <FormInput
         label='Text multiline'
         name='textarea'
@@ -376,13 +384,8 @@ Toggle.args = {
   darkMode: true,
   children: (
     <Fragment>
-      <div style={{paddingBottom: '8px'}}>
-        <FormInput
-          label='Toggle'
-          name='toggle'
-          value={true}
-          type='toggle'
-        />
+      <div style={{ paddingBottom: '8px' }}>
+        <FormInput label='Toggle' name='toggle' value={true} type='toggle' />
       </div>
       <FormInput
         label='Toggle'
