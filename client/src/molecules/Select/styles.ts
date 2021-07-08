@@ -26,7 +26,7 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
   width: 100%;
-  height: 44px;
+  height: auto;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
