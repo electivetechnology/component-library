@@ -11,13 +11,13 @@ export const LabelStyled = styled.div`
   font-size: 14px;
 `
 
-type SearchInputProps = {
+type SearchContainerProps = {
   disabled?: boolean
   darkMode: boolean
   error: boolean
 }
 
-export const SelectContainerStyled = styled.div<SearchInputProps>`
+export const SelectContainerStyled = styled.div<SearchContainerProps>`
   border: none;
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
@@ -91,13 +91,14 @@ export const OptionStyled = styled.div<OptionProp>`
   display: flex;
   align-items: center;
   padding: 0 16px;
+  color: ${theme.black};
   &:hover {
     background-color: ${theme.dividerGrey};
   }
   ${(props) =>
     props.isActive &&
     `
-        color: green;
+        font-weight: 900;
     `};
     ${(props) =>
     !props.hasValue &&
@@ -156,7 +157,10 @@ export const InputIconStyled = styled.div`
   margin: auto;
 `
 
-export const SearchInputStyled = styled.input`
+type SearchInputProps = {
+  darkMode: boolean
+}
+export const SearchInputStyled = styled.input<SearchInputProps>`
   border: none;
   font-size: 14px;
   background-color: transparent;
@@ -171,6 +175,11 @@ export const SearchInputStyled = styled.input`
   &:active {
     border: none;
   }
+  ${(props) =>
+    props.darkMode &&
+    `
+      color: ${theme.white};
+    `};
 `
 
 

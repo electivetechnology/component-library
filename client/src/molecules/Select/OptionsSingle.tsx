@@ -103,6 +103,7 @@ const OptionsSingle: FC = () => {
           {/* <LabelStyled>{fieldPlaceholder}</LabelStyled> */}
           {/* TODO: implement later  */}
           <SearchInputStyled
+            darkMode={darkMode}
             disabled={disabled}
             id='search'
             placeholder={fieldPlaceholder}
