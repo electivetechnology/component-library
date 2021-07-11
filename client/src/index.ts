@@ -29,4 +29,4 @@ export { Pages, PageContext } from 'molecules/Pages'
 export { Select, Option, OptionHeader } from 'molecules/Select'
 
 // ORGANISMS
-export { Form, FormInput, FormSave, useFormStatus, FormRow } from 'organisms/Form'
+export { Form, FormInput, FormSave, useFormStatus, FormRow, FormOption } from 'organisms/Form'

@@ -19,7 +19,6 @@ type SearchContainerProps = {
 
 export const SelectContainerStyled = styled.div<SearchContainerProps>`
   border: none;
-  border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
   width: 100%;
   height: 44px;
@@ -29,7 +28,7 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
   height: auto;
   &:focus {
     outline: none;
-    border-bottom: 1px solid ${theme.grey};
+    border-bottom: none;
   }
   &:hover {
     border-bottom: 1px solid ${theme.grey};
@@ -135,8 +134,9 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
   ${(props) =>
     props.isActive &&
     `
-      border: 1px solid ${theme.grayGeyser};
-      box-shadow: 0px 1px 3px ${theme.grayGeyser};
+      border-left: 1px solid ${theme.grayGeyser};
+      border-right: 1px solid ${theme.grayGeyser};
+      border-top: 1px solid ${theme.grayGeyser};
       background-color: ${theme.white};
       width: 100%;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
