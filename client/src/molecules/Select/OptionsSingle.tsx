@@ -10,6 +10,7 @@ import { OptionContext, SelectContext } from './base'
 import {
   InputIconStyled,
   InputStyled,
+  LabelContainerStyled,
   LabelStyled,
   OptionSingleStyled,
   SearchInputStyled,
@@ -19,6 +20,7 @@ import Option from 'molecules/Select/Option'
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
 import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
 import { theme } from 'styles/theme'
+import { RequiredStyled } from 'organisms/Form/styles'
 
 const NONE = { label: '-- None --', value: '' }
 
@@ -36,7 +38,7 @@ const OptionsSingle: FC = () => {
   } = useContext(SelectContext)
 
   const [selected, setSelected] = useState('')
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState<any>('')
   const [filterOptions, setFilterOptions] = useState(false)
 
   const handleSelect = (value: string, hideOptions = true) => {
@@ -47,7 +49,9 @@ const OptionsSingle: FC = () => {
   }
 
   const handleHideOptions = () => {
-    setShowOptions(!showOptions)
+    if (!disabled) {
+      setShowOptions(!showOptions)
+    }
   }
 
   useEffect(() => {
@@ -100,8 +104,11 @@ const OptionsSingle: FC = () => {
     >
       <InputStyled isActive={showOptions} onClick={handleHideOptions}>
         <SelectLabelStyled>
-          {/* <LabelStyled>{fieldPlaceholder}</LabelStyled> */}
-          {/* TODO: implement later  */}
+          {search ? <LabelContainerStyled>
+              <LabelStyled>{label}</LabelStyled>
+              {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
+            </LabelContainerStyled>
+            : null}
           <SearchInputStyled
             darkMode={darkMode}
             disabled={disabled}
@@ -110,6 +117,7 @@ const OptionsSingle: FC = () => {
             value={search}
             onChange={handleChange}
             autoComplete='off'
+            hasValue={!search}
           />
         </SelectLabelStyled>
         <InputIconStyled>

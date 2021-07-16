@@ -159,13 +159,13 @@ export const InputIconStyled = styled.div`
 
 type SearchInputProps = {
   darkMode: boolean
+  hasValue: boolean
 }
 export const SearchInputStyled = styled.input<SearchInputProps>`
   border: none;
   font-size: 14px;
   background-color: transparent;
   width: 100%;
-  height: 44px;
   &:focus {
     outline: none;
   }
@@ -180,6 +180,13 @@ export const SearchInputStyled = styled.input<SearchInputProps>`
     `
       color: ${theme.white};
     `};
+  ${(props) =>
+    props.hasValue &&
+    `
+      height: 44px;
+    `};
 `
 
-
+export const LabelContainerStyled = styled.div`
+  display: inline-flex;
+`
