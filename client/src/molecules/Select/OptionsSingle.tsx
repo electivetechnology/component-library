@@ -105,7 +105,7 @@ const OptionsSingle: FC = () => {
       <InputStyled isActive={showOptions} onClick={handleHideOptions}>
         <SelectLabelStyled>
           {search ? <LabelContainerStyled>
-              <LabelStyled>{label}</LabelStyled>
+              <LabelStyled darkMode={darkMode}>{label}</LabelStyled>
               {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
             </LabelContainerStyled>
             : null}

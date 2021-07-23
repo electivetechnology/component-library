@@ -5,10 +5,19 @@ export const SelectLabelStyled = styled.div`
   width: 100%;
 `
 
-export const LabelStyled = styled.div`
+type LabelProp = {
+  darkMode: boolean
+}
+
+export const LabelStyled = styled.div<LabelProp>`
   color: ${theme.grey};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
+  ${(props) =>
+    props.darkMode &&
+    `
+      color: ${theme.white};
+      `}
 `
 
 type SearchContainerProps = {
