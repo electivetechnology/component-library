@@ -145,7 +145,7 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
     `
       border: 1px solid ${theme.grayGeyser};
       background-color: ${theme.white};
-      width: 97%;
+      width: 100%;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
       font-size: 14px;
       position: absolute;
@@ -160,6 +160,7 @@ type InputProps = {
 export const InputStyled = styled.div<InputProps>`
   display: inline-flex;
   width: 100%;
+  position: relative;
 `
 
 export const InputIconStyled = styled.div`
