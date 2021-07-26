@@ -170,11 +170,20 @@ export const EditorLabel = styled.div`
 `
 
 // FormText
-export const FormTextContainerStyled = styled.div`
-  padding-top: 24px;
+type FormTextContainerProps = {
+  fixedHeight?: boolean
+}
+
+export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
   display: inline-flex;
   width: 100%;
   height: auto;
+  padding-top: 24px;
+  ${(props) =>
+    props.fixedHeight &&
+    `
+    padding-top: 4px;
+    `}
 `
 
 type RequiredProp = {

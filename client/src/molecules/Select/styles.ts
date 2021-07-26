@@ -30,7 +30,7 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
   border: none;
   background-color: transparent;
   width: 100%;
-  height: 44px;
+  padding-top: 18px;
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
   width: 100%;
@@ -143,13 +143,14 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
   ${(props) =>
     props.isActive &&
     `
-      border-left: 1px solid ${theme.grayGeyser};
-      border-right: 1px solid ${theme.grayGeyser};
-      border-top: 1px solid ${theme.grayGeyser};
+      border: 1px solid ${theme.grayGeyser};
       background-color: ${theme.white};
       width: 100%;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
       font-size: 14px;
+      position: absolute;
+      width: auto;
+      z-index: 2000;
     `};
 `
 

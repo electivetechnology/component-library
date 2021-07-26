@@ -51,12 +51,14 @@ const FormText: FunctionComponent = () => {
   }
 
   const fieldPlaceholder = required ? `${label}*` : label
+  const hasValue = value ? true : false
 
   return (
     <FormTextContainerStyled
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}
+      fixedHeight={!options?.multiline && hasValue}
     >
       <div style={{ width: '100%' }}>
         {value && (

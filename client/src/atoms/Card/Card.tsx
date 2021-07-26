@@ -24,6 +24,7 @@ type Props = {
   headerContent?: ReactElement
   height?: string
   width?: string
+  overflow?: boolean
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
@@ -41,6 +42,7 @@ const ComponentCard: React.FC<Props> = ({
   fullHeight = false,
   noBorder = false,
   scroll = false,
+  overflow = false
 }) => {
   return (
     <CardContainerStyled
@@ -55,6 +57,7 @@ const ComponentCard: React.FC<Props> = ({
       scroll={scroll}
       height={height}
       width={width}
+      overflow={overflow}
     >
       {header || headerContent ? (
         <ComponentCardHeaderStyled>
