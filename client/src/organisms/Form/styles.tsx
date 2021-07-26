@@ -178,7 +178,7 @@ export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
   display: inline-flex;
   width: 100%;
   height: auto;
-  padding-top: 24px;
+  padding-top: 23px;
   ${(props) =>
     props.fixedHeight &&
     `

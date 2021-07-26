@@ -104,11 +104,14 @@ const OptionsSingle: FC = () => {
     >
       <InputStyled isActive={showOptions} onClick={handleHideOptions}>
         <SelectLabelStyled>
-          {search ? <LabelContainerStyled>
+          {search ? (
+            <LabelContainerStyled>
               <LabelStyled darkMode={darkMode}>{label}</LabelStyled>
-              {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
+              {required && (
+                <RequiredStyled disabled={disabled}>*</RequiredStyled>
+              )}
             </LabelContainerStyled>
-            : null}
+          ) : null}
           <SearchInputStyled
             darkMode={darkMode}
             disabled={disabled}
@@ -119,6 +122,14 @@ const OptionsSingle: FC = () => {
             autoComplete='off'
             hasValue={!search}
           />
+          {showOptions && (
+            <OptionSingleStyled isActive={showOptions}>
+              <Fragment>
+                {!required && <Option label={NONE.label} value={NONE.value} />}
+                {renderChildren()}
+              </Fragment>
+            </OptionSingleStyled>
+          )}
         </SelectLabelStyled>
         <InputIconStyled>
           {showOptions ? (
@@ -128,14 +139,6 @@ const OptionsSingle: FC = () => {
           )}
         </InputIconStyled>
       </InputStyled>
-      <OptionSingleStyled isActive={showOptions}>
-        {showOptions && (
-          <Fragment>
-            {!required && <Option label={NONE.label} value={NONE.value} />}
-            {renderChildren()}
-          </Fragment>
-        )}
-      </OptionSingleStyled>
     </OptionContext.Provider>
   )
 }

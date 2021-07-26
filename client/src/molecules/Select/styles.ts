@@ -145,11 +145,10 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
     `
       border: 1px solid ${theme.grayGeyser};
       background-color: ${theme.white};
-      width: 100%;
+      width: 97%;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
       font-size: 14px;
       position: absolute;
-      width: auto;
       z-index: 2000;
     `};
 `
