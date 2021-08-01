@@ -6,6 +6,7 @@ import {
   FormRow,
   FormTitle,
 } from 'organisms/Form'
+import AddIcon from '@material-ui/icons/Add'
 
 const handleUpdate = () => {}
 
@@ -111,7 +112,65 @@ Row.args = {
   )
 }
 
+// Select
+export const Select: any = Template.bind({})
 
+Select.args = {
+  handleUpdate,
+  children: (
+    <Fragment>
+      <FormInput
+        label='Form Select'
+        name='select'
+        value={status}
+        type='select'
+        options={{ selectOptions: [{ value: '', label: '' }] }}
+      />
+      <FormInput
+        label='Form Select prefix'
+        name='select'
+        value={status}
+        type='select'
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          prefix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          suffix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />   
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        required={true}
+        options={{ 
+          selectOptions: [{ value: '', label: '' }],
+          suffix: true, 
+          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+        }}
+      />   
+      <FormInput
+        label='Form Select suffix'
+        name='select'
+        value={status}
+        type='select'
+        required={true}
+        handleDelete={() => {}}
+      />
+    </Fragment>
+  )
+}
 
 // FormTitle
 export const Title: any = Template.bind({})

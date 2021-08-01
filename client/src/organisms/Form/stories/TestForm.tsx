@@ -31,12 +31,9 @@ const TestForm: FC = () => {
       <FormInput
         label='Form Select'
         name='select'
-        value='available'
-        required={false}
+        value={status}
         type='select'
-        options={{
-          selectOptions
-        }}
+        options={{ selectOptions: [{ value: '', label: '' }] }}
       />
       <FormInput
         label='Text Input'

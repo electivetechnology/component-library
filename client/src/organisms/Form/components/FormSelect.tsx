@@ -7,10 +7,10 @@ import React, {
   useState
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
-import { Select } from 'molecules/Select'
-import FormDelete from 'organisms/Form/components/FormDelete'
-import { SelectStyled } from 'organisms/Form/styles'
-import isNull from 'lodash/isNull'
+import { selectedOption } from 'organisms/Form/mock'
+import { SelectField } from 'atoms'
+import { SelectStyled } from '../styles'
+import FormDelete from './FormDelete'
 
 const FormSelect: FunctionComponent = () => {
   const {
@@ -22,42 +22,52 @@ const FormSelect: FunctionComponent = () => {
     outlined,
     required
   } = useContext(InputContext)
-  const { onBlur, updateInput, darkMode } = useContext(FormContext)
-
   const [isHovered, setIsHovered] = useState(false)
-  const valueRef = useRef(null)
 
-  const handleChange = (newValue: any) => {
-    if (inputValue !== newValue) {
-      valueRef.current = newValue
-      updateInput(name, newValue)
-    }
+  const { onBlur, updateInput, darkMode, inputs } = useContext(FormContext)
+  const valueRef = useRef()
+
+  const handleBlur = () => {
+    onBlur(name)
+  }
+
+  const selectOptions =
+    options && options.selectOptions ? options.selectOptions : []
+
+  const selected = options ? selectedOption(selectOptions, inputValue) : null
+
+  const handleChange = (event: any, newValue: any) => {
+    valueRef.current = newValue
+    updateInput(name, newValue ? newValue.value : null)
+  }
+
+  const handleMouseHover = () => {
+    disabled ? '' : setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    disabled ? '' : setIsHovered(false)
   }
 
   useEffect(() => {
-    !isNull(valueRef.current) && onBlur(name)
+    valueRef.current && handleBlur()
   }, [valueRef.current])
 
-  const handleMouseHover = () => !disabled && setIsHovered(true)
-  const handleMouseLeave = () => !disabled && setIsHovered(false)
+  const fieldPlaceholder = required ? `${label}*` : label
 
   return (
     <SelectStyled
-      data-testid='FormSelect'
       onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Select
-        label={label}
-        onChange={handleChange}
-        initialValue={inputValue}
-        required={required}
-        outlined={outlined}
-        darkMode={darkMode}
+      onMouseLeave={handleMouseLeave}>
+      <SelectField
+        label={fieldPlaceholder}
+        value={selected}
+        options={selectOptions}
         disabled={disabled}
-      >
-        {options?.selectOptions?.map((option) => option)}
-      </Select>
+        onChange={handleChange}
+        darkMode={darkMode}
+        outlined={outlined}
+      />
       <FormDelete isHovered={isHovered} />
     </SelectStyled>
   )
