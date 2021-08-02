@@ -1,7 +1,7 @@
 import React, { FunctionComponent, memo, Fragment } from 'react'
 import FormColourPicker from 'organisms/Form/components/FormColourPicker'
 import FormText from 'organisms/Form/components/FormText'
-import FormSelect from 'organisms/Form/components/FormSelect'
+import FormSelectField from 'organisms/Form/components/FormSelectField'
 import FormPhone from 'organisms/Form/components/FormPhone'
 import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
@@ -16,7 +16,7 @@ const FormInputs: FunctionComponent<Props> = ({ type }) => {
     <Fragment>
       {['text', 'number', 'password'].includes(type) && <FormText />}
       {/* {type === 'textEditor' && <FormTextEditor />} */}
-      {type === 'select' && <FormSelect />}
+      {type === 'select' && <FormSelectField />}
       {type === 'phone' && <FormPhone />}
       {type === 'date' && <FormDate />}
       {type === 'colourPicker' && <FormColourPicker />}
