@@ -9,7 +9,6 @@ import {
 } from 'organisms/Form/index'
 import AddIcon from '@material-ui/icons/Add'
 import { theme } from 'styles/theme'
-import { selectOptions } from 'organisms/Form/stories/base'
 
 const handleUpdate = () => {}
 
@@ -146,7 +145,7 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ selectOptions }}
+        options={{ selectOptions: [{ value: '', label: '' }] }}
       />
       <FormInput
         label='Form Select prefix'
@@ -154,7 +153,7 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions,
+          selectOptions: [{ value: '', label: '' }],
           prefix: true,
           icon: (
             <AddIcon
@@ -169,7 +168,7 @@ Select.args = {
         value={status}
         type='select'
         options={{
-          selectOptions,
+          selectOptions: [{ value: '', label: '' }],
           suffix: true,
           icon: (
             <AddIcon
