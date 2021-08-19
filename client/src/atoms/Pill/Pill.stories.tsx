@@ -7,7 +7,15 @@ const PillTemplate = (args: any) => <Pill {...args} />
 export const Default: any = PillTemplate.bind({})
 
 Default.args = {
-  status: 'primary'
+  color: 'blue',
+  align: 'left'
+}
+
+// Right
+export const Right: any = PillTemplate.bind({})
+
+Right.args = {
+  color: 'blue'
 }
 
 export default {

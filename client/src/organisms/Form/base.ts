@@ -39,7 +39,7 @@ export interface OptionType {
   multiline?: boolean
   width?: number
   selected?: FormOptionType
-  selectOptions?: JSX.Element[]
+  selectOptions?: Array<{ value: string; label: string }>
   noOptionsMessage?: string
   isMulti?: boolean
   isDynamic?: boolean
