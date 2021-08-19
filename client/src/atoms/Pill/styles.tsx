@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 type PillProp = {
   color: string
+  align: string
 }
 
 export const PillStyled = styled.div<PillProp>`
@@ -13,5 +14,11 @@ export const PillStyled = styled.div<PillProp>`
     props.color &&
     `
       background-color: ${props.color};
+    `};
+  ${(props) =>
+    props.align && props.align === 'left' &&
+    `
+      margin: 0;
+      margin-left: unset;
     `};
 `

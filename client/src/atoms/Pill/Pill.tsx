@@ -3,13 +3,15 @@ import { PillStyled } from './styles'
 
 type Props = {
   color: string
+  align?: string
 }
 const Pill: React.FC<Props> = ({
-  color
+  color,
+  align = 'right'
 }) => {
 
   return (
-    <PillStyled color={color}>
+    <PillStyled color={color} align={align}>
     </PillStyled>
   )
 }
