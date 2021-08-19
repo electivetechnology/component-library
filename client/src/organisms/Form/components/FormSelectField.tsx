@@ -57,6 +57,7 @@ import React, {
   
     return (
       <SelectStyled
+        data-testid='FormSelect'
         onMouseEnter={handleMouseHover}
         onMouseLeave={handleMouseLeave}>
         <SelectField
