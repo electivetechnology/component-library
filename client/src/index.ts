@@ -35,8 +35,6 @@ export {
   FormSave,
   useFormStatus,
   FormRow,
-  FormOption,
-  FormSelect,
   FormTitle,
   FormInfo,
   FormAction,
