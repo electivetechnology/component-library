@@ -6,6 +6,7 @@ import FormPhone from 'organisms/Form/components/FormPhone'
 import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
+import FormTextEditor from 'organisms/Form/components/FormTextEditor'
 
 type Props = {
   type: string
@@ -15,7 +16,7 @@ const FormInputs: FunctionComponent<Props> = ({ type }) => {
   return (
     <Fragment>
       {['text', 'number', 'password'].includes(type) && <FormText />}
-      {/* {type === 'textEditor' && <FormTextEditor />} */}
+      {type === 'textEditor' && <FormTextEditor />}
       {type === 'select' && <FormSelectField />}
       {type === 'phone' && <FormPhone />}
       {type === 'date' && <FormDate />}

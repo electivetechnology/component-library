@@ -146,5 +146,8 @@
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
+  },
+  "dependencies": {
+    "@tinymce/tinymce-react": "^3.12.6"
   }
 }
