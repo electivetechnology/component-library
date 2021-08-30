@@ -23,7 +23,7 @@ export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
   ${(props) =>
     props.disabled &&
     `
-      color: ${theme.disabledGrey};
+      color: ${theme.disabledButton};
   `};
 `
 

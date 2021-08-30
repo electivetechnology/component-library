@@ -126,8 +126,8 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.variant === 'primary' &&
     props.disabled &&
     `
-      background-color: ${theme.disabledGrey};
-      color: ${theme.disabledTextGrey};
+      background-color: ${theme.disabledButton};
+      color: ${theme.disabledText};
       border-radius: 4px;
   `};
   ${(props) =>
@@ -171,7 +171,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
       border-radius: 4px;
       background-color: transparent;
       &:hover {
-        background-color: ${theme.hoverBlue};
+        background-color: ${theme.selected};
       }
   `};
   ${(props) =>

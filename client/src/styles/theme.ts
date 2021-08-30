@@ -1,44 +1,57 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
 export const theme = {
+  accent1: '#6745C3', //
+  accent1Secondary: '#311B91', //
+  accent2: '#5DDDF3', //
+  accent2Secondary: '#00ABC1', //
+  accent3: '#FFD959', //
+  accent3Secondary: '#C17900', //
+  accent4: '#8ADC8A', //
+  accent4Secondary: '#169E16', //
+  disabledButton: '#EBEBEB', //
+  disabledText: '#B0B7BB', //
+  labels: '#747474',
+  links: '#0037FF', //
+  highlight: '#DBE1E7', //
+  hover: '#F6F7F9', //
+  primary: '#D53947', //
+  primaryDark: '#9D0021', //
+  primaryHover: ' #DE5C68', //
+  primaryLight: '#FF6D73', //
+  secondary: '#5B637A', //
+  secondaryDark: '#2C3246', //
+  secondaryLight: '#A0AED4', //
+  secondaryHover: '#FFC9CE', //
+  selected: '#EBEFFB', //
+  shadow: '#000000', //
+  warning: '#F9A725', //
+  white: '#ffffff', //
   primaryColorValencia: '#D63948',
   primaryColorValenciaDark: '#BD202F',
   primaryColorValenciaLight: '#D86C75',
-  white: '#ffffff',
-  black: '#000000',
-  grayComment: '#5B637A', // darkest
   grayCommentDark: '#474e68',
   pickledBlueWood: '#313950',
   grayGeyser: '#DCE1E8',
-  grayAthens: '#F6F7F9', // lightest
   blackText: 'rgba(0,0,0,0.87)',
   Gray: '#BBBBBB',
   secondaryBlue: '#00ACC1',
   secondaryGray: '#AAAAAA',
   secondaryYellow: '#F9A825',
-  secondaryGreen: '#128C7E', // WhatsApp
-  blue: '#4267B2', // Messenger
-  secondaryPurple: '#665CAC', // Viber
-  secondaryLime: '#2BA245', // WeChat
+  secondaryGreen: '#128C7E', 
+  blue: '#4267B2',
+  secondaryPurple: '#665CAC',
+  secondaryLime: '#2BA245', 
   gradientBlue: '#190E49',
   gradientRed: '#583D12',
-  hoverBlue: '#EBEFFB',
-  primaryGrey: '#5B6379', // selected / font grey / icon fill
+  primaryGrey: '#5B6379',
   borderGrey: '#CCCCCC',
-  primaryRed: '#D53947', // title
-  primaryBlue: '#1F78B4', // font blue
-  grey: '#95989A', // sub-heading
-  primaryTurquoise: '#00ABC1',
-  dividerGrey: '#DBE1E7', // hover
+  primaryBlue: '#1F78B4', 
+  grey: '#95989A', 
   darkBlue: '#397CE1',
   lightBlue: '#92BBF9',
-  mustard: '#F9A725',
-  navGrey: '#343B53', // main nav bar
-  primaryHover: ' #DE5C68',
-  secondaryHover: '#FFC9CE',
+  navGrey: '#343B53', 
   disabledGrey: '#EBEBEB',
-  disabledTextGrey: '#B0B7BB',
-  primaryGreen: '#8ADC8A',
   primaryGreenHover: '#AEDFAE',
   toggleGrey: '#F1F1F1',
   lightText: '#747779'
@@ -57,16 +70,16 @@ export const zindex = {
 export const appTheme = createMuiTheme({
   typography: {
     h1: {
-      fontSize: '36px'
+      fontSize: '24px'
     },
     h2: {
-      fontSize: '30px'
+      fontSize: '20px'
     },
     h3: {
-      fontSize: '26px'
+      fontSize: '16px'
     },
     h4: {
-      fontSize: '18px'
+      fontSize: '14px'
     },
     h5: {
       fontSize: '14px'

@@ -16,7 +16,7 @@ export const SelectFieldStyled = styled.div`
 `
 
 export const inputBorder = (outlined: boolean, darkMode: boolean) => {
-  let borderColour = darkMode ? theme.grey : theme.dividerGrey
+  let borderColour = darkMode ? theme.grey : theme.highlight
   return outlined ? `1px solid ${borderColour}` : 'none'
 }
 
@@ -34,7 +34,7 @@ export const useLabelStyles = makeStyles({
       color: props.darkMode ? theme.white : theme.grey
     },
     '&.MuiFormLabel-root.Mui-disabled': {
-      color: props.darkMode ? theme.disabledTextGrey : theme.disabledTextGrey,
+      color: theme.disabledText,
     },
   })
 })

@@ -12,9 +12,9 @@ export const useStyles = makeStyles({
   },
   helpFab: {
     color: theme.white,
-    backgroundColor: theme.grayComment,
+    backgroundColor: theme.secondary,
     '&:hover': {
-      backgroundColor: theme.grayComment
+      backgroundColor: theme.secondary
     }
   }
 })

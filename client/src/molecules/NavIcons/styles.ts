@@ -20,14 +20,14 @@ type NavigationContainerProps = {
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
   width: auto;
-  background-color: ${theme.grayAthens};
+  background-color: ${theme.hover};
   max-width: 56px;
   ${(props) =>
     props.horizontal &&
     `
       width: 100%;
       height: auto;
-      background-color: ${theme.grayAthens};
+      background-color: ${theme.hover};
       box-shadow: 0px 1px 3px ${theme.borderGrey};
       border-radius: 12px;
       padding: 6px 18px;
@@ -87,12 +87,12 @@ export const SubMenuStyled = styled.div`
 `
 
 export const VerticalDividerStyled = styled.div`
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
   margin: 16px 0;
 `
 
 export const HorizontalDividerStyled = styled.div`
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
   margin: 0 16px;
 `
 
@@ -113,7 +113,7 @@ export const IconStyled = styled.div<IconStyledProps>`
   background-color: transparent;
   @media screen and (min-width: 960px) {
     &:hover {
-      background-color: ${theme.dividerGrey};
+      background-color: ${theme.highlight};
     }
   }
   ${(props) =>
@@ -128,7 +128,7 @@ export const IconStyled = styled.div<IconStyledProps>`
       margin: 0 3px;
       @media screen and (min-width: 960px) {
         &:hover {
-          background-color: ${theme.hoverBlue};
+          background-color: ${theme.selected};
         }
       }
     `};
@@ -141,7 +141,7 @@ export const IconStyled = styled.div<IconStyledProps>`
       margin: 0 8px 0 0;
       @media screen and (min-width: 960px) {
         &:hover {
-          background-color: ${theme.hoverBlue};
+          background-color: ${theme.selected};
         }
       }
     `};
@@ -153,7 +153,7 @@ export const IconStyled = styled.div<IconStyledProps>`
 `
 
 export const HorizontalBarContainerStyled = styled.div`
-  background-color: ${theme.grayAthens};
+  background-color: ${theme.hover};
   box-shadow: 0px 1px 3px ${theme.borderGrey};
   border-radius: 12px;
   padding: 4px 24px;

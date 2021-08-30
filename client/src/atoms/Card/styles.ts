@@ -64,7 +64,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     props.theme === 'secondary' &&
     props.theme &&
     `
-      background-color: ${theme.grayAthens};
+      background-color: ${theme.hover};
     `};
   ${(props) =>
     props.hover &&
@@ -76,7 +76,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ${(props) =>
     props.selected &&
     `
-      border: 1px solid ${theme.grayComment};
+      border: 1px solid ${theme.secondary};
       box-shadow: none;
     `};
   ${(props) =>

@@ -69,7 +69,7 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   display: grid;
   width: 91vw;
   z-index: 100;
-  background-color: ${theme.grayAthens};
+  background-color: ${theme.hover};
   margin: auto;
   @media screen and (min-width: 750px) {
     width: 100%;
@@ -112,7 +112,7 @@ export const ColumnBorderStyled = styled.div`
   @media screen and (min-width: 750px) {
     display: block;
     width: 16px;
-    background-color: ${theme.grayAthens};
+    background-color: ${theme.hover};
     height: 100%;
     box-shadow: 3px 0px 3px ${theme.borderGrey};
   }

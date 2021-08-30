@@ -42,7 +42,7 @@ const Toggle: FunctionComponent<Props> = ({
     } else if (!isActive && !disabled) {
       return theme.primaryGrey
     } else {
-      return theme.disabledTextGrey
+      return theme.disabledText
     }
   }
 
@@ -50,7 +50,7 @@ const Toggle: FunctionComponent<Props> = ({
     if (darkMode && !disabled) {
       return theme.white
     } else if (darkMode && disabled) {
-      return theme.disabledTextGrey
+      return theme.disabledText
     } else {
       return theme.grey
     }
