@@ -9,52 +9,38 @@ export const theme = {
   accent3Secondary: '#C17900', //
   accent4: '#8ADC8A', //
   accent4Secondary: '#169E16', //
+  blue: '#4267B2',
+  darkBlue: '#397CE1',
   disabledButton: '#EBEBEB', //
   disabledText: '#B0B7BB', //
+  grayAthens: '#F6F7F9',
+  Gray: '#BBBBBB',
+  grayCommentDark: '#474e68',
+  grey: '#95989A',
   labels: '#747474',
   links: '#0037FF', //
   highlight: '#DBE1E7', //
   hover: '#F6F7F9', //
   primary: '#D53947', //
+  primaryColor: '#D53947', //
+  primaryColorDark: '#9D0021', //
+  primaryColorLight: '#FF6D73', //
   primaryDark: '#9D0021', //
   primaryHover: ' #DE5C68', //
   primaryLight: '#FF6D73', //
+  navBlack: '#0D1121',
+  navGrey: '#343B53',
   secondary: '#5B637A', //
+  secondaryColorDark: '#2C3246', //
   secondaryDark: '#2C3246', //
   secondaryLight: '#A0AED4', //
   secondaryHover: '#FFC9CE', //
+  secondaryGray: '#AAAAAA',
   selected: '#EBEFFB', //
   shadow: '#000000', //
+  textBody: '#000000', //
   warning: '#F9A725', //
   white: '#ffffff', //
-  primaryColorValencia: '#D63948',
-  primaryColorValenciaDark: '#BD202F',
-  primaryColorValenciaLight: '#D86C75',
-  grayCommentDark: '#474e68',
-  pickledBlueWood: '#313950',
-  grayGeyser: '#DCE1E8',
-  blackText: 'rgba(0,0,0,0.87)',
-  Gray: '#BBBBBB',
-  secondaryBlue: '#00ACC1',
-  secondaryGray: '#AAAAAA',
-  secondaryYellow: '#F9A825',
-  secondaryGreen: '#128C7E', 
-  blue: '#4267B2',
-  secondaryPurple: '#665CAC',
-  secondaryLime: '#2BA245', 
-  gradientBlue: '#190E49',
-  gradientRed: '#583D12',
-  primaryGrey: '#5B6379',
-  borderGrey: '#CCCCCC',
-  primaryBlue: '#1F78B4', 
-  grey: '#95989A', 
-  darkBlue: '#397CE1',
-  lightBlue: '#92BBF9',
-  navGrey: '#343B53', 
-  disabledGrey: '#EBEBEB',
-  primaryGreenHover: '#AEDFAE',
-  toggleGrey: '#F1F1F1',
-  lightText: '#747779'
 }
 
 export const zindex = {

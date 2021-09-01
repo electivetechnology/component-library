@@ -19,7 +19,7 @@ export const FormTextStyled = styled.div<FormTextStyledProps>`
 `
 
 export const SectionTitleStyled = styled.div`
-  border-top: 1px solid ${theme.grayGeyser}
+  border-top: 1px solid ${theme.selected}
   padding-top: 4px;
   margin-top: 8px;
 `
@@ -192,7 +192,7 @@ type RequiredProp = {
 }
 
 export const RequiredStyled = styled.span<RequiredProp>`
-  color: ${theme.primaryColorValencia};
+  color: ${theme.primaryColor};
   font-size: 12px;
   ${(props) =>
     props.fontSize &&

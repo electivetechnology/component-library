@@ -36,11 +36,11 @@ const Toggle: FunctionComponent<Props> = ({
 }) => {
   const fontColor = (disabled: boolean, isActive: boolean) => {
     if (isActive && !disabled) {
-      return theme.primaryColorValencia
+      return theme.primaryColor
     } else if (isActive && disabled) {
       return theme.secondaryHover
     } else if (!isActive && !disabled) {
-      return theme.primaryGrey
+      return theme.secondary
     } else {
       return theme.disabledText
     }

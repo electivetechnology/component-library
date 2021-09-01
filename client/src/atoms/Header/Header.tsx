@@ -31,7 +31,7 @@ const Header: React.FC<Props> = ({
   }
 
   const fontColor =
-    headerTheme === 'primary' ? theme.primaryColorValencia : theme.grey
+    headerTheme === 'primary' ? theme.primaryColor : theme.grey
   return (
     <HeaderContainer noScroll={noScroll}>
       <HeaderBorder />

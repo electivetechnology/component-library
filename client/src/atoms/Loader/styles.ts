@@ -7,9 +7,9 @@ export const Wrapper = styled.div`
 
 export const LinearProgressWithStyled = {
   colorPrimary: {
-    backgroundColor: theme.primaryColorValenciaLight
+    backgroundColor: theme.primaryColorLight
   },
   barColorPrimary: {
-    backgroundColor: theme.primaryColorValencia
+    backgroundColor: theme.primaryColor
   }
 }

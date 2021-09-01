@@ -30,8 +30,8 @@ export const IconOutlineStyled = styled.div<IconProps>`
   ${(props) =>
     props.isActive &&
     `
-        background-color: ${theme.primaryColorValencia};
-        border: 1px solid ${theme.primaryColorValencia};
+        background-color: ${theme.primaryColor};
+        border: 1px solid ${theme.primaryColor};
     `};
 `
 

@@ -30,7 +30,7 @@ export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
 export const CheckboxWithStyled = {
   root: {
     '&$checked': {
-      color: theme.primaryColorValencia
+      color: theme.primaryColor
     },
     padding: '8px 8px 8px 0'
   },

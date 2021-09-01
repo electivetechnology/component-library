@@ -47,7 +47,7 @@ export const SwitchTextContainerStyled = styled.span<SwitchTextProp>`
   ${(props) =>
     props.checked &&
     `
-      border: 1px solid ${theme.primaryColorValencia};
+      border: 1px solid ${theme.primaryColor};
     `};
   ${(props) =>
     props.disabled &&
@@ -96,7 +96,7 @@ export const SwitchHandleStyled = styled.span<SwitchHandleProp>`
   ${(props) =>
     props.checked &&
     `
-      background-color: ${theme.primaryColorValencia};
+      background-color: ${theme.primaryColor};
       transform: translateX(32px);
     `};
   ${(props) =>

@@ -14,8 +14,8 @@ export const darkModeForm: any = (args: any, handleUpdate: any) => {
   return (
     <div style={{
       backgroundImage: `linear-gradient(
-        ${theme.gradientBlue},
-        ${theme.gradientRed}
+        ${theme.accent1Secondary},
+        ${theme.accent3Secondary}
       )`,
       height: '500px'
     }}>

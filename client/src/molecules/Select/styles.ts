@@ -143,7 +143,7 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
   ${(props) =>
     props.isActive &&
     `
-      border: 1px solid ${theme.grayGeyser};
+      border: 1px solid ${theme.selected};
       background-color: ${theme.white};
       width: 100%;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;

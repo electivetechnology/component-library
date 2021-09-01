@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export const AutoCompleteContainerStyled = styled.div`
   background-image: linear-gradient(
-    ${theme.gradientBlue},
-    ${theme.gradientRed}
+    ${theme.accent1Secondary},
+    ${theme.accent3Secondary}
   );
   height: 100px;
 `
@@ -72,7 +72,7 @@ export const useInputStyles = makeStyles({
     padding: '2px 2px 0'
   }),
   paper: {
-    boxShadow: `0px 9px 13px ${theme.borderGrey}`,
+    boxShadow: `0px 9px 13px ${theme.highlight}`,
     borderRadius: '2px'
   }
 })

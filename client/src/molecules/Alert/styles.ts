@@ -10,16 +10,16 @@ export const CloseWrapper = styled.div`
 
 export const useStyles = makeStyles({
   success: {
-    backgroundColor: theme.secondaryBlue
+    backgroundColor: theme.accent2Secondary
   },
   error: {
-    backgroundColor: theme.primaryColorValencia
+    backgroundColor: theme.primaryColor
   },
   info: {
     backgroundColor: theme.secondaryGray
   },
   warning: {
-    backgroundColor: theme.secondaryYellow
+    backgroundColor: theme.warning
   },
   icon: {
     fontSize: 20

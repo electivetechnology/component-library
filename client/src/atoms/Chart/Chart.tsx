@@ -63,7 +63,7 @@ const Chart: React.FC<Props> = ({
               labels: {
                 fontSize: 12,
                 padding: 0,
-                fill: (datum: any) => datum.datum.symbol.active ? theme.black : theme.lightText,
+                fill: (datum: any) => datum.datum.symbol.active ? theme.textBody : theme.labels,
                 fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
                 fontWeight: (datum) => datum.datum.symbol.active ? 'bold' : 'unset'
               },
