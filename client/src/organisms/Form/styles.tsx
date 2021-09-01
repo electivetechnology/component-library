@@ -348,6 +348,7 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
     `
       position: absolute;
       bottom: 0;
+      width: 100%;
     `}
   ${(props) =>
     props.darkMode && props.icon &&
