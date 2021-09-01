@@ -107,7 +107,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   padding: 8px;
   cursor: pointer;
   &:focus {
-    highlight: 0;
+    outline: 0;
   }
   ${(props) =>
     props.variant === 'primary' &&
