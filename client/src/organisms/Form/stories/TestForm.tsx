@@ -28,23 +28,25 @@ const TestForm: FC = () => {
 
   return (
     <Form statuses={statuses} handleUpdate={handleUpdate}>
-      <FormInput
-        label='Form Select'
-        name='select'
-        value='available'
-        required={false}
-        type='select'
-        options={{
-          selectOptions
-        }}
-      />
-      <FormInput
-        label='Text Input'
-        name='textInput'
-        value=''
-        type='text'
-        required
-      />
+      <div style={{display: 'inline-flex', width: '100%'}}>
+        <FormInput
+          label='Form Select'
+          name='select'
+          value='available'
+          required={false}
+          type='select'
+          options={{
+            selectOptions
+          }}
+        />
+        <FormInput
+          label='Text Input'
+          name='textInput'
+          value=''
+          type='text'
+          required
+        />
+      </div>
 
       <FormInput
         label='Text Input2'

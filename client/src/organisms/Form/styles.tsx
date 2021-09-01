@@ -172,6 +172,8 @@ export const EditorLabel = styled.div`
 // FormText
 type FormTextContainerProps = {
   fixedHeight?: boolean
+  singleField?: boolean
+  value: boolean
 }
 
 export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
@@ -182,7 +184,17 @@ export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
   ${(props) =>
     props.fixedHeight &&
     `
-    padding-top: 4px;
+      padding-top: 4px;
+    `}
+  ${(props) =>
+    props.singleField &&
+    `
+      height: 46px;
+    `}
+  ${(props) =>
+    props.singleField && props.value &&
+    `
+      padding-top: 23px;
     `}
 `
 
@@ -234,6 +246,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   border-bottom: 1px solid ${theme.dividerGrey};
   background-color: transparent;
   width: 100%;
+  padding: 6px 0;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
@@ -303,6 +316,7 @@ type TextAreaProps = {
   darkMode: boolean
   error: boolean
   icon?: boolean
+  singleField?: boolean
 }
 export const TextAreaStyled = styled.div<TextAreaProps>`
   ${(props) =>
@@ -328,6 +342,12 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       display: inline-flex;
       width: 100%;
       grid-gap: 8px;
+    `}
+  ${(props) =>
+    props.singleField && 
+    `
+      position: absolute;
+      bottom: 0;
     `}
   ${(props) =>
     props.darkMode && props.icon &&
