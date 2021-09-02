@@ -23,7 +23,7 @@ const FormTextEditor: FunctionComponent = () => {
 
   const { statusType } = status || {}
 
-  const error = true
+  const error = statusType === 'error' || requiredError
 
   const handleBlur = () => {
     onBlur(name)
@@ -34,6 +34,7 @@ const FormTextEditor: FunctionComponent = () => {
   }
 
   return (
+    <div style={{ width: '100%' }}>
     <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
       <EditorLabel>
         {label}
@@ -72,6 +73,7 @@ const FormTextEditor: FunctionComponent = () => {
         />
       )}
     </TextEditorStyled>
+    </div>
   )
 }
 
