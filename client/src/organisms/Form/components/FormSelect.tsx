@@ -24,7 +24,6 @@ const FormSelect: FunctionComponent = () => {
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 
-  const [isHovered, setIsHovered] = useState(false)
   const valueRef = useRef(null)
 
   const handleChange = (newValue: any) => {
@@ -38,15 +37,8 @@ const FormSelect: FunctionComponent = () => {
     !isNull(valueRef.current) && onBlur(name)
   }, [valueRef.current])
 
-  const handleMouseHover = () => !disabled && setIsHovered(true)
-  const handleMouseLeave = () => !disabled && setIsHovered(false)
-
   return (
-    <SelectStyled
-      data-testid='FormSelect'
-      onMouseEnter={handleMouseHover}
-      onMouseLeave={handleMouseLeave}
-    >
+    <SelectStyled data-testid='FormSelect'>
       <Select
         label={label}
         onChange={handleChange}
@@ -58,7 +50,6 @@ const FormSelect: FunctionComponent = () => {
       >
         {options?.selectOptions?.map((option) => option)}
       </Select>
-      <FormDelete isHovered={isHovered} />
     </SelectStyled>
   )
 }

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Form, FormSave, FormInput, FormOption } from 'organisms/Form'
+import { Form, FormSave, FormInput, FormOption, FormRow } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import { FormHidden } from 'organisms/Form/components/FormHidden'
@@ -26,26 +26,31 @@ const TestForm: FC = () => {
     console.groupEnd()
   }
 
+  const handleDelete = () => {
+    console.log('handleDelete')
+  }
+
   return (
     <Form statuses={statuses} handleUpdate={handleUpdate}>
-      <div style={{ display: 'inline-flex', width: '100%' }}>
-        <FormInput
-          label='Form Select'
-          name='select'
-          value='available'
-          required={false}
-          type='select'
-          options={{
-            selectOptions
-          }}
-        />
-        <FormInput
-          label='Text Input'
-          name='textInput'
-          value=''
-          type='text'
-          required
-        />
+        <FormRow handleDelete={handleDelete}>
+          <FormInput
+            label='Form Select'
+            name='select'
+            value='available'
+            required={false}
+            type='select'
+            options={{
+              selectOptions
+            }}
+          />
+          <FormInput
+            label='Text Input'
+            name='textInput'
+            value=''
+            type='text'
+            required
+          />
+        </FormRow>
         <FormInput
           label='Text Editor'
           name='Text Input'
@@ -95,7 +100,6 @@ const TestForm: FC = () => {
         <button onClick={handleHidden}>Trigger Ref</button>
         <FormHidden ref={hiddenRef} handleSave={handleSave} />
         <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
-      </div>
     </Form>
   )
 }

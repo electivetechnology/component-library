@@ -192,7 +192,8 @@ export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
       height: 46px;
     `}
   ${(props) =>
-    props.singleField && props.hasValue &&
+    props.singleField &&
+    props.hasValue &&
     `
       padding-top: 23px;
     `}
@@ -351,7 +352,8 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       width: 100%;
     `}
   ${(props) =>
-    props.darkMode && props.icon &&
+    props.darkMode &&
+    props.icon &&
     `
       border: none;
       color: ${theme.white};
@@ -365,7 +367,8 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
         }
     `}
   ${(props) =>
-    props.disabled && props.icon &&
+    props.disabled &&
+    props.icon &&
     `
     border: none;
     color: ${theme.disabledTextGrey};
@@ -390,14 +393,14 @@ type TextEditorProps = {
   error: boolean
 }
 export const TextEditorStyled = styled.div<TextEditorProps>`
-  paddingBottom: 8px
-  ${(props) =>
-  props.error &&
-  `
+  paddingbottom: 8px
+    ${(props) =>
+      props.error &&
+      `
       display: inline-flex;
       width: 100%;
       grid-gap: 8px;
-    `}
+    `};
 `
 
 type CopyProps = {
@@ -535,15 +538,19 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
 export const DateStyles = makeStyles({
   input: (props: any) => ({
     '&:after': {
-      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
+      borderBottom: props.darkMode
+        ? `1px solid ${theme.grey}`
+        : `1px solid ${theme.dividerGrey}`
     },
     '&:before': {
-      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.dividerGrey}`,
+      borderBottom: props.darkMode
+        ? `1px solid ${theme.grey}`
+        : `1px solid ${theme.dividerGrey}`
     },
     '&.MuiInput-underline:hover:before': {
-      borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled),
-    },
-  }),
+      borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled)
+    }
+  })
 })
 
 export const DateWrapperStyled = styled.div`
@@ -594,11 +601,20 @@ export const SelectStyled = styled.div`
 `
 
 // Form row
-export const FormRowStyled = styled.div`
+
+type FormRowProps = {
+  hasDelete: boolean
+}
+export const FormRowStyled = styled.div<FormRowProps>`
   display: grid;
   width: 100%;
   @media screen and (min-width: 750px) {
     display: inline-flex;
     grid-gap: 12px;
   }
-  `
+  ${(props) =>
+    props.hasDelete &&
+    `
+    width: 90%;
+    `}
+`
