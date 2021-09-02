@@ -253,7 +253,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
     props.darkMode &&
     `
       border: none;
-      color: ${theme.white}; 
+      color: ${theme.white};
       border-bottom: 1px solid ${theme.grey};
       background-color: transparent;
       &:hover {
@@ -323,7 +323,7 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       }
     `}
   ${(props) =>
-    props.error && 
+    props.error &&
     `
       display: inline-flex;
       width: 100%;
@@ -333,7 +333,7 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
     props.darkMode && props.icon &&
     `
       border: none;
-      color: ${theme.white}; 
+      color: ${theme.white};
       border-bottom: 1px solid ${theme.grey};
       background-color: transparent;
         &:hover {
@@ -360,6 +360,22 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       &:active {
         border-bottom: 1px dotted ${theme.dividerGrey};
       }
+    `}
+`
+
+type TextEditorProps = {
+  disabled: boolean
+  darkMode: boolean
+  error: boolean
+}
+export const TextEditorStyled = styled.div<TextEditorProps>`
+  paddingBottom: 8px
+  ${(props) =>
+  props.error &&
+  `
+      display: inline-flex;
+      width: 100%;
+      grid-gap: 8px;
     `}
 `
 

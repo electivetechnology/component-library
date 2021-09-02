@@ -29,6 +29,12 @@ const TestForm: FC = () => {
   return (
     <Form statuses={statuses} handleUpdate={handleUpdate}>
       <FormInput
+        label='Text Input'
+        name='Text Input'
+        value='some input'
+        type='textEditor'
+      />
+      <FormInput
         label='Form Select'
         name='select'
         value='available'
