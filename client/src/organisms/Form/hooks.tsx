@@ -138,7 +138,6 @@ export const useFormHidden = () => {
 }
 
 export const useFormSave = (handleSave: Function) => {
-  // TODO: commaSeparated in form component
   const { inputs, requiredErrors, updateRequired } = useContext(FormContext)
 
   const handleAction = () => {
