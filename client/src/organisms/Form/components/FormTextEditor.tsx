@@ -34,7 +34,6 @@ const FormTextEditor: FunctionComponent = () => {
   }
 
   return (
-    <div style={{ width: '100%' }}>
     <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
       <EditorLabel>
         {label}
@@ -73,7 +72,6 @@ const FormTextEditor: FunctionComponent = () => {
         />
       )}
     </TextEditorStyled>
-    </div>
   )
 }
 
