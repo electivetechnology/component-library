@@ -55,12 +55,14 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled
+      singleField={!options?.multiline}
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}
       fixedHeight={!options?.multiline && hasValue}
+      value={value ? true : false}
     >
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', position: 'relative' }}>
         {value && (
           <div>
             <LabelStyled
@@ -74,6 +76,7 @@ const FormText: FunctionComponent = () => {
         )}
 
         <TextAreaStyled
+          singleField={!options?.multiline}
           disabled={disabled}
           darkMode={darkMode}
           error={error}
