@@ -37,11 +37,11 @@ export const useFormItems = () => {
 export const useFormInput = (
   name: string,
   valueInitial: string | Array<string>,
-  commaSeperated = false
+  commaSeparated = false
 ) => {
   const { updateInput } = useContext(FormContext)
 
-  // handle commaSeperated values
+  // handle commaSeparated values
   const valueString = typeof valueInitial === 'object' ? valueInitial.join(',') : valueInitial
 
   const [value, setValue] = useState(valueString)
@@ -50,7 +50,7 @@ export const useFormInput = (
     // retrieve value from event and dispatch
     let value = event.target ? event.target.value : event
 
-    if (commaSeperated) {
+    if (commaSeparated) {
       value = value.split(',')
     }
 

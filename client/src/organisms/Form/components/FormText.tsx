@@ -28,13 +28,15 @@ const FormText: FunctionComponent = () => {
     status,
     requiredError
   } = useContext(InputContext)
-  const { multiline, suffix, prefix, icon, copy, commaSeperated } = options || {}
+  const { multiline, suffix, prefix, icon, copy, commaSeparated } =
+    options || {}
   const { statusType } = status || {}
   const error = statusType === 'error' || requiredError
   const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
-  const { value, onChange } = useFormInput(name, inputValue, commaSeperated)
+  const { value, onChange } = useFormInput(name, inputValue, commaSeparated)
+  const hasValue = !!value
 
   const handleBlur = () => {
     onBlur(name)
@@ -50,12 +52,14 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled
+      singleField={!multiline}
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}
-      fixedHeight={!multiline && !!value}
+      fixedHeight={!multiline && hasValue}
+      hasValue={hasValue}
     >
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', position: 'relative' }}>
         {value && (
           <div>
             <LabelStyled
@@ -69,6 +73,7 @@ const FormText: FunctionComponent = () => {
         )}
 
         <TextAreaStyled
+          singleField={!multiline}
           disabled={disabled}
           darkMode={darkMode}
           error={error}
