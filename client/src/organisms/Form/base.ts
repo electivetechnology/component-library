@@ -49,6 +49,7 @@ export interface OptionType {
   icon?: any
   prefix?: boolean
   suffix?: boolean
+  commaSeperated?: boolean
 }
 
 export type StatusType = {

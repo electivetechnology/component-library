@@ -50,8 +50,8 @@ const TestForm: FC = () => {
         value=''
         type='text'
         required
+        options={{commaSeperated: true}}
       />
-
       <FormInput
         label='Text Input2'
         name='textInput2'
