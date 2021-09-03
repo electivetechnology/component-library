@@ -173,7 +173,7 @@ export const EditorLabel = styled.div`
 type FormTextContainerProps = {
   fixedHeight?: boolean
   singleField?: boolean
-  value: boolean
+  hasValue: boolean
 }
 
 export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
@@ -192,7 +192,7 @@ export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
       height: 46px;
     `}
   ${(props) =>
-    props.singleField && props.value &&
+    props.singleField && props.hasValue &&
     `
       padding-top: 23px;
     `}
@@ -344,7 +344,7 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       grid-gap: 8px;
     `}
   ${(props) =>
-    props.singleField && 
+    props.singleField &&
     `
       position: absolute;
       bottom: 0;
