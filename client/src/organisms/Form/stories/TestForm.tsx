@@ -7,11 +7,11 @@ import { selectOptions } from './base'
 import isNull from 'lodash/isNull'
 
 const TestForm: FC = () => {
-  const [text, setText] = useState('hello')
+  const [text, setText] = useState('initial text')
   const { statuses, addStatus } = useFormStatus()
 
   useEffect(() => {
-    setText('new hello')
+    setText('after load text')
   }, [])
 
   const { hiddenRef, handleHidden } = useFormHidden()
@@ -38,71 +38,71 @@ const TestForm: FC = () => {
 
   return (
     <Form statuses={statuses} handleUpdate={handleUpdate}>
-        {/*<FormRow handleDelete={handleDelete}>*/}
-        {/*  <FormInput*/}
-        {/*    label='Form Select'*/}
-        {/*    name='select'*/}
-        {/*    value='available'*/}
-        {/*    required={false}*/}
-        {/*    type='select'*/}
-        {/*    options={{*/}
-        {/*      selectOptions*/}
-        {/*    }}*/}
-        {/*  />*/}
-        {/*  <FormInput*/}
-        {/*    label='Text Input'*/}
-        {/*    name='textInput'*/}
-        {/*    value=''*/}
-        {/*    type='text'*/}
-        {/*    required*/}
-        {/*  />*/}
-        {/*</FormRow>*/}
+        <FormRow handleDelete={handleDelete}>
+          <FormInput
+            label='Form Select'
+            name='select'
+            value='available'
+            required={false}
+            type='select'
+            options={{
+              selectOptions
+            }}
+          />
+          <FormInput
+            label='Text Input'
+            name='textInput'
+            value=''
+            type='text'
+            required
+          />
+        </FormRow>
         <FormInput
           label='Text Editor'
           name='Text Input'
           value={text}
           type='textEditor'
         />
-        {/*<FormInput*/}
-        {/*  label='Text Comma Separated'*/}
-        {/*  name='textInput'*/}
-        {/*  value=''*/}
-        {/*  type='text'*/}
-        {/*  required*/}
-        {/*  options={{commaSeparated: true}}*/}
-        {/*/>*/}
-        {/*<FormInput*/}
-        {/*  label='Text multi'*/}
-        {/*  name='newInput'*/}
-        {/*  value='new input'*/}
-        {/*  type='text'*/}
-        {/*  options={{ multiline: true }}*/}
-        {/*/>*/}
-        {/*<FormInput*/}
-        {/*  label='CheckBox'*/}
-        {/*  name='checkbox'*/}
-        {/*  value={false}*/}
-        {/*  type='checkbox'*/}
-        {/*/>*/}
-        {/*<FormInput*/}
-        {/*  label='Toggle'*/}
-        {/*  name='toggle'*/}
-        {/*  value={false}*/}
-        {/*  type='toggle'*/}
-        {/*  options={{ inactiveLabel: 'no', activeLabel: 'yes' }}*/}
-        {/*/>*/}
-        {/*<FormInput*/}
-        {/*  label='Text Input'*/}
-        {/*  name='Text Input'*/}
-        {/*  value='some input'*/}
-        {/*  type='phone'*/}
-        {/*/>*/}
-        {/*<FormInput*/}
-        {/*  label='Date'*/}
-        {/*  name='Text Input'*/}
-        {/*  value='some input'*/}
-        {/*  type='date'*/}
-        {/*/>*/}
+        <FormInput
+          label='Text Comma Separated'
+          name='textInput'
+          value=''
+          type='text'
+          required
+          options={{commaSeparated: true}}
+        />
+        <FormInput
+          label='Text multi'
+          name='newInput'
+          value='new input'
+          type='text'
+          options={{ multiline: true }}
+        />
+        <FormInput
+          label='CheckBox'
+          name='checkbox'
+          value={false}
+          type='checkbox'
+        />
+        <FormInput
+          label='Toggle'
+          name='toggle'
+          value={false}
+          type='toggle'
+          options={{ inactiveLabel: 'no', activeLabel: 'yes' }}
+        />
+        <FormInput
+          label='Text Input'
+          name='Text Input'
+          value='some input'
+          type='phone'
+        />
+        <FormInput
+          label='Date'
+          name='Text Input'
+          value='some input'
+          type='date'
+        />
         <button onClick={handleHidden}>Trigger Ref</button>
         <FormHidden ref={hiddenRef} handleSave={handleSave} />
         <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
