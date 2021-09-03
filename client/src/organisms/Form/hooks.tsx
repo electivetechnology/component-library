@@ -54,7 +54,7 @@ export const useFormInput = (
       value = value.split(',')
     }
 
-    setValue(value)
+    // setValue(value)
     updateInput(name, value)
   }
 
@@ -67,6 +67,29 @@ export const useFormInput = (
     onChange: handleChange
   }
 }
+
+// export const useFormEditorInput = (
+//   name: string,
+//   valueInitial: string
+// ) => {
+//   const { updateInput } = useContext(FormContext)
+//
+//   const [value, setValue] = useState(valueInitial)
+//
+//
+//   useEffectAfterMount(() => {
+//     setValue(valueInitial)
+//   }, [valueInitial])
+//
+//   const handleChange = (value: any) => {
+//     updateInput(name, value)
+//   }
+//
+//   return {
+//     value,
+//     onChange: handleChange
+//   }
+// }
 
 export enum StatusConst {
   ADD = 'ADD',

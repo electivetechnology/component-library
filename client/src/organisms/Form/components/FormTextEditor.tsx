@@ -1,11 +1,22 @@
-import React, { FunctionComponent, memo, useContext, useState } from 'react'
+import React, {
+  FunctionComponent,
+  memo,
+  useContext,
+  useState,
+  useRef,
+  useEffect
+} from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
 import { Editor } from '@tinymce/tinymce-react'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import { useEffectAfterMount } from 'utils/base'
+// import { useFormEditorInput, useFormInput } from 'organisms/Form/hooks'
 
 const FormTextEditor: FunctionComponent = () => {
+  const valueRef = useRef()
+  const blurRef = useRef()
   const {
     inputValue,
     name,
@@ -19,19 +30,42 @@ const FormTextEditor: FunctionComponent = () => {
 
   const { updateInput, onBlur, darkMode = false } = useContext(FormContext)
 
-  const [initialValue] = useState(inputValue)
+  const [value, setValue] = useState(inputValue)
 
   const { statusType } = status || {}
 
   const error = statusType === 'error' || requiredError
 
-  const handleBlur = () => {
-    onBlur(name)
+  // ensure value passed to input is updated
+  // track value internally
+  // when blur update value and send
+
+  const onChange = (newValue: any) => {
+    console.group('onChange')
+    console.log(newValue)
+    console.groupEnd()
+    valueRef.current = newValue
+    // updateInput(name, newValue)
   }
 
-  const onChange = (value: any) => {
-    updateInput(name, value)
+  const handleBlur = (newValue: any) => {
+    console.group('handleBlur')
+    console.log(newValue)
+    console.groupEnd()
+    blurRef.current = valueRef.current
+    updateInput(name, valueRef.current)
   }
+
+  useEffectAfterMount(() => {
+    setValue(inputValue)
+  }, [inputValue])
+
+  useEffectAfterMount(() => {
+    console.group('useEffectAfterMount')
+    console.log(blurRef.current)
+    console.groupEnd()
+    blurRef.current && onBlur(name)
+  }, [blurRef.current])
 
   return (
     <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
@@ -41,7 +75,7 @@ const FormTextEditor: FunctionComponent = () => {
       </EditorLabel>
       <Editor
         apiKey='bf6mljfgcw8s1y8vjj7gotxmhtr1bs7jdttorpreswqh54lt'
-        initialValue={initialValue}
+        initialValue={valueRef.current}
         disabled={disabled}
         init={{
           browser_spellcheck: true,
