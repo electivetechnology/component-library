@@ -4,7 +4,6 @@ import React, {
   useContext,
   useState,
   useRef,
-  useEffect
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
@@ -29,11 +28,9 @@ const FormTextEditor: FunctionComponent = () => {
   const { updateInput, onBlur, darkMode = false } = useContext(FormContext)
 
   const [value, setValue] = useState(inputValue)
-
   const [send, setSend] = useState(inputValue)
 
   const { statusType } = status || {}
-
   const error = statusType === 'error' || requiredError
 
   useEffectAfterMount(() => {
