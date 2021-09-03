@@ -124,7 +124,6 @@ const FormText: FunctionComponent = () => {
       {copy && (
         <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />
       )}
-      <FormDelete isHovered={isHovered} />
     </FormTextContainerStyled>
   )
 }
