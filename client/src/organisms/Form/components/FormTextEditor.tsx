@@ -12,11 +12,9 @@ import { Editor } from '@tinymce/tinymce-react'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 import { useEffectAfterMount } from 'utils/base'
-// import { useFormEditorInput, useFormInput } from 'organisms/Form/hooks'
 
 const FormTextEditor: FunctionComponent = () => {
   const valueRef = useRef()
-  const blurRef = useRef()
   const {
     inputValue,
     name,
@@ -32,40 +30,28 @@ const FormTextEditor: FunctionComponent = () => {
 
   const [value, setValue] = useState(inputValue)
 
+  const [send, setSend] = useState(inputValue)
+
   const { statusType } = status || {}
 
   const error = statusType === 'error' || requiredError
-
-  // ensure value passed to input is updated
-  // track value internally
-  // when blur update value and send
-
-  const onChange = (newValue: any) => {
-    console.group('onChange')
-    console.log(newValue)
-    console.groupEnd()
-    valueRef.current = newValue
-    // updateInput(name, newValue)
-  }
-
-  const handleBlur = (newValue: any) => {
-    console.group('handleBlur')
-    console.log(newValue)
-    console.groupEnd()
-    blurRef.current = valueRef.current
-    updateInput(name, valueRef.current)
-  }
 
   useEffectAfterMount(() => {
     setValue(inputValue)
   }, [inputValue])
 
+  const handleChange = (newValue: any) => {
+    setSend(newValue)
+  }
+
+  const handleBlur = () => {
+    updateInput(name, send)
+    valueRef.current = send
+  }
+
   useEffectAfterMount(() => {
-    console.group('useEffectAfterMount')
-    console.log(blurRef.current)
-    console.groupEnd()
-    blurRef.current && onBlur(name)
-  }, [blurRef.current])
+    valueRef.current && onBlur(name)
+  }, [valueRef.current])
 
   return (
     <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
@@ -75,7 +61,7 @@ const FormTextEditor: FunctionComponent = () => {
       </EditorLabel>
       <Editor
         apiKey='bf6mljfgcw8s1y8vjj7gotxmhtr1bs7jdttorpreswqh54lt'
-        initialValue={valueRef.current}
+        initialValue={value}
         disabled={disabled}
         init={{
           browser_spellcheck: true,
@@ -92,7 +78,7 @@ const FormTextEditor: FunctionComponent = () => {
           table_row_advtab: false,
           table_cell_advtab: false
         }}
-        onEditorChange={onChange}
+        onEditorChange={handleChange}
         onBlur={handleBlur}
       />
       {error && (
