@@ -61,7 +61,7 @@ const Chart: React.FC<Props> = ({
             rowGutter={{ top: 0, bottom: 0 }}
             style={{
               labels: {
-                fontSize: 12,
+                fontSize: 14,
                 padding: 0,
                 fill: (datum: any) => datum.datum.symbol.active ? theme.textBody : theme.labels,
                 fontFamily: 'Roboto, Helvetica, Arial, sans-serif',

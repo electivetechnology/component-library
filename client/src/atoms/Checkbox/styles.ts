@@ -15,6 +15,8 @@ export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
   font-size: 16px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   color: ${theme.grey};
+  display: flex;
+  align-content: center;
   ${(props) =>
     props.darkMode &&
     `
