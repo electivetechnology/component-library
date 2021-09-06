@@ -1,11 +1,19 @@
-import React, { FunctionComponent, memo, useContext, useState } from 'react'
+import React, {
+  FunctionComponent,
+  memo,
+  useContext,
+  useState,
+  useRef,
+} from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
 import { Editor } from '@tinymce/tinymce-react'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import { useEffectAfterMount } from 'utils/base'
 
 const FormTextEditor: FunctionComponent = () => {
+  const valueRef = useRef()
   const {
     inputValue,
     name,
@@ -19,19 +27,28 @@ const FormTextEditor: FunctionComponent = () => {
 
   const { updateInput, onBlur, darkMode = false } = useContext(FormContext)
 
-  const [initialValue] = useState(inputValue)
+  const [value, setValue] = useState(inputValue)
+  const [send, setSend] = useState(inputValue)
 
   const { statusType } = status || {}
-
   const error = statusType === 'error' || requiredError
 
-  const handleBlur = () => {
-    onBlur(name)
+  useEffectAfterMount(() => {
+    setValue(inputValue)
+  }, [inputValue])
+
+  const handleChange = (newValue: any) => {
+    setSend(newValue)
   }
 
-  const onChange = (value: any) => {
-    updateInput(name, value)
+  const handleBlur = () => {
+    updateInput(name, send)
+    valueRef.current = send
   }
+
+  useEffectAfterMount(() => {
+    valueRef.current && onBlur(name)
+  }, [valueRef.current])
 
   return (
     <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
@@ -41,7 +58,7 @@ const FormTextEditor: FunctionComponent = () => {
       </EditorLabel>
       <Editor
         apiKey='bf6mljfgcw8s1y8vjj7gotxmhtr1bs7jdttorpreswqh54lt'
-        initialValue={initialValue}
+        initialValue={value}
         disabled={disabled}
         init={{
           browser_spellcheck: true,
@@ -58,7 +75,7 @@ const FormTextEditor: FunctionComponent = () => {
           table_row_advtab: false,
           table_cell_advtab: false
         }}
-        onEditorChange={onChange}
+        onEditorChange={handleChange}
         onBlur={handleBlur}
       />
       {error && (
