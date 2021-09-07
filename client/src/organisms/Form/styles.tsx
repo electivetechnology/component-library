@@ -172,6 +172,8 @@ export const EditorLabel = styled.div`
 // FormText
 type FormTextContainerProps = {
   fixedHeight?: boolean
+  singleField?: boolean
+  hasValue: boolean
 }
 
 export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
@@ -182,7 +184,18 @@ export const FormTextContainerStyled = styled.div<FormTextContainerProps>`
   ${(props) =>
     props.fixedHeight &&
     `
-    padding-top: 4px;
+      padding-top: 4px;
+    `}
+  ${(props) =>
+    props.singleField &&
+    `
+      height: 46px;
+    `}
+  ${(props) =>
+    props.singleField &&
+    props.hasValue &&
+    `
+      padding-top: 23px;
     `}
 `
 
@@ -234,6 +247,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   border-bottom: 1px solid ${theme.highlight};
   background-color: transparent;
   width: 100%;
+  padding: 6px 0;
   &:focus {
     outline: none;
     border-bottom: 1px solid ${theme.grey};
@@ -253,7 +267,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
     props.darkMode &&
     `
       border: none;
-      color: ${theme.white}; 
+      color: ${theme.white};
       border-bottom: 1px solid ${theme.grey};
       background-color: transparent;
       &:hover {
@@ -303,6 +317,7 @@ type TextAreaProps = {
   darkMode: boolean
   error: boolean
   icon?: boolean
+  singleField?: boolean
 }
 export const TextAreaStyled = styled.div<TextAreaProps>`
   ${(props) =>
@@ -323,17 +338,25 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
       }
     `}
   ${(props) =>
-    props.error && 
+    props.error &&
     `
       display: inline-flex;
       width: 100%;
       grid-gap: 8px;
     `}
   ${(props) =>
-    props.darkMode && props.icon &&
+    props.singleField &&
+    `
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    `}
+  ${(props) =>
+    props.darkMode &&
+    props.icon &&
     `
       border: none;
-      color: ${theme.white}; 
+      color: ${theme.white};
       border-bottom: 1px solid ${theme.grey};
       background-color: transparent;
         &:hover {
@@ -344,7 +367,8 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
         }
     `}
   ${(props) =>
-    props.disabled && props.icon &&
+    props.disabled &&
+    props.icon &&
     `
     border: none;
     color: ${theme.disabledText};
@@ -361,6 +385,22 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
         border-bottom: 1px dotted ${theme.highlight};
       }
     `}
+`
+
+type TextEditorProps = {
+  disabled: boolean
+  darkMode: boolean
+  error: boolean
+}
+export const TextEditorStyled = styled.div<TextEditorProps>`
+  paddingbottom: 8px
+    ${(props) =>
+      props.error &&
+      `
+      display: inline-flex;
+      width: 100%;
+      grid-gap: 8px;
+    `};
 `
 
 type CopyProps = {
@@ -504,9 +544,9 @@ export const DateStyles = makeStyles({
       borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.highlight}`,
     },
     '&.MuiInput-underline:hover:before': {
-      borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled),
-    },
-  }),
+      borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled)
+    }
+  })
 })
 
 export const DateWrapperStyled = styled.div`
@@ -557,11 +597,20 @@ export const SelectStyled = styled.div`
 `
 
 // Form row
-export const FormRowStyled = styled.div`
+
+type FormRowProps = {
+  hasDelete: boolean
+}
+export const FormRowStyled = styled.div<FormRowProps>`
   display: grid;
   width: 100%;
   @media screen and (min-width: 750px) {
     display: inline-flex;
     grid-gap: 12px;
   }
-  `
+  ${(props) =>
+    props.hasDelete &&
+    `
+    width: 90%;
+    `}
+`

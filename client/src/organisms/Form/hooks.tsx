@@ -34,20 +34,33 @@ export const useFormItems = () => {
   }
 }
 
-export const useFormInput = (name: string, initialValue: string) => {
+export const useFormInput = (
+  name: string,
+  valueInitial: string | Array<string>,
+  commaSeparated = false
+) => {
   const { updateInput } = useContext(FormContext)
-  const [value, setValue] = useState(initialValue || '')
+
+  // handle commaSeparated values
+  const valueString = typeof valueInitial === 'object' ? valueInitial.join(',') : valueInitial
+
+  const [value, setValue] = useState(valueString)
 
   const handleChange = (event: any) => {
     // retrieve value from event and dispatch
-    const value = event.target ? event.target.value : event
+    let value = event.target ? event.target.value : event
+
+    if (commaSeparated) {
+      value = value.split(',')
+    }
+
     setValue(value)
     updateInput(name, value)
   }
 
   useEffectAfterMount(() => {
-    setValue(initialValue)
-  }, [initialValue])
+    setValue(valueString)
+  }, [valueString])
 
   return {
     value,

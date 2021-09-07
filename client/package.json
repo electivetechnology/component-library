@@ -1,6 +1,6 @@
 {
   "name": "electivegroup-component-library",
-  "version": "1.8.44",
+  "version": "1.8.49",
   "engines": {
     "node": ">=10"
   },
@@ -60,16 +60,16 @@
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-typescript": "^8.2.0",
-    "@storybook/addon-a11y": "^6.2.9",
-    "@storybook/addon-backgrounds": "^6.2.9",
+    "@storybook/addon-a11y": "^6.3.7",
+    "@storybook/addon-backgrounds": "^6.3.7",
     "@storybook/addon-console": "^1.2.3",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-knobs": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/addon-viewport": "^6.2.9",
-    "@storybook/addons": "^6.2.9",
-    "@storybook/node-logger": "^6.2.9",
-    "@storybook/react": "^6.2.9",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-knobs": "^6.3.0",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/addon-viewport": "^6.3.7",
+    "@storybook/addons": "^6.3.7",
+    "@storybook/node-logger": "^6.3.7",
+    "@storybook/react": "^6.3.7",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
@@ -146,5 +146,8 @@
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
+  },
+  "dependencies": {
+    "@tinymce/tinymce-react": "^3.12.6"
   }
 }

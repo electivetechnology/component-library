@@ -15,6 +15,7 @@ import { theme } from 'styles/theme'
 import FormDelete from './FormDelete'
 
 const FormText: FunctionComponent = () => {
+  const { onBlur, darkMode = false, inputs } = useContext(FormContext)
   const {
     inputValue,
     name,
@@ -27,40 +28,38 @@ const FormText: FunctionComponent = () => {
     status,
     requiredError
   } = useContext(InputContext)
+  const { multiline, suffix, prefix, icon, copy, commaSeparated } =
+    options || {}
+  const { statusType } = status || {}
+  const error = statusType === 'error' || requiredError
+  const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
-
-  const { statusType } = status || {}
-
-  const error = statusType === 'error' || requiredError
-
-  const { onBlur, darkMode = false, inputs } = useContext(FormContext)
-
-  const { value, onChange } = useFormInput(name, inputValue)
+  const { value, onChange } = useFormInput(name, inputValue, commaSeparated)
+  const hasValue = !!value
 
   const handleBlur = () => {
     onBlur(name)
   }
 
   const handleMouseHover = () => {
-    disabled ? '' : setIsHovered(true)
+    !disabled && setIsHovered(true)
   }
 
   const handleMouseLeave = () => {
-    disabled ? '' : setIsHovered(false)
+    !disabled && setIsHovered(false)
   }
-
-  const fieldPlaceholder = required ? `${label}*` : label
-  const hasValue = value ? true : false
 
   return (
     <FormTextContainerStyled
+      singleField={!multiline}
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}
-      fixedHeight={!options?.multiline && hasValue}
+      fixedHeight={!multiline && hasValue}
+      hasValue={hasValue}
     >
-      <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', position: 'relative' }}>
         {value && (
           <div>
             <LabelStyled
@@ -74,16 +73,17 @@ const FormText: FunctionComponent = () => {
         )}
 
         <TextAreaStyled
+          singleField={!multiline}
           disabled={disabled}
           darkMode={darkMode}
           error={error}
-          icon={options?.suffix || options?.prefix}
+          icon={suffix || prefix}
         >
-          {options?.prefix && options?.icon}
+          {prefix && icon}
 
-          {options?.multiline ? (
+          {multiline ? (
             <FormTextArea
-              icon={options?.suffix || options?.prefix}
+              icon={suffix || prefix}
               darkMode={darkMode}
               name={name}
               onChange={onChange}
@@ -104,7 +104,7 @@ const FormText: FunctionComponent = () => {
               placeholder={value ? '' : fieldPlaceholder}
               disabled={disabled}
               error={error}
-              icon={options?.suffix || options?.prefix}
+              icon={suffix || prefix}
             />
           )}
 
@@ -118,13 +118,12 @@ const FormText: FunctionComponent = () => {
               }}
             />
           )}
-          {options?.suffix && options?.icon}
+          {suffix && icon}
         </TextAreaStyled>
       </div>
-      {options?.copy && (
+      {copy && (
         <FormCopy isHovered={isHovered} value={value} darkMode={darkMode} />
       )}
-      <FormDelete isHovered={isHovered} />
     </FormTextContainerStyled>
   )
 }
