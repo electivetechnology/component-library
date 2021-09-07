@@ -58,7 +58,7 @@ const Checkbox: FunctionComponent<Props> = ({
       return theme.primaryColor
     } else {
       return theme.secondaryHover
-    } 
+    }
   }
 
   return (
@@ -68,7 +68,7 @@ const Checkbox: FunctionComponent<Props> = ({
         checked={isChecked}
         onChange={handleChange}
         inputProps={{
-          'aria-label': 'primary checkbox'
+          'aria-label': label
         }}
         onBlur={onBlur}
         disabled={disabled}

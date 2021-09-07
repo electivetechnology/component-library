@@ -55,9 +55,10 @@ const FormDate: FunctionComponent = () => {
           InputProps={{
             className: classes.input,
             style: {
-              fontSize: 14, 
+              fontSize: 14,
               color: darkMode ? theme.white : theme.grey,
-            }
+            },
+            'aria-label': label
           }}
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
