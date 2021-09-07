@@ -225,7 +225,7 @@ type LabelProps = {
 
 export const LabelStyled = styled.label<LabelProps>`
   color: ${theme.grey};
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   ${(props) =>
     props.color &&
@@ -597,20 +597,11 @@ export const SelectStyled = styled.div`
 `
 
 // Form row
-
-type FormRowProps = {
-  hasDelete: boolean
-}
-export const FormRowStyled = styled.div<FormRowProps>`
+export const FormRowStyled = styled.div`
   display: grid;
   width: 100%;
   @media screen and (min-width: 750px) {
     display: inline-flex;
     grid-gap: 12px;
   }
-  ${(props) =>
-    props.hasDelete &&
-    `
-    width: 90%;
-    `}
 `
