@@ -41,6 +41,7 @@ const Font: FunctionComponent<Props> = ({
   return (
     <Typography
       data-qa="font"
+      data-testid='Font'
       variant={variant}
       component={component}
       gutterBottom={gutterBottom}
