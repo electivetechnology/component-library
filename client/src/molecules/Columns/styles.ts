@@ -17,7 +17,7 @@ export const iconLeftStyle = {
 export const iconMobileLeftStyle = {
   cursor: 'pointer',
   paddingLeft: '4px',
-  fill: theme.primaryGrey,
+  fill: theme.secondary,
   width: '22px',
 }
 
@@ -69,7 +69,7 @@ export const ColumnStyled = styled.div<ColumnStyledProps>`
   display: grid;
   width: 91vw;
   z-index: 100;
-  background-color: ${theme.grayAthens};
+  background-color: ${theme.hover};
   margin: auto;
   @media screen and (min-width: 750px) {
     width: 100%;
@@ -112,9 +112,9 @@ export const ColumnBorderStyled = styled.div`
   @media screen and (min-width: 750px) {
     display: block;
     width: 16px;
-    background-color: ${theme.grayAthens};
+    background-color: ${theme.hover};
     height: 100%;
-    box-shadow: 3px 0px 3px ${theme.borderGrey};
+    box-shadow: 3px 0px 3px ${theme.highlight};
   }
 `
 
@@ -151,7 +151,7 @@ export const SideColumnDesktopdStyled = styled.div`
 
 export const MobileButtonLabelStyled = styled.span`
   font-size: 14px;
-  color: ${theme.primaryGrey};
+  color: ${theme.secondary};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   padding: 2px 0 0 4px;
 `

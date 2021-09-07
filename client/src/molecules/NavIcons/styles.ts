@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export const iconStyles = makeStyles({
   Icon: (props: any) => ({
-    fill: props.selected && !props.roundIcon ? theme.white : theme.primaryGrey,
+    fill: props.selected && !props.roundIcon ? theme.white : theme.secondary,
     margin: props.horizontal ? 'unset' : 'auto',
     height: '24px',
     width: '24px'
@@ -20,15 +20,15 @@ type NavigationContainerProps = {
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
   width: auto;
-  background-color: ${theme.grayAthens};
+  background-color: ${theme.hover};
   max-width: 56px;
   ${(props) =>
     props.horizontal &&
     `
       width: 100%;
       height: auto;
-      background-color: ${theme.grayAthens};
-      box-shadow: 0px 1px 3px ${theme.borderGrey};
+      background-color: ${theme.hover};
+      box-shadow: 0px 1px 3px ${theme.highlight};
       border-radius: 12px;
       padding: 6px 18px;
       width: revert;
@@ -87,12 +87,12 @@ export const SubMenuStyled = styled.div`
 `
 
 export const VerticalDividerStyled = styled.div`
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
   margin: 16px 0;
 `
 
 export const HorizontalDividerStyled = styled.div`
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
   margin: 0 16px;
 `
 
@@ -113,7 +113,7 @@ export const IconStyled = styled.div<IconStyledProps>`
   background-color: transparent;
   @media screen and (min-width: 960px) {
     &:hover {
-      background-color: ${theme.dividerGrey};
+      background-color: ${theme.highlight};
     }
   }
   ${(props) =>
@@ -128,7 +128,7 @@ export const IconStyled = styled.div<IconStyledProps>`
       margin: 0 3px;
       @media screen and (min-width: 960px) {
         &:hover {
-          background-color: ${theme.hoverBlue};
+          background-color: ${theme.selected};
         }
       }
     `};
@@ -137,24 +137,24 @@ export const IconStyled = styled.div<IconStyledProps>`
     `
       padding: 8px 4px;
       border-radius: 24px;
-      border: 1px solid ${theme.primaryGrey};
+      border: 1px solid ${theme.secondary};
       margin: 0 8px 0 0;
       @media screen and (min-width: 960px) {
         &:hover {
-          background-color: ${theme.hoverBlue};
+          background-color: ${theme.selected};
         }
       }
     `};
   ${(props) =>
     props.selected &&
     `
-      background-color: ${theme.primaryGrey};
+      background-color: ${theme.secondary};
     `};
 `
 
 export const HorizontalBarContainerStyled = styled.div`
-  background-color: ${theme.grayAthens};
-  box-shadow: 0px 1px 3px ${theme.borderGrey};
+  background-color: ${theme.hover};
+  box-shadow: 0px 1px 3px ${theme.highlight};
   border-radius: 12px;
   padding: 4px 24px;
   display: grid;
@@ -181,7 +181,7 @@ export const NavIconMenuStyled = styled.div`
   top: 95px;
   z-index: 100;
   width: fit-content;
-  box-shadow: 0px 3px 5px ${theme.borderGrey};
+  box-shadow: 0px 3px 5px ${theme.highlight};
   background-color: ${theme.white};
   right: 24px;
   @media screen and (min-width: 750px) {

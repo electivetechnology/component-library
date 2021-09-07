@@ -62,7 +62,7 @@ const FormDate: FunctionComponent = () => {
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
           fullWidth
-          keyboardIcon={<InsertInvitation style={{color: handleFormComponentColor(theme.primaryGrey, darkMode, disabled)}} />}
+          keyboardIcon={<InsertInvitation style={{color: handleFormComponentColor(theme.secondary, darkMode, disabled)}} />}
         />
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>

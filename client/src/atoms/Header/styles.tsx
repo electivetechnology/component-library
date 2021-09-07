@@ -2,7 +2,7 @@ import { theme } from 'styles/theme'
 import styled from 'styled-components'
 
 export const HeaderBorder = styled.div`
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
   width: 100%;
 `
 
@@ -42,5 +42,5 @@ export const HeaderContent = styled.div<HeaderContentProp>`
 
 export const expandIconStyles = {
   marginLeft: 'auto',
-  fill: theme.dividerGrey
+  fill: theme.highlight
 }

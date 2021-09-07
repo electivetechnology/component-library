@@ -133,9 +133,9 @@ const OptionsSingle: FC = () => {
         </SelectLabelStyled>
         <InputIconStyled>
           {showOptions ? (
-            <ArrowDropUp style={{ fill: theme.grayGeyser }} />
+            <ArrowDropUp style={{ fill: theme.selected }} />
           ) : (
-            <ArrowDropDown style={{ fill: theme.grayGeyser }} />
+            <ArrowDropDown style={{ fill: theme.selected }} />
           )}
         </InputIconStyled>
       </InputStyled>

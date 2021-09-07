@@ -114,7 +114,7 @@ const FormText: FunctionComponent = () => {
                 width: '18px',
                 margin: 'auto',
                 height: '18px',
-                fill: theme.primaryColorValencia
+                fill: theme.primaryColor
               }}
             />
           )}

@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export const AutoCompleteContainerStyled = styled.div`
   background-image: linear-gradient(
-    ${theme.gradientBlue},
-    ${theme.gradientRed}
+    ${theme.accent1Secondary},
+    ${theme.accent3Secondary}
   );
   height: 100px;
 `
@@ -16,7 +16,7 @@ export const SelectFieldStyled = styled.div`
 `
 
 export const inputBorder = (outlined: boolean, darkMode: boolean) => {
-  let borderColour = darkMode ? theme.grey : theme.dividerGrey
+  let borderColour = darkMode ? theme.grey : theme.highlight
   return outlined ? `1px solid ${borderColour}` : 'none'
 }
 
@@ -34,7 +34,7 @@ export const useLabelStyles = makeStyles({
       color: props.darkMode ? theme.white : theme.grey
     },
     '&.MuiFormLabel-root.Mui-disabled': {
-      color: props.darkMode ? theme.disabledTextGrey : theme.disabledTextGrey,
+      color: theme.disabledText,
     },
   })
 })
@@ -72,7 +72,7 @@ export const useInputStyles = makeStyles({
     padding: '2px 2px 0'
   }),
   paper: {
-    boxShadow: `0px 9px 13px ${theme.borderGrey}`,
+    boxShadow: `0px 9px 13px ${theme.highlight}`,
     borderRadius: '2px'
   }
 })

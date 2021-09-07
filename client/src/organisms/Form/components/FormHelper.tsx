@@ -13,13 +13,13 @@ const FormHelper: FunctionComponent<Props> = ({ helperText }) => {
 
   if (requiredError) {
     return (
-      <Font variant='body2' color={theme.primaryRed}>{message ? message : 'Required field'}</Font>
+      <Font variant='body2' color={theme.primary}>{message ? message : 'Required field'}</Font>
     )
   }
 
   if (statusType === 'error') {
     return (
-      <Font variant='body2' color={theme.primaryRed}>{message ? message : 'Error saving input'}</Font>
+      <Font variant='body2' color={theme.primary}>{message ? message : 'Error saving input'}</Font>
     )
   }
 

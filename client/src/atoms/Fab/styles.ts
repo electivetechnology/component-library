@@ -5,16 +5,16 @@ import { makeStyles } from '@material-ui/core/styles'
 export const useStyles = makeStyles({
   component: {
     color: theme.white,
-    backgroundColor: theme.primaryColorValencia,
+    backgroundColor: theme.primaryColor,
     '&:hover': {
-      backgroundColor: theme.primaryColorValenciaDark
+      backgroundColor: theme.primaryColorDark
     }
   },
   helpFab: {
     color: theme.white,
-    backgroundColor: theme.grayComment,
+    backgroundColor: theme.secondary,
     '&:hover': {
-      backgroundColor: theme.grayComment
+      backgroundColor: theme.secondary
     }
   }
 })

@@ -63,7 +63,7 @@ Default.args = {
   transform: "124%, -0.5%",
   width: "80%",
   activeTransform: "23.5%,-0.5%",
-  backgroundColor: theme.dividerGrey,
+  backgroundColor: theme.highlight,
 }
 
 export default {

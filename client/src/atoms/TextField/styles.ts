@@ -16,8 +16,8 @@ export const useStyles = makeStyles({
 
 export const DarkModeTemplateStyled = styled.div`
   background-image: linear-gradient(
-    ${theme.gradientBlue},
-    ${theme.gradientRed}
+    ${theme.accent1Secondary},
+    ${theme.accent3Secondary}
   );
   height: 200px;
 `

@@ -56,15 +56,15 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
     props.theme === 'primary' &&
     props.theme &&
     `
-      border: 1px solid ${theme.grayGeyser};
-      box-shadow: 0px 1px 3px ${theme.grayGeyser};
+      border: 1px solid ${theme.selected};
+      box-shadow: 0px 1px 3px ${theme.selected};
       background-color: ${theme.white};
     `};
   ${(props) =>
     props.theme === 'secondary' &&
     props.theme &&
     `
-      background-color: ${theme.grayAthens};
+      background-color: ${theme.hover};
     `};
   ${(props) =>
     props.hover &&
@@ -76,7 +76,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
   ${(props) =>
     props.selected &&
     `
-      border: 1px solid ${theme.grayComment};
+      border: 1px solid ${theme.secondary};
       box-shadow: none;
     `};
   ${(props) =>
@@ -108,7 +108,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
 `
 
 export const CardBorderStyled = styled.div`
-  border: 1px solid ${theme.grayGeyser};
+  border: 1px solid ${theme.selected};
 `
 
 type ComponentCardFooterProps = {

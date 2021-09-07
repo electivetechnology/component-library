@@ -15,6 +15,8 @@ export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
   font-size: 16px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   color: ${theme.grey};
+  display: flex;
+  align-content: center;
   ${(props) =>
     props.darkMode &&
     `
@@ -23,14 +25,14 @@ export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
   ${(props) =>
     props.disabled &&
     `
-      color: ${theme.disabledGrey};
+      color: ${theme.disabledButton};
   `};
 `
 
 export const CheckboxWithStyled = {
   root: {
     '&$checked': {
-      color: theme.primaryColorValencia
+      color: theme.primaryColor
     },
     padding: '8px 8px 8px 0'
   },
