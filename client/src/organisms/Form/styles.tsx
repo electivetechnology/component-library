@@ -225,7 +225,7 @@ type LabelProps = {
 
 export const LabelStyled = styled.label<LabelProps>`
   color: ${theme.grey};
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   ${(props) =>
     props.color &&
