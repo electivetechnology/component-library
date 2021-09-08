@@ -1,11 +1,9 @@
-import React, { FunctionComponent, ReactElement, useContext } from 'react'
+import React, { FunctionComponent, ReactElement } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import { FormContext } from 'organisms/Form/base'
-import isNull from 'lodash/isNull'
-import isEmpty from 'lodash/isEmpty'
 import { Button } from 'atoms'
 import { ButtonWrapperStyled } from 'organisms/Form/styles'
 import { useFormSave } from 'organisms/Form/hooks'
+import { ThemeType } from 'atoms/Button/base'
 
 interface Props {
   label: string
@@ -13,13 +11,15 @@ interface Props {
   disabled?: boolean
   icon?: ReactElement<SvgIconProps>
   fullWidth?: boolean
+  buttonTheme?: ThemeType
 }
 const FormSave: FunctionComponent<Props> = ({
   label,
   handleSave,
   disabled = false,
   icon,
-  fullWidth = false
+  fullWidth = false,
+  buttonTheme = 'primary'
 }) => {
   const { handleAction } = useFormSave(handleSave)
 
@@ -29,7 +29,7 @@ const FormSave: FunctionComponent<Props> = ({
         label={label}
         onClick={handleAction}
         icon={icon}
-        theme='primary'
+        theme={buttonTheme}
         disabled={disabled}
         fullWidth={fullWidth}
       />
