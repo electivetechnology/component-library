@@ -19,6 +19,7 @@ export const GridContainerStyled = styled.div<GridContainerProps>`
   height: 100%;
   transform: translate(102%, -0.5%);
   transition: 0.5s;
+  z-index: 100;
   ${props =>
     props.width &&
     `
