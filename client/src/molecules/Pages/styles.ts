@@ -36,10 +36,9 @@ export const PagesContainerStyled = styled.div`
   background-color: ${theme.white};
   @media screen and (min-width: 750px) {
     display: inline-flex;
-    padding: 12px 24px;
     position: relative;
     width: -webkit-fill-available;
-    padding: 24px;
+    padding: 24px 24px 0;
   }
 `
 
