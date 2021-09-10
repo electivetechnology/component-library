@@ -16,8 +16,8 @@ const Template = (args: any) => (
   <div
     style={{
       backgroundImage: `linear-gradient(
-        ${theme.gradientBlue},
-        ${theme.gradientRed}
+        ${theme.accent1Secondary},
+        ${theme.accent3Secondary}
       )`,
       height: '500px'
     }}

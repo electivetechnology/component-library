@@ -21,14 +21,14 @@ const ChartTemplate = (args: any) => {
             { style: {
               fontSize: 12,
               padding: 0,
-              fill: theme.black,
+              fill: theme.shadow,
               fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
               fontWeight: 'bold'
             }}
             : { style: {
               fontSize: 12,
               padding: 0,
-              fill: theme.lightText,
+              fill: theme.labels,
               fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
               fontWeight: 'unset'
             }}

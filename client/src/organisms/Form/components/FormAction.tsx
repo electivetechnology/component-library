@@ -19,7 +19,7 @@ const FormAction: FunctionComponent<Props> = ({
 
   return (
     <ActionTextStyled data-testid='FormAction' onClick={handleAction}>
-      <Font variant={'h6'} color={darkMode ? theme.white : theme.grayComment}>{label}</Font>
+      <Font variant={'h6'} color={darkMode ? theme.white : theme.secondary}>{label}</Font>
       {icon && icon}
     </ActionTextStyled>
   )

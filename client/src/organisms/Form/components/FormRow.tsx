@@ -33,7 +33,6 @@ const FormRow: FunctionComponent<Props> = ({
     <FormRowStyled
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}
-      hasDelete={!isUndefined(handleDelete) && !disabled}
     >
       {children}
       {!isUndefined(handleDelete) && !disabled && (

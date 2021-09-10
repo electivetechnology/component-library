@@ -31,7 +31,7 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
   background-color: transparent;
   width: 100%;
   padding-top: 18px;
-  border-bottom: 1px solid ${theme.dividerGrey};
+  border-bottom: 1px solid ${theme.highlight};
   background-color: transparent;
   width: 100%;
   height: auto;
@@ -48,7 +48,7 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
   ${(props) =>
   props.error &&
   `
-      border-bottom: 1px solid ${theme.primaryRed};
+      border-bottom: 1px solid ${theme.primary};
     `}
   ${(props) =>
   props.darkMode &&
@@ -68,18 +68,18 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
   props.disabled &&
   `
       border: none;
-      color: ${theme.disabledTextGrey};
-      border-bottom: 1px dotted ${theme.dividerGrey};
+      color: ${theme.disabledText};
+      border-bottom: 1px dotted ${theme.highlight};
       background-color: transparent;
         &:focus {
           outline: none;
-          border-bottom: 1px dotted ${theme.dividerGrey};
+          border-bottom: 1px dotted ${theme.highlight};
         }
         &:hover {
-          border-bottom: 1px dotted ${theme.dividerGrey};
+          border-bottom: 1px dotted ${theme.highlight};
         }
         &:active {
-          border-bottom: 1px dotted ${theme.dividerGrey};
+          border-bottom: 1px dotted ${theme.highlight};
         }
     `}
 `
@@ -99,9 +99,9 @@ export const OptionStyled = styled.div<OptionProp>`
   display: flex;
   align-items: center;
   padding: 0 16px;
-  color: ${theme.black};
+  color: ${theme.shadow};
   &:hover {
-    background-color: ${theme.dividerGrey};
+    background-color: ${theme.highlight};
   }
   ${(props) =>
     props.isActive &&
@@ -124,7 +124,7 @@ export const OptionHeaderStyled = styled.div`
   align-items: center;
   padding: 0 16px;
   &:hover {
-    background-color: ${theme.dividerGrey};
+    background-color: ${theme.highlight};
   }
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
@@ -143,7 +143,7 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
   ${(props) =>
     props.isActive &&
     `
-      border: 1px solid ${theme.grayGeyser};
+      border: 1px solid ${theme.selected};
       background-color: ${theme.white};
       width: 100%;
       font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;

@@ -8,6 +8,7 @@ export const useStyles = makeStyles({
     overflow: props.overflow || props.multilineOverflow ? 'hidden' : 'initial',
     whiteSpace: props.overflow ? 'nowrap' : 'initial',
     textOverflow:
-      props.overflow || props.multilineOverflow ? 'ellipsis' : 'initial'
+      props.overflow || props.multilineOverflow ? 'ellipsis' : 'initial',
+    overflowWrap: props.wrap ? 'break-word' : 'unset',
   })
 })

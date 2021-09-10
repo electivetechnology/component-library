@@ -109,7 +109,7 @@ export const handleFormColor = (defaultColor: string, darkMode: boolean, disable
   if (darkMode && !disabled) {
     return theme.white
   } else if (darkMode && disabled) {
-    return theme.disabledTextGrey
+    return theme.disabledText
   } else {
     return defaultColor
   }
@@ -119,11 +119,11 @@ export const handleFormComponentColor = (defaultColor: string, darkMode: boolean
   if (darkMode && !disabled) {
     return theme.white
   } else if (darkMode && disabled) {
-    return theme.disabledTextGrey
+    return theme.disabledText
   } else if (!darkMode && !disabled) {
     return theme.grey
   } else if (!darkMode && disabled) {
-    return theme.disabledGrey
+    return theme.disabledButton
   } else {
     return defaultColor
   }
@@ -133,7 +133,7 @@ export const handleFormBorder = (defaultColor: string, darkMode: boolean, disabl
   if (darkMode && !disabled) {
     return `1px solid ${theme.white}`
   } else if (darkMode && disabled) {
-    return `1px solid ${theme.disabledGrey}`
+    return `1px solid ${theme.disabledButton}`
   } else {
     return `1px solid ${defaultColor}`
   }

@@ -12,7 +12,7 @@ type Props = {
 
 const Avatar: FunctionComponent<Props> = ({
   children,
-  color = theme.grayComment,
+  color = theme.secondary,
   fontWeight = 100,
   height,
   width

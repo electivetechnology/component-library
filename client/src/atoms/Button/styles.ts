@@ -114,7 +114,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     `
       color: ${theme.white};
-      background-color: ${theme.primaryColorValencia};
+      background-color: ${theme.primaryColor};
       border-radius: 4px;
       box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
       &:hover {
@@ -126,8 +126,8 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.variant === 'primary' &&
     props.disabled &&
     `
-      background-color: ${theme.disabledGrey};
-      color: ${theme.disabledTextGrey};
+      background-color: ${theme.disabledButton};
+      color: ${theme.disabledText};
       border-radius: 4px;
   `};
   ${(props) =>
@@ -135,7 +135,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     `
       border: 1px ${theme.Gray} solid;
-      color: ${theme.primaryColorValencia};
+      color: ${theme.primaryColor};
       border-radius: 4px;
       background-color: ${theme.white};
       &:hover {
@@ -155,7 +155,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.variant === 'tertiary' &&
     !props.disabled &&
     `
-      color: ${theme.primaryColorValencia};
+      color: ${theme.primaryColor};
       border-radius: 4px;
       background-color: ${theme.white};
       &:hover {
@@ -167,11 +167,11 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.variant === 'quaternary' &&
     !props.disabled &&
     `
-      color: ${theme.primaryGrey};
+      color: ${theme.secondary};
       border-radius: 4px;
       background-color: transparent;
       &:hover {
-        background-color: ${theme.hoverBlue};
+        background-color: ${theme.selected};
       }
   `};
   ${(props) =>
@@ -186,7 +186,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.variant === 'quaternary' &&
     props.disabled &&
     `
-      color: ${theme.primaryGrey};
+      color: ${theme.secondary};
       background-color: transparent;
       border-radius: 4px;
   `};
@@ -195,11 +195,11 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     `
       color: ${theme.white};
-      background-color: ${theme.primaryColorValencia};
+      background-color: ${theme.primaryColor};
       border-radius: 4px;
       box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
       &:hover {
-        background-color: ${theme.primaryColorValencia};
+        background-color: ${theme.primaryColor};
         box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
       }
   `};
@@ -216,11 +216,11 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     `
       color: ${theme.white};
-      background-color: ${theme.primaryColorValencia};
+      background-color: ${theme.primaryColor};
       border-radius: 24px;
       box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
       &:hover {
-        background-color: ${theme.primaryColorValencia};
+        background-color: ${theme.primaryColor};
         box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
       }
   `};

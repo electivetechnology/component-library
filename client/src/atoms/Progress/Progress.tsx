@@ -11,9 +11,9 @@ type Props = {
 }
 const Progress: React.FC<Props> = ({
   label,
-  borderColor = theme.primaryColorValencia,
+  borderColor = theme.primaryColor,
   progressFill = 'transparent',
-  progressColor = theme.primaryColorValencia
+  progressColor = theme.primaryColor
 }) => {
 
   return (

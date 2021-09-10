@@ -21,16 +21,16 @@ const Pages: FC = () => {
         <Progress
           key={startIncrement}
           label={startIncrement.toString()}
-          progressFill={theme.primaryColorValencia}
+          progressFill={theme.primaryColor}
           progressColor={theme.white}
-          borderColor={theme.primaryColorValencia}
+          borderColor={theme.primaryColor}
         />
       ) : startIncrement <= progress && !isMobile ? (
         <Progress
           key={startIncrement}
           label={startIncrement.toString()}
-          progressColor={theme.primaryColorValencia}
-          borderColor={theme.primaryColorValencia}
+          progressColor={theme.primaryColor}
+          borderColor={theme.primaryColor}
         />
       ) : !isMobile && (
         <Progress

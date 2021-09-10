@@ -51,11 +51,11 @@ const Checkbox: FunctionComponent<Props> = ({
 
   const handleCheckboxTheme = () => {
     if (darkMode && disabled) {
-      return theme.disabledTextGrey
+      return theme.disabledText
     } else if (darkMode && !disabled) {
       return theme.white
     } else if (!darkMode && !disabled) {
-      return theme.primaryColorValencia
+      return theme.primaryColor
     } else {
       return theme.secondaryHover
     } 

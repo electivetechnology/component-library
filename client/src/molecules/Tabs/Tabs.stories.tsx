@@ -18,8 +18,8 @@ const renderTabs = (darkMode: boolean) => (
     style={{
       backgroundImage: darkMode
         ? `linear-gradient(
-      ${theme.gradientBlue},
-      ${theme.gradientRed}
+      ${theme.accent1Secondary},
+      ${theme.accent3Secondary}
     )`
         : 'unset'
     }}

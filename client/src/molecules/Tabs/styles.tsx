@@ -49,16 +49,16 @@ export const TabStyled = styled.div<TabProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${theme.primaryGrey};
+  color: ${theme.secondary};
   &:hover {
-    background-color: ${theme.hoverBlue};
+    background-color: ${theme.selected};
     padding-bottom: 3px;
   }
   ${(props) =>
     props.active &&
     props.active === 'active' &&
     `
-          border-bottom: 3px solid ${theme.primaryColorValencia};
+          border-bottom: 3px solid ${theme.primaryColor};
           &:hover {
             background-color: unset;
             padding-bottom: 0;
@@ -69,7 +69,7 @@ export const TabStyled = styled.div<TabProps>`
     `
         color: ${theme.white};
         &:hover {
-          background-color: ${theme.primaryGrey};
+          background-color: ${theme.secondary};
           padding-bottom: 3px;
         }
       `}

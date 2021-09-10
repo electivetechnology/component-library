@@ -19,7 +19,7 @@ export const FormTextStyled = styled.div<FormTextStyledProps>`
 `
 
 export const SectionTitleStyled = styled.div`
-  border-top: 1px solid ${theme.grayGeyser}
+  border-top: 1px solid ${theme.selected}
   padding-top: 4px;
   margin-top: 8px;
 `
@@ -205,7 +205,7 @@ type RequiredProp = {
 }
 
 export const RequiredStyled = styled.span<RequiredProp>`
-  color: ${theme.primaryColorValencia};
+  color: ${theme.primaryColor};
   font-size: 12px;
   ${(props) =>
     props.fontSize &&
@@ -215,7 +215,7 @@ export const RequiredStyled = styled.span<RequiredProp>`
   ${(props) =>
     props.disabled &&
     `
-    color: ${theme.disabledGrey};
+    color: ${theme.disabledButton};
     `}
 `
 
@@ -225,7 +225,7 @@ type LabelProps = {
 
 export const LabelStyled = styled.label<LabelProps>`
   color: ${theme.grey};
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   ${(props) =>
     props.color &&
@@ -244,7 +244,7 @@ type TextInputProps = {
 export const TextInputStyled = styled.input<TextInputProps>`
   border: none;
   font-size: 14px;
-  border-bottom: 1px solid ${theme.dividerGrey};
+  border-bottom: 1px solid ${theme.highlight};
   background-color: transparent;
   width: 100%;
   padding: 6px 0;
@@ -261,7 +261,7 @@ export const TextInputStyled = styled.input<TextInputProps>`
   ${(props) =>
     props.error &&
     `
-      border-bottom: 1px solid ${theme.primaryRed};
+      border-bottom: 1px solid ${theme.primary};
     `}
   ${(props) =>
     props.darkMode &&
@@ -281,18 +281,18 @@ export const TextInputStyled = styled.input<TextInputProps>`
     props.disabled &&
     `
       border: none;
-      color: ${theme.disabledTextGrey};
-      border-bottom: 1px dotted ${theme.dividerGrey};
+      color: ${theme.disabledText};
+      border-bottom: 1px dotted ${theme.highlight};
       background-color: transparent;
         &:focus {
           outline: none;
-          border-bottom: 1px dotted ${theme.dividerGrey};
+          border-bottom: 1px dotted ${theme.highlight};
         }
         &:hover {
-          border-bottom: 1px dotted ${theme.dividerGrey};
+          border-bottom: 1px dotted ${theme.highlight};
         }
         &:active {
-          border-bottom: 1px dotted ${theme.dividerGrey};
+          border-bottom: 1px dotted ${theme.highlight};
         }
     `}
   ${(props) =>
@@ -325,7 +325,7 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
     `
       display: inline-flex;
       width: 100%;
-      border-bottom: 1px solid ${theme.dividerGrey};
+      border-bottom: 1px solid ${theme.highlight};
       &:focus {
         outline: none;
         border-bottom: 1px solid ${theme.grey};
@@ -371,18 +371,18 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
     props.icon &&
     `
     border: none;
-    color: ${theme.disabledTextGrey};
-    border-bottom: 1px dotted ${theme.dividerGrey};
+    color: ${theme.disabledText};
+    border-bottom: 1px dotted ${theme.highlight};
     background-color: transparent;
       &:focus {
         outline: none;
-        border-bottom: 1px dotted ${theme.dividerGrey};
+        border-bottom: 1px dotted ${theme.highlight};
       }
       &:hover {
-        border-bottom: 1px dotted ${theme.dividerGrey};
+        border-bottom: 1px dotted ${theme.highlight};
       }
       &:active {
-        border-bottom: 1px dotted ${theme.dividerGrey};
+        border-bottom: 1px dotted ${theme.highlight};
       }
     `}
 `
@@ -443,7 +443,7 @@ export const ToastStyled = styled.div<ToastProps>`
   ${(props) =>
     props.darkMode &&
     `
-      color: ${theme.black};
+      color: ${theme.shadow};
     `}
 `
 
@@ -461,7 +461,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   font-size: 14px;
   background-color: transparent;
   width: 100%;
-  border-bottom: 1px solid ${theme.dividerGrey};
+  border-bottom: 1px solid ${theme.highlight};
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   overflow: hidden;
   ::-webkit-scrollbar {
@@ -484,7 +484,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   ${(props) =>
     props.error &&
     `
-    border-bottom: 1px solid ${theme.primaryRed};
+    border-bottom: 1px solid ${theme.primary};
     `}
   ${(props) =>
     props.darkMode &&
@@ -504,18 +504,18 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
     props.disabled &&
     `
     border: none;
-    color: ${theme.disabledTextGrey};
-    border-bottom: 1px dotted ${theme.dividerGrey};
+    color: ${theme.disabledText};
+    border-bottom: 1px dotted ${theme.highlight};
     background-color: transparent;
       &:focus {
         outline: none;
-        border-bottom: 1px dotted ${theme.dividerGrey};
+        border-bottom: 1px dotted ${theme.highlight};
       }
       &:hover {
-        border-bottom: 1px dotted ${theme.dividerGrey};
+        border-bottom: 1px dotted ${theme.highlight};
       }
       &:active {
-        border-bottom: 1px dotted ${theme.dividerGrey};
+        border-bottom: 1px dotted ${theme.highlight};
       }
     `}
   ${(props) =>
@@ -538,14 +538,10 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
 export const DateStyles = makeStyles({
   input: (props: any) => ({
     '&:after': {
-      borderBottom: props.darkMode
-        ? `1px solid ${theme.grey}`
-        : `1px solid ${theme.dividerGrey}`
+      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.highlight}`,
     },
     '&:before': {
-      borderBottom: props.darkMode
-        ? `1px solid ${theme.grey}`
-        : `1px solid ${theme.dividerGrey}`
+      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.highlight}`,
     },
     '&.MuiInput-underline:hover:before': {
       borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled)
@@ -569,7 +565,7 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
   z-index: 0;
   top: -2px;
   background-color: transparent;
-  color: ${theme.black};
+  color: ${theme.shadow};
   font-size: 12px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   ${(props) =>
@@ -580,7 +576,7 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
   ${(props) =>
     props.disabled &&
     `
-    color: ${theme.disabledGrey};
+    color: ${theme.disabledButton};
     `}
 `
 
@@ -601,20 +597,11 @@ export const SelectStyled = styled.div`
 `
 
 // Form row
-
-type FormRowProps = {
-  hasDelete: boolean
-}
-export const FormRowStyled = styled.div<FormRowProps>`
+export const FormRowStyled = styled.div`
   display: grid;
   width: 100%;
   @media screen and (min-width: 750px) {
     display: inline-flex;
     grid-gap: 12px;
   }
-  ${(props) =>
-    props.hasDelete &&
-    `
-    width: 90%;
-    `}
 `

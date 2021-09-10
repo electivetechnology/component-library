@@ -24,8 +24,8 @@ const Template = (args: any) => {
 
   const darkModeStyle = {
     backgroundImage: `linear-gradient(
-      ${theme.gradientBlue},
-      ${theme.gradientRed}
+      ${theme.accent1Secondary},
+      ${theme.accent3Secondary}
     )`,
     height: '500px'
   }

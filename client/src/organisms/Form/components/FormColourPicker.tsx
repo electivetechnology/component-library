@@ -60,7 +60,7 @@ const FormColourPicker: FunctionComponent = () => {
           disabled={disabled}
           onClick={disabled ? undefined : handleOnClick} />
         <PickerLabelStyled>
-          <Font variant='h5' color={handleFormColor(theme.grayComment, darkMode, disabled)}>{label}</Font>
+          <Font variant='h5' color={handleFormColor(theme.secondary, darkMode, disabled)}>{label}</Font>
           {required && <RequiredStyled disabled={disabled} fontSize="24">*</RequiredStyled>}
         </PickerLabelStyled>
       </PickerStyled>

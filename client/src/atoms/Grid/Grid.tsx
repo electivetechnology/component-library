@@ -19,7 +19,7 @@ type Props = {
 
 const GridComponent: React.FC<Props> = ({
   activeTransform,
-  backgroundColor = theme.dividerGrey,
+  backgroundColor = theme.highlight,
   children,
   columnSize,
   columnsSize,

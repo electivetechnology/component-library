@@ -29,7 +29,7 @@ export const TooltipStyled = styled.span<TooltipProp>`
     position: absolute;
     border-radius: 4px;
     color: ${theme.white};
-    background: ${theme.disabledTextGrey};
+    background: ${theme.disabledText};
     padding: 2px 8px;
     z-index: 100;
     left: 50%;

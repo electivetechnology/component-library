@@ -6,7 +6,7 @@ export const BannerContainerStyled = styled.div`
   background-color: white;
   display: block;
   padding: 24px;
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
 `
 
 export const ButtonStyled = styled.div`

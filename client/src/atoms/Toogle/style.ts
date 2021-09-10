@@ -42,18 +42,18 @@ export const SwitchTextContainerStyled = styled.span<SwitchTextProp>`
   flex: 0 0 auto;
   position: absolute;
   top: 0;
-  border: 1px solid ${theme.dividerGrey};
+  border: 1px solid ${theme.highlight};
   padding: 0 4px;
   ${(props) =>
     props.checked &&
     `
-      border: 1px solid ${theme.primaryColorValencia};
+      border: 1px solid ${theme.primaryColor};
     `};
   ${(props) =>
     props.disabled &&
     !props.checked &&
     `
-      border: 1px solid ${theme.disabledGrey};
+      border: 1px solid ${theme.disabledButton};
     `};
   ${(props) =>
     props.disabled &&
@@ -92,18 +92,18 @@ export const SwitchHandleStyled = styled.span<SwitchHandleProp>`
   top: 0;
   transition: all 0.2s ease-in-out;
   transition-property: transform;
-  background-color: ${theme.dividerGrey};
+  background-color: ${theme.highlight};
   ${(props) =>
     props.checked &&
     `
-      background-color: ${theme.primaryColorValencia};
+      background-color: ${theme.primaryColor};
       transform: translateX(32px);
     `};
   ${(props) =>
     props.disabled &&
     !props.checked &&
     `
-      background-color: ${theme.disabledGrey};
+      background-color: ${theme.disabledButton};
     `};
   ${(props) =>
     props.disabled &&
