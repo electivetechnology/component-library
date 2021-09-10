@@ -73,7 +73,6 @@ const FormText: FunctionComponent = () => {
         )}
 
         <TextAreaStyled
-          aria-label={label}
           singleField={!multiline}
           disabled={disabled}
           darkMode={darkMode}
