@@ -9,6 +9,7 @@ import React, {
 import { TextareaStyled } from 'organisms/Form/styles'
 
 type Props = {
+  label: string
   name: string
   value: string
   onChange: any
@@ -20,6 +21,7 @@ type Props = {
   icon?: boolean
 }
 const FormTextArea: FunctionComponent<Props> = ({
+  label,
   name,
   value,
   onChange,
@@ -32,12 +34,12 @@ const FormTextArea: FunctionComponent<Props> = ({
 }) => {
   const textareaRef: any = React.useRef(null)
 
-  const [currentValue, setCurrentValue ] = useState("")
+  const [currentValue, setCurrentValue] = useState('')
 
   useEffect(() => {
-    textareaRef.current.style.height = "0px";
-    const scrollHeight = textareaRef.current.scrollHeight;
-    textareaRef.current.style.height = scrollHeight + "px";
+    textareaRef.current.style.height = '0px'
+    const scrollHeight = textareaRef.current.scrollHeight
+    textareaRef.current.style.height = scrollHeight + 'px'
   }, [value, currentValue])
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -58,6 +60,7 @@ const FormTextArea: FunctionComponent<Props> = ({
       data-testid='FormTextarea'
     >
       <TextareaStyled
+        aria-label={label}
         darkMode={darkMode}
         id={name}
         onChange={handleChange}
