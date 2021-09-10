@@ -12,7 +12,6 @@ import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
-import FormDelete from './FormDelete'
 
 const FormText: FunctionComponent = () => {
   const { onBlur, darkMode = false, inputs } = useContext(FormContext)
@@ -52,6 +51,7 @@ const FormText: FunctionComponent = () => {
 
   return (
     <FormTextContainerStyled
+      aria-label={label}
       singleField={!multiline}
       data-testid='FormText'
       onMouseEnter={handleMouseHover}
@@ -83,6 +83,7 @@ const FormText: FunctionComponent = () => {
 
           {multiline ? (
             <FormTextArea
+              label={label}
               icon={suffix || prefix}
               darkMode={darkMode}
               name={name}
@@ -95,6 +96,7 @@ const FormText: FunctionComponent = () => {
             />
           ) : (
             <TextInputStyled
+              aria-label={label}
               darkMode={darkMode}
               id={name}
               onChange={onChange}

@@ -32,6 +32,7 @@ const Button: React.FC<Props> = ({
 
   return (
     <ButtonComponent
+      aria-label={label ? label : 'Button'}
       data-testid='Button'
       onClick={handleClick}
       variant={theme}
