@@ -27,7 +27,6 @@ type ColumnsStyledProps = {
 }
 export const ColumnsStyled = styled.div<ColumnsStyledProps>`
   display: inline-flex;
-  padding-right: 8px;
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
