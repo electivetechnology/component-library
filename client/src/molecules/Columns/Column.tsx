@@ -25,6 +25,7 @@ type Props = {
   align: 'left' | 'right'
   backgroundColor?: string
   divider?: Boolean
+  scroll?: boolean
 }
 
 const Column: FC<Props> = ({
@@ -37,7 +38,8 @@ const Column: FC<Props> = ({
   handleClose,
   backgroundColor,
   align = 'right',
-  divider = true
+  divider = true,
+  scroll = false
 }) => {
   const { colWidth, columns } = useContext(NavContext)
 
@@ -72,6 +74,7 @@ const Column: FC<Props> = ({
       isHidden={isHidden}
       align={align}
       backgroundColor={backgroundColor}
+      scroll={scroll}
     >
       <SideColumnMobiledStyled onClick={onClose} isClosable={isClosable}>
         <ArrowBackIcon style={iconMobileLeftStyle} />
