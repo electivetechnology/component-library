@@ -1,10 +1,8 @@
 import React, {
   FunctionComponent,
   memo,
-  useRef,
   useState,
-  useEffect,
-  Fragment
+  useEffect
 } from 'react'
 import { TextareaStyled } from 'organisms/Form/styles'
 

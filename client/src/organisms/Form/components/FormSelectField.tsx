@@ -3,8 +3,7 @@ import React, {
     memo,
     useContext,
     useEffect,
-    useRef,
-    useState
+    useRef
   } from 'react'
   import { FormContext, InputContext } from 'organisms/Form/base'
   import { selectedOption } from 'organisms/Form/mock'
