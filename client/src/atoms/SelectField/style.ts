@@ -43,7 +43,10 @@ export const useInputStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
     color: props.darkMode ? theme.white : theme.grey,
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    '&.MuiInputBase-input.Mui-disabled': {
+      color: theme.disabledText,
+    },
   }),
   inputRoot: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
