@@ -11,7 +11,7 @@ type CheckboxLabelProps = {
 }
 
 export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
-  padding: 12px 0 0;
+  margin: auto;
   font-size: 16px;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   color: ${theme.grey};

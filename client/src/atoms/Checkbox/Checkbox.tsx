@@ -54,10 +54,14 @@ const Checkbox: FunctionComponent<Props> = ({
       return theme.disabledText
     } else if (darkMode && !disabled) {
       return theme.white
-    } else if (!darkMode && !disabled) {
+    } else if (!darkMode && !disabled && !isChecked) {
+      return theme.grey
+    }  else if (disabled && isChecked) {
+      return theme.primaryColorLight
+    } else if (disabled) {
+      return theme.disabledButton
+    } else if (isChecked) {
       return theme.primaryColor
-    } else {
-      return theme.secondaryHover
     }
   }
 
