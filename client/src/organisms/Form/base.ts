@@ -1,4 +1,4 @@
-import { createContext, ReactChildren } from 'react'
+import { createContext } from 'react'
 import { theme } from 'styles/theme'
 
 export type InputType =

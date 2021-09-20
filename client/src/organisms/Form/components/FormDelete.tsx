@@ -1,6 +1,6 @@
 import React, { FunctionComponent, memo, useContext, MouseEventHandler } from 'react'
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined'
-import { FormContext, InputContext } from '../base'
+import { FormContext } from '../base'
 import { ActionButtonStyled } from '../styles'
 import { theme } from 'styles/theme'
 
