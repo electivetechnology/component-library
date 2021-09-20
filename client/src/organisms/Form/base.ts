@@ -110,6 +110,8 @@ export const handleFormColor = (defaultColor: string, darkMode: boolean, disable
     return theme.white
   } else if (darkMode && disabled) {
     return theme.disabledText
+  }else if (disabled) {
+    return theme.disabledText
   } else {
     return defaultColor
   }
