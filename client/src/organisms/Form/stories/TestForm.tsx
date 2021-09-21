@@ -42,11 +42,10 @@ const TestForm: FC = () => {
             label='Form Select'
             name='select'
             value='available'
-            required={true}
+            required={false}
             type='select'
             options={{
-              selectOptions,
-              selected: { value: 'Filled', label: 'Filled' },
+              selectOptions
             }}
           />
           <FormInput
