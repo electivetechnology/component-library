@@ -51,7 +51,7 @@ import React, {
   >
         <SelectField
           label={fieldPlaceholder}
-          value={options?.selected ? options.selected : selected}
+          value={selected}
           options={selectOptions}
           disabled={disabled}
           onChange={handleChange}
