@@ -9,7 +9,6 @@ import React, {
   import { selectedOption } from 'organisms/Form/mock'
   import { SelectField } from 'atoms'
   import { SelectStyled } from '../styles'
-  import FormDelete from './FormDelete'
 
   const FormSelectField: FunctionComponent = () => {
     const {

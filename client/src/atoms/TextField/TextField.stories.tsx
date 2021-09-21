@@ -89,6 +89,18 @@ DisabledMulti.args = {
   disabled: true
 }
 
+// Suffix
+export const Suffix: any = FormTextTemplate.bind({})
+
+Suffix.args = {
+  label: 'Text Area Input ',
+  name: 'Text Area Input',
+  value: 'Input',
+  type: 'text',
+  options: { multiline: true, suffix: true, icon: '%' },
+  disabled: true
+}
+
 export default {
   title: 'atoms/TextField',
   component: FormInput
