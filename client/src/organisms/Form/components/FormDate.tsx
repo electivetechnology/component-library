@@ -56,7 +56,7 @@ const FormDate: FunctionComponent = () => {
             className: classes.input,
             style: {
               fontSize: 14,
-              color: darkMode ? theme.white : theme.grey,
+              color: darkMode ? theme.white : theme.shadow,
             },
             'aria-label': label
           }}

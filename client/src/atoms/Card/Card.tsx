@@ -25,6 +25,7 @@ type Props = {
   height?: string
   width?: string
   overflow?: boolean
+  headerVariant?: boolean
 }
 const ComponentCard: React.FC<Props> = ({
   hover,
@@ -42,7 +43,8 @@ const ComponentCard: React.FC<Props> = ({
   fullHeight = false,
   noBorder = false,
   scroll = false,
-  overflow = false
+  overflow = false,
+  headerVariant = 'h4'
 }) => {
   return (
     <CardContainerStyled
@@ -62,7 +64,7 @@ const ComponentCard: React.FC<Props> = ({
       {header || headerContent ? (
         <ComponentCardHeaderStyled>
           <CardHeaderStyled>
-            {header && <Font variant='h4'>{header}</Font>}
+            {header && <Font variant={headerVariant}>{header}</Font>}
             {headerContent && headerContent}
           </CardHeaderStyled>
           <CardBorderStyled />

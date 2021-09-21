@@ -1,10 +1,9 @@
 import React, { FC, useEffect, useState } from 'react'
-import { Form, FormSave, FormInput, FormOption, FormRow } from 'organisms/Form'
+import { Form, FormSave, FormInput, FormRow } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import { FormHidden } from 'organisms/Form/components/FormHidden'
 import { selectOptions } from './base'
-import isNull from 'lodash/isNull'
 
 const TestForm: FC = () => {
   const [text, setText] = useState('initial text')
@@ -43,10 +42,11 @@ const TestForm: FC = () => {
             label='Form Select'
             name='select'
             value='available'
-            required={false}
+            required={true}
             type='select'
             options={{
-              selectOptions
+              selectOptions,
+              selected: { value: 'Filled', label: 'Filled' },
             }}
           />
           <FormInput

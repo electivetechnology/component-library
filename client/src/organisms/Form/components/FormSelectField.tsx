@@ -9,7 +9,6 @@ import React, {
   import { selectedOption } from 'organisms/Form/mock'
   import { SelectField } from 'atoms'
   import { SelectStyled } from '../styles'
-  import FormDelete from './FormDelete'
 
   const FormSelectField: FunctionComponent = () => {
     const {
@@ -52,7 +51,7 @@ import React, {
   >
         <SelectField
           label={fieldPlaceholder}
-          value={selected}
+          value={options?.selected ? options.selected : selected}
           options={selectOptions}
           disabled={disabled}
           onChange={handleChange}
