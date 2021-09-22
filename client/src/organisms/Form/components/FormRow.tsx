@@ -1,4 +1,6 @@
 import React, {
+  Children,
+  cloneElement,
   FunctionComponent,
   memo,
   MouseEventHandler,
@@ -29,12 +31,21 @@ const FormRow: FunctionComponent<Props> = ({
     !disabled && setIsHovered(false)
   }
 
+  // Add isRow prop true to all child elements of row
+  const childrenStyled: Array<any> = []
+  Children.map(
+    children,
+    (child: any, index) =>
+      child &&
+      childrenStyled.push(cloneElement(child, { key: index, formRow: true }))
+  )
+
   return (
     <FormRowStyled
       onMouseEnter={handleMouseHover}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
+      {childrenStyled}
       {!isUndefined(handleDelete) && !disabled && (
         <FormDelete isHovered={isHovered} handleDelete={handleDelete} />
       )}

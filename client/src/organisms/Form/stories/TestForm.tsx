@@ -13,6 +13,7 @@ const TestForm: FC = () => {
     setText('after load text')
   }, [])
 
+  // TODO: don't delete, create a more permanent example
   const { hiddenRef, handleHidden } = useFormHidden()
 
   const handleUpdate = (name: string, value: string) => {
@@ -105,6 +106,27 @@ const TestForm: FC = () => {
         <button onClick={handleHidden}>Trigger Ref</button>
         <FormHidden ref={hiddenRef} handleSave={handleSave} />
         <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
+        <FormSave label={'This is a very long button'} handleSave={handleSave} icon={<AddIcon />} />
+        <FormRow handleDelete={handleDelete}>
+          <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
+          <FormInput
+            label='Form Select'
+            name='select'
+            value='available'
+            required={false}
+            type='select'
+            options={{
+              selectOptions
+            }}
+          />
+          <FormInput
+            label='Text Input'
+            name='textInput'
+            value=''
+            type='text'
+            required
+          />
+        </FormRow>
     </Form>
   )
 }

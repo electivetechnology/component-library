@@ -392,15 +392,15 @@ type TextEditorProps = {
   darkMode: boolean
   error: boolean
 }
+
 export const TextEditorStyled = styled.div<TextEditorProps>`
-  paddingbottom: 8px
-    ${(props) =>
-      props.error &&
-      `
-      display: inline-flex;
-      width: 100%;
-      grid-gap: 8px;
-    `};
+  ${(props) =>
+    props.error &&
+    `
+    display: inline-flex;
+    width: 100%;
+    grid-gap: 8px;
+  `};
 `
 
 type CopyProps = {
@@ -571,12 +571,12 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
   ${(props) =>
     props.darkMode &&
     `
-    color: ${theme.white};
+      color: ${theme.white};
     `}
   ${(props) =>
     props.disabled &&
     `
-    color: ${theme.disabledButton};
+      color: ${theme.disabledButton};
     `}
 `
 
@@ -584,10 +584,23 @@ export const FormPhoneStyled = styled.div`
   padding-top: 8px;
 `
 
-export const ButtonWrapperStyled = styled.div`
+type ButtonWrapperProp = {
+  isRow: boolean
+}
+
+export const ButtonWrapperStyled = styled.div<ButtonWrapperProp>`
   display: grid;
   margin: 16px 0;
   padding-top: 8px;
+  width: fit-content;
+  ${(props) =>
+    props.isRow &&
+    `
+      height: fit-content;
+      position: relative;
+      margin: auto 0 0;
+      padding: 0;
+    `}
 `
 
 // Form Select
