@@ -585,7 +585,7 @@ export const FormPhoneStyled = styled.div`
 `
 
 type ButtonWrapperProp = {
-  row: boolean
+  isRow: boolean
 }
 
 export const ButtonWrapperStyled = styled.div<ButtonWrapperProp>`
@@ -594,7 +594,7 @@ export const ButtonWrapperStyled = styled.div<ButtonWrapperProp>`
   padding-top: 8px;
   width: fit-content;
   ${(props) =>
-    props.row &&
+    props.isRow &&
     `
       height: fit-content;
       position: relative;

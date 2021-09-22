@@ -13,6 +13,7 @@ const TestForm: FC = () => {
     setText('after load text')
   }, [])
 
+  // TODO: don't delete, create a more permanent example
   const { hiddenRef, handleHidden } = useFormHidden()
 
   const handleUpdate = (name: string, value: string) => {
@@ -107,7 +108,7 @@ const TestForm: FC = () => {
         <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
         <FormSave label={'This is a very long button'} handleSave={handleSave} icon={<AddIcon />} />
         <FormRow handleDelete={handleDelete}>
-          <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} row />
+          <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
           <FormInput
             label='Form Select'
             name='select'
