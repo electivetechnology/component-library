@@ -12,6 +12,7 @@ interface Props {
   icon?: ReactElement<SvgIconProps>
   fullWidth?: boolean
   buttonTheme?: ThemeType
+  row?: boolean
 }
 const FormSave: FunctionComponent<Props> = ({
   label,
@@ -19,12 +20,13 @@ const FormSave: FunctionComponent<Props> = ({
   disabled = false,
   icon,
   fullWidth = false,
-  buttonTheme = 'primary'
+  buttonTheme = 'primary',
+  row = false
 }) => {
   const { handleAction } = useFormSave(handleSave)
 
   return (
-    <ButtonWrapperStyled>
+    <ButtonWrapperStyled row={row}>
       <Button
         label={label}
         onClick={handleAction}
