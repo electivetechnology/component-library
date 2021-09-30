@@ -9,7 +9,7 @@ import { theme } from 'styles/theme'
 const Pages: FC = () => {
   const isMobile = window.innerWidth < 760
 
-  const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
+  const { back, next, progress, handleClose, currentStep, finalStep, helperText, sticky = false } = useContext(
     PageContext
   )
 
@@ -45,7 +45,7 @@ const Pages: FC = () => {
   }
 
   return (
-    <PagesContainerStyled>
+    <PagesContainerStyled sticky={sticky}>
       {handleClose && (
         <CloseIconStyled onClick={handleClose}>
           <CloseIcon />
