@@ -24,7 +24,11 @@ export const CloseIconStyled = styled.div`
   }
 `
 
-export const PagesContainerStyled = styled.div`
+type PagesContainerProp = {
+  sticky: boolean
+}
+
+export const PagesContainerStyled = styled.div<PagesContainerProp>`
   background-color: ${theme.white};
   padding: 8px 24px 24px;
   bottom: 0;
@@ -39,6 +43,14 @@ export const PagesContainerStyled = styled.div`
     position: relative;
     width: -webkit-fill-available;
     padding: 24px 24px 0;
+    ${props =>
+      props.sticky &&
+      `
+        position: absolute;
+        top: 0;
+        height: 48px;
+      `
+    }
   }
 `
 

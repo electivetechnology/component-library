@@ -11,5 +11,6 @@ export type PageContextType = {
   setBack: Function
   progress: number
   helperText?: string
+  sticky?: boolean
 }
 export const PageContext = createContext<PageContextType>({} as PageContextType)
