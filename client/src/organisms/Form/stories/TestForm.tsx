@@ -1,9 +1,10 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useContext, useEffect, useState } from 'react'
 import { Form, FormSave, FormInput, FormRow } from 'organisms/Form'
 import AddIcon from '@material-ui/icons/Add'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import { FormHidden } from 'organisms/Form/components/FormHidden'
 import { selectOptions } from './base'
+import { FormContext } from '../base'
 
 const TestForm: FC = () => {
   const [text, setText] = useState('initial text')
@@ -15,6 +16,7 @@ const TestForm: FC = () => {
 
   // TODO: don't delete, create a more permanent example
   const { hiddenRef, handleHidden } = useFormHidden()
+  const { inputs } = useContext(FormContext)
 
   const handleUpdate = (name: string, value: string) => {
     console.group('handleUpdate')
@@ -24,11 +26,13 @@ const TestForm: FC = () => {
     // addStatus(name, 'error', 'some error single update')
   }
 
-  const handleSave = (inputs: object) => {
+  const handleSave = (inputs2: object) => {
     // addStatus('textInput', 'error', 'some error with text')
     // addStatus('newInput', 'error', 'some error with text area')
     console.group('handleSave')
-    console.log(inputs)
+    console.log('inputs', inputs)
+    console.log('inputs2', inputs2)
+
     console.groupEnd()
   }
 
