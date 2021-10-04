@@ -6,10 +6,14 @@ import CloseIcon from '@material-ui/icons/Close'
 import Progress from 'atoms/Progress/Progress'
 import { theme } from 'styles/theme'
 
-const Pages: FC = () => {
+type PagesProps = {
+  sticky?: boolean
+}
+
+const Pages: FC<PagesProps> = ({ sticky = false }) => {
   const isMobile = window.innerWidth < 760
 
-  const { back, next, progress, handleClose, currentStep, finalStep, helperText, sticky = false } = useContext(
+  const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
     PageContext
   )
 
