@@ -85,3 +85,7 @@ export const appTheme = createMuiTheme({
     }
   }
 })
+
+export const font = {
+  primary: 'Roboto, Helvetica, Arial, sans-serif',
+}
