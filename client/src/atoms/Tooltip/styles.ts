@@ -1,4 +1,4 @@
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 import styled from 'styled-components'
 
 type TooltipLabelProp = {
@@ -6,7 +6,7 @@ type TooltipLabelProp = {
 }
 
 export const TooltipLabelStyled = styled.span<TooltipLabelProp>`
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   font-size: 14px;
   ${(props) =>
     props.fontSize &&
@@ -22,7 +22,7 @@ type TooltipProp = {
 
 export const TooltipStyled = styled.span<TooltipProp>`
   position: relative;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   font-size: 14px;
   &:before {
     content: attr(data-text); /* here's the magic */

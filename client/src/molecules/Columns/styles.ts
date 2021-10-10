@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 
 export const iconStyle = {
   cursor: 'pointer',
@@ -151,6 +151,6 @@ export const SideColumnDesktopdStyled = styled.div`
 export const MobileButtonLabelStyled = styled.span`
   font-size: 14px;
   color: ${theme.secondary};
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   padding: 2px 0 0 4px;
 `

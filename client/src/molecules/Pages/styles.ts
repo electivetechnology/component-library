@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { AlignTypes } from 'molecules/Pages/base'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 
 type PageStyledProps = {
   align: AlignTypes
@@ -105,6 +105,6 @@ export const HelperTextStyled = styled.div`
   @media screen and (min-width: 750px) {
     display: block;
     font-size: 12px;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: ${font.primary};
   }
 `
