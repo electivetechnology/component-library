@@ -1,3 +1,4 @@
+import { Font } from 'atoms'
 import React, { FunctionComponent } from 'react'
 import {
   ListContainerStyled,
@@ -33,16 +34,24 @@ const List: FunctionComponent<ListProp> = ({
       endIcon={endIcon}>
       {startIcon && 
         <IconContainerStyled
-          iconCenterAlign={startIconCentreAlign}>{startIcon}</IconContainerStyled>}
+          iconCenterAlign={startIconCentreAlign}>
+          {startIcon}
+        </IconContainerStyled>}
       <MainContainerStyled>
         <ListFontStyled header>
-          {header} Main container
+          <Font variant='caption' uppercase>
+            {header}
+          </Font>
         </ListFontStyled>
         <ListFontStyled>
-          {paragraph} Paragraph
+          <Font variant='subtitle1'>
+            {paragraph}
+          </Font>
         </ListFontStyled>
         {additionalInformation && <ListFontStyled header additionalInformationAlign={additionalInformationAlign}>
-          {additionalInformation} Main container
+          <Font variant='body2' align={additionalInformationAlign}>
+            {additionalInformation}
+          </Font>
         </ListFontStyled>}
       </MainContainerStyled>
       {endIcon && 
