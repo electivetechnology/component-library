@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { font, theme } from "styles/theme"
+import { theme } from "styles/theme"
 
 type ListContainerProps = {
   startIcon?: boolean
@@ -7,7 +7,7 @@ type ListContainerProps = {
 }
 
 export const ListContainerStyled = styled.div<ListContainerProps>`
-  height: 84px;
+  min-height: 64px;
   width: calc(100% - 24px);
   padding: 12px;
   grid-gap: 8px;
@@ -15,7 +15,7 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
     props.startIcon && props.endIcon &&
     `
       display: grid;
-      grid-template-columns: 10% 80% 10%;
+      grid-template-columns: 10% 78% 10%;
     `};
   ${(props) =>
     props.startIcon && !props.endIcon &&
@@ -55,10 +55,7 @@ type ListFontProps = {
 }
 
 export const ListFontStyled = styled.div<ListFontProps>`
-  font-family: ${font.primary};
   color: ${theme.shadow};
-  font-size: 14px;
-  padding: 8px 0;
   ${(props) =>
     props.header &&
     `
