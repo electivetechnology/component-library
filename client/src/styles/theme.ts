@@ -75,7 +75,10 @@ export const appTheme = createMuiTheme({
     },
     body1: {
       fontSize: '14px'
-    }
+    },
+    overline: {
+      fontSize: '10px'
+    },
   },
   overrides: {
     MuiChip: {

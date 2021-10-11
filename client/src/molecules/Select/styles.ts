@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 
 export const SelectLabelStyled = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ type LabelProp = {
 
 export const LabelStyled = styled.div<LabelProp>`
   color: ${theme.grey};
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   font-size: 14px;
   ${(props) =>
     props.darkMode &&
@@ -112,7 +112,7 @@ export const OptionStyled = styled.div<OptionProp>`
     !props.hasValue &&
     `
         cursor: unset;
-        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        font-family: ${font.primary};
         font-size: 12px;
         color: ${theme.grey};
     `};
@@ -126,7 +126,7 @@ export const OptionHeaderStyled = styled.div`
   &:hover {
     background-color: ${theme.highlight};
   }
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   font-size: 12px;
   color: ${theme.grey};
 `
@@ -146,7 +146,7 @@ export const OptionSingleStyled = styled.div<OptionSingleProp>`
       border: 1px solid ${theme.selected};
       background-color: ${theme.white};
       width: 100%;
-      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-family: ${font.primary};
       font-size: 14px;
       position: absolute;
       z-index: 2000;
