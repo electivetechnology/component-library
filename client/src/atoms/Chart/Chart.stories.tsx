@@ -1,6 +1,6 @@
 import React from 'react'
 import { Chart } from 'atoms'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 
 const ChartTemplate = (args: any) => {
   const handleOnClick = (event: any, element: any) => {
@@ -22,14 +22,14 @@ const ChartTemplate = (args: any) => {
               fontSize: 12,
               padding: 0,
               fill: theme.shadow,
-              fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+              fontFamily: font.primary,
               fontWeight: 'bold'
             }}
             : { style: {
               fontSize: 12,
               padding: 0,
               fill: theme.labels,
-              fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+              fontFamily: font.primary,
               fontWeight: 'unset'
             }}
         },

@@ -4,7 +4,7 @@ import {
   VictoryLegend,
   VictoryTooltip,
 } from "victory"
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 const { VictorySharedEvents } = require('victory')
 
 type Props = {
@@ -64,7 +64,7 @@ const Chart: React.FC<Props> = ({
                 fontSize: 14,
                 padding: 0,
                 fill: (datum: any) => datum.datum.symbol.active ? theme.textBody : theme.labels,
-                fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+                fontFamily: font.primary,
                 fontWeight: (datum) => datum.datum.symbol.active ? 'bold' : 'unset'
               },
               data: {
