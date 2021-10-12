@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, Fragment } from 'react'
 import { Font } from 'atoms'
-import { ButtonStyled } from './style'
+import { ButtonStyled } from './styles'
 
 type Props = {
   message: string

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 
 type GridContainerProps = {
   grid: string
@@ -108,5 +108,5 @@ export const CloseTextStyled = styled.div`
   bottom: 132px;
   left: -12px;
   color: ${theme.grey};
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
 `

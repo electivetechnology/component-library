@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 import { makeStyles } from '@material-ui/core'
 import { handleFormBorder } from './base'
 
@@ -165,7 +165,7 @@ export const PickerStyled = styled.div`
 export const EditorLabel = styled.div`
   padding: 12px 0;
   font-size: 12px;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   color: rgba(0, 0, 0, 0.54);
 `
 
@@ -226,7 +226,7 @@ type LabelProps = {
 export const LabelStyled = styled.label<LabelProps>`
   color: ${theme.grey};
   font-size: 10px;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   ${(props) =>
     props.color &&
     `
@@ -438,7 +438,7 @@ export const ToastStyled = styled.div<ToastProps>`
   padding: 2px;
   position: absolute;
   left: -10px;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: ${font.primary};
   top: 2px;
   ${(props) =>
     props.darkMode &&
@@ -462,7 +462,7 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
   background-color: transparent;
   width: 100%;
   border-bottom: 1px solid ${theme.highlight};
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   overflow: hidden;
   ::-webkit-scrollbar {
     display: none;
@@ -567,7 +567,7 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
   background-color: transparent;
   color: ${theme.shadow};
   font-size: 12px;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   ${(props) =>
     props.darkMode &&
     `
