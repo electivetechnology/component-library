@@ -12,10 +12,11 @@ type ListProp = {
   additionalInformationAlign?: string
   endIcon?: any
   endIconCentreAlign?: boolean
-  header?: string
-  paragraph?: string
+  overline?: string
+  title?: string
   startIcon?: any
   startIconCentreAlign?: boolean
+  selected?: boolean
 }
 
 const List: FunctionComponent<ListProp> = ({
@@ -23,35 +24,38 @@ const List: FunctionComponent<ListProp> = ({
   additionalInformationAlign,
   endIcon,
   endIconCentreAlign,
-  header,
-  paragraph,
+  overline,
+  title,
   startIcon,
   startIconCentreAlign,
+  selected = false
 }) => {
   return (
     <ListContainerStyled
       startIcon={startIcon}
-      endIcon={endIcon}>
+      endIcon={endIcon}
+      selected={selected}>
       {startIcon && 
         <IconContainerStyled
           iconCenterAlign={startIconCentreAlign}>
           {startIcon}
         </IconContainerStyled>}
       <MainContainerStyled>
-        <ListFontStyled header>
-          <Font variant='caption' uppercase>
-            {header}
-          </Font>
-        </ListFontStyled>
+        {/* update with own font component late */}
+        {overline && <ListFontStyled overline>
+          <ListFontStyled overline>
+            {overline}
+          </ListFontStyled>
+        </ListFontStyled>}
         <ListFontStyled>
-          <Font variant='subtitle1'>
-            {paragraph}
-          </Font>
+          <ListFontStyled header>
+            {title}
+          </ListFontStyled>
         </ListFontStyled>
         {additionalInformation && <ListFontStyled header additionalInformationAlign={additionalInformationAlign}>
-          <Font variant='body2' align={additionalInformationAlign}>
+          <ListFontStyled additionalInformation>
             {additionalInformation}
-          </Font>
+          </ListFontStyled>
         </ListFontStyled>}
       </MainContainerStyled>
       {endIcon && 
