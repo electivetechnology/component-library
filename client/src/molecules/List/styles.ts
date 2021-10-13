@@ -1,9 +1,10 @@
 import styled from "styled-components"
-import { theme } from "styles/theme"
+import { font, theme } from "styles/theme"
 
 type ListContainerProps = {
   startIcon?: boolean
   endIcon?: boolean
+  selected: boolean
 }
 
 export const ListContainerStyled = styled.div<ListContainerProps>`
@@ -11,6 +12,9 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
   width: calc(100% - 24px);
   padding: 12px;
   grid-gap: 8px;
+  &:hover {
+    background: rgba(91, 99, 122, 0.12); // theme.secondary
+  }
   ${(props) =>
     props.startIcon && props.endIcon &&
     `
@@ -28,6 +32,14 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
     `
       display: grid;
       grid-template-columns: 90% 10%;
+    `};
+  ${(props) =>
+    props.selected &&
+    `
+      background: rgba(91, 99, 122, 0.8); // theme.secondary
+      &:hover {
+        background: rgba(91, 99, 122, 0.8);
+      }
     `};
 `
 
@@ -52,19 +64,35 @@ export const EndContainerStyled = styled.div`
 type ListFontProps = {
   header?: boolean
   additionalInformationAlign?: string
+  overline?: boolean
+  additionalInformation?: boolean
 }
 
 export const ListFontStyled = styled.div<ListFontProps>`
   color: ${theme.shadow};
+  font-family: ${font.primary};
   ${(props) =>
     props.header &&
     `
-      opacity: 0.6;
-      padding: 0px;
+      font-size: 16px;
+      line-height: 24px;
     `};
   ${(props) =>
     props.additionalInformationAlign &&
     `
       text-align: ${props.additionalInformationAlign};
+    `};
+  ${(props) =>
+    props.additionalInformation &&
+    `
+      font-size: 14px;
+      opacity: 0.6;
+    `};
+  ${(props) =>
+    props.overline &&
+    `
+      font-size: 10px;
+      opacity: 0.6;
+      text-transform: uppercase;
     `};
 `

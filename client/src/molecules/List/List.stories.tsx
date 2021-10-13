@@ -11,9 +11,10 @@ Default.args = {
   additionalInformation: "Additional information",
   additionalInformationAlign: "right",
   endIcon: false,
-  header: "This is the header",
-  paragraph: "This is the paragraph",
+  overline: "This is the header",
+  title: "This is the paragraph",
   startIcon: false,
+  selected: false,
 }
 
 // StartIcon
@@ -21,12 +22,13 @@ export const StartIcon: any = Template.bind({})
 
 StartIcon.args = {
   additionalInformation: "Additional information",
-  additionalInformationAlign: "right",
+  additionalInformationAlign: "left",
   endIcon: false,
-  header: "List with start icon",
-  paragraph: "This is the paragraph",
+  overline: "List with start icon",
+  title: "This is the paragraph",
   startIcon: <AddIcon />,
-  startIconCentreAlign: false
+  startIconCentreAlign: false,
+  selected: false,
 }
 
 // EndIcon
@@ -34,27 +36,14 @@ export const EndIcon: any = Template.bind({})
 
 EndIcon.args = {
   additionalInformation: "Additional information",
-  additionalInformationAlign: "right",
+  additionalInformationAlign: "left",
   endIcon: <AddIcon />,
   endIconCentreAlign: false,
-  header: "List with start and end icon",
-  paragraph: "This is the paragraph",
-  startIcon: <AddIcon />,
-  startIconCentreAlign: false
-}
-
-// NoAdditionalInformation
-export const NoAdditionalInformation: any = Template.bind({})
-
-NoAdditionalInformation.args = {
-  additionalInformation: "",
-  additionalInformationAlign: "right",
-  endIcon: <AddIcon />,
-  endIconCentreAlign: false,
-  header: "List with start and end icon",
-  paragraph: "This is the paragraph",
-  startIcon: <AddIcon />,
-  startIconCentreAlign: false
+  overline: "List with start and end icon",
+  title: "This is the title",
+  startIcon: false,
+  startIconCentreAlign: false,
+  selected: false,
 }
 
 export default {
