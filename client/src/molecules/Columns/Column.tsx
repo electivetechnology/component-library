@@ -58,7 +58,7 @@ const Column: FC<Props> = ({
     addColumn(colspan, fixedWidth, true)
   }
 
-  const columnExists = columns.find(
+  const columnExists = columns?.find(
     (column: any, index: number) => columnIndex === index
   )
 
