@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Grid, GridColumn } from 'atoms'
 import { CloseButtonStyled } from './styles'
 import { theme } from 'styles/theme'
+import { ColumnComponent, Grid, GridColumn } from 'index'
 
 const GridTemplate = (args: any) => {
   const [expandMainColumn, setExpandMainColumn] = useState(false)
@@ -53,6 +53,39 @@ const GridTemplate = (args: any) => {
   )
 }
 
+const ColumnTemplate = (args: any) => {
+  const [closeColumn, setCloseColumn] = useState(true)
+  const [closeColumnTwo, setCloseColumnTwo] = useState(true)
+
+  const handleCloseColumn = () => {
+    setCloseColumn(!closeColumn)
+  }
+  const handleCloseColumnTwo = () => {
+    setCloseColumnTwo(!closeColumnTwo)
+  }
+  return (
+    <div style={{display: "inline-flex", width: "100%", height: "600px"}}>
+      <ColumnComponent
+        {...args}
+        handleCloseColumn={handleCloseColumn}
+        isColumnClosed={closeColumn}>
+        <div style={{width: "100%"}}>
+          Column 1
+        </div>
+      </ColumnComponent>
+      <ColumnComponent
+        {...args}
+        handleCloseColumn={handleCloseColumnTwo}
+        isColumnClosed={closeColumnTwo}>
+        <div style={{width: "100%"}}>
+          Column 2
+        </div>
+      </ColumnComponent>
+    </div>
+  )
+}
+
+
 // Default
 export const Default: any = GridTemplate.bind({})
 
@@ -66,7 +99,23 @@ Default.args = {
   backgroundColor: theme.highlight,
 }
 
+// NewColumn
+export const NewColumn: any = ColumnTemplate.bind({})
+
+NewColumn.args = {
+  label: "Label for new column",
+  icon: true,
+}
+
+// ColumnNoLabel
+export const ColumnNoLabel: any = ColumnTemplate.bind({})
+
+ColumnNoLabel.args = {
+  label: false,
+  icon: true,
+}
+
 export default {
-  title: 'atoms/GridColumn',
+  title: 'molecules/GridColumn',
   component: Grid
 }
