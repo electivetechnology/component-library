@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme } from 'styles/theme'
+import { font, theme } from 'styles/theme'
 
 export const CheckboxContainerStyled = styled.div`
   display: inline-flex;
@@ -13,7 +13,7 @@ type CheckboxLabelProps = {
 export const CheckboxLabelStyled = styled.div<CheckboxLabelProps>`
   margin: auto;
   font-size: 16px;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: ${font.primary};
   color: ${theme.grey};
   display: flex;
   align-content: center;

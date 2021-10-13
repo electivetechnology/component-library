@@ -75,7 +75,10 @@ export const appTheme = createMuiTheme({
     },
     body1: {
       fontSize: '14px'
-    }
+    },
+    overline: {
+      fontSize: '10px'
+    },
   },
   overrides: {
     MuiChip: {
@@ -85,3 +88,7 @@ export const appTheme = createMuiTheme({
     }
   }
 })
+
+export const font = {
+  primary: 'Roboto, Helvetica, Arial, sans-serif',
+}
