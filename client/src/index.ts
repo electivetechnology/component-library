@@ -11,8 +11,6 @@ export {
   Tooltip,
   LoaderComponent,
   Font,
-  Grid,
-  GridColumn,
   Chart,
   Pill
 } from 'atoms'
@@ -27,6 +25,7 @@ export { default as PopUp } from 'molecules/PopUp/PopUp'
 export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'
 export { Pages, PageContext } from 'molecules/Pages'
 export { Select, Option, OptionHeader } from 'molecules/Select'
+export { Grid, GridColumn, ColumnComponent } from 'molecules/Grid'
 
 // ORGANISMS
 export {

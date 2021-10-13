@@ -24,12 +24,12 @@ const Chart: React.FC<Props> = ({
   onClick,
   viewHeight = 180
 }) => {
-  const isMobile = window.innerWidth < 760
+  const isMobile = window.innerWidth < 750
 
   const handleViewBoxSize = () => {
     if (isMobile) {
       return `100 30 340 ${legendData.length*30 >= 140 ? legendData.length*30 : 140}`
-    } else if (window.innerWidth > 760 && window.innerWidth < 960) {
+    } else if (window.innerWidth > 750 && window.innerWidth < 960) {
       return `80 30 400 ${viewHeight >= 140 ? viewHeight : 140}`
     } else {
       return `20 25 450 ${viewHeight >= 200 ? viewHeight : 200}`

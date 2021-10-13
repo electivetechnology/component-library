@@ -11,7 +11,7 @@ type PagesProps = {
 }
 
 const Pages: FC<PagesProps> = ({ sticky = false }) => {
-  const isMobile = window.innerWidth < 760
+  const isMobile = window.innerWidth < 750
 
   const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
     PageContext
