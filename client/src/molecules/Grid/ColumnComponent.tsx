@@ -6,7 +6,8 @@ import {
   iconStyle,
   ColumnFoldStyled,
   ColumnParentStyled,
-  ColumnHeadStyled
+  ColumnHeadStyled,
+  IconPlaceHolderStyled
 } from './styles'
 import UnfoldLess from '@material-ui/icons/UnfoldLess'
 import UnfoldMore from '@material-ui/icons/UnfoldMore'
@@ -30,14 +31,16 @@ const ColumnComponent: React.FC<Props> = ({
 }) => {
   const isMobile = window.innerWidth < 750
   const renderIcon = () => {
-    if (isMobile && isColumnClosed) {
+    if ((icon || !label) && isMobile && isColumnClosed) {
       return <KeyboardArrowRight />
-    } else if (isMobile && !isColumnClosed) {
+    } else if ((icon || !label) && isMobile && !isColumnClosed) {
       return <KeyboardArrowLeft />
-    } else if (!isMobile && isColumnClosed) {
+    } else if ((icon || !label) && !isMobile && isColumnClosed) {
       return <UnfoldMore />
-    } else {
+    } else if ((icon || !label) && !isMobile && !isColumnClosed) {
       return <UnfoldLess style={iconStyle} />
+    } else {
+      return <IconPlaceHolderStyled />
     }
   }
   return (
@@ -46,15 +49,14 @@ const ColumnComponent: React.FC<Props> = ({
       <ColumnContainerStyled
         isColumnClosed={isColumnClosed}>
         <ColumnHeaderStyled
-          icon={icon}
           onClick={handleCloseColumn}
           isColumnClosed={isColumnClosed}>
-          {label && <ColumnHeadStyled isColumnClosed={isColumnClosed} icon={icon}>
-            <Font variant='subtitle2'>{label}</Font>
-          </ColumnHeadStyled>}
-          {icon && <ColumnFoldStyled isColumnClosed={isColumnClosed}>
+          <ColumnHeadStyled isColumnClosed={isColumnClosed}>
+            {label && <Font variant='subtitle2'>{label}</Font>}
+          </ColumnHeadStyled>
+          <ColumnFoldStyled isColumnClosed={isColumnClosed}>
             {renderIcon()}
-          </ColumnFoldStyled>}
+          </ColumnFoldStyled>
         </ColumnHeaderStyled>
         {children}
       </ColumnContainerStyled>

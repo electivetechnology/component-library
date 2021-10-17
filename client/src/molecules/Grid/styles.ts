@@ -144,7 +144,6 @@ export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
 
 type ColumnHeaderProps = {
   isColumnClosed: boolean
-  icon: boolean
 }
 
 export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
@@ -162,22 +161,18 @@ export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
           justify-content: start;
           width: auto;
       `};
-    ${props =>
-      !props.icon &&
-      `
-          width: inherit;
-          padding-right: 16px;
-      `};
+
   }
 `
 
 type ColumnHeadProps = {
   isColumnClosed: boolean
-  icon: boolean
 }
 
 export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
+  width: max-content;
   @media screen and (min-width: 750px) {
+    width: auto;
     ${props =>
       props.isColumnClosed &&
       `
@@ -186,12 +181,12 @@ export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
           position: relative;
           left: -12px;
       `};
-    ${props =>
-      !props.icon &&
-      `
-          left: 0;
-      `};
   }
+`
+
+export const IconPlaceHolderStyled = styled.div`
+  height: 28px;
+  width: 24px;
 `
 
 type ColumnFoldProps = {
@@ -234,7 +229,7 @@ export const ColumnParentStyled = styled.div<ColumnParentProps>`
   ${props =>
     props.isColumnClosed &&
     `
-        width: 10%;
+        width: 14%;
     `};
   @media screen and (min-width: 750px) {
     ${props =>

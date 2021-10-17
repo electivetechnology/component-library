@@ -8,7 +8,7 @@ type ListContainerProps = {
 }
 
 export const ListContainerStyled = styled.div<ListContainerProps>`
-  min-height: 64px;
+  height: auto;
   width: calc(100% - 24px);
   padding: 12px;
   grid-gap: 8px;
@@ -94,5 +94,6 @@ export const ListFontStyled = styled.div<ListFontProps>`
       font-size: 10px;
       opacity: 0.6;
       text-transform: uppercase;
+      font-weight: bold;
     `};
 `

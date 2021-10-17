@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import List from './ListComponent'
 import AddIcon from '@material-ui/icons/Add'
 
@@ -7,8 +7,15 @@ const Template = (args: any) => <List {...args} />
 // Default
 export const Default: any = Template.bind({})
 
+const paragraph = (
+  <Fragment>
+    <div>Paragraph 1</div>
+    <div>Paragraph 2</div>
+  </Fragment>
+)
+
 Default.args = {
-  additionalInformation: "Additional information",
+  additionalInformation: paragraph,
   additionalInformationAlign: "right",
   endIcon: false,
   overline: "This is the header",
