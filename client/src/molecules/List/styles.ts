@@ -36,9 +36,9 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
   ${(props) =>
     props.selected &&
     `
-      background: rgba(91, 99, 122, 0.8); // theme.secondary
+      background: rgba(91, 99, 122, 0.08); // theme.secondary
       &:hover {
-        background: rgba(91, 99, 122, 0.8);
+        background: rgba(91, 99, 122, 0.08);
       }
     `};
 `

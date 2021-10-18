@@ -600,6 +600,7 @@ export const ButtonWrapperStyled = styled.div<ButtonWrapperProp>`
       position: relative;
       margin: auto 0 0;
       padding: 0;
+      width: auto;
     `}
 `
 

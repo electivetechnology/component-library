@@ -15,7 +15,8 @@ const Button: React.FC<Props> = ({
   onClick,
   icon,
   href,
-  fullWidth
+  fullWidth,
+  formRow
 }) => {
   const [redirect, setRedirect] = useState(false)
 
@@ -38,6 +39,7 @@ const Button: React.FC<Props> = ({
       variant={theme}
       disabled={disabled}
       fullWidth={fullWidth}
+      formRow={formRow}
     >
       <Wrapper icon={icon} variant={theme} hasLabel={hasLabel}>
         {icon && (

@@ -19,4 +19,5 @@ export type Props = {
   icon?: ReactElement<SvgIconProps>
   href?: string
   fullWidth?: boolean
+  formRow?: boolean
 }

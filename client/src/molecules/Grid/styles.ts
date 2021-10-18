@@ -148,21 +148,17 @@ type ColumnHeaderProps = {
 
 export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
   display: inline-flex;
-  @media screen and (min-width: 750px) {
-    display: inline-flex;
-    width: 100%;
-    justify-content: space-between;
-    cursor: pointer;
-    ${props =>
-      props.isColumnClosed &&
-      `
-          display: flex;
-          flex-direction: column-reverse;
-          justify-content: start;
-          width: auto;
-      `};
-
-  }
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  ${props =>
+    props.isColumnClosed &&
+    `
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: start;
+        width: auto;
+    `};
 `
 
 type ColumnHeadProps = {
@@ -170,15 +166,18 @@ type ColumnHeadProps = {
 }
 
 export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
-  width: max-content;
+  ${props =>
+    props.isColumnClosed &&
+    `
+        transform: rotate(-180deg);
+        writing-mode: vertical-lr;
+        position: relative;
+    `};
   @media screen and (min-width: 750px) {
     width: auto;
     ${props =>
       props.isColumnClosed &&
       `
-          transform: rotate(-180deg);
-          writing-mode: vertical-lr;
-          position: relative;
           left: -12px;
       `};
   }
