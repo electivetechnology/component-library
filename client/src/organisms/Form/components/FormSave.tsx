@@ -34,6 +34,7 @@ const FormSave: FunctionComponent<Props> = ({
         theme={buttonTheme}
         disabled={disabled}
         fullWidth={fullWidth}
+        formRow={formRow}
       />
     </ButtonWrapperStyled>
   )

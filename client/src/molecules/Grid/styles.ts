@@ -144,54 +144,48 @@ export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
 
 type ColumnHeaderProps = {
   isColumnClosed: boolean
-  icon: boolean
 }
 
 export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
   display: inline-flex;
-  @media screen and (min-width: 750px) {
-    display: inline-flex;
-    width: 100%;
-    justify-content: space-between;
-    cursor: pointer;
-    ${props =>
-      props.isColumnClosed &&
-      `
-          display: flex;
-          flex-direction: column-reverse;
-          justify-content: start;
-          width: auto;
-      `};
-    ${props =>
-      !props.icon &&
-      `
-          width: inherit;
-          padding-right: 16px;
-      `};
-  }
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  ${props =>
+    props.isColumnClosed &&
+    `
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: start;
+        width: auto;
+    `};
 `
 
 type ColumnHeadProps = {
   isColumnClosed: boolean
-  icon: boolean
 }
 
 export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
+  ${props =>
+    props.isColumnClosed &&
+    `
+        transform: rotate(-180deg);
+        writing-mode: vertical-lr;
+        position: relative;
+    `};
   @media screen and (min-width: 750px) {
+    width: auto;
     ${props =>
       props.isColumnClosed &&
       `
-          transform: rotate(-180deg);
-          writing-mode: vertical-lr;
-          position: relative;
           left: -12px;
       `};
-    ${props =>
-      !props.icon &&
-      `
-          left: 0;
-      `};
   }
+`
+
+export const IconPlaceHolderStyled = styled.div`
+  height: 28px;
+  width: 24px;
 `
 
 type ColumnFoldProps = {
@@ -234,7 +228,7 @@ export const ColumnParentStyled = styled.div<ColumnParentProps>`
   ${props =>
     props.isColumnClosed &&
     `
-        width: 10%;
+        width: 14%;
     `};
   @media screen and (min-width: 750px) {
     ${props =>
