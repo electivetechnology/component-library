@@ -173,14 +173,12 @@ export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
         writing-mode: vertical-lr;
         position: relative;
     `};
-  @media screen and (min-width: 750px) {
-    width: auto;
-    ${props =>
-      props.isColumnClosed &&
-      `
-          left: -12px;
-      `};
-  }
+  width: auto;
+  ${props =>
+    props.isColumnClosed &&
+    `
+        left: -12px;
+    `};
 `
 
 export const IconPlaceHolderStyled = styled.div`
@@ -193,17 +191,15 @@ type ColumnFoldProps = {
 }
 
 export const ColumnFoldStyled = styled.div<ColumnFoldProps>`
-  @media screen and (min-width: 750px) {
-    position: relative;
-    top: 4px;
-    ${props =>
-      props.isColumnClosed &&
-      `
-          transform: rotate(-90deg);
-          padding-left: 16px;
-          top: 0;
-      `};
-  }
+  position: relative;
+  top: 4px;
+  ${props =>
+    props.isColumnClosed &&
+    `
+        transform: rotate(-90deg);
+        padding-left: 16px;
+        top: 0;
+    `};
 `
 
 export const iconStyle = {
@@ -228,14 +224,7 @@ export const ColumnParentStyled = styled.div<ColumnParentProps>`
   ${props =>
     props.isColumnClosed &&
     `
-        width: 14%;
-    `};
-  @media screen and (min-width: 750px) {
-    ${props =>
-      props.isColumnClosed &&
-      `
-          width: 4%;
-      `};
-  }
+        width: 55px;
+  `};
 `
 

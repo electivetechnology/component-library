@@ -11,8 +11,6 @@ import {
 } from './styles'
 import UnfoldLess from '@material-ui/icons/UnfoldLess'
 import UnfoldMore from '@material-ui/icons/UnfoldMore'
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
 import { Font } from 'atoms'
 
 type Props = {
@@ -29,15 +27,10 @@ const ColumnComponent: React.FC<Props> = ({
   icon = true,
   label,
 }) => {
-  const isMobile = window.innerWidth < 750
   const renderIcon = () => {
-    if ((icon || !label) && isMobile && isColumnClosed) {
-      return <KeyboardArrowRight />
-    } else if ((icon || !label) && isMobile && !isColumnClosed) {
-      return <KeyboardArrowLeft />
-    } else if ((icon || !label) && !isMobile && isColumnClosed) {
+    if ((icon || !label) && isColumnClosed) {
       return <UnfoldMore />
-    } else if ((icon || !label) && !isMobile && !isColumnClosed) {
+    } else if ((icon || !label) && !isColumnClosed) {
       return <UnfoldLess style={iconStyle} />
     } else {
       return <IconPlaceHolderStyled />
