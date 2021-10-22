@@ -17,6 +17,7 @@ type ListProp = {
   startIcon?: any
   startIconCentreAlign?: boolean
   selected?: boolean
+  onClick?: any
 }
 
 const List: FunctionComponent<ListProp> = ({
@@ -28,10 +29,12 @@ const List: FunctionComponent<ListProp> = ({
   title,
   startIcon,
   startIconCentreAlign,
-  selected = false
+  selected = false,
+  onClick
 }) => {
   return (
     <ListContainerStyled
+      onClick={onClick}
       startIcon={startIcon}
       endIcon={endIcon}
       selected={selected}>

@@ -7,6 +7,8 @@ const Template = (args: any) => <List {...args} />
 // Default
 export const Default: any = Template.bind({})
 
+const handleOnClick = () => console.log('click')
+
 const paragraph = (
   <Fragment>
     <div>Paragraph 1</div>
@@ -22,6 +24,7 @@ Default.args = {
   title: "This is the paragraph",
   startIcon: false,
   selected: false,
+  onClick: handleOnClick
 }
 
 // StartIcon

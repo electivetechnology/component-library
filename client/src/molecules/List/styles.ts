@@ -19,19 +19,19 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
     props.startIcon && props.endIcon &&
     `
       display: grid;
-      grid-template-columns: 10% 78% 10%;
+      grid-template-columns: 10% auto 10%;
     `};
   ${(props) =>
     props.startIcon && !props.endIcon &&
     `
       display: grid;
-      grid-template-columns: 10% 90%;
+      grid-template-columns: 10% auto;
     `};
   ${(props) =>
     !props.startIcon && props.endIcon &&
     `
       display: grid;
-      grid-template-columns: 90% 10%;
+      grid-template-columns: auto 10%;
     `};
   ${(props) =>
     props.selected &&

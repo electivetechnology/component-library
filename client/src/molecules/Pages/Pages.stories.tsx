@@ -26,6 +26,16 @@ Primary.args = {
   helperText: "some helper text"
 }
 
+// NoSteps
+export const NoSteps: any = PagesTemplate.bind({})
+
+NoSteps.args = {
+  handleClose: mockFunction,
+  next: mockFunction,
+  back: mockFunction,
+}
+
+
 export default {
   title: 'molecules/Pages',
   component: Pages
