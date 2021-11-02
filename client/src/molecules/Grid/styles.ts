@@ -126,7 +126,6 @@ type ColumnContainerProps = {
 export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
   overflow: scroll;
   width: 100%;
-  padding-right: 8px;
   ::-webkit-scrollbar {
     display: none;
   }

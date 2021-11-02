@@ -22,7 +22,8 @@ const FormTextEditor: FunctionComponent = () => {
     disabled = false,
     required,
     status,
-    requiredError
+    requiredError,
+    tools
   } = useContext(InputContext)
 
   const { updateInput, onBlur, darkMode = false } = useContext(FormContext)
@@ -69,6 +70,7 @@ const FormTextEditor: FunctionComponent = () => {
             'table wordcount autoresize directionality'
           ],
           toolbar:
+            tools ? tools :
             'bold italic underline | bullist numlist | formatselect | link |',
           table_toolbar: '',
           table_advtab: false,
