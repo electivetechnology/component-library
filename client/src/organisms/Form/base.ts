@@ -99,6 +99,7 @@ export type InputContextType = {
   status?: StatusType
   requiredError: boolean
   handleDelete?: () => void
+  tools?: string
 }
 
 export const InputContext = createContext<InputContextType>(
