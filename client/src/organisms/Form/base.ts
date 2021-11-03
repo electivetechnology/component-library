@@ -50,6 +50,7 @@ export interface OptionType {
   prefix?: boolean
   suffix?: boolean
   commaSeparated?: boolean
+  tools?: string
 }
 
 export type StatusType = {
