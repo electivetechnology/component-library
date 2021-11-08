@@ -3,7 +3,7 @@ import React, {
   memo,
   useContext,
   useState,
-  useRef,
+  useRef
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
@@ -25,6 +25,7 @@ const FormTextEditor: FunctionComponent = () => {
     requiredError,
     options
   } = useContext(InputContext)
+  const { editorSetup } = options || {}
 
   const { updateInput, onBlur, darkMode = false } = useContext(FormContext)
 
@@ -75,7 +76,8 @@ const FormTextEditor: FunctionComponent = () => {
           table_toolbar: '',
           table_advtab: false,
           table_row_advtab: false,
-          table_cell_advtab: false
+          table_cell_advtab: false,
+          setup: editorSetup && editorSetup
         }}
         onEditorChange={handleChange}
         onBlur={handleBlur}
