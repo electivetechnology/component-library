@@ -7,10 +7,12 @@ import {
   ColumnFoldStyled,
   ColumnParentStyled,
   ColumnHeadStyled,
-  IconPlaceHolderStyled
+  IconPlaceHolderStyled,
+  iconArrowStyle
 } from './styles'
 import UnfoldLess from '@material-ui/icons/UnfoldLess'
 import UnfoldMore from '@material-ui/icons/UnfoldMore'
+import Arrow from '@material-ui/icons/ArrowBackOutlined'
 import { Font } from 'atoms'
 
 type Props = {
@@ -18,6 +20,7 @@ type Props = {
   isColumnClosed: boolean
   icon?: boolean
   label?: string
+  gridRow?: string
 }
 
 const ColumnComponent: React.FC<Props> = ({
@@ -26,18 +29,23 @@ const ColumnComponent: React.FC<Props> = ({
   isColumnClosed,
   icon = true,
   label,
+  gridRow,
 }) => {
+  const isMobile = window.innerWidth < 750
+
   const renderIcon = () => {
     if ((icon || !label) && isColumnClosed) {
       return <UnfoldMore />
-    } else if ((icon || !label) && !isColumnClosed) {
+    } else if ((icon || !label) && !isColumnClosed && isMobile) {
+      return <Arrow style={iconArrowStyle} />
+    } else if  ((icon || !label) && !isColumnClosed) {
       return <UnfoldLess style={iconStyle} />
     } else {
       return <IconPlaceHolderStyled />
     }
   }
   return (
-    <ColumnParentStyled isColumnClosed={isColumnClosed}>
+    <ColumnParentStyled isColumnClosed={isColumnClosed} gridRow={gridRow}>
       <DividerStyled />
       <ColumnContainerStyled
         isColumnClosed={isColumnClosed}>
