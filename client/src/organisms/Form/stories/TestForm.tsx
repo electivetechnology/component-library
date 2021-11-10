@@ -66,6 +66,7 @@ const TestForm: FC = () => {
           name='Text Input'
           value={text}
           type='textEditor'
+          options={{tools: 'none'}}
         />
         <FormInput
           label='Text Comma Separated'
