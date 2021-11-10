@@ -114,9 +114,12 @@ export const CloseTextStyled = styled.div`
 
 // New styles
 export const DividerStyled = styled.div`
-  height: 100%;
-  border: 1px solid ${theme.highlight};
-  margin: 0 8px;
+  display: none;
+  @media screen and (min-width: 750px) {
+    height: 100%;
+    border: 1px solid ${theme.highlight};
+    margin: 0 8px;
+  }
 `
 
 type ColumnContainerProps = {
@@ -146,10 +149,9 @@ type ColumnHeaderProps = {
 }
 
 export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
-  display: inline-flex;
+  flex-direction: row-reverse;
+  display: flex;
   justify-content: space-between;
-  cursor: pointer;
-  width: 100%;
   ${props =>
     props.isColumnClosed &&
     `
@@ -158,6 +160,12 @@ export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
         justify-content: start;
         width: auto;
     `};
+  @media screen and (min-width: 750px) {
+    display: inline-flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+  }
 `
 
 type ColumnHeadProps = {
@@ -165,6 +173,7 @@ type ColumnHeadProps = {
 }
 
 export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
+  grid-column: 2;
   ${props =>
     props.isColumnClosed &&
     `
@@ -190,8 +199,8 @@ type ColumnFoldProps = {
 }
 
 export const ColumnFoldStyled = styled.div<ColumnFoldProps>`
+  grid-column: 1;
   position: relative;
-  top: 4px;
   ${props =>
     props.isColumnClosed &&
     `
@@ -199,11 +208,19 @@ export const ColumnFoldStyled = styled.div<ColumnFoldProps>`
         padding-left: 16px;
         top: 0;
     `};
-`
+    @media screen and (min-width: 750px) {
+      top: 4px;
+    }
+  `
 
 export const iconStyle = {
   transform: 'rotate(90deg)',
   paddingRight: '8px'
+}
+
+export const iconArrowStyle = {
+  height: '20px',
+  width: '20px'
 }
 
 export const iconCloseStyle = {
@@ -213,6 +230,7 @@ export const iconCloseStyle = {
 
 type ColumnParentProps = {
   isColumnClosed: boolean
+  gridRow?: string
 }
 
 export const ColumnParentStyled = styled.div<ColumnParentProps>`
@@ -224,6 +242,11 @@ export const ColumnParentStyled = styled.div<ColumnParentProps>`
     props.isColumnClosed &&
     `
         width: 55px;
+  `};
+  ${props =>
+    props.gridRow &&
+    `
+        grid-row: ${props.gridRow};
   `};
 `
 
