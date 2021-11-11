@@ -11,7 +11,7 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
   height: auto;
   width: calc(100% - 24px);
   padding: 12px;
-  grid-gap: 8px;
+  grid-gap: 12px;
   &:hover {
     background: rgba(91, 99, 122, 0.12); // theme.secondary
   }
@@ -19,19 +19,19 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
     props.startIcon && props.endIcon &&
     `
       display: grid;
-      grid-template-columns: 10% auto 10%;
+      grid-template-columns: min-content auto min-content;
     `};
   ${(props) =>
     props.startIcon && !props.endIcon &&
     `
       display: grid;
-      grid-template-columns: 10% auto;
+      grid-template-columns: min-content auto;
     `};
   ${(props) =>
     !props.startIcon && props.endIcon &&
     `
       display: grid;
-      grid-template-columns: auto 10%;
+      grid-template-columns: auto min-content;
     `};
   ${(props) =>
     props.selected &&

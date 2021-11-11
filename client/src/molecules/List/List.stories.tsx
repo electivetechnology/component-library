@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import List from './ListComponent'
 import AddIcon from '@material-ui/icons/Add'
+import { Button } from 'atoms'
 
 const Template = (args: any) => <List {...args} />
 
@@ -36,7 +37,7 @@ StartIcon.args = {
   endIcon: false,
   overline: "List with start icon",
   title: "This is the paragraph",
-  startIcon: <AddIcon />,
+  startIcon: <Button label="title" theme='primary' onClick={() => {}} />,
   startIconCentreAlign: false,
   selected: false,
 }
