@@ -12,7 +12,8 @@ export {
   LoaderComponent,
   Font,
   Chart,
-  Pill
+  Pill,
+  Divider
 } from 'atoms'
 
 // MOLECULES
