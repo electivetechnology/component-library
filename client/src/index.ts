@@ -13,7 +13,8 @@ export {
   Font,
   Chart,
   Pill,
-  Divider
+  Divider,
+  ActionBar
 } from 'atoms'
 
 // MOLECULES

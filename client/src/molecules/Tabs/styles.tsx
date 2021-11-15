@@ -51,7 +51,7 @@ export const TabStyled = styled.div<TabProps>`
   align-items: center;
   color: ${theme.secondary};
   &:hover {
-    background-color: ${theme.selected};
+    background: rgba(91, 99, 122, 0.12); // theme.secondary
     padding-bottom: 3px;
   }
   ${(props) =>

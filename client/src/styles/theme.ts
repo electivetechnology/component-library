@@ -33,11 +33,11 @@ export const theme = {
   secondary: '#5B637A', //
   secondaryColorDark: '#2C3246', //
   secondaryDark: '#2C3246', //
-  secondaryLight: '#A0AED4', //
+  secondaryLight: '160,174,212', // change to primaryLight later
   secondaryHover: '#FFC9CE', //
   secondaryGray: '#AAAAAA',
   selected: '#EBEFFB', //
-  shadow: '#000000', //
+  shadow: '0, 0, 0', //
   textBody: '#000000', //
   warning: '#F9A725', //
   white: '#ffffff', //

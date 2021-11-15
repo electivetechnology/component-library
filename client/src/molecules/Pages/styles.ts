@@ -29,7 +29,6 @@ type PagesContainerProp = {
 }
 
 export const PagesContainerStyled = styled.div<PagesContainerProp>`
-  background-color: ${theme.white};
   padding: 8px 24px 24px;
   bottom: 0;
   position: absolute;
@@ -38,6 +37,7 @@ export const PagesContainerStyled = styled.div<PagesContainerProp>`
   grid-template-columns: 1fr 1fr 1fr;
   display: grid;
   background-color: ${theme.white};
+  height: 48px;
   @media screen and (min-width: 750px) {
     display: inline-flex;
     position: relative;
@@ -48,7 +48,6 @@ export const PagesContainerStyled = styled.div<PagesContainerProp>`
       `
         position: absolute;
         top: 0;
-        height: 48px;
       `
     }
   }
