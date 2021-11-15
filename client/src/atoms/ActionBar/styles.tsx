@@ -2,11 +2,7 @@ import { theme } from 'styles/theme'
 import styled from 'styled-components'
 import { ActionBarTheme, ActionBarThemes } from './base'
 
-type ActionBarProps = {
-  theme: ActionBarTheme
-}
-
-export const ActionBarStyled = styled.div<ActionBarProps>`
+export const ActionBarContainerStyled = styled.div`
   background-color: ${theme.white};
   bottom: 0;
   position: absolute;
@@ -14,11 +10,6 @@ export const ActionBarStyled = styled.div<ActionBarProps>`
   z-index: 1000;
   height: 80px;
   box-shadow: inset 0px 26px 12px -20px rgb(${theme.shadow}, .08);
-  ${(props) =>
-    props.theme === ActionBarThemes.CAMPAIGN &&
-    `
-    background-color: rgb(${theme.secondaryLight}, .15)
-    `};
     @media screen and (min-width: 750px) {
       display: inline-flex;
       position: absolute;
@@ -28,4 +19,18 @@ export const ActionBarStyled = styled.div<ActionBarProps>`
     @media screen and (min-width: 960px) {
       box-shadow: inset 0px -26px 12px -20px rgb(${theme.shadow}, .08);
     }
+`
+
+type ActionBarProps = {
+  theme: ActionBarTheme
+}
+
+export const ActionBarStyled = styled.div<ActionBarProps>`
+  width: 100%;
+  height: 100%;
+  ${(props) =>
+    props.theme === ActionBarThemes.CAMPAIGN &&
+    `
+      background-color: rgb(${theme.secondaryLight}, .15)
+    `};
 `

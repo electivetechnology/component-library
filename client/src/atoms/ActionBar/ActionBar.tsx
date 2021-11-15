@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { ActionBarTheme } from './base'
-import { ActionBarStyled } from './styles'
+import { ActionBarContainerStyled, ActionBarStyled } from './styles'
 
 type Props = {
   theme: ActionBarTheme
@@ -12,9 +12,11 @@ const ActionBar: FunctionComponent<Props> = ({
 }) => {
 
   return (
-    <ActionBarStyled theme={theme}>
-      {children}
-    </ActionBarStyled>
+    <ActionBarContainerStyled>
+      <ActionBarStyled theme={theme}>
+        {children}
+      </ActionBarStyled>
+    </ActionBarContainerStyled>
   )
 }
 
