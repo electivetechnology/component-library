@@ -12,6 +12,7 @@ export const ActionBarStyled = styled.div<ActionBarProps>`
   position: absolute;
   width: 100vw;
   z-index: 1000;
+  height: 80px;
   box-shadow: inset 0px 26px 12px -20px rgb(${theme.shadow}, .08);
   ${(props) =>
     props.theme === ActionBarThemes.CAMPAIGN &&
@@ -22,7 +23,6 @@ export const ActionBarStyled = styled.div<ActionBarProps>`
       display: inline-flex;
       position: absolute;
       top: 0;
-      height: 80px;
       width: -webkit-fill-available;
     }
     @media screen and (min-width: 960px) {
