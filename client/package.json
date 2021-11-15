@@ -1,6 +1,6 @@
 {
   "name": "electivegroup-component-library",
-  "version": "1.8.79",
+  "version": "1.8.80",
   "engines": {
     "node": ">=10"
   },

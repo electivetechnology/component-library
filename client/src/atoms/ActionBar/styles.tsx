@@ -12,7 +12,7 @@ export const ActionBarContainerStyled = styled.div`
   box-shadow: inset 0px 26px 12px -20px rgb(${theme.shadow}, .08);
     @media screen and (min-width: 750px) {
       display: inline-flex;
-      position: absolute;
+      position: relative;
       top: 0;
       width: -webkit-fill-available;
     }
