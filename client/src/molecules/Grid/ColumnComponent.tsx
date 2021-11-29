@@ -52,12 +52,12 @@ const ColumnComponent: React.FC<Props> = ({
         <ColumnHeaderStyled
           onClick={handleCloseColumn}
           isColumnClosed={isColumnClosed}>
-          <ColumnHeadStyled isColumnClosed={isColumnClosed}>
-            {label && <Font variant='subtitle2'>{label}</Font>}
-          </ColumnHeadStyled>
           <ColumnFoldStyled isColumnClosed={isColumnClosed}>
             {renderIcon()}
           </ColumnFoldStyled>
+          <ColumnHeadStyled isColumnClosed={isColumnClosed}>
+            {label && <Font variant='subtitle2'>{label}</Font>}
+          </ColumnHeadStyled>
         </ColumnHeaderStyled>
         {isColumnClosed ? null : children}
       </ColumnContainerStyled>

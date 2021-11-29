@@ -129,6 +129,8 @@ type ColumnContainerProps = {
 export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
   overflow: scroll;
   width: 100%;
+  border-left: solid 1px rgb(${theme.shadow}, .12);
+  padding-left: 8px;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -140,6 +142,7 @@ export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
   ${props =>
     props.isColumnClosed &&
     `
+        padding-left: 0;
         display: inline-flex;
     `};
 `
@@ -156,16 +159,26 @@ export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
     props.isColumnClosed &&
     `
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: start;
         width: auto;
+        justify-content: unset;
     `};
-  @media screen and (min-width: 750px) {
-    display: inline-flex;
-    justify-content: space-between;
-    cursor: pointer;
-    width: 100%;
-  }
+    @media screen and (min-width: 750px) {
+      display: inline-flex;
+      justify-content: space-between;
+      cursor: pointer;
+      width: 100%;
+      ${props =>
+        props.isColumnClosed &&
+        `
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            width: auto;
+            justify-content: unset;
+        `};
+    }
 `
 
 type ColumnHeadProps = {
