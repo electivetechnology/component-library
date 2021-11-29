@@ -5,6 +5,7 @@ type ListContainerProps = {
   startIcon?: boolean
   endIcon?: boolean
   selected: boolean
+  nonClickable: boolean
 }
 
 export const ListContainerStyled = styled.div<ListContainerProps>`
@@ -20,6 +21,13 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
     `
       display: grid;
       grid-template-columns: min-content auto min-content;
+    `};
+  ${(props) =>
+    props.nonClickable &&
+    `
+      &:hover {
+        background: transparent
+      }
     `};
   ${(props) =>
     props.startIcon && !props.endIcon &&
@@ -69,7 +77,7 @@ type ListFontProps = {
 }
 
 export const ListFontStyled = styled.div<ListFontProps>`
-  color: ${theme.shadow};
+  color: rgb(${theme.shadow});
   font-family: ${font.primary};
   ${(props) =>
     props.header &&

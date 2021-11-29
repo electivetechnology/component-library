@@ -42,7 +42,7 @@ export const useLabelStyles = makeStyles({
 export const useInputStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
-    color: props.darkMode ? theme.white : theme.shadow,
+    color: props.darkMode ? `${theme.white}` : `rgb(${theme.shadow})`,
     whiteSpace: 'nowrap',
     '&.MuiInputBase-input.Mui-disabled': {
       color: theme.disabledText,

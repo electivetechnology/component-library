@@ -25,7 +25,8 @@ Default.args = {
   title: "This is the paragraph",
   startIcon: false,
   selected: false,
-  onClick: handleOnClick
+  onClick: handleOnClick,
+  nonClickable: false
 }
 
 // StartIcon

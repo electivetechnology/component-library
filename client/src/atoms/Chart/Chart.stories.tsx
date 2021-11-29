@@ -21,7 +21,7 @@ const ChartTemplate = (args: any) => {
             { style: {
               fontSize: 12,
               padding: 0,
-              fill: theme.shadow,
+              fill: `rgb(${theme.shadow})`,
               fontFamily: font.primary,
               fontWeight: 'bold'
             }}
