@@ -99,7 +99,7 @@ export const OptionStyled = styled.div<OptionProp>`
   display: flex;
   align-items: center;
   padding: 0 16px;
-  color: ${theme.shadow};
+  color: rgb(${theme.shadow});
   &:hover {
     background-color: ${theme.highlight};
   }

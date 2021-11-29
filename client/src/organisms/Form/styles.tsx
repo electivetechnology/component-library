@@ -443,7 +443,7 @@ export const ToastStyled = styled.div<ToastProps>`
   ${(props) =>
     props.darkMode &&
     `
-      color: ${theme.shadow};
+      color: rgb(${theme.shadow});
     `}
 `
 
@@ -565,7 +565,7 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
   z-index: 0;
   top: -2px;
   background-color: transparent;
-  color: ${theme.shadow};
+  color: rgb(${theme.shadow});
   font-size: 12px;
   font-family: ${font.primary};
   ${(props) =>
