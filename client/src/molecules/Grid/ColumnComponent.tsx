@@ -59,7 +59,7 @@ const ColumnComponent: React.FC<Props> = ({
             {renderIcon()}
           </ColumnFoldStyled>
         </ColumnHeaderStyled>
-        {children}
+        {isColumnClosed ? null : children}
       </ColumnContainerStyled>
     </ColumnParentStyled>
   )

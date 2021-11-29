@@ -241,7 +241,7 @@ export const ColumnParentStyled = styled.div<ColumnParentProps>`
   ${props =>
     props.isColumnClosed &&
     `
-        width: 55px;
+        width: 40px;
   `};
   ${props =>
     props.gridRow &&
