@@ -35,6 +35,8 @@ export {
   Form,
   FormInput,
   FormSave,
+  FormHidden,
+  useFormHidden,
   useFormStatus,
   FormRow,
   FormTitle,

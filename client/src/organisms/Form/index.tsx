@@ -9,5 +9,7 @@ export { default as FormTitle } from 'organisms/Form/components/FormTitle'
 export { default as FormSelect } from 'organisms/Form/components/FormSelect'
 export { default as FormOption } from 'organisms/Form/components/FormOption'
 export { default as FormColourPicker } from 'organisms/Form/components/FormColourPicker'
+export { default as FormHidden } from 'organisms/Form/components/FormHidden'
 export { useFormStatus } from 'organisms/Form/hooks'
+export { useFormHidden } from 'organisms/Form/hooks'
 
