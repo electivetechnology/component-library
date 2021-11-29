@@ -58,6 +58,22 @@ EndIcon.args = {
   selected: false,
 }
 
+// NoClick
+export const NoClick: any = Template.bind({})
+
+NoClick.args = {
+  additionalInformation: "Additional information",
+  additionalInformationAlign: "left",
+  endIcon: <AddIcon />,
+  endIconCentreAlign: false,
+  overline: "List with start and end icon",
+  title: "This is the title",
+  startIcon: false,
+  startIconCentreAlign: false,
+  selected: false,
+  nonClickable: true
+}
+
 export default {
   title: 'molecules/List',
   component: List
