@@ -8,9 +8,10 @@ import { theme } from 'styles/theme'
 
 type PagesProps = {
   sticky?: boolean
+  transparent?: boolean
 }
 
-const Pages: FC<PagesProps> = ({ sticky = false }) => {
+const Pages: FC<PagesProps> = ({ sticky = false, transparent = false }) => {
   const isMobile = window.innerWidth < 750
 
   const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
@@ -49,7 +50,7 @@ const Pages: FC<PagesProps> = ({ sticky = false }) => {
   }
 
   return (
-    <PagesContainerStyled sticky={sticky}>
+    <PagesContainerStyled sticky={sticky} transparent={transparent}>
       {handleClose && (
         <CloseIconStyled onClick={handleClose}>
           <CloseIcon />

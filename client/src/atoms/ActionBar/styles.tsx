@@ -31,6 +31,51 @@ export const ActionBarStyled = styled.div<ActionBarProps>`
   ${(props) =>
     props.theme === ActionBarThemes.CAMPAIGN &&
     `
-      background-color: rgb(${theme.secondaryLight}, .15)
+      background-color: rgb(${theme.secondaryLight}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.CLIENT &&
+    `
+      background-color: rgb(${theme.primaryAccent600}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.OUTLINE &&
+    `
+      background-color: rgb(${theme.onSurface}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.ENGAGEMENT &&
+    `
+      background-color: rgb(${theme.onSurface}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.CONVERSATION_TEMPLATE &&
+    `
+      background-color: rgb(${theme.onSurface}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.QUESTION &&
+    `
+      background-color: rgb(${theme.tertiaryAccent500}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.MESSAGE_TEMPLATE &&
+    `
+      background-color: rgb(${theme.secondaryAccent900}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.LABEL &&
+    `
+      background-color: rgb(${theme.secondaryAccent300}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.COMPANY &&
+    `
+      background-color: rgb(${theme.grey700}, .15);
+    `};
+  ${(props) =>
+    props.theme === ActionBarThemes.PROFILE &&
+    `
+      background-color: rgb(${theme.primaryDark}, .15);
     `};
 `

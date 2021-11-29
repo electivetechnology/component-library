@@ -30,6 +30,12 @@ type PagesContainerProp = {
 
 export const PagesContainerStyled = styled.div<PagesContainerProp>`
   background-color: ${theme.white};
+  ${props =>
+    props.sticky &&
+    `
+      background-color: transparent;
+    `
+  }
   padding: 8px 24px 24px;
   bottom: 0;
   position: absolute;

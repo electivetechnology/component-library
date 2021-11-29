@@ -7,7 +7,7 @@ const Template = (args: any) => <ActionBar {...args} />
 export const Default: any = Template.bind({})
 
 Default.args = {
-  theme: 'campaign',
+  theme: 'messageTemplate',
 }
 
 export default {
