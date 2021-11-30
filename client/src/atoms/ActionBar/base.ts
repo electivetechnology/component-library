@@ -16,8 +16,8 @@ export enum ActionBarThemes {
   OUTLINE = 'outline',
   ENGAGEMENT = 'engagement',
   CONVERSATION_TEMPLATE= 'conversationTemplate',
-  QUESTION= 'question',
-  MESSAGE_TEMPLATE= 'messageTemplate',
+  QUESTION = 'question',
+  MESSAGE_TEMPLATE = 'messageTemplate',
   LABEL = 'label',
   COMPANY = 'company',
   PROFILE = 'profile'

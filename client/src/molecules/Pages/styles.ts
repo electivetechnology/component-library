@@ -26,10 +26,17 @@ export const CloseIconStyled = styled.div`
 
 type PagesContainerProp = {
   sticky: boolean
+  transparent?: boolean
 }
 
 export const PagesContainerStyled = styled.div<PagesContainerProp>`
   background-color: ${theme.white};
+  ${props =>
+    props.transparent &&
+    `
+      background-color: transparent;
+    `
+  }
   padding: 8px 24px 24px;
   bottom: 0;
   position: absolute;
