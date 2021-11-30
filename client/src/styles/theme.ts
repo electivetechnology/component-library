@@ -41,7 +41,8 @@ export const theme = {
   textBody: '#000000', //
   warning: '#F9A725', //
   white: '#ffffff', //
-   // Above to be removed later
+  // Above to be removed later
+  // Below needs to be converted to RGB values and then updated across the comp library / app as hex and RGB are used differently
   // V2 colors below
   accent: '#D03D4A',
   background: '#F1F1F1',
