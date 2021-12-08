@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import { font, theme } from 'styles/theme'
 import { makeStyles } from '@material-ui/core'
 import { handleFormBorder } from './base'
@@ -240,6 +240,50 @@ type TextInputProps = {
   error: boolean
   icon?: boolean
 }
+
+export const borderAnimation = keyframes`
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 100%;
+  }
+`
+
+type AnimatedStatusBorderProps = {
+  status?: string
+  phone?: boolean
+}
+export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
+  position: relative;
+  margin: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    ${(props) =>
+      props.status === 'error' &&
+      `
+        border-bottom: solid 2px ${theme.error};
+      `}
+    ${(props) =>
+      props.status === 'success' &&
+      `
+        border-bottom: solid 2px ${theme.success};
+      `}
+    animation: ${(props: any) => (props.status === 'error' ? css`${borderAnimation} 2s linear backwards` : '')};
+    animation: ${(props: any) => (props.status === 'success' ? css`${borderAnimation} 2s linear backwards infinite` : '')};
+  }
+  ${(props) =>
+    props.phone &&
+    `
+      width: 19.5%;
+      margin-left: 48px;
+      top: 1px;
+    `}
+`
 
 export const TextInputStyled = styled.input<TextInputProps>`
   border: none;
