@@ -47,8 +47,7 @@ import React, {
 
     return (
       <SelectStyled
-        data-testid='FormSelect'
-  >
+        data-testid='FormSelect'>
         <SelectField
           label={fieldPlaceholder}
           value={selected}

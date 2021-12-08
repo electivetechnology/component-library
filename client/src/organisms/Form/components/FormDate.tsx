@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState
 } from 'react'
-import { DateLabelStyled, DateWrapperStyled, DateStyles, RequiredStyled } from 'organisms/Form/styles'
+import { DateLabelStyled, DateWrapperStyled, DateStyles, RequiredStyled, AnimatedStatusBorder } from 'organisms/Form/styles'
 import { FormContext, InputContext, handleFormComponentColor } from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
@@ -65,6 +65,8 @@ const FormDate: FunctionComponent = () => {
           fullWidth
           keyboardIcon={<InsertInvitation style={{color: handleFormComponentColor(theme.secondary, darkMode, disabled)}} />}
         />
+         {/* <AnimatedStatusBorder status='success' /> */}
+         {/* TODO: add status prop to this */}
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>
   )
