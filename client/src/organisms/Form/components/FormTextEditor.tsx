@@ -6,11 +6,12 @@ import React, {
   useRef
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
-import { EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
+import { AnimatedStatusBorder, EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
 import { Editor } from '@tinymce/tinymce-react'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 import { useEffectAfterMount } from 'utils/base'
+import './styles.css'
 
 const FormTextEditor: FunctionComponent = () => {
   const valueRef = useRef()
@@ -82,6 +83,8 @@ const FormTextEditor: FunctionComponent = () => {
         onEditorChange={handleChange}
         onBlur={handleBlur}
       />
+      {/* <AnimatedStatusBorder status='error' />g */}
+      {/* Remove if you dont want to animation border */}
       {error && (
         <WarningIcon
           style={{
