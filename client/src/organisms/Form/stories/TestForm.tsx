@@ -36,12 +36,18 @@ const TestForm: FC = () => {
   }
 
   const handleSave = (inputs2: object) => {
-    // addStatus('textInput', 'error', 'some error with text')
-    // addStatus('newInput', 'error', 'some error with text area')
+    addStatus('select', 'success')
+    addStatus('textEditor', 'success')
+    addStatus('text', 'success')
+    addStatus('textInput', 'success')
+    addStatus('newInput', 'success')
+    addStatus('checkbox', 'success')
+    addStatus('toggle', 'success')
+    addStatus('phoneInput', 'success')
+    addStatus('dateInput', 'success')
     console.group('handleSave')
     console.log('inputs', inputs)
     console.log('inputs2', inputs2)
-
     console.groupEnd()
   }
 

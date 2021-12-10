@@ -282,7 +282,7 @@ export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
     animation: ${(props: any) =>
       props.status === 'success'
         ? css`
-            ${borderAnimation} 2s linear backwards infinite
+            ${borderAnimation} 2s linear backwards
           `
         : ''};
   }

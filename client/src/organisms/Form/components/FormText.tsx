@@ -28,10 +28,13 @@ const FormText: FunctionComponent = () => {
     status,
     requiredError
   } = useContext(InputContext)
+
   const { multiline, suffix, prefix, icon, copy, commaSeparated } =
     options || {}
+
   const { statusType } = status || {}
   const error = statusType === 'error' || requiredError
+  const success = statusType === 'success'
   const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
@@ -96,8 +99,7 @@ const FormText: FunctionComponent = () => {
                 disabled={disabled}
                 error={error}
               />
-              {/* <AnimatedStatusBorder status='error' /> */}
-              {/* Remove if you dont want to animation border */}
+              {success && <AnimatedStatusBorder status='success' /> }
             </Fragment>
           ) : (
             <Fragment>
@@ -114,7 +116,7 @@ const FormText: FunctionComponent = () => {
                 error={error}
                 icon={suffix || prefix}
               />
-              {/*<AnimatedStatusBorder status='success' />*/}
+              {success && <AnimatedStatusBorder status='success' /> }
             </Fragment>
           )}
 
