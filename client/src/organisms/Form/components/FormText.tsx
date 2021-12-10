@@ -15,7 +15,7 @@ import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 
 const FormText: FunctionComponent = () => {
-  const { onBlur, darkMode = false, inputs } = useContext(FormContext)
+  const { onBlur, darkMode = false } = useContext(FormContext)
   const {
     inputValue,
     name,

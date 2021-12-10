@@ -432,8 +432,8 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
 `
 
 type TextEditorProps = {
-  disabled: boolean
-  darkMode: boolean
+  disabled?: boolean
+  darkMode?: boolean
   error: boolean
 }
 
@@ -441,6 +441,15 @@ export const TextEditorStyled = styled.div<TextEditorProps>`
   ${(props) =>
     props.error &&
     `
+    width: 100%;
+    border-bottom: 1px solid ${theme.primary};
+  `};
+`
+
+export const TextEditorWarningStyled = styled.div<TextEditorProps>`
+  ${(props) =>
+  props.error &&
+  `
     display: inline-flex;
     width: 100%;
     grid-gap: 8px;
