@@ -12,6 +12,15 @@ const TestForm: FC = () => {
 
   useEffect(() => {
     setText('after load text')
+    addStatus('select', 'error', 'select error')
+    addStatus('textEditor', 'error', 'textEditor error')
+    addStatus('text', 'error', 'text error')
+    addStatus('textInput', 'error', 'textInput error')
+    addStatus('newInput', 'error', 'newInput error')
+    addStatus('checkbox', 'error', 'checkbox error')
+    addStatus('toggle', 'error', 'toggle error')
+    addStatus('phoneInput', 'error', 'phoneInput error')
+    addStatus('dateInput', 'error', 'dateInput error')
   }, [])
 
   // TODO: don't delete, create a more permanent example
@@ -63,7 +72,7 @@ const TestForm: FC = () => {
         </FormRow>
         <FormInput
           label='Text Editor'
-          name='Text Input'
+          name='textEditor'
           value={text}
           type='textEditor'
           options={{tools: 'none'}}
@@ -97,14 +106,14 @@ const TestForm: FC = () => {
           options={{ inactiveLabel: 'no', activeLabel: 'yes' }}
         />
         <FormInput
-          label='Text Input'
-          name='Text Input'
+          label='Phone Input'
+          name='phoneInput'
           value='some input'
           type='phone'
         />
         <FormInput
           label='Date'
-          name='Text Input'
+          name='dateInput'
           value='some input'
           type='date'
         />

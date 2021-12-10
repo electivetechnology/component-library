@@ -3,10 +3,15 @@ import React, {
   memo,
   useContext,
   useState,
-  useRef
+  useRef,
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
-import { EditorLabel, RequiredStyled, TextEditorStyled } from '../styles'
+import {
+  TextEditorWarningStyled,
+  EditorLabel,
+  RequiredStyled,
+  TextEditorStyled
+} from '../styles'
 import { Editor } from '@tinymce/tinymce-react'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
@@ -53,35 +58,37 @@ const FormTextEditor: FunctionComponent = () => {
   }, [valueRef.current])
 
   return (
-    <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
-      <EditorLabel>
-        {label}
-        {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
-      </EditorLabel>
-      <Editor
-        apiKey='bf6mljfgcw8s1y8vjj7gotxmhtr1bs7jdttorpreswqh54lt'
-        initialValue={value}
-        disabled={disabled}
-        init={{
-          browser_spellcheck: true,
-          height: 200,
-          menubar: false,
-          plugins: [
-            'autolink lists link print preview fullscreen hr',
-            'table wordcount autoresize directionality'
-          ],
-          toolbar:
-            options?.tools ? options.tools :
-            'bold italic underline | bullist numlist | formatselect | link |',
-          table_toolbar: '',
-          table_advtab: false,
-          table_row_advtab: false,
-          table_cell_advtab: false,
-          setup: editorSetup && editorSetup
-        }}
-        onEditorChange={handleChange}
-        onBlur={handleBlur}
-      />
+    <TextEditorWarningStyled error={error}>
+      <TextEditorStyled disabled={disabled} darkMode={darkMode} error={error}>
+        <EditorLabel>
+          {label}
+          {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
+        </EditorLabel>
+        <Editor
+          apiKey='bf6mljfgcw8s1y8vjj7gotxmhtr1bs7jdttorpreswqh54lt'
+          initialValue={value}
+          disabled={disabled}
+          init={{
+            browser_spellcheck: true,
+            height: 200,
+            menubar: false,
+            plugins: [
+              'autolink lists link print preview fullscreen hr',
+              'table wordcount autoresize directionality'
+            ],
+            toolbar: options?.tools
+              ? options.tools
+              : 'bold italic underline | bullist numlist | formatselect | link |',
+            table_toolbar: '',
+            table_advtab: false,
+            table_row_advtab: false,
+            table_cell_advtab: false,
+            setup: editorSetup && editorSetup
+          }}
+          onEditorChange={handleChange}
+          onBlur={handleBlur}
+        />
+      </TextEditorStyled>
       {error && (
         <WarningIcon
           style={{
@@ -92,7 +99,7 @@ const FormTextEditor: FunctionComponent = () => {
           }}
         />
       )}
-    </TextEditorStyled>
+    </TextEditorWarningStyled>
   )
 }
 

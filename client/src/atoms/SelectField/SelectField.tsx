@@ -6,6 +6,7 @@ import {
   useLabelStyles,
   SelectFieldStyled
 } from 'atoms/SelectField/style'
+import { AnimatedStatusBorder } from 'organisms/Form/styles'
 
 type Props = {
   label?: string
@@ -16,6 +17,7 @@ type Props = {
   noOptionsMessage?: string
   darkMode?: boolean
   outlined?: boolean
+  status?: string
 }
 
 const SelectField: FunctionComponent<Props> = ({
@@ -26,7 +28,8 @@ const SelectField: FunctionComponent<Props> = ({
   onChange,
   noOptionsMessage = 'No options',
   darkMode = false,
-  outlined = true
+  outlined = true,
+  status
 }) => {
   const labelClasses = useLabelStyles({ darkMode, outlined })
   const inputClasses = useInputStyles({ darkMode, outlined, disabled })
@@ -56,6 +59,7 @@ const SelectField: FunctionComponent<Props> = ({
         )}
         disableClearable={true}
       />
+      <AnimatedStatusBorder status={status} />
     </SelectFieldStyled>
   )
 }
