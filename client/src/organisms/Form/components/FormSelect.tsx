@@ -11,6 +11,8 @@ import { Select } from 'molecules/Select'
 import FormDelete from 'organisms/Form/components/FormDelete'
 import { SelectStyled } from 'organisms/Form/styles'
 import isNull from 'lodash/isNull'
+import WarningIcon from '@material-ui/icons/Warning'
+import { theme } from 'styles/theme'
 
 const FormSelect: FunctionComponent = () => {
   const {
@@ -20,7 +22,9 @@ const FormSelect: FunctionComponent = () => {
     options,
     disabled,
     outlined,
-    required
+    required,
+    status,
+    requiredError,
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 
@@ -37,8 +41,11 @@ const FormSelect: FunctionComponent = () => {
     !isNull(valueRef.current) && onBlur(name)
   }, [valueRef.current])
 
+  const { statusType } = status || {}
+  const error = statusType === 'error' || requiredError
+
   return (
-    <SelectStyled data-testid='FormSelect'>
+    <SelectStyled data-testid='FormSelect' error={error}>
       <Select
         label={label}
         onChange={handleChange}
@@ -50,6 +57,16 @@ const FormSelect: FunctionComponent = () => {
       >
         {options?.selectOptions?.map((option) => option)}
       </Select>
+      {error && (
+        <WarningIcon
+          style={{
+            width: '18px',
+            margin: 'auto',
+            height: '18px',
+            fill: theme.primaryColor
+          }}
+        />
+      )}
     </SelectStyled>
   )
 }

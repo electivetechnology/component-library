@@ -114,7 +114,7 @@ const FormText: FunctionComponent = () => {
                 error={error}
                 icon={suffix || prefix}
               />
-              <AnimatedStatusBorder status='success' />
+              {/*<AnimatedStatusBorder status='success' />*/}
             </Fragment>
           )}
 
