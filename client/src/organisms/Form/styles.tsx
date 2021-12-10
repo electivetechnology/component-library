@@ -273,8 +273,18 @@ export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
       `
         border-bottom: solid 2px ${theme.success};
       `}
-    animation: ${(props: any) => (props.status === 'error' ? css`${borderAnimation} 2s linear backwards` : '')};
-    animation: ${(props: any) => (props.status === 'success' ? css`${borderAnimation} 2s linear backwards infinite` : '')};
+    animation: ${(props: any) =>
+      props.status === 'error'
+        ? css`
+            ${borderAnimation} 2s linear backwards
+          `
+        : ''};
+    animation: ${(props: any) =>
+      props.status === 'success'
+        ? css`
+            ${borderAnimation} 2s linear backwards infinite
+          `
+        : ''};
   }
   ${(props) =>
     props.phone &&
@@ -432,12 +442,21 @@ export const TextAreaStyled = styled.div<TextAreaProps>`
 `
 
 type TextEditorProps = {
-  disabled: boolean
-  darkMode: boolean
+  disabled?: boolean
+  darkMode?: boolean
   error: boolean
 }
 
 export const TextEditorStyled = styled.div<TextEditorProps>`
+  ${(props) =>
+    props.error &&
+    `
+    width: 100%;
+    border-bottom: 1px solid ${theme.primary};
+  `};
+`
+
+export const TextEditorWarningStyled = styled.div<TextEditorProps>`
   ${(props) =>
     props.error &&
     `
@@ -582,10 +601,14 @@ export const TextareaStyled = styled.textarea<TextareaProps>`
 export const DateStyles = makeStyles({
   input: (props: any) => ({
     '&:after': {
-      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.highlight}`,
+      borderBottom: props.darkMode
+        ? `1px solid ${theme.grey}`
+        : `1px solid ${theme.highlight}`
     },
     '&:before': {
-      borderBottom: props.darkMode ? `1px solid ${theme.grey}` : `1px solid ${theme.highlight}`,
+      borderBottom: props.darkMode
+        ? `1px solid ${theme.grey}`
+        : `1px solid ${theme.highlight}`
     },
     '&.MuiInput-underline:hover:before': {
       borderBottom: handleFormBorder(theme.grey, props.darkMode, props.disabled)
@@ -649,7 +672,17 @@ export const ButtonWrapperStyled = styled.div<ButtonWrapperProp>`
 `
 
 // Form Select
-export const SelectStyled = styled.div`
+type SelectStyledProp = {
+  error: boolean
+}
+
+export const SelectStyled = styled.div<SelectStyledProp>`
+  ${(props) =>
+  props.error &&
+  `
+    width: 100%;
+    border-bottom: 1px solid ${theme.primary};
+  `};
   display: inline-flex;
   width: 100%;
 `
