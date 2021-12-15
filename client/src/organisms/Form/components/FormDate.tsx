@@ -39,10 +39,6 @@ const FormDate: FunctionComponent = () => {
 
   const { onBlur, darkMode } = useContext(FormContext)
 
-  const { statusType } = status || {}
-  const error = statusType === 'error' || requiredError
-  const success = statusType === 'success'
-
   const { value, onChange } = useFormInput(name, inputValue)
 
   const [isNewDate, setIsNewDate] = useState(0)
