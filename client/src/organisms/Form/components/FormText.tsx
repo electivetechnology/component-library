@@ -6,13 +6,14 @@ import {
   LabelStyled,
   RequiredStyled,
   TextAreaStyled,
-  AnimatedStatusBorder
+  AnimatedStatusBorder, BorderHide, FadeStyled
 } from 'organisms/Form/styles'
 import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import { useEffectAfterMount } from 'utils/base'
 
 const FormText: FunctionComponent = () => {
   const { onBlur, darkMode = false } = useContext(FormContext)
@@ -52,6 +53,14 @@ const FormText: FunctionComponent = () => {
   const handleMouseLeave = () => {
     !disabled && setIsHovered(false)
   }
+
+  const [visible, setVisible] = useState(true)
+
+  useEffectAfterMount(() => {
+    setTimeout(() => {
+      setVisible(false)
+    }, 1000)
+  }, [])
 
   return (
     <FormTextContainerStyled
@@ -99,7 +108,12 @@ const FormText: FunctionComponent = () => {
                 disabled={disabled}
                 error={error}
               />
-              {success && <AnimatedStatusBorder status='success' /> }
+
+              <FadeStyled out={!visible}>
+                some text
+                {/*<AnimatedStatusBorder status='success' />*/}
+              </FadeStyled>
+              {/*{success && <AnimatedStatusBorder status='success' /> }*/}
             </Fragment>
           ) : (
             <Fragment>
