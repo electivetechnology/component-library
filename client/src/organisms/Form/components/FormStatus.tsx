@@ -1,22 +1,28 @@
 import React, { Fragment, FunctionComponent, useState, useEffect } from 'react'
-import { FadeStyled
+import {
+  AnimatedStatusBorder, FadeStyled
 } from 'organisms/Form/styles'
-import { useEffectAfterMount } from 'utils/base'
 
-const FormFade: FunctionComponent = () => {
+const FormStatus: FunctionComponent = () => {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
       setVisible(false)
-    }, 1000)
+    }, 3000)
   }, [])
+
+  // if(!visible){
+  //   return null
+  // }
+
+  // return <AnimatedStatusBorder status='success' />
 
   return (
     <FadeStyled out={!visible}>
-      Fade this
+      <AnimatedStatusBorder status='success' />
     </FadeStyled>
   )
 }
 
-export default FormFade
+export default FormStatus

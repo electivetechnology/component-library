@@ -7,14 +7,13 @@ import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
 import FormTextEditor from 'organisms/Form/components/FormTextEditor'
-import FormFade from 'organisms/Form/components/FormFade'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 type Props = {
   type: string
 }
 
 const FormInputs: FunctionComponent<Props> = ({ type }) => {
-  return <FormFade />
   return (
     <Fragment>
       {['text', 'number', 'password'].includes(type) && <FormText />}

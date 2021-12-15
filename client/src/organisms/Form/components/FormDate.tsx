@@ -10,7 +10,6 @@ import {
   DateWrapperStyled,
   DateStyles,
   RequiredStyled,
-  AnimatedStatusBorder
 } from 'organisms/Form/styles'
 import {
   FormContext,
@@ -25,6 +24,7 @@ import {
 import { useFormInput } from 'organisms/Form/hooks'
 import { theme } from 'styles/theme'
 import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {
   const {
@@ -97,7 +97,7 @@ const FormDate: FunctionComponent = () => {
             />
           }
         />
-        {success && <AnimatedStatusBorder status='success' />}
+        {success && <FormStatus/>}
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>
   )

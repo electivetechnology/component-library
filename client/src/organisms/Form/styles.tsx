@@ -294,54 +294,18 @@ export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
       top: 1px;
     `}
 `
-// const fadeIn = keyframes`
-//   from {
-//     transform: scale(.25);
-//     opacity: 0;
-//   }
-//
-//   to {
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-// `;
-//
-// const fadeOut = keyframes`
-//   from {
-//     transform: scale(1);
-//     opacity: 0;
-//   }
-//
-//   to {
-//     transform: scale(.25);
-//     opacity: 1;
-//   }
-// `;
 
-const fadeIn = keyframes`
-  from {
-    transform: scale(.25);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
+const fadeIn = keyframes``
 
 const fadeOut = keyframes`
   from {
-    transform: scale(1);
     opacity: 1;
   }
 
   to {
-    transform: scale(.25);
     opacity: 0;
   }
-`;
-
+`
 
 type FadeProps = {
   out?: boolean
@@ -349,15 +313,9 @@ type FadeProps = {
 
 export const FadeStyled = styled.div<FadeProps>`
   display: inline-block;
-  visibility: ${props => props.out ? 'hidden' : 'visible'};
-  animation: ${props => props.out ? fadeOut : fadeIn} 1s linear;
+  visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
+  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 1s linear;
   transition: visibility 1s linear;
-`;
-
-export const BorderHide = styled.span`
-visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
 `
 
 export const TextInputStyled = styled.input<TextInputProps>`
@@ -743,8 +701,8 @@ type SelectStyledProp = {
 
 export const SelectStyled = styled.div<SelectStyledProp>`
   ${(props) =>
-  props.error &&
-  `
+    props.error &&
+    `
     width: 100%;
     border-bottom: 1px solid ${theme.primary};
   `};
