@@ -33,8 +33,6 @@ const FormDate: FunctionComponent = () => {
     label,
     disabled = false,
     required = false,
-    status,
-    requiredError
   } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)

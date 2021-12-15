@@ -1,5 +1,4 @@
 import React, {
-  Fragment,
   FunctionComponent,
   useState,
   useEffect,
@@ -15,15 +14,11 @@ const FormStatus: FunctionComponent = () => {
 
   const [visible, setVisible] = useState(true)
 
-  console.group('FormStatus')
-  console.log(name)
-  console.log(success)
-  console.groupEnd()
-
   useEffect(() => {
-    success && setTimeout(() => {
-      setVisible(false)
-    }, 2000)
+    success &&
+      setTimeout(() => {
+        setVisible(false)
+      }, 2000)
   }, [])
 
   if (!success) {

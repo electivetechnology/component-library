@@ -21,15 +21,11 @@ const useStyles = makeStyles({
 const FormPhone: FunctionComponent = () => {
   const classes = useStyles()
 
-  const { inputValue, name, label, disabled, requiredError, status } = useContext(InputContext)
+  const { inputValue, name, label, disabled} = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
   const inputHook = useFormInput(name, inputValue)
-
-  const { statusType } = status || {}
-  const error = statusType === 'error' || requiredError
-  const success = statusType === 'success'
 
   const handleBlur = () => {
     onBlur(name)
@@ -57,7 +53,7 @@ const FormPhone: FunctionComponent = () => {
           margin: '13px 0 0'
         }}
       />
-      {success && <FormStatus/>}
+      <FormStatus/>
     </FormPhoneStyled>
   )
 }

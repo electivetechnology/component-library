@@ -18,7 +18,6 @@ import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
-import { useEffectAfterMount } from 'utils/base'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormText: FunctionComponent = () => {
@@ -41,7 +40,7 @@ const FormText: FunctionComponent = () => {
 
   const { statusType } = status || {}
   const error = statusType === 'error' || requiredError
-  // const success = statusType === 'success'
+
   const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
@@ -59,14 +58,6 @@ const FormText: FunctionComponent = () => {
   const handleMouseLeave = () => {
     !disabled && setIsHovered(false)
   }
-
-  const [visible, setVisible] = useState(true)
-
-  useEffectAfterMount(() => {
-    setTimeout(() => {
-      setVisible(false)
-    }, 1000)
-  }, [])
 
   return (
     <FormTextContainerStyled

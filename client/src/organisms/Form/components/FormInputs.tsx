@@ -7,7 +7,6 @@ import FormDate from 'organisms/Form/components/FormDate'
 import FormCheckbox from 'organisms/Form/components/FormCheckbox'
 import FormToggle from 'organisms/Form/components/FormToggle'
 import FormTextEditor from 'organisms/Form/components/FormTextEditor'
-import FormStatus from 'organisms/Form/components/FormStatus'
 
 type Props = {
   type: string
