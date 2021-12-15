@@ -250,53 +250,6 @@ export const borderAnimation = keyframes`
   }
 `
 
-type AnimatedStatusBorderProps = {
-  status?: string
-  phone?: boolean
-}
-export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
-  position: relative;
-  margin: 0;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    ${(props) =>
-      props.status === 'error' &&
-      `
-        border-bottom: solid 2px ${theme.error};
-      `}
-    ${(props) =>
-      props.status === 'success' &&
-      `
-        border-bottom: solid 2px ${theme.success};
-      `}
-    animation: ${(props: any) =>
-      props.status === 'error'
-        ? css`
-            ${borderAnimation} 2s linear backwards
-          `
-        : ''};
-    animation: ${(props: any) =>
-      props.status === 'success'
-        ? css`
-            ${borderAnimation} 2s linear backwards
-          `
-        : ''};
-  }
-  ${(props) =>
-    props.phone &&
-    `
-      width: 19.5%;
-      margin-left: 48px;
-      top: 1px;
-    `}
-`
-
-const fadeIn = keyframes``
-
 const fadeOut = keyframes`
   from {
     opacity: 1;
@@ -307,15 +260,36 @@ const fadeOut = keyframes`
   }
 `
 
-type FadeProps = {
-  out?: boolean
+type AnimatedStatusBorderProps = {
+  status?: string
+  phone?: boolean
+  visible?: boolean
 }
-
-export const FadeStyled = styled.div<FadeProps>`
-  display: inline-block;
-  visibility: ${(props) => (props.out ? 'hidden' : 'visible')};
-  animation: ${(props) => (props.out ? fadeOut : fadeIn)} 1s linear;
+export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
+  position: relative;
+  margin: 0;
+  visibility: ${(props) => (props.visible ? 'visible': 'hidden')};
   transition: visibility 1s linear;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    ${(props) =>
+      props.status === 'success' &&
+      `
+        border-bottom: solid 2px ${theme.success};
+      `}
+    animation:  ${(props) => (props.visible ? borderAnimation : fadeOut )} 1s linear;
+  }
+  ${(props) =>
+    props.phone &&
+    `
+      width: 19.5%;
+      margin-left: 48px;
+      top: 1px;
+    `}
 `
 
 export const TextInputStyled = styled.input<TextInputProps>`

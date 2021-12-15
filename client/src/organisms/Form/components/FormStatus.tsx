@@ -1,7 +1,5 @@
 import React, { Fragment, FunctionComponent, useState, useEffect } from 'react'
-import {
-  AnimatedStatusBorder, FadeStyled
-} from 'organisms/Form/styles'
+import { AnimatedStatusBorder } from 'organisms/Form/styles'
 
 const FormStatus: FunctionComponent = () => {
   const [visible, setVisible] = useState(true)
@@ -9,20 +7,10 @@ const FormStatus: FunctionComponent = () => {
   useEffect(() => {
     setTimeout(() => {
       setVisible(false)
-    }, 3000)
+    }, 2000)
   }, [])
 
-  // if(!visible){
-  //   return null
-  // }
-
-  // return <AnimatedStatusBorder status='success' />
-
-  return (
-    <FadeStyled out={!visible}>
-      <AnimatedStatusBorder status='success' />
-    </FadeStyled>
-  )
+  return <AnimatedStatusBorder status='success' visible={visible} />
 }
 
 export default FormStatus
