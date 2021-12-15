@@ -11,6 +11,7 @@ import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormSelectField: FunctionComponent = () => {
   const {
@@ -62,6 +63,7 @@ const FormSelectField: FunctionComponent = () => {
         darkMode={darkMode}
         outlined={outlined}
       />
+      <FormStatus />
       {error && (
         <WarningIcon
           style={{

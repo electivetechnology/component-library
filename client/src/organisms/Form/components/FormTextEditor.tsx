@@ -16,6 +16,7 @@ import { Editor } from '@tinymce/tinymce-react'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
 import { useEffectAfterMount } from 'utils/base'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormTextEditor: FunctionComponent = () => {
   const valueRef = useRef()
@@ -89,6 +90,7 @@ const FormTextEditor: FunctionComponent = () => {
           onBlur={handleBlur}
         />
       </TextEditorStyled>
+      <FormStatus />
       {error && (
         <WarningIcon
           style={{

@@ -1,7 +1,8 @@
-import React, { FunctionComponent, memo, useContext, useState } from 'react'
+import React, { Fragment, FunctionComponent, memo, useContext, useState } from 'react'
 import { Checkbox } from 'atoms'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormCheckbox: FunctionComponent = () => {
   const { inputValue, name, label, disabled, required } = useContext(InputContext)
@@ -20,16 +21,20 @@ const FormCheckbox: FunctionComponent = () => {
   }, [isActive])
 
   return (
-    <Checkbox
-      value={inputValue ? inputValue : false}
-      label={label}
-      disabled={disabled}
-      onBlur={undefined}
-      fontSize='12px'
-      darkMode={darkMode}
-      onChange={handleChange}
-      required={required}
-    />
+    <Fragment>
+      <Checkbox
+        value={inputValue ? inputValue : false}
+        label={label}
+        disabled={disabled}
+        onBlur={undefined}
+        fontSize='12px'
+        darkMode={darkMode}
+        onChange={handleChange}
+        required={required}
+      />
+      <FormStatus />
+    </Fragment>
+
   )
 }
 

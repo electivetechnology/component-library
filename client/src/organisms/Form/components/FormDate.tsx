@@ -97,7 +97,7 @@ const FormDate: FunctionComponent = () => {
             />
           }
         />
-        {success && <FormStatus/>}
+        <FormStatus/>
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>
   )

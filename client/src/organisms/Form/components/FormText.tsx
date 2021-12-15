@@ -1,11 +1,17 @@
-import React, { Fragment, FunctionComponent, memo, useContext, useState } from 'react'
+import React, {
+  Fragment,
+  FunctionComponent,
+  memo,
+  useContext,
+  useState
+} from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
   TextInputStyled,
   LabelStyled,
   RequiredStyled,
-  TextAreaStyled,
+  TextAreaStyled
 } from 'organisms/Form/styles'
 import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
@@ -35,7 +41,7 @@ const FormText: FunctionComponent = () => {
 
   const { statusType } = status || {}
   const error = statusType === 'error' || requiredError
-  const success = statusType === 'success'
+  // const success = statusType === 'success'
   const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
@@ -108,7 +114,7 @@ const FormText: FunctionComponent = () => {
                 disabled={disabled}
                 error={error}
               />
-              {success && <FormStatus /> }
+              <FormStatus />
             </Fragment>
           ) : (
             <Fragment>
@@ -125,7 +131,7 @@ const FormText: FunctionComponent = () => {
                 error={error}
                 icon={suffix || prefix}
               />
-              {success && <FormStatus /> }
+              <FormStatus />
             </Fragment>
           )}
 
