@@ -250,13 +250,26 @@ export const borderAnimation = keyframes`
   }
 `
 
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`
+
 type AnimatedStatusBorderProps = {
   status?: string
   phone?: boolean
+  visible?: boolean
 }
 export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
   position: relative;
   margin: 0;
+  visibility: ${(props) => (props.visible ? 'visible': 'hidden')};
+  transition: visibility 1s linear;
   &:before {
     content: '';
     position: absolute;
@@ -264,27 +277,11 @@ export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
     bottom: 0;
     width: 100%;
     ${(props) =>
-      props.status === 'error' &&
-      `
-        border-bottom: solid 2px ${theme.error};
-      `}
-    ${(props) =>
       props.status === 'success' &&
       `
         border-bottom: solid 2px ${theme.success};
       `}
-    animation: ${(props: any) =>
-      props.status === 'error'
-        ? css`
-            ${borderAnimation} 2s linear backwards
-          `
-        : ''};
-    animation: ${(props: any) =>
-      props.status === 'success'
-        ? css`
-            ${borderAnimation} 2s linear backwards infinite
-          `
-        : ''};
+    animation:  ${(props) => (props.visible ? borderAnimation : fadeOut )} 1s linear;
   }
   ${(props) =>
     props.phone &&
@@ -678,8 +675,8 @@ type SelectStyledProp = {
 
 export const SelectStyled = styled.div<SelectStyledProp>`
   ${(props) =>
-  props.error &&
-  `
+    props.error &&
+    `
     width: 100%;
     border-bottom: 1px solid ${theme.primary};
   `};

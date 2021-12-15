@@ -1,7 +1,8 @@
-import React, { FunctionComponent, memo, useContext, useState } from 'react'
+import React, { FunctionComponent, memo, useContext, useState, Fragment } from 'react'
 import { Toggle } from 'atoms'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormToggle: FunctionComponent = () => {
   const { inputValue, name, label, disabled, options, required } = useContext(InputContext)
@@ -20,16 +21,20 @@ const FormToggle: FunctionComponent = () => {
   }, [isActive])
 
   return (
-    <Toggle
-      isActive={inputValue ? inputValue : false}
-      label={label}
-      disabled={disabled}
-      onChange={handleChange}
-      activeLabel={options?.activeLabel}
-      inactiveLabel={options?.inactiveLabel}
-      darkMode={darkMode}
-      required={required}
-    />
+    <Fragment>
+      <Toggle
+        isActive={inputValue ? inputValue : false}
+        label={label}
+        disabled={disabled}
+        onChange={handleChange}
+        activeLabel={options?.activeLabel}
+        inactiveLabel={options?.inactiveLabel}
+        darkMode={darkMode}
+        required={required}
+      />
+      <FormStatus />
+    </Fragment>
+
   )
 }
 

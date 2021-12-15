@@ -5,7 +5,8 @@ import { TextField } from '@material-ui/core'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { makeStyles } from '@material-ui/styles'
 import 'react-phone-input-2/lib/style.css'
-import { AnimatedStatusBorder, FormPhoneStyled } from 'organisms/Form/styles'
+import { FormPhoneStyled } from 'organisms/Form/styles'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const useStyles = makeStyles({
   dropdown: () => ({
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
 const FormPhone: FunctionComponent = () => {
   const classes = useStyles()
 
-  const { inputValue, name, label, disabled } = useContext(InputContext)
+  const { inputValue, name, label, disabled} = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -52,8 +53,7 @@ const FormPhone: FunctionComponent = () => {
           margin: '13px 0 0'
         }}
       />
-      {/* <AnimatedStatusBorder status='success' phone /> */}
-      {/* TODO: add status prop */}
+      <FormStatus/>
     </FormPhoneStyled>
   )
 }

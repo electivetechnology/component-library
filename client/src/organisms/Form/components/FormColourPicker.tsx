@@ -11,6 +11,7 @@ import { PickerStyled, ColorStyled, PickerLabelStyled, RequiredStyled } from 'or
 import { Font } from 'atoms'
 import { InputContext, FormContext, handleFormColor } from 'organisms/Form/base'
 import { theme } from 'styles/theme'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormColourPicker: FunctionComponent = () => {
   const { inputValue, name, label, disabled = false, required = false} = useContext(InputContext)
@@ -54,7 +55,7 @@ const FormColourPicker: FunctionComponent = () => {
     <Fragment>
       <PickerStyled>
         <ColorStyled
-          style={{ 
+          style={{
             backgroundColor: colorValue
           }}
           disabled={disabled}
@@ -64,6 +65,7 @@ const FormColourPicker: FunctionComponent = () => {
           {required && <RequiredStyled disabled={disabled} fontSize="24">*</RequiredStyled>}
         </PickerLabelStyled>
       </PickerStyled>
+      <FormStatus />
       {showPicker && (
         <BlockPicker
           colors={defaultColours}

@@ -5,8 +5,17 @@ import React, {
   useEffect,
   useState
 } from 'react'
-import { DateLabelStyled, DateWrapperStyled, DateStyles, RequiredStyled, AnimatedStatusBorder } from 'organisms/Form/styles'
-import { FormContext, InputContext, handleFormComponentColor } from 'organisms/Form/base'
+import {
+  DateLabelStyled,
+  DateWrapperStyled,
+  DateStyles,
+  RequiredStyled,
+} from 'organisms/Form/styles'
+import {
+  FormContext,
+  InputContext,
+  handleFormComponentColor
+} from 'organisms/Form/base'
 import DateUtils from '@date-io/dayjs'
 import {
   KeyboardDatePicker,
@@ -15,9 +24,16 @@ import {
 import { useFormInput } from 'organisms/Form/hooks'
 import { theme } from 'styles/theme'
 import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {
-  const { inputValue, name, label, disabled = false, required = false } = useContext(InputContext)
+  const {
+    inputValue,
+    name,
+    label,
+    disabled = false,
+    required = false,
+  } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -25,7 +41,7 @@ const FormDate: FunctionComponent = () => {
 
   const [isNewDate, setIsNewDate] = useState(0)
 
-  const classes = DateStyles({darkMode, disabled})
+  const classes = DateStyles({ darkMode, disabled })
 
   useEffect(() => {
     isNewDate && onBlur(name)
@@ -56,17 +72,26 @@ const FormDate: FunctionComponent = () => {
             className: classes.input,
             style: {
               fontSize: 14,
-              color: darkMode ? theme.white : `rgb(${theme.shadow})`,
+              color: darkMode ? theme.white : `rgb(${theme.shadow})`
             },
             'aria-label': label
           }}
           style={{ margin: '8px 0 0' }}
           readOnly={disabled}
           fullWidth
-          keyboardIcon={<InsertInvitation style={{color: handleFormComponentColor(theme.secondary, darkMode, disabled)}} />}
+          keyboardIcon={
+            <InsertInvitation
+              style={{
+                color: handleFormComponentColor(
+                  theme.secondary,
+                  darkMode,
+                  disabled
+                )
+              }}
+            />
+          }
         />
-         {/* <AnimatedStatusBorder status='success' /> */}
-         {/* TODO: add status prop to this */}
+        <FormStatus/>
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>
   )

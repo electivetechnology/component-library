@@ -1,18 +1,24 @@
-import React, { Fragment, FunctionComponent, memo, useContext, useState } from 'react'
+import React, {
+  Fragment,
+  FunctionComponent,
+  memo,
+  useContext,
+  useState
+} from 'react'
 import { useFormInput } from 'organisms/Form/hooks'
 import {
   FormTextContainerStyled,
   TextInputStyled,
   LabelStyled,
   RequiredStyled,
-  TextAreaStyled,
-  AnimatedStatusBorder
+  TextAreaStyled
 } from 'organisms/Form/styles'
 import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
 import WarningIcon from '@material-ui/icons/Warning'
 import { theme } from 'styles/theme'
+import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormText: FunctionComponent = () => {
   const { onBlur, darkMode = false } = useContext(FormContext)
@@ -28,10 +34,13 @@ const FormText: FunctionComponent = () => {
     status,
     requiredError
   } = useContext(InputContext)
+
   const { multiline, suffix, prefix, icon, copy, commaSeparated } =
     options || {}
+
   const { statusType } = status || {}
   const error = statusType === 'error' || requiredError
+
   const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
@@ -96,8 +105,7 @@ const FormText: FunctionComponent = () => {
                 disabled={disabled}
                 error={error}
               />
-              {/* <AnimatedStatusBorder status='error' /> */}
-              {/* Remove if you dont want to animation border */}
+              <FormStatus />
             </Fragment>
           ) : (
             <Fragment>
@@ -114,7 +122,7 @@ const FormText: FunctionComponent = () => {
                 error={error}
                 icon={suffix || prefix}
               />
-              {/*<AnimatedStatusBorder status='success' />*/}
+              <FormStatus />
             </Fragment>
           )}
 
