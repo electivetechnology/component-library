@@ -15,11 +15,12 @@ const FormStatus: FunctionComponent = () => {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
-    success &&
+    if (success) {
       setTimeout(() => {
         setVisible(false)
       }, 2000)
-  }, [])
+    }
+  }, [success])
 
   if (!success) {
     return null
