@@ -680,7 +680,6 @@ export const SelectStyled = styled.div<SelectStyledProp>`
     width: 100%;
     border-bottom: 1px solid ${theme.primary};
   `};
-  display: inline-flex;
   width: 100%;
 `
 
