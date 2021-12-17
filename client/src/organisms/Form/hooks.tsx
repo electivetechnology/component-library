@@ -86,9 +86,7 @@ export const useFormStatus = () => {
             }
             break
           case StatusConst.REMOVE:
-            Object.entries(draftState).filter((status: any) => {
-              return (status[0] = action.name)
-            })
+            delete draftState[action.name];
             break
           case StatusConst.CLEAR:
             return {}
