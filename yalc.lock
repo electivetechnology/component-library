@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "electivegroup-component-library-v2": {
+      "signature": "5635d529e38f5ae527e61c7007779a75",
+      "file": true
+    }
+  }
+}

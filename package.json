@@ -1,0 +1,154 @@
+{
+  "name": "electivegroup-component-library",
+  "version": "1.8.95",
+  "engines": {
+    "node": ">=10"
+  },
+  "description": "Common Components Library",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.tsx",
+  "author": "Chris Dixon <chrisd@recii.io>",
+  "license": "UNLICENSED",
+  "repository": {
+    "url": "https://gitlab.et-ns.net/connect/component-library",
+    "type": "git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "yarn build && node_modules/.bin/husky install",
+    "build": "yarn run build:clean && yarn run build:ts",
+    "build:ts": "npx rollup -c",
+    "build:clean": "rm -rf ./dist/*",
+    "storybook": "node_modules/.bin/start-storybook -p 6006",
+    "build-storybook": "node_modules/.bin/build-storybook --loglevel error",
+    "docker-test": "yarn node_modules/.bin/jest --env=jest-environment-jsdom-sixteen --forceExit --colors --detectOpenHandles --runInBand --watchAll=false",
+    "format": "yarn run node_modules/.bin/prettier --write '../src/**/*.{js,jsx,ts,tsx}'",
+    "chromatic": "node_modules/.bin/chromatic --project-token 6vtzo56j0w --exit-zero-on-changes"
+  },
+  "peerDependencies": {
+    "@date-io/dayjs": "2.10.x",
+    "@material-ui/core": "4.11.x",
+    "@material-ui/icons": "4.11.x",
+    "@material-ui/lab": "4.0.0-alpha.x",
+    "@material-ui/pickers": "3.2.x",
+    "@material-ui/styles": "4.11.x",
+    "@tinymce/tinymce-react": "3.13.x",
+    "dayjs": "1.10.x",
+    "electivegroup-component-library-v2": "file:.yalc/electivegroup-component-library-v2",
+    "immer": "9.0.x",
+    "lodash": "4.17.x",
+    "react": "17.0.x",
+    "react-csv-downloader": "2.2.x",
+    "react-dom": "17.0.x",
+    "react-phone-input-2": "2.13.x",
+    "react-phone-input-mui": "2.9.x",
+    "react-router-dom": "5.2.x",
+    "react-scripts": "4.0.x",
+    "styled-components": "5.2.x",
+    "typescript": "4.0.x",
+    "victory": "^35.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@date-io/dayjs": "^2.10.8",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/pickers": "^3.2.10",
+    "@material-ui/styles": "^4.11.3",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-typescript": "^8.2.0",
+    "@storybook/addon-a11y": "^6.4.9",
+    "@storybook/addon-backgrounds": "^6.4.9",
+    "@storybook/addon-console": "^1.2.3",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-knobs": "^6.3.0",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/addon-viewport": "^6.4.9",
+    "@storybook/addons": "^6.4.9",
+    "@storybook/node-logger": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.3",
+    "@tinymce/tinymce-react": "^3.13.0",
+    "@types/jest": "^26.0.20",
+    "@types/lodash": "^4.14.168",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.7",
+    "chromatic": "^5.6.3",
+    "dayjs": "^1.10.4",
+    "electivegroup-component-library-v2": "file:.yalc/electivegroup-component-library-v2",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "husky": "^6.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "immer": "9.0.6",
+    "jest": "^26.6.3",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "lodash": "^4.17.21",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "react": "^17.0.1",
+    "react-color": "^2.19.3",
+    "react-csv-downloader": "^2.2.0",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "react-phone-input-2": "^2.13.9",
+    "react-phone-input-mui": "^2.9.4",
+    "react-router-dom": "^5.2.0",
+    "rollup": "^2.41.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "styled-components": "^5.2.1",
+    "ts-jest": "^26.5.3",
+    "typescript": "^4.2.3",
+    "victory": "^35.5.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.tsx"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
+  }
+}
