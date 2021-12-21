@@ -4,7 +4,7 @@ import { Font } from 'electivegroup-component-library-v2'
 
 const content = () => (
   <div>
-    <Font mokey={'asd'} variant='caption'>Content example</Font>
+    <Font variant='caption'>Content example</Font>
   </div>
 )
 
