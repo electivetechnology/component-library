@@ -1,5 +1,5 @@
 import React, { FC, memo, useContext } from 'react'
-import { Option, OptionHeader } from 'molecules/Select'
+import { Option, OptionHeader } from 'electivegroup-component-library-v2'
 
 type Props = {
   type: 'header' | 'option'
