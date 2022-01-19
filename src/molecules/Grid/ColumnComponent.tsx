@@ -13,7 +13,7 @@ import {
 import UnfoldLess from '@material-ui/icons/UnfoldLess'
 import UnfoldMore from '@material-ui/icons/UnfoldMore'
 import Arrow from '@material-ui/icons/ArrowBackOutlined'
-import { Font } from 'electivegroup-component-library-v2'
+import { Font } from 'electivegroup-component-library-2'
 
 type Props = {
   handleCloseColumn: any

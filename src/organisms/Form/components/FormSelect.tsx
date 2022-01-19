@@ -7,7 +7,7 @@ import React, {
   useState
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
-import { Select } from 'electivegroup-component-library-v2'
+import { Select } from 'electivegroup-component-library-2'
 import { SelectStyled } from 'organisms/Form/styles'
 import isNull from 'lodash/isNull'
 import WarningIcon from '@material-ui/icons/Warning'

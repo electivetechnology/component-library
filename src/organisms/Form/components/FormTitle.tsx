@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo, useContext } from 'react'
-import { Font } from 'electivegroup-component-library-v2'
+import { Font } from 'electivegroup-component-library-2'
 import { SectionTitleStyled } from 'organisms/Form/styles'
 import { theme } from 'styles/theme'
 import { FormContext } from 'organisms/Form/base'

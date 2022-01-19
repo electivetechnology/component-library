@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactElement } from 'react'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import { Button, ThemeType } from 'electivegroup-component-library-v2'
+import { Button, ThemeType } from 'electivegroup-component-library-2'
 import { ButtonWrapperStyled } from 'organisms/Form/styles'
 import { useFormSave } from 'organisms/Form/hooks'
 

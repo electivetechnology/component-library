@@ -8,7 +8,7 @@ import React, {
 } from 'react'
 import { BlockPicker } from 'react-color'
 import { PickerStyled, ColorStyled, PickerLabelStyled, RequiredStyled } from 'organisms/Form/styles'
-import { Font } from 'electivegroup-component-library-v2'
+import { Font } from 'electivegroup-component-library-2'
 import { InputContext, FormContext, handleFormColor } from 'organisms/Form/base'
 import { theme } from 'styles/theme'
 import FormStatus from 'organisms/Form/components/FormStatus'

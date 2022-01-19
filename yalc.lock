@@ -4,6 +4,10 @@
     "electivegroup-component-library-v2": {
       "signature": "b2a21b0b5a149f619831752591bc1ca2",
       "file": true
+    },
+    "electivegroup-component-library-2": {
+      "signature": "dff36a63363ed59cdf1749e59b465aff",
+      "file": true
     }
   }
 }

@@ -8,7 +8,7 @@ import {
 } from 'molecules/NavIcons/styles'
 import { navContext } from 'molecules/NavIcons/NavIcons'
 import { DividerType, PositionType } from 'molecules/NavIcons/base'
-import { Font } from 'electivegroup-component-library-v2'
+import { Font } from 'electivegroup-component-library-2'
 import { theme } from 'styles/theme'
 
 export const sectionContext = React.createContext({

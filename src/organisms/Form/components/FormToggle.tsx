@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo, useContext, useState, Fragment } from 'react'
-import { Toggle } from 'electivegroup-component-library-v2'
+import { Toggle } from 'electivegroup-component-library-2'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
 import FormStatus from 'organisms/Form/components/FormStatus'

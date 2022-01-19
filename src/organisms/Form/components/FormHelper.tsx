@@ -1,6 +1,6 @@
 import React, { FunctionComponent, memo, useContext } from 'react'
 import { InputContext } from 'organisms/Form/base'
-import { Font } from 'electivegroup-component-library-v2'
+import { Font } from 'electivegroup-component-library-2'
 import { theme } from 'styles/theme'
 
 type Props = {

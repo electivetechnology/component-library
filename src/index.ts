@@ -9,6 +9,7 @@ export {
 
 // MOLECULES
 export { Alert, AlertContext, AlertContainer } from 'molecules/Alert'
+export { Columns, Column } from 'molecules/Columns'
 export { NavIcons, NavToggle, NavMulti, NavIcon } from 'molecules/NavIcons'
 export { Grid, GridColumn, ColumnComponent } from 'molecules/Grid'
 

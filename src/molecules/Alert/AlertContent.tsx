@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useContext } from 'react'
 import { useStyles } from 'molecules/Alert/styles'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
-import { CloseButton } from 'electivegroup-component-library-v2'
+import { CloseButton } from 'electivegroup-component-library-2'
 import AlertMessage from 'molecules/Alert/AlertMessage'
 import { AlertContext } from 'molecules/Alert/base'
 
@@ -19,7 +19,7 @@ const AlertContent: FunctionComponent = () => {
       className={!!alertType ? classes[alertType] : ''}
       aria-describedby='client-snackbar'
       message={<AlertMessage />}
-      action={<CloseButton handleClose={handleClose} />}
+      action={<CloseButton handleClose={handleClose} theme={'light'} />}
     />
   )
 }

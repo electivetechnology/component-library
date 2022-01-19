@@ -1,6 +1,6 @@
 import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
 import { ActionTextStyled } from 'organisms/Form/styles'
-import { Font } from 'electivegroup-component-library-v2'
+import { Font } from 'electivegroup-component-library-2'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { theme } from 'styles/theme'
 import { FormContext } from 'organisms/Form/base'

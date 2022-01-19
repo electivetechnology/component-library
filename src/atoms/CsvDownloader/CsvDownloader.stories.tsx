@@ -1,6 +1,6 @@
 import React from 'react'
 import CsvDownloader from 'atoms/CsvDownloader/CsvDownloader'
-import { Button } from 'electivegroup-component-library-v2'
+import { Button } from 'electivegroup-component-library-2'
 import { columnsMock, datasMock } from 'atoms/CsvDownloader/mocks'
 
 export default {
