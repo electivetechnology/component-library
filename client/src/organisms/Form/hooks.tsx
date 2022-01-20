@@ -148,7 +148,7 @@ export const useFormSave = (handleSave: Function) => {
       return error
     })
 
-    handleSave(isEmpty(hasErrors) ? inputs : false)
+    isEmpty(hasErrors) && handleSave(inputs)
   }
 
   return {
