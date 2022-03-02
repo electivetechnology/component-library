@@ -55,7 +55,7 @@ const FormTextEditor: FunctionComponent = () => {
   }
 
   useEffectAfterMount(() => {
-    valueRef.current && onBlur(name)
+    onBlur(name)
   }, [valueRef.current])
 
   return (
