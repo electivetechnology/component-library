@@ -28,6 +28,7 @@ export interface InputProps {
   disabled?: boolean
   required?: boolean
   handleDelete?: () => void
+  handleInputChange?: (values: any) => void
 }
 
 export interface FormOptionType {
@@ -101,6 +102,7 @@ export type InputContextType = {
   status?: StatusType
   requiredError: boolean
   handleDelete?: () => void
+  handleInputChange?: (values: any) => void
   tools?: string
 }
 

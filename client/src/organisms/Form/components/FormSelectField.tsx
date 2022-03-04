@@ -3,7 +3,8 @@ import React, {
   memo,
   useContext,
   useEffect,
-  useRef
+  useRef,
+  useState
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
@@ -23,29 +24,43 @@ const FormSelectField: FunctionComponent = () => {
     outlined,
     required,
     status,
-    requiredError
+    requiredError,
+    handleInputChange
   } = useContext(InputContext)
 
-  const { onBlur, updateInput, darkMode, inputs } = useContext(FormContext)
+  const [autoOptions, setAutoOptions] = useState(options)
+
+  const { onBlur, updateInput, darkMode } = useContext(FormContext)
   const valueRef = useRef()
 
   const handleBlur = () => {
     onBlur(name)
   }
 
-  const selectOptions =
-    options && options.selectOptions ? options.selectOptions : []
+  const selectOptions = autoOptions?.selectOptions ? autoOptions.selectOptions : []
 
-  const selected = options ? selectedOption(selectOptions, inputValue) : null
+  const selected = autoOptions ? selectedOption(selectOptions, inputValue) : null
 
   const handleChange = (event: any, newValue: any) => {
     valueRef.current = newValue
     updateInput(name, newValue ? newValue.value : null)
   }
 
+  const onInputChange = (
+    event: object,
+    newValue: string,
+    reason: string
+  ) => {
+    handleInputChange && reason !== 'reset' && handleInputChange(newValue)
+  }
+
   useEffect(() => {
     valueRef.current && handleBlur()
   }, [valueRef.current])
+
+  useEffect(() => {
+    setAutoOptions(options)
+  }, [options])
 
   const fieldPlaceholder = required ? `${label}*` : label
 
@@ -56,12 +71,13 @@ const FormSelectField: FunctionComponent = () => {
     <SelectStyled error={error} data-testid='FormSelect'>
       <SelectField
         label={fieldPlaceholder}
-        value={selected}
+        value={!handleInputChange ? selected : undefined}
         options={selectOptions}
         disabled={disabled}
         onChange={handleChange}
         darkMode={darkMode}
         outlined={outlined}
+        onInputChange={onInputChange}
       />
       <FormStatus />
       {error && (

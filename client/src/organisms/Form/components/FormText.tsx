@@ -23,19 +23,17 @@ import FormStatus from 'organisms/Form/components/FormStatus'
 const FormText: FunctionComponent = () => {
   const { onBlur, darkMode = false } = useContext(FormContext)
   const {
-    inputValue,
     name,
     type,
     label,
     options,
-    outlined,
     disabled = false,
     required,
     status,
     requiredError
   } = useContext(InputContext)
 
-  const { multiline, suffix, prefix, icon, copy, commaSeparated } =
+  const { multiline, suffix, prefix, icon, copy } =
     options || {}
 
   const { statusType } = status || {}
@@ -44,7 +42,7 @@ const FormText: FunctionComponent = () => {
   const fieldPlaceholder = required ? `${label}*` : label
 
   const [isHovered, setIsHovered] = useState(false)
-  const { value, onChange } = useFormInput(name, inputValue, commaSeparated)
+  const { value, onChange } = useFormInput()
   const hasValue = !!value
 
   const handleBlur = () => {

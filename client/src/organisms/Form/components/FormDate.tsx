@@ -28,7 +28,6 @@ import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {
   const {
-    inputValue,
     name,
     label,
     disabled = false,
@@ -37,7 +36,7 @@ const FormDate: FunctionComponent = () => {
 
   const { onBlur, darkMode } = useContext(FormContext)
 
-  const { value, onChange } = useFormInput(name, inputValue)
+  const { value, onChange } = useFormInput()
 
   const [isNewDate, setIsNewDate] = useState(0)
 

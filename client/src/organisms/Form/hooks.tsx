@@ -1,7 +1,7 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
-import { FormContext, StatusTypeType } from 'organisms/Form/base'
+import {FormContext, InputContext, StatusTypeType} from 'organisms/Form/base'
 import isEmpty from 'lodash/isEmpty'
 import isNull from 'lodash/isNull'
 
@@ -34,15 +34,20 @@ export const useFormItems = () => {
   }
 }
 
-export const useFormInput = (
-  name: string,
-  valueInitial: string | Array<string>,
-  commaSeparated = false
-) => {
+export const useFormInput = () => {
   const { updateInput } = useContext(FormContext)
+  const {
+    name,
+    inputValue,
+    options,
+    handleInputChange
+  } = useContext(InputContext)
+
+  const {commaSeparated } =
+  options || {}
 
   // handle commaSeparated values
-  const valueString = typeof valueInitial === 'object' ? valueInitial.join(',') : valueInitial
+  const valueString = typeof inputValue === 'object' ? inputValue.join(',') : inputValue
 
   const [value, setValue] = useState(valueString)
 
@@ -54,6 +59,7 @@ export const useFormInput = (
       value = value.split(',')
     }
 
+    handleInputChange && handleInputChange(value)
     setValue(value)
     updateInput(name, value)
   }
