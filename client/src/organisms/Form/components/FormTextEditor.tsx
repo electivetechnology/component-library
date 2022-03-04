@@ -29,7 +29,8 @@ const FormTextEditor: FunctionComponent = () => {
     required,
     status,
     requiredError,
-    options
+    options,
+    handleInputChange
   } = useContext(InputContext)
   const { editorSetup } = options || {}
 
@@ -46,6 +47,7 @@ const FormTextEditor: FunctionComponent = () => {
   }, [inputValue])
 
   const handleChange = (newValue: any) => {
+    handleInputChange && handleInputChange(newValue)
     setSend(newValue)
   }
 

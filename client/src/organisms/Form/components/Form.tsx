@@ -8,7 +8,7 @@ const Form: FunctionComponent<FormProps> = ({
   statuses,
   disableForm = false,
   darkMode = false,
-  outlineInputs = true
+  outlineInputs = true,
 }) => {
   const { items: inputs, updateItem: updateInput } = useFormItems()
 

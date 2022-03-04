@@ -20,7 +20,8 @@ const FormInput: FunctionComponent<InputProps> = ({
   outlined,
   disabled,
   required,
-  handleDelete
+  handleDelete,
+  handleInputChange
 }) => {
   const {
     updateInput,
@@ -55,7 +56,8 @@ const FormInput: FunctionComponent<InputProps> = ({
         outlined: applyOutline,
         status: statuses && statuses[name] && statuses[name],
         requiredError,
-        handleDelete
+        handleDelete,
+        handleInputChange
       }}
     >
       {download ? (

@@ -21,11 +21,11 @@ const useStyles = makeStyles({
 const FormPhone: FunctionComponent = () => {
   const classes = useStyles()
 
-  const { inputValue, name, label, disabled} = useContext(InputContext)
+  const { name, label, disabled} = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
-  const inputHook = useFormInput(name, inputValue)
+  const inputHook = useFormInput()
 
   const handleBlur = () => {
     onBlur(name)

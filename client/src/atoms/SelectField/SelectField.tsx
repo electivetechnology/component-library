@@ -14,6 +14,9 @@ type Props = {
   value?: { value: string; label: string } | Array<any>
   options: Array<{ value: string; label: string }>
   onChange?: (event: React.ChangeEvent<{}>, value: string) => void
+  onInputChange?: ( event: object,
+                    newValue: string,
+                    reason: string) => void
   noOptionsMessage?: string
   darkMode?: boolean
   outlined?: boolean
@@ -26,6 +29,7 @@ const SelectField: FunctionComponent<Props> = ({
   value,
   options,
   onChange,
+  onInputChange = undefined,
   noOptionsMessage = 'No options',
   darkMode = false,
   outlined = true,
@@ -58,6 +62,7 @@ const SelectField: FunctionComponent<Props> = ({
           />
         )}
         disableClearable={true}
+        onInputChange={onInputChange}
       />
       <AnimatedStatusBorder status={status} />
     </SelectFieldStyled>
