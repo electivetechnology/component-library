@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import List from './ListComponent'
-import AddIcon from '@material-ui/icons/Add'
+import AddIcon from '@mui/icons-material/Add'
 import { Button } from 'atoms'
 
 const Template = (args: any) => <List {...args} />

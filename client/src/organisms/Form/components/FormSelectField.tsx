@@ -10,7 +10,7 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
-import WarningIcon from '@material-ui/icons/Warning'
+import WarningIcon from '@mui/icons-material/Warning'
 import { theme } from 'styles/theme'
 import FormStatus from 'organisms/Form/components/FormStatus'
 

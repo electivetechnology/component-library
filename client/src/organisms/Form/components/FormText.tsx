@@ -16,7 +16,7 @@ import {
 import { FormContext, InputContext, handleFormColor } from 'organisms/Form/base'
 import FormTextArea from 'organisms/Form/components/FormTextArea'
 import FormCopy from 'organisms/Form/components/FormCopy'
-import WarningIcon from '@material-ui/icons/Warning'
+import WarningIcon from '@mui/icons-material/Warning'
 import { theme } from 'styles/theme'
 import FormStatus from 'organisms/Form/components/FormStatus'
 

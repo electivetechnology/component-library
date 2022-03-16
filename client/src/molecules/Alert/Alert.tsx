@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Snackbar from '@material-ui/core/Snackbar'
+import Snackbar from '@mui/material/Snackbar'
 import AlertContent from 'molecules/Alert/AlertContent'
 import { CloseWrapper } from 'molecules/Alert/styles'
 import { AlertContext } from './base'

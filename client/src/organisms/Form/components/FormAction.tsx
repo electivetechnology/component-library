@@ -1,7 +1,7 @@
 import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
 import { ActionTextStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
+import { SvgIconProps } from '@mui/material/SvgIcon'
 import { theme } from 'styles/theme'
 import { FormContext } from '../base'
 

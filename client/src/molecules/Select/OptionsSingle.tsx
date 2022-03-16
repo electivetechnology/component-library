@@ -17,8 +17,8 @@ import {
   SelectLabelStyled
 } from 'molecules/Select/styles'
 import Option from 'molecules/Select/Option'
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
-import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
+import ArrowDropDown from '@mui/icons-material/ArrowDropDown'
+import ArrowDropUp from '@mui/icons-material/ArrowDropUp'
 import { theme } from 'styles/theme'
 import { RequiredStyled } from 'organisms/Form/styles'
 

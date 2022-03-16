@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
-import FileCopyOutlined from '@material-ui/icons/FileCopyOutlined'
-import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline'
+import FileCopyOutlined from '@mui/icons-material/FileCopyOutlined'
+import CheckCircleOutline from '@mui/icons-material/CheckCircleOutline'
 import {
   CopyIconStyled,
   ToastStyled,

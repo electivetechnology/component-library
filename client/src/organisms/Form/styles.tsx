@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 import { font, theme } from 'styles/theme'
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles';
 import { handleFormBorder } from './base'
 
 type FormTextStyledProps = {

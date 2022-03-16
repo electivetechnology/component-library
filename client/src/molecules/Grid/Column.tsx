@@ -8,8 +8,8 @@ import {
   iconLeftStyle,
   iconStyle
 } from 'molecules/Columns/styles'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
-import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined'
 
 type Props = {
   divider?: boolean

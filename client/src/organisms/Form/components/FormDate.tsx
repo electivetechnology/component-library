@@ -23,7 +23,7 @@ import {
 } from '@material-ui/pickers'
 import { useFormInput } from 'organisms/Form/hooks'
 import { theme } from 'styles/theme'
-import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
+import InsertInvitation from '@mui/icons-material/InsertInvitationOutlined'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {

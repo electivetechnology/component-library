@@ -4,8 +4,8 @@ import React, {
   useEffect,
   ChangeEvent
 } from 'react'
-import MaterialCheckbox, { CheckboxProps } from '@material-ui/core/Checkbox'
-import { withStyles } from '@material-ui/core/styles'
+import MaterialCheckbox, { CheckboxProps } from '@mui/material/Checkbox'
+import withStyles from '@mui/styles/withStyles';
 import {
   CheckboxContainerStyled,
   CheckboxLabelStyled,

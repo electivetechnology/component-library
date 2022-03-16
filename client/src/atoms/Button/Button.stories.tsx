@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'atoms/Button/Button'
-import AddIcon from '@material-ui/icons/Add'
-import Save from '@material-ui/icons/Save'
+import AddIcon from '@mui/icons-material/Add'
+import Save from '@mui/icons-material/Save'
 
 const Template = (args: any) => <Button {...args} />
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import TextField from '@material-ui/core/TextField'
-import MaterialAutocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@mui/material/TextField'
+import MaterialAutocomplete from '@mui/material/Autocomplete'
 import { useStyles } from 'atoms/AutoComplete/styles'
 
 type Props = {
