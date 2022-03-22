@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import NavSection, { sectionContext } from 'molecules/NavIcons/NavSection'
-import { DividerType, PositionType } from 'molecules/NavIcons/base'
+import { DividerType } from 'molecules/NavIcons/base'
+import { PositionType } from 'utils/types'
 
 const { Provider } = sectionContext
 
@@ -11,7 +12,13 @@ type Props = {
   position?: PositionType
 }
 
-const NavToggle: FC<Props> = ({ children,title, initial, divider, position= 'start' }) => {
+const NavToggle: FC<Props> = ({
+  children,
+  title,
+  initial,
+  divider,
+  position = 'start'
+}) => {
   const [activeName, setActiveName] = useState(initial)
 
   useEffect(() => {
@@ -24,7 +31,9 @@ const NavToggle: FC<Props> = ({ children,title, initial, divider, position= 'sta
 
   return (
     <Provider value={{ activeName, activeNames: [''], handleClick }}>
-      <NavSection title={title} divider={divider} position={position}>{children}</NavSection>
+      <NavSection title={title} divider={divider} position={position}>
+        {children}
+      </NavSection>
     </Provider>
   )
 }

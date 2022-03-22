@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { AlignTypes } from 'molecules/Pages/base'
 import { PageStyled } from 'molecules/Pages/styles'
 import { Button } from 'atoms'
-import { ThemeType } from 'atoms/Button/base'
+import { ThemeType } from 'utils/types'
 
 type Props = {
   handleClick: () => void
@@ -10,7 +10,12 @@ type Props = {
   align?: AlignTypes
   buttonTheme?: ThemeType
 }
-const Page: FC<Props> = ({ handleClick, label, align = 'right', buttonTheme = 'primary' }) => {
+const Page: FC<Props> = ({
+  handleClick,
+  label,
+  align = 'right',
+  buttonTheme = 'primary'
+}) => {
   return (
     <PageStyled align={align}>
       <Button label={label} theme={buttonTheme} onClick={handleClick} />
