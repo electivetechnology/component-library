@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Button from 'atoms/Button/Button'
 import AddIcon from '@material-ui/icons/Add'
-import Save from '@material-ui/icons/Save'
+import SaveIcon from '@material-ui/icons/Save'
 
 const Template = (args: any) => <Button {...args} />
 
@@ -71,7 +71,7 @@ export const Icon: any = Template.bind({})
 Icon.args = {
   theme: 'primary',
   label: 'Icon',
-  icon: <Save />
+  icon: <SaveIcon />
 }
 
 // Quaternary
@@ -79,7 +79,27 @@ export const Quaternary: any = Template.bind({})
 
 Quaternary.args = {
   theme: 'quaternary',
-  icon: <Save />
+  icon: <SaveIcon />
+}
+
+const ToggleTemplate = (args: any) => (
+  <Fragment>
+    <Button {...args} togglePosition='start' />
+    <Button {...args} />
+    <Button {...args} />
+    <Button {...args} />
+    <Button {...args} togglePosition='end' />
+  </Fragment>
+)
+
+// Toggle
+export const Toggle: any = ToggleTemplate.bind({})
+
+Toggle.args = {
+  theme: 'toggle',
+  icon: <SaveIcon />,
+  label: 'Toggle',
+  selected: false
 }
 
 export default {

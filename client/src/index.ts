@@ -21,7 +21,13 @@ export {
 export { Alert, AlertContext, AlertContainer } from 'molecules/Alert'
 export { Banner, BannerContent, BannerContext } from 'molecules/Banner'
 export { default as Channels } from 'molecules/Channels/Channels'
-export { NavIcons, NavToggle, NavMulti, NavIcon } from 'molecules/NavIcons'
+export {
+  NavIcons,
+  NavToggle,
+  NavMulti,
+  NavIcon,
+  NavText
+} from 'molecules/NavIcons'
 export { Columns, Column } from 'molecules/Columns'
 export { default as PopUp } from 'molecules/PopUp/PopUp'
 export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'

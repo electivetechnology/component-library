@@ -158,3 +158,9 @@ export const appTheme = createMuiTheme({
 export const font = {
   primary: 'Roboto, Helvetica, Arial, sans-serif',
 }
+
+export const radius = {
+  small: '8px',
+  medium: '16px',
+  fab: '28px'
+}

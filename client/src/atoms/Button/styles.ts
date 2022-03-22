@@ -1,5 +1,6 @@
-import { theme } from 'styles/theme'
+import { radius, theme } from 'styles/theme'
 import styled from 'styled-components'
+import { PositionType } from 'utils/types'
 
 type WrapperProps = {
   icon?: any
@@ -102,6 +103,8 @@ type ButtonComponentProps = {
   disabled: boolean
   fullWidth?: boolean
   formRow?: boolean
+  togglePosition?: PositionType
+  selected: boolean
 }
 export const ButtonComponent = styled.button<ButtonComponentProps>`
   border: none;
@@ -230,6 +233,89 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.disabled &&
     `
       display: none;
+  `};
+  ${(props) =>
+    props.variant === 'toggle' &&
+    !props.disabled &&
+    !props.selected &&
+    `
+      color: rgba(${theme.onSurface}, .6);
+      background-color: transparent;
+      border-top: 1px solid rgba(${theme.onSurface}, .12);
+      border-bottom: 1px solid rgba(${theme.onSurface}, .12);
+      border-right: 1px solid rgba(${theme.onSurface}, .12);
+      &:hover {
+        color: rgba(${theme.primary500});
+        background-color: rgba(${theme.primary500}, .12);
+        outline: 1px solid rgba(${theme.primary500});
+        outline-offset: -2px;
+        // border inside button
+      }
+  `};
+  ${(props) =>
+    props.variant === 'toggle' &&
+    props.togglePosition === 'start' &&
+    !props.disabled &&
+    !props.selected &&
+    `
+      color: rgba(${theme.onSurface}, .6);
+      background-color: transparent;
+      border: none;
+      border-radius: ${radius.small} 0 0 ${radius.small};
+      border: 1px solid rgba(${theme.onSurface}, .12);
+  `};
+  ${(props) =>
+    props.variant === 'toggle' &&
+    props.togglePosition === 'end' &&
+    !props.disabled &&
+    !props.selected &&
+    `
+      color: rgba(${theme.onSurface}, .6);
+      background-color: transparent;
+      border: none;
+      border-radius: 0 ${radius.small} ${radius.small} 0;
+      border-top: 1px solid rgba(${theme.onSurface}, .12);
+      border-right: 1px solid rgba(${theme.onSurface}, .12);
+      border-bottom: 1px solid rgba(${theme.onSurface}, .12);
+  `};
+  ${(props) =>
+    props.variant === 'toggle' &&
+    props.disabled &&
+    `
+      display: none;
+  `};
+  ${(props) =>
+    props.variant === 'toggle' &&
+    !props.disabled &&
+    props.selected &&
+    !props.togglePosition &&
+    `
+      border: 1px solid rgba(${theme.primary500});
+      color: rgba(${theme.primary500});
+      background-color: rgba(${theme.primary500}, .12);
+  `};
+  ${(props) =>
+    props.variant === 'toggle' &&
+    !props.disabled &&
+    props.selected &&
+    props.togglePosition === 'start' &&
+    `
+      border: 1px solid rgba(${theme.primary500});
+      color: rgba(${theme.primary500});
+      background-color: rgba(${theme.primary500}, .12);
+      border-radius: ${radius.small} 0 0 ${radius.small};
+  `};
+
+  ${(props) =>
+    props.variant === 'toggle' &&
+    !props.disabled &&
+    props.selected &&
+    props.togglePosition === 'end' &&
+    `
+      border: 1px solid rgba(${theme.primary500});
+      color: rgba(${theme.primary500});
+      background-color: rgba(${theme.primary500}, .12);
+      border-radius: 0 ${radius.small} ${radius.small} 0;
   `};
   ${(props) =>
     props.fullWidth &&

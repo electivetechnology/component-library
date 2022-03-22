@@ -3,7 +3,7 @@ import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { Button } from 'atoms'
 import { ButtonWrapperStyled } from 'organisms/Form/styles'
 import { useFormSave } from 'organisms/Form/hooks'
-import { ThemeType } from 'atoms/Button/base'
+import { ThemeType } from 'utils/types'
 
 interface Props {
   label: string
