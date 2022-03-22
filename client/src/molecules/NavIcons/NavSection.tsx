@@ -7,9 +7,10 @@ import {
   HorizontalRightTitleStyled
 } from 'molecules/NavIcons/styles'
 import { navContext } from 'molecules/NavIcons/NavIcons'
-import { DividerType, PositionType } from 'molecules/NavIcons/base'
+import { DividerType } from 'molecules/NavIcons/base'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
+import { PositionType } from 'utils/types'
 
 export const sectionContext = React.createContext({
   activeName: '',
@@ -49,8 +50,12 @@ const NavSection: FC<Props> = ({ children, title, divider, position }) => {
 
   return horizontal ? (
     <HorizontalBarItemsStyled>
-      {position === 'start' &&  <HorizontalLeftTitleStyled>{renderTitle}</HorizontalLeftTitleStyled>}
-      {position === 'end' &&  <HorizontalRightTitleStyled>{renderTitle}</HorizontalRightTitleStyled>}
+      {position === 'start' && (
+        <HorizontalLeftTitleStyled>{renderTitle}</HorizontalLeftTitleStyled>
+      )}
+      {position === 'end' && (
+        <HorizontalRightTitleStyled>{renderTitle}</HorizontalRightTitleStyled>
+      )}
       {renderChildren}
     </HorizontalBarItemsStyled>
   ) : (
