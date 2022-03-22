@@ -55,7 +55,7 @@ export const theme = {
   primary500: '91,99,122',
   primary400: '#707EA4',
   primary300: '#8895BA',
-  primary200: '#A0AED4',
+  primary200: '160, 174, 212',
   primary100: '#B6C4E9',
   grey900: '#383838',
   grey800: '#767676',
@@ -104,7 +104,7 @@ export const theme = {
   tertiaryAccent200: '#AB8BFF',
   tertiaryAccent100: '#C7B2FD',
   surface: '#FFFFFF',
-  success: '#169E16',
+  success: '#169E16'
   // warning: '#F9A725',
   // white: '#FFFFFF'
 }
@@ -144,7 +144,7 @@ export const appTheme = createMuiTheme({
     },
     overline: {
       fontSize: '10px'
-    },
+    }
   },
   overrides: {
     MuiChip: {
@@ -156,7 +156,7 @@ export const appTheme = createMuiTheme({
 })
 
 export const font = {
-  primary: 'Roboto, Helvetica, Arial, sans-serif',
+  primary: 'Roboto, Helvetica, Arial, sans-serif'
 }
 
 export const radius = {
