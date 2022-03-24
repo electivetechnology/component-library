@@ -1,6 +1,9 @@
 import React, { Children, FunctionComponent, useEffect } from 'react'
 import { useFormItems } from 'organisms/Form/hooks'
 import { FormProps, FormContext } from 'organisms/Form/base'
+import isEmpty from 'lodash/isEmpty'
+import isNull from 'lodash/isNull'
+import { isUndefined } from 'lodash'
 
 const Form: FunctionComponent<FormProps> = ({
   children,
@@ -18,8 +21,30 @@ const Form: FunctionComponent<FormProps> = ({
   const onBlur = (name: string) => {
     const value = inputs[name]
 
-    handleUpdate && handleUpdate(name, value)
-    handleUpdateAll && handleUpdateAll(inputs)
+    if (handleUpdate) {
+      let error = false
+      const isRequired = !isUndefined(requiredErrors[name])
+
+      if (isRequired) {
+        error = isEmpty(value) || isNull(value)
+        updateRequired(name, error)
+      }
+
+      !error && handleUpdate(name, value)
+    }
+
+    if (handleUpdateAll) {
+      const hasErrors = Object.keys(requiredErrors).filter((inputName: any) => {
+        const inputValue = inputs[inputName]
+        const error = isEmpty(inputValue) || isNull(inputValue)
+
+        updateRequired(inputName, error)
+
+        return error
+      })
+
+      isEmpty(hasErrors) && handleUpdateAll(inputs)
+    }
   }
 
   useEffect(() => {
