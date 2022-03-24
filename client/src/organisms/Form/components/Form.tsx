@@ -5,20 +5,21 @@ import { FormProps, FormContext } from 'organisms/Form/base'
 const Form: FunctionComponent<FormProps> = ({
   children,
   handleUpdate,
+  handleUpdateAll,
   statuses,
   disableForm = false,
   darkMode = false,
-  outlineInputs = true,
+  outlineInputs = true
 }) => {
   const { items: inputs, updateItem: updateInput } = useFormItems()
 
   const { items: requiredErrors, updateItem: updateRequired } = useFormItems()
 
-
   const onBlur = (name: string) => {
     const value = inputs[name]
 
     handleUpdate && handleUpdate(name, value)
+    handleUpdateAll && handleUpdateAll(inputs)
   }
 
   useEffect(() => {
