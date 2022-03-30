@@ -19,6 +19,7 @@ type Props = {
   subMenu?: boolean
   subMenuContents?: any
   backgroundColor?: string
+  border?: boolean
 }
 
 const NavIcons: React.FC<Props> = ({
@@ -26,7 +27,8 @@ const NavIcons: React.FC<Props> = ({
   layout,
   subMenu = false,
   subMenuContents,
-  backgroundColor = 'transparent'
+  backgroundColor = 'transparent',
+  border = true
 }) => {
   const horizontal = layout === 'horizontal'
   const [expandSubMenu, setExpandSubMenu] = useState(false)
@@ -36,19 +38,33 @@ const NavIcons: React.FC<Props> = ({
   }
   return (
     <Provider value={{ layout }}>
-      <NavigationContainerStyled horizontal={horizontal} expandSubMenu={expandSubMenu} backgroundColor={backgroundColor}>
+      <NavigationContainerStyled
+        horizontal={horizontal}
+        expandSubMenu={expandSubMenu}
+        backgroundColor={backgroundColor}
+        border={border}
+      >
         <NavigationContentStyled horizontal={horizontal}>
           {children}
-          {subMenu && <SubMenuStyled onClick={handleExpendSubMenu}>
-            <MoreHoriz />
-          </SubMenuStyled>}
+          {subMenu && (
+            <SubMenuStyled onClick={handleExpendSubMenu}>
+              <MoreHoriz />
+            </SubMenuStyled>
+          )}
         </NavigationContentStyled>
       </NavigationContainerStyled>
-      {expandSubMenu && <NavigationContainerStyled horizontal={horizontal} showSubMenu={expandSubMenu} backgroundColor={backgroundColor}>
-        <NavigationContentStyled horizontal={horizontal}>
-          {subMenuContents}
-        </NavigationContentStyled>
-      </NavigationContainerStyled>}
+      {expandSubMenu && (
+        <NavigationContainerStyled
+          horizontal={horizontal}
+          showSubMenu={expandSubMenu}
+          backgroundColor={backgroundColor}
+          border={border}
+        >
+          <NavigationContentStyled horizontal={horizontal}>
+            {subMenuContents}
+          </NavigationContentStyled>
+        </NavigationContainerStyled>
+      )}
     </Provider>
   )
 }
