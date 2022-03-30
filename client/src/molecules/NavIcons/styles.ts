@@ -16,6 +16,7 @@ type NavigationContainerProps = {
   expandSubMenu?: boolean
   showSubMenu?: boolean
   backgroundColor: string
+  border: boolean
 }
 export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
   height: 100%;
@@ -28,8 +29,6 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       width: 100%;
       height: auto;
       background-color: ${theme.hover};
-      box-shadow: 0px 1px 3px ${theme.highlight};
-      border-radius: 12px;
       padding: 6px 18px;
       width: revert;
       max-width: none;
@@ -43,17 +42,26 @@ export const NavigationContainerStyled = styled.div<NavigationContainerProps>`
       scrollbar-width: none;
     `};
   ${(props) =>
-    props.horizontal && props.expandSubMenu &&
+    props.horizontal &&
+    props.border &&
+    `
+      box-shadow: 0px 1px 3px ${theme.highlight};
+      border-radius: 12px;
+    `};
+  ${(props) =>
+    props.horizontal &&
+    props.expandSubMenu &&
     `
       border-radius: 12px 12px 0 0;
     `};
   ${(props) =>
-    props.horizontal && props.showSubMenu &&
+    props.horizontal &&
+    props.showSubMenu &&
     `
       border-radius: 0 0 12px 12px;
     `};
   ${(props) =>
-    props.backgroundColor && 
+    props.backgroundColor &&
     `
       background-color: ${props.backgroundColor};
     `};
