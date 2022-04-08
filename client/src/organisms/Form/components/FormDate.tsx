@@ -9,30 +9,26 @@ import {
   DateLabelStyled,
   DateWrapperStyled,
   DateStyles,
-  RequiredStyled,
+  RequiredStyled
 } from 'organisms/Form/styles'
+import TextField from '@mui/material/TextField'
 import {
   FormContext,
   InputContext,
   handleFormComponentColor
 } from 'organisms/Form/base'
-import DateUtils from '@date-io/dayjs'
-import {
-  KeyboardDatePicker,
-  MuiPickersUtilsProvider
-} from '@material-ui/pickers'
+import DatePicker from '@mui/lab/DatePicker'
+import DateAdapter from '@mui/lab/AdapterDayjs'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import { useFormInput } from 'organisms/Form/hooks'
 import { theme } from 'styles/theme'
 import InsertInvitation from '@mui/icons-material/InsertInvitationOutlined'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {
-  const {
-    name,
-    label,
-    disabled = false,
-    required = false,
-  } = useContext(InputContext)
+  const { name, label, disabled = false, required = false } = useContext(
+    InputContext
+  )
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -57,41 +53,15 @@ const FormDate: FunctionComponent = () => {
         {label}
         {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
       </DateLabelStyled>
-      <MuiPickersUtilsProvider utils={DateUtils}>
-        <KeyboardDatePicker
-          disableToolbar
-          variant='inline'
-          format='DD/MM/YYYY'
-          margin='normal'
-          placeholder='dd/mm/yyyy'
+      <LocalizationProvider dateAdapter={DateAdapter}>
+        <DatePicker
+          label='Basic example'
           value={value ? value : null}
           onChange={handleChange}
-          autoOk
-          InputProps={{
-            className: classes.input,
-            style: {
-              fontSize: 14,
-              color: darkMode ? theme.white : `rgb(${theme.shadow})`
-            },
-            'aria-label': label
-          }}
-          style={{ margin: '8px 0 0' }}
-          readOnly={disabled}
-          fullWidth
-          keyboardIcon={
-            <InsertInvitation
-              style={{
-                color: handleFormComponentColor(
-                  theme.secondary,
-                  darkMode,
-                  disabled
-                )
-              }}
-            />
-          }
+          renderInput={(params: any) => <TextField {...params} />}
         />
-        <FormStatus/>
-      </MuiPickersUtilsProvider>
+        <FormStatus />
+      </LocalizationProvider>
     </DateWrapperStyled>
   )
 }
