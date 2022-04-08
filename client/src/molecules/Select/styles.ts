@@ -46,13 +46,13 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
     border-bottom: 1px solid ${theme.grey};
   }
   ${(props) =>
-  props.error &&
-  `
+    props.error &&
+    `
       border-bottom: 1px solid ${theme.primary};
     `}
   ${(props) =>
-  props.darkMode &&
-  `
+    props.darkMode &&
+    `
       border: none;
       color: ${theme.white};
       border-bottom: 1px solid ${theme.grey};
@@ -65,8 +65,8 @@ export const SelectContainerStyled = styled.div<SearchContainerProps>`
       }
     `}
   ${(props) =>
-  props.disabled &&
-  `
+    props.disabled &&
+    `
       border: none;
       color: ${theme.disabledText};
       border-bottom: 1px dotted ${theme.highlight};
@@ -99,7 +99,7 @@ export const OptionStyled = styled.div<OptionProp>`
   display: flex;
   align-items: center;
   padding: 0 16px;
-  color: rgb(${theme.shadow});
+  color: ${theme.shadow};
   &:hover {
     background-color: ${theme.highlight};
   }
@@ -108,7 +108,7 @@ export const OptionStyled = styled.div<OptionProp>`
     `
         font-weight: 900;
     `};
-    ${(props) =>
+  ${(props) =>
     !props.hasValue &&
     `
         cursor: unset;

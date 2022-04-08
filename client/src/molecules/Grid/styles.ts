@@ -20,36 +20,38 @@ export const GridContainerStyled = styled.div<GridContainerProps>`
   transform: translate(102%, -0.5%);
   transition: 0.5s;
   z-index: 100;
-  ${props =>
+  ${(props) =>
     props.width &&
     `
         width: ${props.width};
     `};
-  ${props =>
+  ${(props) =>
     props.height &&
     `
         height: ${props.height};
     `};
-  ${props =>
+  ${(props) =>
     props.backgroundColor &&
     `
         background-color: ${props.backgroundColor};
     `};
-  ${props =>
+  ${(props) =>
     props.transform &&
     `
         transform: translate(${props.transform});
         transition: ${props.transition};
     `};
-  ${props =>
+  ${(props) =>
     props.grid &&
     `
         grid-template-columns: ${props.grid};
         grid-gap: 8px;
     `};
-  ${props =>
-      props.isActive && props.transition && props.activeTransform &&
-      `
+  ${(props) =>
+    props.isActive &&
+    props.transition &&
+    props.activeTransform &&
+    `
           transform: translate(${props.activeTransform});
           transition: ${props.transition};
       `};
@@ -67,7 +69,7 @@ export const ColumnStyled = styled.div<ColumnProps>`
   display: inline-flex;
   width: 100%;
   height: inherit;
-  ${props =>
+  ${(props) =>
     props.display &&
     `
         display: none;
@@ -90,7 +92,7 @@ export const ColumnContentStyled = styled.div<ColumnContentProps>`
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  ${props =>
+  ${(props) =>
     props.isClosable &&
     `
         padding-right: 0;
@@ -102,8 +104,8 @@ export const ColumnCloseStyled = styled.div`
 `
 
 export const CloseTextStyled = styled.div`
-  transform-origin:84px 70px;
-  transform:rotate(-90deg);
+  transform-origin: 84px 70px;
+  transform: rotate(-90deg);
   font-size: 12px;
   position: relative;
   bottom: 132px;
@@ -129,7 +131,7 @@ type ColumnContainerProps = {
 export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
   overflow: scroll;
   width: 100%;
-  border-left: solid 1px rgb(${theme.shadow}, .12);
+  border-left: solid 1px ${theme.shadow}12;
   padding-left: 8px;
   ::-webkit-scrollbar {
     display: none;
@@ -139,7 +141,7 @@ export const ColumnContainerStyled = styled.div<ColumnContainerProps>`
   -ms-overflow-style: none;
   scrollbar-width: none;
   display: block;
-  ${props =>
+  ${(props) =>
     props.isColumnClosed &&
     `
         padding-left: 0;
@@ -155,7 +157,7 @@ export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
   flex-direction: row-reverse;
   display: flex;
   justify-content: space-between;
-  ${props =>
+  ${(props) =>
     props.isColumnClosed &&
     `
         display: flex;
@@ -164,21 +166,21 @@ export const ColumnHeaderStyled = styled.div<ColumnHeaderProps>`
         width: auto;
         justify-content: unset;
     `};
-    @media screen and (min-width: 750px) {
-      display: inline-flex;
-      justify-content: space-between;
-      cursor: pointer;
-      width: 100%;
-      ${props =>
-        props.isColumnClosed &&
-        `
+  @media screen and (min-width: 750px) {
+    display: inline-flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+    ${(props) =>
+      props.isColumnClosed &&
+      `
             display: flex;
             flex-direction: column;
             justify-content: start;
             width: auto;
             justify-content: unset;
         `};
-    }
+  }
 `
 
 type ColumnHeadProps = {
@@ -187,7 +189,7 @@ type ColumnHeadProps = {
 
 export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
   grid-column: 2;
-  ${props =>
+  ${(props) =>
     props.isColumnClosed &&
     `
         transform: rotate(-180deg);
@@ -195,7 +197,7 @@ export const ColumnHeadStyled = styled.div<ColumnHeadProps>`
         position: relative;
     `};
   width: auto;
-  ${props =>
+  ${(props) =>
     props.isColumnClosed &&
     `
         left: -12px;
@@ -214,17 +216,17 @@ type ColumnFoldProps = {
 export const ColumnFoldStyled = styled.div<ColumnFoldProps>`
   grid-column: 1;
   position: relative;
-  ${props =>
+  ${(props) =>
     props.isColumnClosed &&
     `
         transform: rotate(-90deg);
         padding-left: 16px;
         top: 0;
     `};
-    @media screen and (min-width: 750px) {
-      top: 4px;
-    }
-  `
+  @media screen and (min-width: 750px) {
+    top: 4px;
+  }
+`
 
 export const iconStyle = {
   transform: 'rotate(90deg)',
@@ -251,15 +253,14 @@ export const ColumnParentStyled = styled.div<ColumnParentProps>`
   width: 98%;
   height: inherit;
   padding-top: 16px;
-  ${props =>
+  ${(props) =>
     props.isColumnClosed &&
     `
         width: 40px;
   `};
-  ${props =>
+  ${(props) =>
     props.gridRow &&
     `
         grid-row: ${props.gridRow};
   `};
 `
-

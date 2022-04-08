@@ -27,26 +27,26 @@ export const inputBorderHover = (outlined: boolean, darkMode: boolean) => {
 
 export const useLabelStyles = makeStyles({
   label: (props: any) => ({
-    color: props.darkMode ? theme.white : (theme.grey),
+    color: props.darkMode ? theme.white : theme.grey,
     fontSize: '14px !important',
     whiteSpace: 'nowrap',
     '&.Mui-focused': {
       color: props.darkMode ? theme.white : theme.grey
     },
     '&.MuiFormLabel-root.Mui-disabled': {
-      color: theme.disabledText,
-    },
+      color: theme.disabledText
+    }
   })
 })
 
 export const useInputStyles = makeStyles({
   input: (props: any) => ({
     fontSize: '14px !important',
-    color: props.darkMode ? `${theme.white}` : `rgb(${theme.shadow})`,
+    color: props.darkMode ? `${theme.white}` : `${theme.shadow}`,
     whiteSpace: 'nowrap',
     '&.MuiInputBase-input.Mui-disabled': {
-      color: theme.disabledText,
-    },
+      color: theme.disabledText
+    }
   }),
   inputRoot: (props: any) => ({
     color: props.darkMode ? theme.white : theme.grey,
@@ -57,13 +57,19 @@ export const useInputStyles = makeStyles({
       borderBottom: inputBorder(props.outlined, props.darkMode)
     },
     '&:hover:not(.Mui-disabled):before': {
-      borderBottom: props.disabled ? 'unset' : inputBorderHover(props.outlined, props.darkMode)
+      borderBottom: props.disabled
+        ? 'unset'
+        : inputBorderHover(props.outlined, props.darkMode)
     },
     '&:focus': {
-      borderBottom: props.disabled ? 'unset' : inputBorderHover(props.outlined, props.darkMode)
+      borderBottom: props.disabled
+        ? 'unset'
+        : inputBorderHover(props.outlined, props.darkMode)
     },
     '&:active': {
-      borderBottom: props.disabled ? 'unset' : inputBorderHover(props.outlined, props.darkMode)
+      borderBottom: props.disabled
+        ? 'unset'
+        : inputBorderHover(props.outlined, props.darkMode)
     }
   }),
   root: () => ({

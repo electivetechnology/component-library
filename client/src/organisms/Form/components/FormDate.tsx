@@ -9,7 +9,7 @@ import {
   DateLabelStyled,
   DateWrapperStyled,
   DateStyles,
-  RequiredStyled,
+  RequiredStyled
 } from 'organisms/Form/styles'
 import {
   FormContext,
@@ -27,12 +27,9 @@ import InsertInvitation from '@material-ui/icons/InsertInvitationOutlined'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {
-  const {
-    name,
-    label,
-    disabled = false,
-    required = false,
-  } = useContext(InputContext)
+  const { name, label, disabled = false, required = false } = useContext(
+    InputContext
+  )
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -71,7 +68,7 @@ const FormDate: FunctionComponent = () => {
             className: classes.input,
             style: {
               fontSize: 14,
-              color: darkMode ? theme.white : `rgb(${theme.shadow})`
+              color: darkMode ? theme.white : `${theme.shadow}`
             },
             'aria-label': label
           }}
@@ -90,7 +87,7 @@ const FormDate: FunctionComponent = () => {
             />
           }
         />
-        <FormStatus/>
+        <FormStatus />
       </MuiPickersUtilsProvider>
     </DateWrapperStyled>
   )

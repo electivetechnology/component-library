@@ -26,18 +26,18 @@ export const theme = {
   primaryColorDark: '#9D0021', //
   primaryColorLight: '#FF6D73', //
   primaryDark: '#9D0021', //
-  primaryHover: ' #DE5C68', //
+  primaryHover: '#DE5C68', //
   primaryLight: '#FF6D73', //
   navBlack: '#0D1121',
   navGrey: '#343B53',
   secondary: '#5B637A', //
   secondaryColorDark: '#2C3246', //
   secondaryDark: '#2C3246', //
-  secondaryLight: '160,174,212', // change to primaryLight later
+  secondaryLight: '#a0aed4', // change to primaryLight later
   secondaryHover: '#FFC9CE', //
   secondaryGray: '#AAAAAA',
   selected: '#EBEFFB', //
-  shadow: '0, 0, 0', //
+  shadow: '#000000', //
   textBody: '#000000', //
   warning: '#F9A725', //
   white: '#ffffff', //
@@ -52,10 +52,10 @@ export const theme = {
   primary800: '#2C3246',
   primary700: '#40485C',
   primary600: '#474F68',
-  primary500: '91,99,122',
+  primary500: '#5b637a',
   primary400: '#707EA4',
   primary300: '#8895BA',
-  primary200: '160, 174, 212',
+  primary200: '#a0aed4',
   primary100: '#B6C4E9',
   grey900: '#383838',
   grey800: '#767676',
@@ -85,7 +85,7 @@ export const theme = {
   onSurface: '0,0,0',
   onSuccess: '#FFFFFF',
   onWarning: '#000000',
-  secondaryAccent900: '10,117,131',
+  secondaryAccent900: '#0a7583',
   secondaryAccent800: '#098D9E',
   secondaryAccent700: '#00ABC1',
   secondaryAccent600: '#25B8D1',
@@ -107,6 +107,23 @@ export const theme = {
   success: '#169E16'
   // warning: '#F9A725',
   // white: '#FFFFFF'
+}
+
+export enum MajorColoursConst {
+  RED = 'red',
+  BLUE = 'blue',
+  GREEN = 'green'
+}
+
+export type MajorColoursType =
+  | MajorColoursConst.RED
+  | MajorColoursConst.BLUE
+  | MajorColoursConst.GREEN
+
+export const majorThemeColours = {
+  [MajorColoursConst.RED]: theme.primaryAccent900,
+  [MajorColoursConst.BLUE]: theme.blue,
+  [MajorColoursConst.GREEN]: theme.success
 }
 
 export const zindex = {
