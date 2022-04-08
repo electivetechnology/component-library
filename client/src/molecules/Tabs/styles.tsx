@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { theme } from 'styles/theme'
+import { theme, themeColours } from 'styles/theme'
+import { ColoursType } from 'molecules/Tabs/base'
 
 type TabBarProps = {
   columns?: string
@@ -23,8 +24,30 @@ export const TabBarStyled = styled.div<TabBarProps>`
   ${(props) =>
     props.columns &&
     `
-          grid-template-columns: ${props.columns};          
+          grid-template-columns: ${props.columns};
       `}
+`
+
+// TabGroup
+// TODO
+export const TabGroupStyled = styled.div`
+  // display: -webkit-box;
+  // display: -webkit-flex;
+  // display: -ms-flexbox;
+  // display: flex;
+  // -webkit-box-pack: center;
+  // -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  overflow: scroll;
+  width: 90vw;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 `
 
 export const TabScrollStyled = styled.div`
@@ -38,6 +61,7 @@ export const TabScrollStyled = styled.div`
 `
 
 type TabProps = {
+  colour: typeof themeColours
   active: string
   darkMode: boolean
 }
@@ -55,15 +79,22 @@ export const TabStyled = styled.div<TabProps>`
     padding-bottom: 3px;
   }
   ${(props) =>
-    props.active &&
-    props.active === 'active' &&
     `
-          border-bottom: 3px solid ${theme.primaryColor};
+
+      `}
+  ${(props) =>
+    props.active === 'active'
+      ? `
+         border-left: 3px solid ${props.colour};
+         border-top: 3px solid ${props.colour};
+         border-right: 3px solid ${props.colour};
+
           &:hover {
             background-color: unset;
             padding-bottom: 0;
           }
-      `}
+      `
+      : `border-bottom: 3px solid ${props.colour};`}
   ${(props) =>
     props.darkMode &&
     `
@@ -74,7 +105,6 @@ export const TabStyled = styled.div<TabProps>`
         }
       `}
   ${(props) =>
-    props.active &&
     props.active === 'active' &&
     props.darkMode &&
     `
@@ -95,4 +125,14 @@ export const TabsStyled = styled.div`
 export const TabPanelStyled = styled.div`
   width: 100%;
   height: 100%;
+`
+
+export const TabTitleStyled = styled.div`
+  cursor: pointer;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${theme.secondary};
 `

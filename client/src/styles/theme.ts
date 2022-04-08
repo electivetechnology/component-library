@@ -109,6 +109,12 @@ export const theme = {
   // white: '#FFFFFF'
 }
 
+export const themeColours = {
+  red: theme.primaryAccent900,
+  blue: theme.blue,
+  green: theme.success
+}
+
 export const zindex = {
   fabOverlay: 10,
   fabMenu: 11,
