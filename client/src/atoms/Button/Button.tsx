@@ -16,7 +16,9 @@ const Button: React.FC<Props> = ({
   icon,
   href,
   fullWidth,
-  formRow
+  formRow,
+  togglePosition,
+  selected = false
 }) => {
   const [redirect, setRedirect] = useState(false)
 
@@ -31,6 +33,8 @@ const Button: React.FC<Props> = ({
 
   const hasLabel = !!label
 
+  const selectedToggleButton = !!(theme === 'toggle' && selected)
+
   return (
     <ButtonComponent
       aria-label={label ? label : 'Button'}
@@ -40,6 +44,8 @@ const Button: React.FC<Props> = ({
       disabled={disabled}
       fullWidth={fullWidth}
       formRow={formRow}
+      togglePosition={togglePosition}
+      selected={selectedToggleButton}
     >
       <Wrapper icon={icon} variant={theme} hasLabel={hasLabel}>
         {icon && (

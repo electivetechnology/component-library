@@ -69,6 +69,7 @@ export type HandleStatusType = (
 
 export type FormProps = {
   handleUpdate?: (key: string, value: string) => void
+  handleUpdateAll?: (inputs: Array<{ key: string; value: string }>) => void
   statuses?: any
   disableForm?: boolean
   darkMode?: boolean
@@ -110,19 +111,27 @@ export const InputContext = createContext<InputContextType>(
   {} as InputContextType
 )
 
-export const handleFormColor = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
+export const handleFormColor = (
+  defaultColor: string,
+  darkMode: boolean,
+  disabled: boolean
+) => {
   if (darkMode && !disabled) {
     return theme.white
   } else if (darkMode && disabled) {
     return theme.disabledText
-  }else if (disabled) {
+  } else if (disabled) {
     return theme.disabledText
   } else {
     return defaultColor
   }
 }
 
-export const handleFormComponentColor = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
+export const handleFormComponentColor = (
+  defaultColor: string,
+  darkMode: boolean,
+  disabled: boolean
+) => {
   if (darkMode && !disabled) {
     return theme.white
   } else if (darkMode && disabled) {
@@ -136,7 +145,11 @@ export const handleFormComponentColor = (defaultColor: string, darkMode: boolean
   }
 }
 
-export const handleFormBorder = (defaultColor: string, darkMode: boolean, disabled: boolean) => {
+export const handleFormBorder = (
+  defaultColor: string,
+  darkMode: boolean,
+  disabled: boolean
+) => {
   if (darkMode && !disabled) {
     return `1px solid ${theme.white}`
   } else if (darkMode && disabled) {
