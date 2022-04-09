@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { theme, themeColours } from 'styles/theme'
+import { theme, majorThemeColours } from 'styles/theme'
 import { ColoursType } from 'molecules/Tabs/base'
 
 type TabBarProps = {
@@ -61,7 +61,7 @@ export const TabScrollStyled = styled.div`
 `
 
 type TabProps = {
-  colour: typeof themeColours
+  colour: string
   active: string
   darkMode: boolean
 }
