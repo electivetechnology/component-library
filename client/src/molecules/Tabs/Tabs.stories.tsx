@@ -83,6 +83,24 @@ const renderTabGroup = (darkMode = false) =>
     </Fragment>
   )
 
+const renderTabGroupPoc = (darkMode = false) =>
+  renderContainer(
+    darkMode,
+    <Fragment>
+      <TabBar>
+        <TabGroupComponent title={'Settings'} colour={'red'}>
+          <Tab name={TabConst.ROLES} isActive={false} darkMode={darkMode} />
+          <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
+          <Tab name={TabConst.CLIENT} isActive={true} darkMode={darkMode} />
+        </TabGroupComponent>
+        <TabGroupComponent title={'Inbox'} colour={'blue'}>
+          <Tab name={TabConst.ASSESSMENT} isActive={true} darkMode={darkMode} />
+          <Tab name={TabConst.TRACK} isActive={true} darkMode={darkMode} />
+        </TabGroupComponent>
+      </TabBar>
+    </Fragment>
+  )
+
 const Template = (args: any) => <Tabs {...args} active={TabConst.ROLES} />
 
 // Default
@@ -104,6 +122,13 @@ export const TabGroup: any = Template.bind({})
 
 TabGroup.args = {
   children: renderTabGroup()
+}
+
+// TabGroupPoc
+export const TabGroupPoc: any = Template.bind({})
+
+TabGroupPoc.args = {
+  children: renderTabGroupPoc()
 }
 
 export default {

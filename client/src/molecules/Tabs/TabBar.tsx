@@ -1,10 +1,9 @@
 import React, { Children } from 'react'
 import { TabBarStyled } from './styles'
+import { useTabBar } from 'molecules/Tabs/base'
 
 const TabBar: React.FC = ({ children }) => {
-  const count = Children.count(children)
-
-  const grid = new Array(count + 1).join('auto ')
+  const { grid } = useTabBar(children)
 
   return <TabBarStyled columns={grid}>{children}</TabBarStyled>
 }

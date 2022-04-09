@@ -1,15 +1,33 @@
-import React, { Fragment } from 'react'
+import React, { Children, Fragment } from 'react'
 import { TabBarStyled, TabGroupStyled, TabTitleStyled } from './styles'
 import { majorThemeColours, theme } from 'styles/theme'
 import Chip from '@material-ui/core/Chip'
-import { ColoursType, TabGroupContext } from 'molecules/Tabs/base'
+import { ColoursType, TabGroupContext, useTabGroup } from 'molecules/Tabs/base'
 
 type Props = {
   title: string
   colour: ColoursType
 }
 const TabGroup: React.FC<Props> = ({ children, title, colour }) => {
-  const themeColour = majorThemeColours[colour]
+  const { themeColour, grid } = useTabGroup(children, colour)
+
+  return (
+    <TabGroupContext.Provider value={{ colour: themeColour }}>
+      <TabBarStyled columns={grid}>
+        <TabTitleStyled>
+          <Chip
+            key={title}
+            style={{
+              backgroundColor: themeColour,
+              color: theme.white
+            }}
+            label={title}
+          />
+        </TabTitleStyled>
+        {children}
+      </TabBarStyled>
+    </TabGroupContext.Provider>
+  )
 
   return (
     <TabGroupContext.Provider value={{ colour: themeColour }}>
