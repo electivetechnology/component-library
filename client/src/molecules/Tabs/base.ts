@@ -2,7 +2,8 @@ import React, { Children } from 'react'
 import { theme, ThemeType } from 'styles/theme'
 
 export const TabGroupContext = React.createContext({
-  colour: ''
+  colour: '',
+  activeColour: ''
 })
 
 export const TabContext = React.createContext({
@@ -16,12 +17,18 @@ const createGrid = (children: any) => {
   return new Array(count + 1).join('auto ')
 }
 
-export const useTabGroup = (children: any, colour: keyof ThemeType) => {
-  const themeColour = theme[colour]
+export const useTabGroup = (
+  children: any,
+  colour: keyof ThemeType,
+  activeColour?: keyof ThemeType
+) => {
+  const themeColour = theme[colour ? colour : 'secondaryAccent900']
+  const activeThemeColour = activeColour ? theme[activeColour] : ''
 
   return {
     themeColour,
-    grid: createGrid(children)
+    grid: createGrid(children),
+    activeThemeColour
   }
 }
 

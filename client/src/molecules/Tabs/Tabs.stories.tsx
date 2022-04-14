@@ -20,6 +20,7 @@ enum TabConst {
 const renderContainer = (darkMode: boolean, children: any) => (
   <div
     style={{
+      width: '500px',
       backgroundImage: darkMode
         ? `linear-gradient(
       ${theme.accent1Secondary},
@@ -37,16 +38,18 @@ const renderTabs = (darkMode = false) =>
     darkMode,
     <Fragment>
       <TabBar>
-        <Tab
-          name={TabConst.ROLES}
-          isActive={false}
-          onClick={onClick}
-          darkMode={darkMode}
-        />
-        <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
-        <Tab name={TabConst.CLIENT} isActive={true} darkMode={darkMode} />
-        <Tab name={TabConst.ASSESSMENT} isActive={true} darkMode={darkMode} />
-        <Tab name={TabConst.TRACK} isActive={true} darkMode={darkMode} />
+        <TabGroupComponent colour={'secondaryAccent900'}>
+          <Tab
+            name={TabConst.ROLES}
+            isActive={false}
+            onClick={onClick}
+            darkMode={darkMode}
+          />
+          <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
+          <Tab name={TabConst.CLIENT} isActive={true} darkMode={darkMode} />
+          <Tab name={TabConst.ASSESSMENT} isActive={true} darkMode={darkMode} />
+          <Tab name={TabConst.TRACK} isActive={true} darkMode={darkMode} />
+        </TabGroupComponent>
       </TabBar>
       <TabContent>
         <TabPanel name={TabConst.ROLES}>{TabConst.ROLES}</TabPanel>
@@ -63,7 +66,7 @@ const renderTabGroup = (darkMode = false) =>
     darkMode,
     <Fragment>
       <TabBar>
-        <TabGroupComponent title={'Settings'} colour={'red'}>
+        <TabGroupComponent title={'Settings'} colour={'secondaryAccent900'}>
           <Tab name={TabConst.ROLES} isActive={false} darkMode={darkMode} />
           <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
           <Tab name={TabConst.CLIENT} isActive={true} darkMode={darkMode} />
@@ -88,12 +91,20 @@ const renderTabGroupPoc = (darkMode = false) =>
     darkMode,
     <Fragment>
       <TabBar>
-        <TabGroupComponent title={'Settings'} colour={'green'}>
+        <TabGroupComponent
+          title={'Settings'}
+          colour={'secondaryAccent900'}
+          activeColour={'accent1'}
+        >
           <Tab name={TabConst.ROLES} isActive={false} darkMode={darkMode} />
           <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
           <Tab name={TabConst.CLIENT} isActive={true} darkMode={darkMode} />
         </TabGroupComponent>
-        <TabGroupComponent title={'Inbox'} colour={'blue'}>
+        <TabGroupComponent
+          title={'Inbox'}
+          colour={'blue'}
+          activeColour={'accent2'}
+        >
           <Tab name={TabConst.ASSESSMENT} isActive={true} darkMode={darkMode} />
           <Tab name={TabConst.TRACK} isActive={true} darkMode={darkMode} />
         </TabGroupComponent>

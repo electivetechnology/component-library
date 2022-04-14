@@ -70,6 +70,7 @@ type TabProps = {
   colour: string
   active: string
   darkMode: boolean
+  activeColour: string
 }
 
 export const TabStyled = styled.div<TabProps>`
@@ -82,21 +83,20 @@ export const TabStyled = styled.div<TabProps>`
   color: ${theme.secondary};
   &:hover {
     background: rgba(91, 99, 122, 0.12); // theme.secondary
-    padding-bottom: 3px;
+    // padding-bottom: 3px;
   }
-  ${(props) =>
-    `
-
-      `}
   ${(props) =>
     props.active === 'active'
       ? `
          border-left: 3px solid ${props.colour};
          border-top: 3px solid ${props.colour};
          border-right: 3px solid ${props.colour};
+         ${
+           props.activeColour !== '' &&
+           `background-color: ${props.activeColour}15;`
+         }
 
           &:hover {
-            background-color: unset;
             padding-bottom: 0;
           }
       `
@@ -106,7 +106,6 @@ export const TabStyled = styled.div<TabProps>`
     `
         color: ${theme.white};
         &:hover {
-          background-color: ${theme.secondary};
           padding-bottom: 3px;
         }
       `}
@@ -114,7 +113,6 @@ export const TabStyled = styled.div<TabProps>`
     props.active === 'active' &&
     props.darkMode &&
     `
-          border-bottom: 3px solid ${theme.white};
           &:hover {
             background-color: unset;
             padding-bottom: 0;

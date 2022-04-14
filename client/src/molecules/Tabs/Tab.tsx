@@ -21,7 +21,7 @@ const Tab: FC<Props> = ({
   darkMode = false
 }) => {
   const { tabsActive, setTabsActive } = useContext(TabContext)
-  const { colour } = useContext(TabGroupContext)
+  const { colour, activeColour } = useContext(TabGroupContext)
 
   useEffect(() => {
     isActive && setTabsActive(name)
@@ -41,6 +41,7 @@ const Tab: FC<Props> = ({
       onMouseEnter={onHover}
       onTouchStart={onHover}
       active={active}
+      activeColour={activeColour}
       darkMode={darkMode}
     >
       <Font
