@@ -1,6 +1,4 @@
 // ATOMS
-import { theme } from 'styles/theme'
-
 export {
   Avatar,
   Button,
@@ -15,9 +13,10 @@ export {
   Font,
   Chart,
   Pill,
-  Divider,
-  ActionBar
+  Divider
 } from 'atoms'
+
+export { ActionBar, ActionBarContent } from 'atoms/ActionBar'
 
 // MOLECULES
 export { Alert, AlertContext, AlertContainer } from 'molecules/Alert'

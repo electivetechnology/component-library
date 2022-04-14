@@ -1,5 +1,6 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
+import { PositionType } from 'utils/types'
 
 export const ActionBarContainerStyled = styled.div`
   background-color: ${theme.white};
@@ -25,10 +26,28 @@ type ActionBarProps = {
 }
 
 export const ActionBarStyled = styled.div<ActionBarProps>`
+  padding-top: 6px;
   width: 100%;
-  height: 100%;
+  height: 95%;
   ${(props) =>
     `
       background-color: ${props.colour}15;
+    `};
+`
+
+type ActionBarContentProps = {
+  position: PositionType
+}
+export const ActionBarContentStyled = styled.div<ActionBarContentProps>`
+  position: absolute;
+  ${(props) =>
+    `
+      ${props.position === 'start' ? `left: 6px;` : ``}
+      ${
+        props.position === 'middle'
+          ? `left: 50%; transform: translate(-50%, 0);`
+          : ``
+      }
+      ${props.position === 'end' ? `right: 6px;` : ``}
     `};
 `
