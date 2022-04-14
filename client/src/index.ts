@@ -1,4 +1,6 @@
 // ATOMS
+import { theme } from 'styles/theme'
+
 export {
   Avatar,
   Button,
@@ -35,6 +37,7 @@ export { Pages, PageContext } from 'molecules/Pages'
 export { Select, Option, OptionHeader } from 'molecules/Select'
 export { Grid, GridColumn, ColumnComponent } from 'molecules/Grid'
 export { List } from 'molecules/List'
+export { theme } from 'styles/theme'
 
 // ORGANISMS
 export {
