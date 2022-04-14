@@ -1,6 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
-export const theme = {
+interface StringMap {
+  [key: string]: string
+}
+export const theme: StringMap = {
   accent1: '#6745C3', //
   accent1Secondary: '#311B91', //
   accent2: '#5DDDF3', //
@@ -108,23 +111,6 @@ export const theme = {
   success: '#169E16'
   // warning: '#F9A725',
   // white: '#FFFFFF'
-}
-
-export enum MajorColoursConst {
-  RED = 'red',
-  BLUE = 'blue',
-  GREEN = 'green'
-}
-
-export type MajorColoursType =
-  | MajorColoursConst.RED
-  | MajorColoursConst.BLUE
-  | MajorColoursConst.GREEN
-
-export const majorThemeColours = {
-  [MajorColoursConst.RED]: theme.primaryAccent900,
-  [MajorColoursConst.BLUE]: theme.blue,
-  [MajorColoursConst.GREEN]: theme.success
 }
 
 export const zindex = {

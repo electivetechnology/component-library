@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  TabBarStyled,
-  TabGroupStyled,
-  TabTitleStyled
-} from 'molecules/Tabs/styles'
+import { TabGroupStyled, TabTitleStyled } from 'molecules/Tabs/styles'
 import { theme } from 'styles/theme'
 import Chip from '@material-ui/core/Chip'
 import { ColoursType, TabGroupContext, useTabGroup } from 'molecules/Tabs/base'

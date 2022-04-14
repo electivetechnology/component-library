@@ -1,5 +1,5 @@
 import React, { Children } from 'react'
-import { majorThemeColours } from 'styles/theme'
+import { theme } from 'styles/theme'
 
 export type ColoursType = 'red' | 'blue'
 export const TabGroupContext = React.createContext({
@@ -17,8 +17,8 @@ const createGrid = (children: any) => {
   return new Array(count + 1).join('auto ')
 }
 
-export const useTabGroup = (children: any, colour: ColoursType) => {
-  const themeColour = majorThemeColours[colour]
+export const useTabGroup = (children: any, colour: string) => {
+  const themeColour = theme[colour]
 
   return {
     themeColour,

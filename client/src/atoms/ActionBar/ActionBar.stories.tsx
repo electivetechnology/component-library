@@ -12,21 +12,21 @@ DEFAULT.args = {}
 export const RED: any = Template.bind({})
 
 RED.args = {
-  colour: 'red'
+  colour: 'primaryAccent900'
 }
 
 // BLUE
 export const BLUE: any = Template.bind({})
 
 BLUE.args = {
-  colour: 'blue'
+  colour: 'tertiaryAccent800'
 }
 
 // GREEN
 export const GREEN: any = Template.bind({})
 
 GREEN.args = {
-  colour: 'green'
+  colour: 'secondaryAccent900'
 }
 
 export default {
