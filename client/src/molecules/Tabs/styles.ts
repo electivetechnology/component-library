@@ -1,10 +1,33 @@
 import styled from 'styled-components'
-import { theme, majorThemeColours } from 'styles/theme'
-import { ColoursType } from 'molecules/Tabs/base'
+import { theme } from 'styles/theme'
 
 type TabBarProps = {
   columns?: string
+  borderColour?: string
 }
+
+// Tab bar
+export const TabGroupStyled = styled.div<TabBarProps>`
+  width: auto;
+  display: grid;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  // hide scroll bar on firefox
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ${(props) =>
+    props.columns &&
+    `
+          grid-template-columns: ${props.columns} max-content;
+      `}
+  ${(props) =>
+    props.borderColour &&
+    `
+          border-bottom: 3px solid ${props.borderColour};
+      `}
+`
 
 // Tab bar
 export const TabBarStyled = styled.div<TabBarProps>`
@@ -24,30 +47,13 @@ export const TabBarStyled = styled.div<TabBarProps>`
   ${(props) =>
     props.columns &&
     `
-          grid-template-columns: ${props.columns};
+          grid-template-columns: ${props.columns} max-content;
       `}
-`
-
-// TabGroup
-// TODO
-export const TabGroupStyled = styled.div`
-  // display: -webkit-box;
-  // display: -webkit-flex;
-  // display: -ms-flexbox;
-  // display: flex;
-  // -webkit-box-pack: center;
-  // -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-
-  overflow: scroll;
-  width: 90vw;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  ${(props) =>
+    props.borderColour &&
+    `
+          border-bottom: 3px solid ${props.borderColour};
+      `}
 `
 
 export const TabScrollStyled = styled.div`
@@ -94,7 +100,7 @@ export const TabStyled = styled.div<TabProps>`
             padding-bottom: 0;
           }
       `
-      : `border-bottom: 3px solid ${props.colour};`}
+      : ``}
   ${(props) =>
     props.darkMode &&
     `

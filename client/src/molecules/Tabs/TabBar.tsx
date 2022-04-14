@@ -1,5 +1,5 @@
 import React, { Children } from 'react'
-import { TabBarStyled } from './styles'
+import { TabBarStyled } from 'molecules/Tabs/styles'
 import { useTabBar } from 'molecules/Tabs/base'
 
 const TabBar: React.FC = ({ children }) => {

@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react'
-import { TabPanelStyled } from './styles'
+import { TabPanelStyled } from 'molecules/Tabs/styles'
 import { TabContext } from 'molecules/Tabs/base'
 
 interface Props {

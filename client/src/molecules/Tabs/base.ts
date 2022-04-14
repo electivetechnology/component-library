@@ -14,7 +14,7 @@ export const TabContext = React.createContext({
 const createGrid = (children: any) => {
   const count = Children.count(children)
 
-  return new Array(count + 2).join('auto ')
+  return new Array(count + 1).join('auto ')
 }
 
 export const useTabGroup = (children: any, colour: ColoursType) => {

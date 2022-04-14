@@ -30,7 +30,7 @@ export {
 } from 'molecules/NavIcons'
 export { Columns, Column } from 'molecules/Columns'
 export { default as PopUp } from 'molecules/PopUp/PopUp'
-export { Tabs, Tab, TabPanel, TabBar } from 'molecules/Tabs'
+export { Tabs, Tab, TabPanel, TabBar, TabGroup } from 'molecules/Tabs'
 export { Pages, PageContext } from 'molecules/Pages'
 export { Select, Option, OptionHeader } from 'molecules/Select'
 export { Grid, GridColumn, ColumnComponent } from 'molecules/Grid'
