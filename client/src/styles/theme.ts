@@ -1,9 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
-interface StringMap {
-  [key: string]: string
-}
-export const theme: StringMap = {
+export type ThemeType = { [k: string]: string }
+export const theme: ThemeType = {
   accent1: '#6745C3', //
   accent1Secondary: '#311B91', //
   accent2: '#5DDDF3', //

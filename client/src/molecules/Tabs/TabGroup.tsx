@@ -1,12 +1,12 @@
 import React from 'react'
 import { TabGroupStyled, TabTitleStyled } from 'molecules/Tabs/styles'
-import { theme } from 'styles/theme'
+import { theme, ThemeType } from 'styles/theme'
 import Chip from '@material-ui/core/Chip'
-import { ColoursType, TabGroupContext, useTabGroup } from 'molecules/Tabs/base'
+import { TabGroupContext, useTabGroup } from 'molecules/Tabs/base'
 
 type Props = {
   title: string
-  colour: ColoursType
+  colour: keyof ThemeType
 }
 const TabGroup: React.FC<Props> = ({ children, title, colour }) => {
   const { themeColour, grid } = useTabGroup(children, colour)

@@ -88,7 +88,7 @@ const renderTabGroupPoc = (darkMode = false) =>
     darkMode,
     <Fragment>
       <TabBar>
-        <TabGroupComponent title={'Settings'} colour={'red'}>
+        <TabGroupComponent title={'Settings'} colour={'green'}>
           <Tab name={TabConst.ROLES} isActive={false} darkMode={darkMode} />
           <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
           <Tab name={TabConst.CLIENT} isActive={true} darkMode={darkMode} />
