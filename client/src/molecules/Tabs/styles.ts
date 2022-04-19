@@ -68,7 +68,7 @@ export const TabScrollStyled = styled.div`
 
 type TabProps = {
   colour: string
-  active: string
+  isActiveTab: boolean
   darkMode: boolean
   activeColour: string
 }
@@ -80,14 +80,12 @@ export const TabStyled = styled.div<TabProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${theme.secondary};
   &:hover {
     background: rgba(91, 99, 122, 0.12); // theme.secondary
-    // padding-bottom: 3px;
   }
   ${(props) =>
-    props.active === 'active'
-      ? `
+    props.isActiveTab &&
+    `
          border-left: 3px solid ${props.colour};
          border-top: 3px solid ${props.colour};
          border-right: 3px solid ${props.colour};
@@ -99,18 +97,16 @@ export const TabStyled = styled.div<TabProps>`
           &:hover {
             padding-bottom: 0;
           }
-      `
-      : ``}
+      `}
   ${(props) =>
     props.darkMode &&
     `
-        color: ${theme.white};
         &:hover {
           padding-bottom: 3px;
         }
       `}
   ${(props) =>
-    props.active === 'active' &&
+    props.isActiveTab &&
     props.darkMode &&
     `
           &:hover {
