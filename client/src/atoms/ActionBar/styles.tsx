@@ -26,9 +26,8 @@ type ActionBarProps = {
 }
 
 export const ActionBarStyled = styled.div<ActionBarProps>`
-  padding-top: 6px;
   width: 100%;
-  height: 95%;
+  height: 100%;
   ${(props) =>
     `
       background-color: ${props.colour}15;
@@ -40,12 +39,14 @@ type ActionBarContentProps = {
 }
 export const ActionBarContentStyled = styled.div<ActionBarContentProps>`
   position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
   ${(props) =>
     `
       ${props.position === 'start' ? `left: 6px;` : ``}
       ${
         props.position === 'middle'
-          ? `left: 50%; transform: translate(-50%, 0);`
+          ? `left: 50%; transform: translate(-50%, -50%);`
           : ``
       }
       ${props.position === 'end' ? `right: 6px;` : ``}
