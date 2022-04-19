@@ -1,21 +1,16 @@
 import React, { FunctionComponent } from 'react'
-import { ActionBarTheme } from './base'
 import { ActionBarContainerStyled, ActionBarStyled } from './styles'
+import { theme, ThemeType } from 'styles/theme'
 
 type Props = {
-  theme: ActionBarTheme
+  colour: keyof ThemeType
 }
-
-const ActionBar: FunctionComponent<Props> = ({
-  theme,
-  children
-}) => {
+const ActionBar: FunctionComponent<Props> = ({ colour, children }) => {
+  const themeColour = theme[colour]
 
   return (
     <ActionBarContainerStyled>
-      <ActionBarStyled theme={theme}>
-        {children}
-      </ActionBarStyled>
+      <ActionBarStyled colour={themeColour}>{children}</ActionBarStyled>
     </ActionBarContainerStyled>
   )
 }

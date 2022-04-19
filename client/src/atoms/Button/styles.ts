@@ -239,15 +239,15 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     !props.selected &&
     `
-      color: rgba(${theme.onSurface}, .6);
+      color: ${theme.shadow}95;
       background-color: transparent;
-      border-top: 1px solid rgba(${theme.onSurface}, .12);
-      border-bottom: 1px solid rgba(${theme.onSurface}, .12);
-      border-right: 1px solid rgba(${theme.onSurface}, .12);
+      border-top: 1px solid ${theme.shadow}12;
+      border-bottom: 1px solid ${theme.shadow}12;
+      border-right: 1px solid ${theme.shadow}12;
       &:hover {
-        color: rgba(${theme.primary500});
-        background-color: rgba(${theme.primary500}, .12);
-        outline: 1px solid rgba(${theme.primary500});
+        color: ${theme.primary500};
+        background-color: ${theme.primary500}12;
+        outline: 1px solid ${theme.primary500};
         outline-offset: -2px;
         // border inside button
       }
@@ -258,11 +258,11 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     !props.selected &&
     `
-      color: rgba(${theme.onSurface}, .6);
+      color: ${theme.shadow}95;
       background-color: transparent;
       border: none;
       border-radius: ${radius.small} 0 0 ${radius.small};
-      border: 1px solid rgba(${theme.onSurface}, .12);
+      border: 1px solid ${theme.shadow}12;
   `};
   ${(props) =>
     props.variant === 'toggle' &&
@@ -270,13 +270,13 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     !props.disabled &&
     !props.selected &&
     `
-      color: rgba(${theme.onSurface}, .6);
+      color: ${theme.shadow}95;
       background-color: transparent;
       border: none;
       border-radius: 0 ${radius.small} ${radius.small} 0;
-      border-top: 1px solid rgba(${theme.onSurface}, .12);
-      border-right: 1px solid rgba(${theme.onSurface}, .12);
-      border-bottom: 1px solid rgba(${theme.onSurface}, .12);
+      border-top: 1px solid ${theme.shadow}12;
+      border-right: 1px solid ${theme.shadow}12;
+      border-bottom: 1px solid ${theme.shadow}12;
   `};
   ${(props) =>
     props.variant === 'toggle' &&
@@ -290,9 +290,9 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.selected &&
     !props.togglePosition &&
     `
-      border: 1px solid rgba(${theme.primary500});
-      color: rgba(${theme.primary500});
-      background-color: rgba(${theme.primary500}, .12);
+      border: 1px solid ${theme.primary500};
+      color: ${theme.primary500};
+      background-color: ${theme.primary500}12;
   `};
   ${(props) =>
     props.variant === 'toggle' &&
@@ -300,9 +300,9 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.selected &&
     props.togglePosition === 'start' &&
     `
-      border: 1px solid rgba(${theme.primary500});
-      color: rgba(${theme.primary500});
-      background-color: rgba(${theme.primary500}, .12);
+      border: 1px solid ${theme.primary500};
+      color: ${theme.primary500};
+      background-color: ${theme.primary500}12;
       border-radius: ${radius.small} 0 0 ${radius.small};
   `};
 
@@ -312,9 +312,9 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     props.selected &&
     props.togglePosition === 'end' &&
     `
-      border: 1px solid rgba(${theme.primary500});
-      color: rgba(${theme.primary500});
-      background-color: rgba(${theme.primary500}, .12);
+      border: 1px solid ${theme.primary500};
+      color: ${theme.primary500};
+      background-color: ${theme.primary500}12;
       border-radius: 0 ${radius.small} ${radius.small} 0;
   `};
   ${(props) =>

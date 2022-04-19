@@ -1,6 +1,7 @@
 import { ActionBar } from 'atoms'
-import React from 'react'
-import { ActionBarThemesConst } from 'atoms/ActionBar/base'
+import React, { Fragment } from 'react'
+import ActionBarContent from 'atoms/ActionBar/ActionBarContent'
+import Button from 'atoms/Button/Button'
 
 const Template = (args: any) => <ActionBar {...args} />
 
@@ -9,74 +10,46 @@ export const DEFAULT: any = Template.bind({})
 
 DEFAULT.args = {}
 
-// CLIENT
-export const CLIENT: any = Template.bind({})
+// RED
+export const RED: any = Template.bind({})
 
-CLIENT.args = {
-  theme: ActionBarThemesConst.CLIENT
+RED.args = {
+  colour: 'primaryAccent900'
 }
 
-// CAMPAIGN
-export const CAMPAIGN: any = Template.bind({})
+// BLUE
+export const BLUE: any = Template.bind({})
 
-CAMPAIGN.args = {
-  theme: ActionBarThemesConst.CAMPAIGN
+BLUE.args = {
+  colour: 'tertiaryAccent800'
 }
 
-// OUTLINE
-export const OUTLINE: any = Template.bind({})
+// GREEN
+export const GREEN: any = Template.bind({})
 
-OUTLINE.args = {
-  theme: ActionBarThemesConst.OUTLINE
-}
-
-// ENGAGEMENT
-export const ENGAGEMENT: any = Template.bind({})
-
-ENGAGEMENT.args = {
-  theme: ActionBarThemesConst.ENGAGEMENT
-}
-
-// CONVERSATION_TEMPLATE
-export const CONVERSATION_TEMPLATE: any = Template.bind({})
-
-CONVERSATION_TEMPLATE.args = {
-  theme: ActionBarThemesConst.CONVERSATION_TEMPLATE
-}
-
-// QUESTION
-export const QUESTION: any = Template.bind({})
-
-QUESTION.args = {
-  theme: ActionBarThemesConst.QUESTION
-}
-
-// MESSAGE_TEMPLATE
-export const MESSAGE_TEMPLATE: any = Template.bind({})
-
-MESSAGE_TEMPLATE.args = {
-  theme: ActionBarThemesConst.MESSAGE_TEMPLATE
-}
-
-// LABEL
-export const LABEL: any = Template.bind({})
-
-LABEL.args = {
-  theme: ActionBarThemesConst.LABEL
-}
-
-// COMPANY
-export const COMPANY: any = Template.bind({})
-
-COMPANY.args = {
-  theme: ActionBarThemesConst.COMPANY
-}
-
-// PROFILE
-export const PROFILE: any = Template.bind({})
-
-PROFILE.args = {
-  theme: ActionBarThemesConst.PROFILE
+GREEN.args = {
+  colour: 'secondaryAccent900',
+  children: (
+    <Fragment>
+      <ActionBarContent position={'start'}>
+        <Button
+          theme={'primary'}
+          label={'Left make it large'}
+          onClick={() => {}}
+        />
+      </ActionBarContent>
+      <ActionBarContent position={'middle'}>
+        <Button theme={'primary'} label={'Centre'} onClick={() => {}} />
+      </ActionBarContent>
+      <ActionBarContent position={'end'}>
+        <Button
+          theme={'primary'}
+          label={'Right make it large'}
+          onClick={() => {}}
+        />
+      </ActionBarContent>
+    </Fragment>
+  )
 }
 
 export default {

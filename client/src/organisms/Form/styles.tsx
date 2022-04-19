@@ -268,7 +268,7 @@ type AnimatedStatusBorderProps = {
 export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
   position: relative;
   margin: 0;
-  visibility: ${(props) => (props.visible ? 'visible': 'hidden')};
+  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
   transition: visibility 1s linear;
   &:before {
     content: '';
@@ -281,7 +281,8 @@ export const AnimatedStatusBorder = styled.p<AnimatedStatusBorderProps>`
       `
         border-bottom: solid 2px ${theme.success};
       `}
-    animation:  ${(props) => (props.visible ? borderAnimation : fadeOut )} 1s linear;
+    animation:  ${(props) =>
+      props.visible ? borderAnimation : fadeOut} 1s linear;
   }
   ${(props) =>
     props.phone &&
@@ -503,7 +504,7 @@ export const ToastStyled = styled.div<ToastProps>`
   ${(props) =>
     props.darkMode &&
     `
-      color: rgb(${theme.shadow});
+      color: ${theme.shadow};
     `}
 `
 
@@ -629,7 +630,7 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
   z-index: 0;
   top: -2px;
   background-color: transparent;
-  color: rgb(${theme.shadow});
+  color: ${theme.shadow};
   font-size: 12px;
   font-family: ${font.primary};
   ${(props) =>

@@ -1,8 +1,8 @@
 import React, { useContext, FC, useEffect } from 'react'
-import { tabContext } from 'molecules/Tabs/Tabs'
 import { TabStyled } from 'molecules/Tabs/styles'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
+import { TabContext, TabGroupContext } from 'molecules/Tabs/base'
 
 interface Props {
   name: string
@@ -20,7 +20,8 @@ const Tab: FC<Props> = ({
   onHover,
   darkMode = false
 }) => {
-  const { tabsActive, setTabsActive } = useContext(tabContext)
+  const { tabsActive, setTabsActive } = useContext(TabContext)
+  const { colour, activeColour } = useContext(TabGroupContext)
 
   useEffect(() => {
     isActive && setTabsActive(name)
@@ -35,10 +36,12 @@ const Tab: FC<Props> = ({
 
   return (
     <TabStyled
+      colour={colour ? colour : theme.secondary}
       onClick={handleClick}
       onMouseEnter={onHover}
       onTouchStart={onHover}
       active={active}
+      activeColour={activeColour}
       darkMode={darkMode}
     >
       <Font

@@ -3,7 +3,31 @@ import { theme } from 'styles/theme'
 
 type TabBarProps = {
   columns?: string
+  borderColour?: string
 }
+
+// Tab bar
+export const TabGroupStyled = styled.div<TabBarProps>`
+  width: auto;
+  display: grid;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  // hide scroll bar on firefox
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  ${(props) =>
+    props.columns &&
+    `
+          grid-template-columns: ${props.columns} max-content;
+      `}
+  ${(props) =>
+    props.borderColour &&
+    `
+          border-bottom: 3px solid ${props.borderColour};
+      `}
+`
 
 // Tab bar
 export const TabBarStyled = styled.div<TabBarProps>`
@@ -23,7 +47,12 @@ export const TabBarStyled = styled.div<TabBarProps>`
   ${(props) =>
     props.columns &&
     `
-          grid-template-columns: ${props.columns};          
+          grid-template-columns: ${props.columns} max-content;
+      `}
+  ${(props) =>
+    props.borderColour &&
+    `
+          border-bottom: 3px solid ${props.borderColour};
       `}
 `
 
@@ -38,8 +67,10 @@ export const TabScrollStyled = styled.div`
 `
 
 type TabProps = {
+  colour: string
   active: string
   darkMode: boolean
+  activeColour: string
 }
 
 export const TabStyled = styled.div<TabProps>`
@@ -52,33 +83,36 @@ export const TabStyled = styled.div<TabProps>`
   color: ${theme.secondary};
   &:hover {
     background: rgba(91, 99, 122, 0.12); // theme.secondary
-    padding-bottom: 3px;
+    // padding-bottom: 3px;
   }
   ${(props) =>
-    props.active &&
-    props.active === 'active' &&
-    `
-          border-bottom: 3px solid ${theme.primaryColor};
+    props.active === 'active'
+      ? `
+         border-left: 3px solid ${props.colour};
+         border-top: 3px solid ${props.colour};
+         border-right: 3px solid ${props.colour};
+         ${
+           props.activeColour !== '' &&
+           `background-color: ${props.activeColour}15;`
+         }
+
           &:hover {
-            background-color: unset;
             padding-bottom: 0;
           }
-      `}
+      `
+      : ``}
   ${(props) =>
     props.darkMode &&
     `
         color: ${theme.white};
         &:hover {
-          background-color: ${theme.secondary};
           padding-bottom: 3px;
         }
       `}
   ${(props) =>
-    props.active &&
     props.active === 'active' &&
     props.darkMode &&
     `
-          border-bottom: 3px solid ${theme.white};
           &:hover {
             background-color: unset;
             padding-bottom: 0;
@@ -95,4 +129,14 @@ export const TabsStyled = styled.div`
 export const TabPanelStyled = styled.div`
   width: 100%;
   height: 100%;
+`
+
+export const TabTitleStyled = styled.div`
+  cursor: pointer;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${theme.secondary};
 `

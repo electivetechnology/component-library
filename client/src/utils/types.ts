@@ -9,4 +9,4 @@ export type ThemeType =
   | 'toggle'
   | 'quaternary'
 
-export type PositionType = 'start' | 'end'
+export type PositionType = 'start' | 'middle' | 'end'

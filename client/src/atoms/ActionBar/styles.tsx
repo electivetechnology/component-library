@@ -1,6 +1,6 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
-import { ActionBarTheme, ActionBarThemesConst } from './base'
+import { PositionType } from 'utils/types'
 
 export const ActionBarContainerStyled = styled.div`
   background-color: ${theme.white};
@@ -9,7 +9,7 @@ export const ActionBarContainerStyled = styled.div`
   width: 100vw;
   z-index: 1000;
   height: 80px;
-  box-shadow: inset 0px 26px 12px -20px rgb(${theme.shadow}, 0.08);
+  box-shadow: inset 0px 26px 12px -20px ${theme.shadow}08;
   @media screen and (min-width: 750px) {
     display: inline-flex;
     position: relative;
@@ -17,65 +17,38 @@ export const ActionBarContainerStyled = styled.div`
     width: -webkit-fill-available;
   }
   @media screen and (min-width: 960px) {
-    box-shadow: inset 0px -26px 12px -20px rgb(${theme.shadow}, 0.08);
+    box-shadow: inset 0px -26px 12px -20px ${theme.shadow}08;
   }
 `
 
 type ActionBarProps = {
-  theme: ActionBarTheme
+  colour: string
 }
 
 export const ActionBarStyled = styled.div<ActionBarProps>`
   width: 100%;
   height: 100%;
   ${(props) =>
-    props.theme === ActionBarThemesConst.CAMPAIGN &&
     `
-      background-color: rgb(${theme.primary200}, .15);
+      background-color: ${props.colour}15;
     `};
+`
+
+type ActionBarContentProps = {
+  position: PositionType
+}
+export const ActionBarContentStyled = styled.div<ActionBarContentProps>`
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
   ${(props) =>
-    props.theme === ActionBarThemesConst.CLIENT &&
     `
-      background-color: rgb(${theme.primaryAccent600}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.OUTLINE &&
-    `
-      background-color: rgb(${theme.onSurface}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.ENGAGEMENT &&
-    `
-      background-color: rgb(${theme.onSurface}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.CONVERSATION_TEMPLATE &&
-    `
-      background-color: rgb(${theme.onSurface}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.QUESTION &&
-    `
-      background-color: rgb(${theme.tertiaryAccent500}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.MESSAGE_TEMPLATE &&
-    `
-      background-color: rgb(${theme.secondaryAccent900}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.LABEL &&
-    `
-      background-color: rgb(${theme.secondaryAccent300}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.COMPANY &&
-    `
-      background-color: rgb(${theme.grey700}, .15);
-    `};
-  ${(props) =>
-    props.theme === ActionBarThemesConst.PROFILE &&
-    `
-      background-color: rgb(${theme.primaryDark}, .15);
+      ${props.position === 'start' ? `left: 6px;` : ``}
+      ${
+        props.position === 'middle'
+          ? `left: 50%; transform: translate(-50%, -50%);`
+          : ``
+      }
+      ${props.position === 'end' ? `right: 6px;` : ``}
     `};
 `

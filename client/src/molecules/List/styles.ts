@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { font, theme } from "styles/theme"
+import styled from 'styled-components'
+import { font, theme } from 'styles/theme'
 
 type ListContainerProps = {
   startIcon?: boolean
@@ -17,7 +17,8 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
     background: rgba(91, 99, 122, 0.12); // theme.secondary
   }
   ${(props) =>
-    props.startIcon && props.endIcon &&
+    props.startIcon &&
+    props.endIcon &&
     `
       display: grid;
       grid-template-columns: min-content auto min-content;
@@ -30,13 +31,15 @@ export const ListContainerStyled = styled.div<ListContainerProps>`
       }
     `};
   ${(props) =>
-    props.startIcon && !props.endIcon &&
+    props.startIcon &&
+    !props.endIcon &&
     `
       display: grid;
       grid-template-columns: min-content auto;
     `};
   ${(props) =>
-    !props.startIcon && props.endIcon &&
+    !props.startIcon &&
+    props.endIcon &&
     `
       display: grid;
       grid-template-columns: auto min-content;
@@ -63,11 +66,9 @@ export const IconContainerStyled = styled.div<IconProps>`
     `};
 `
 
-export const MainContainerStyled = styled.div`
-`
+export const MainContainerStyled = styled.div``
 
-export const EndContainerStyled = styled.div`
-`
+export const EndContainerStyled = styled.div``
 
 type ListFontProps = {
   header?: boolean
@@ -77,7 +78,7 @@ type ListFontProps = {
 }
 
 export const ListFontStyled = styled.div<ListFontProps>`
-  color: rgb(${theme.shadow});
+  color: ${theme.shadow};
   font-family: ${font.primary};
   ${(props) =>
     props.header &&

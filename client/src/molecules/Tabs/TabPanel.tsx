@@ -1,13 +1,13 @@
 import React, { FC, useContext } from 'react'
-import { tabContext } from 'molecules/Tabs/Tabs'
-import { TabPanelStyled } from './styles'
+import { TabPanelStyled } from 'molecules/Tabs/styles'
+import { TabContext } from 'molecules/Tabs/base'
 
 interface Props {
   name: string
 }
 
 const TabPanel: FC<Props> = ({ children, name }) => {
-  const { tabsActive } = useContext(tabContext)
+  const { tabsActive } = useContext(TabContext)
 
   const active = tabsActive === name
 
