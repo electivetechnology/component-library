@@ -93,8 +93,8 @@ const renderTabGroupPoc = (darkMode = false) =>
       <TabBar>
         <TabGroupComponent
           title={'Settings'}
-          colour={'secondaryAccent900'}
-          activeColour={'accent1'}
+          colour={theme.secondaryAccent900}
+          activeColour={theme.accent1}
         >
           <Tab name={TabConst.ROLES} isActive={false} darkMode={darkMode} />
           <Tab name={TabConst.USERS} isActive={true} darkMode={darkMode} />
@@ -102,8 +102,8 @@ const renderTabGroupPoc = (darkMode = false) =>
         </TabGroupComponent>
         <TabGroupComponent
           title={'Inbox'}
-          colour={'blue'}
-          activeColour={'accent2'}
+          colour={theme.blue}
+          activeColour={theme.accent2}
         >
           <Tab name={TabConst.ASSESSMENT} isActive={true} darkMode={darkMode} />
           <Tab name={TabConst.TRACK} isActive={true} darkMode={darkMode} />

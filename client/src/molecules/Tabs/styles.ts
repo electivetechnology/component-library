@@ -70,7 +70,7 @@ type TabProps = {
   colour: string
   isActiveTab: boolean
   darkMode: boolean
-  activeColour: string
+  activeColour?: string
 }
 
 export const TabStyled = styled.div<TabProps>`
