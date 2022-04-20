@@ -27,12 +27,18 @@ const Tab: FC<Props> = ({
     isActive && setTabsActive(name)
   }, [])
 
-  const active = tabsActive === name ? 'active' : 'inactive'
+  const isActiveTab = tabsActive === name
 
   const handleClick = () => {
     setTabsActive(name)
     onClick && onClick()
   }
+
+  const textColour = darkMode
+    ? theme.white
+    : isActiveTab
+    ? theme.black
+    : theme.grey
 
   return (
     <TabStyled
@@ -40,15 +46,11 @@ const Tab: FC<Props> = ({
       onClick={handleClick}
       onMouseEnter={onHover}
       onTouchStart={onHover}
-      active={active}
+      isActiveTab={isActiveTab}
       activeColour={activeColour}
       darkMode={darkMode}
     >
-      <Font
-        variant='body2'
-        uppercase
-        color={darkMode ? theme.white : theme.grey}
-      >
+      <Font variant='body2' uppercase color={textColour}>
         {name}
       </Font>
     </TabStyled>

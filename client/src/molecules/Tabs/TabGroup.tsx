@@ -6,33 +6,27 @@ import { TabGroupContext, useTabGroup } from 'molecules/Tabs/base'
 
 type Props = {
   title?: string
-  colour: keyof ThemeType
-  activeColour?: keyof ThemeType
+  colour?: string
+  activeColour?: string
 }
 const TabGroup: React.FC<Props> = ({
   children,
   title,
-  colour,
+  colour = theme.secondaryAccent900,
   activeColour
 }) => {
-  const { themeColour, grid, activeThemeColour } = useTabGroup(
-    children,
-    colour,
-    activeColour
-  )
+  const { grid } = useTabGroup(children)
 
   return (
-    <TabGroupContext.Provider
-      value={{ colour: themeColour, activeColour: activeThemeColour }}
-    >
-      <TabGroupStyled columns={grid} borderColour={themeColour}>
+    <TabGroupContext.Provider value={{ colour, activeColour }}>
+      <TabGroupStyled columns={grid} borderColour={colour}>
         {title && (
           <TabTitleStyled>
             <Chip
               key={title}
               style={{
-                backgroundColor: themeColour,
-                color: theme.white
+                backgroundColor: `${colour}15`,
+                color: colour
               }}
               label={title}
             />

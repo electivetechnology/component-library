@@ -3,14 +3,12 @@ import { ActionBarContainerStyled, ActionBarStyled } from './styles'
 import { theme, ThemeType } from 'styles/theme'
 
 type Props = {
-  colour: keyof ThemeType
+  colour: string
 }
 const ActionBar: FunctionComponent<Props> = ({ colour, children }) => {
-  const themeColour = theme[colour]
-
   return (
     <ActionBarContainerStyled>
-      <ActionBarStyled colour={themeColour}>{children}</ActionBarStyled>
+      <ActionBarStyled colour={colour}>{children}</ActionBarStyled>
     </ActionBarContainerStyled>
   )
 }
