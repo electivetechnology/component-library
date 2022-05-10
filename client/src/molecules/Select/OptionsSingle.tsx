@@ -21,6 +21,7 @@ import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
 import ArrowDropUp from '@material-ui/icons/ArrowDropUp'
 import { theme } from 'styles/theme'
 import { RequiredStyled } from 'organisms/Form/styles'
+import lowercase from 'lodash/lowercase'
 
 const NONE = { label: '-- None --', value: '' }
 
@@ -86,7 +87,7 @@ const OptionsSingle: FC = () => {
     const filteredChildren: Array<any> = []
     Children.map(children, (child: any) => {
       const { label } = child?.props || {}
-      if (label.toLowerCase().includes(search.toLowerCase())) {
+      if (lowercase(label).includes(lowercase(search))) {
         filteredChildren.push(child)
       }
     })
