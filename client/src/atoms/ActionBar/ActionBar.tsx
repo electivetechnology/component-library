@@ -16,9 +16,15 @@ const ActionBar: FunctionComponent<Props> = ({
 }) => {
   return (
     <ActionBarContainerStyled>
-      <ActionBarStyled colour={colour}>{contentStart}</ActionBarStyled>
-      <ActionBarStyled colour={colour}>{contentMiddle}</ActionBarStyled>
-      <ActionBarStyled colour={colour}>{contentEnd}</ActionBarStyled>
+      <ActionBarStyled colour={colour} align={'left'}>
+        {contentStart}
+      </ActionBarStyled>
+      <ActionBarStyled colour={colour} align={'center'}>
+        {contentMiddle}
+      </ActionBarStyled>
+      <ActionBarStyled colour={colour} align={'right'}>
+        {contentEnd}
+      </ActionBarStyled>
     </ActionBarContainerStyled>
   )
 }
