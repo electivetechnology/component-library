@@ -1,6 +1,6 @@
 {
   "name": "electivegroup-component-library",
-  "version": "1.91.4",
+  "version": "1.91.7",
   "engines": {
     "node": ">=10"
   },
@@ -47,7 +47,7 @@
     "react-router-dom": "5.2.x",
     "react-scripts": "4.0.x",
     "styled-components": "5.2.x",
-    "typescript": "4.0.x",
+    "typescript": "^3.9.x",
     "victory": "^35.5.1"
   },
   "devDependencies": {
@@ -110,7 +110,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "styled-components": "^5.2.1",
     "ts-jest": "^26.5.3",
-    "typescript": "^4.2.3",
+    "typescript": "^3.9.6",
     "victory": "^35.5.1"
   },
   "eslintConfig": {

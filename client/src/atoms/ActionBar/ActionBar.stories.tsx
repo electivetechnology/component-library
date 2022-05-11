@@ -1,6 +1,7 @@
 import { ActionBar } from 'atoms'
 import React, { Fragment } from 'react'
 import Button from 'atoms/Button/Button'
+import { theme } from 'styles/theme'
 
 const Template = (args: any) => <ActionBar {...args} />
 
@@ -27,20 +28,14 @@ BLUE.args = {
 export const GREEN: any = Template.bind({})
 
 GREEN.args = {
-  colour: 'secondaryAccent900',
+  colour: theme.secondaryAccent900,
   contentStart: (
-    <Button theme={'primary'} label={'Left make it large'} onClick={() => {}} />
+    <div style={{ width: '80px', border: '1px solid red' }}>Start</div>
   ),
   contentMiddle: (
-    <Button theme={'primary'} label={'Centre'} onClick={() => {}} />
+    <div style={{ width: '520px', border: '1px solid red' }}>Middle</div>
   ),
-  contentEnd: (
-    <Button
-      theme={'primary'}
-      label={'Right make it large'}
-      onClick={() => {}}
-    />
-  )
+  contentEnd: <div style={{ width: '20px', border: '1px solid red' }}>End</div>
 }
 
 export default {

@@ -16,7 +16,7 @@ export {
   Divider
 } from 'atoms'
 
-export { ActionBar, ActionBarContent } from 'atoms/ActionBar'
+export { ActionBar } from 'atoms/ActionBar'
 
 // MOLECULES
 export { Alert, AlertContext, AlertContainer } from 'molecules/Alert'

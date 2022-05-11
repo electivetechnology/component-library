@@ -1,6 +1,9 @@
 import React, { FunctionComponent, ReactElement } from 'react'
-import { ActionBarContainerStyled, ActionBarStyled } from './styles'
-import { theme, ThemeType } from 'styles/theme'
+import {
+  ActionBarColourStyled,
+  ActionBarContainerStyled,
+  ActionBarStyled
+} from './styles'
 
 type Props = {
   colour: string
@@ -15,16 +18,12 @@ const ActionBar: FunctionComponent<Props> = ({
   contentEnd
 }) => {
   return (
-    <ActionBarContainerStyled>
-      <ActionBarStyled colour={colour} align={'left'}>
-        {contentStart}
-      </ActionBarStyled>
-      <ActionBarStyled colour={colour} align={'center'}>
-        {contentMiddle}
-      </ActionBarStyled>
-      <ActionBarStyled colour={colour} align={'right'}>
-        {contentEnd}
-      </ActionBarStyled>
+    <ActionBarContainerStyled colour={colour}>
+      <ActionBarColourStyled colour={colour}>
+        <ActionBarStyled align={'left'}>{contentStart}</ActionBarStyled>
+        <ActionBarStyled align={'center'}>{contentMiddle}</ActionBarStyled>
+        <ActionBarStyled align={'right'}>{contentEnd}</ActionBarStyled>
+      </ActionBarColourStyled>
     </ActionBarContainerStyled>
   )
 }
