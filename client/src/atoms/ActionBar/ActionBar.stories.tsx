@@ -1,7 +1,7 @@
 import { ActionBar } from 'atoms'
 import React, { Fragment } from 'react'
-import ActionBarContent from 'atoms/ActionBar/ActionBarContent'
 import Button from 'atoms/Button/Button'
+import { theme } from 'styles/theme'
 
 const Template = (args: any) => <ActionBar {...args} />
 
@@ -28,28 +28,14 @@ BLUE.args = {
 export const GREEN: any = Template.bind({})
 
 GREEN.args = {
-  colour: 'secondaryAccent900',
-  children: (
-    <Fragment>
-      <ActionBarContent position={'start'}>
-        <Button
-          theme={'primary'}
-          label={'Left make it large'}
-          onClick={() => {}}
-        />
-      </ActionBarContent>
-      <ActionBarContent position={'middle'}>
-        <Button theme={'primary'} label={'Centre'} onClick={() => {}} />
-      </ActionBarContent>
-      <ActionBarContent position={'end'}>
-        <Button
-          theme={'primary'}
-          label={'Right make it large'}
-          onClick={() => {}}
-        />
-      </ActionBarContent>
-    </Fragment>
-  )
+  colour: theme.secondaryAccent900,
+  contentStart: (
+    <div style={{ width: '80px', border: '1px solid red' }}>Start</div>
+  ),
+  contentMiddle: (
+    <div style={{ width: '520px', border: '1px solid red' }}>Middle</div>
+  ),
+  contentEnd: <div style={{ width: '20px', border: '1px solid red' }}>End</div>
 }
 
 export default {
