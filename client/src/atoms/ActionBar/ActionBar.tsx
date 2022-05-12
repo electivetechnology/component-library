@@ -17,8 +17,10 @@ const ActionBar: FunctionComponent<Props> = ({
   contentMiddle,
   contentEnd
 }) => {
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
   return (
-    <ActionBarContainerStyled colour={colour}>
+    <ActionBarContainerStyled vh={vh}>
       <ActionBarColourStyled colour={colour}>
         <ActionBarStyled align={'left'}>{contentStart}</ActionBarStyled>
         <ActionBarStyled align={'center'}>{contentMiddle}</ActionBarStyled>

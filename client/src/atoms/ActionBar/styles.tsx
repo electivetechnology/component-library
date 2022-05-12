@@ -1,11 +1,11 @@
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
 
-type ActionBarContainerProps = {
+type ActionBarColourProps = {
   colour: string
 }
 
-export const ActionBarColourStyled = styled.div<ActionBarContainerProps>`
+export const ActionBarColourStyled = styled.div<ActionBarColourProps>`
   overflow: scroll;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -17,12 +17,21 @@ export const ActionBarColourStyled = styled.div<ActionBarContainerProps>`
     background-color: ${props.colour}15;
 `};
 `
+
+type ActionBarContainerProps = {
+  vh: number
+}
 export const ActionBarContainerStyled = styled.div<ActionBarContainerProps>`
+  ${(props) =>
+    `
+    height: calc(var(--${props.vh}, 1vh) * 100);
+`};
+
   background-color: white
   bottom: 0;
   position: absolute;
   z-index: 1000;
-  height: 80px;
+  // height: 80px;
   width: 96vw;
   box-shadow: inset 0px 26px 12px -20px ${theme.shadow}08;
   @media screen and (min-width: 750px) {
