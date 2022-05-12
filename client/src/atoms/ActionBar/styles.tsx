@@ -19,11 +19,11 @@ export const ActionBarColourStyled = styled.div<ActionBarContainerProps>`
 `
 export const ActionBarContainerStyled = styled.div<ActionBarContainerProps>`
   background-color: white
-  bottom: 0;
+  bottom: 35px;
   position: absolute;
   z-index: 1000;
   height: 80px;
-  width: 96vw;
+  width: 100%;
   box-shadow: inset 0px 26px 12px -20px ${theme.shadow}08;
   @media screen and (min-width: 750px) {
     position: relative;
