@@ -19,7 +19,7 @@ export const ActionBarColourStyled = styled.div<ActionBarContainerProps>`
 `
 export const ActionBarContainerStyled = styled.div<ActionBarContainerProps>`
   background-color: white
-  bottom: 0;
+  bottom: 35px;
   position: absolute;
   z-index: 1000;
   height: 80px;
