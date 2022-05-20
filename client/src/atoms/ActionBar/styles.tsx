@@ -6,7 +6,9 @@ type ActionBarContainerProps = {
 }
 
 export const ActionBarColourStyled = styled.div<ActionBarContainerProps>`
-  overflow: scroll;
+  @media screen and (max-width: 750px) {
+    overflow: scroll;
+  }
   display: grid;
   grid-template-columns: auto auto auto;
   align-items: center;
