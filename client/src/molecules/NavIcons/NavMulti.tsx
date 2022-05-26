@@ -7,7 +7,7 @@ import { PositionType } from 'utils/types'
 const { Provider } = sectionContext
 
 type Props = {
-  children: JSX.Element
+  children: any
   initial: Array<string>
   divider?: DividerType
   position?: PositionType

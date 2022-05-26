@@ -16,7 +16,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 type Props = {
-  children: JSX.Element
+  children: any
   isClosable?: boolean
   colspan?: number
   addColumn?: any

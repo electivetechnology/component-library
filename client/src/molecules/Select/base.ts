@@ -8,7 +8,7 @@ export interface OptionType {
 export interface SelectContextType {
   label: string
   initialValue: any
-  children: JSX.Element
+  children: any
   onChange: Function
   required: boolean
   showOptions: boolean

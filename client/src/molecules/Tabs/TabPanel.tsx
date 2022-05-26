@@ -3,7 +3,7 @@ import { TabPanelStyled } from 'molecules/Tabs/styles'
 import { TabContext } from 'molecules/Tabs/base'
 
 interface Props {
-  children: JSX.Element
+  children: any
   name: string
 }
 

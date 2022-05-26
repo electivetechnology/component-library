@@ -9,7 +9,7 @@ import {
 import Tooltip from '@mui/material/Tooltip'
 
 type Props = {
-  children: JSX.Element
+  children: any
   name: string
   handleUpdate: Function
   roundIcon?: boolean

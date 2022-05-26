@@ -15,7 +15,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined'
 
 type Props = {
-  children: JSX.Element
+  children: any
   divider?: boolean
   expandMainColumn: boolean
   isClosable?: boolean

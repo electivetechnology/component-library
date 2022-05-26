@@ -3,7 +3,7 @@ import { TabBarStyled } from 'molecules/Tabs/styles'
 import { useTabBar } from 'molecules/Tabs/base'
 
 type Props = {
-  children: JSX.Element
+  children: any
 }
 
 const TabBar: React.FC<Props> = ({ children }) => {

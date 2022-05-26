@@ -4,7 +4,7 @@ import { SelectContainerStyled } from 'molecules/Select/styles'
 import OptionsSingle from 'molecules/Select/OptionsSingle'
 
 type Props = {
-  children: JSX.Element
+  children: any
   label: string
   initialValue: OptionType
   onChange: Function

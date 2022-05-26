@@ -3,7 +3,7 @@ import { GridContainerStyled } from './styles'
 import { theme } from 'styles/theme'
 
 type Props = {
-  children: JSX.Element
+  children: any
   activeTransform: string
   backgroundColor?: string
   columnSize: string
