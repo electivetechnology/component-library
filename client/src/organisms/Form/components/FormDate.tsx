@@ -26,9 +26,12 @@ import InsertInvitation from '@mui/icons-material/InsertInvitationOutlined'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormDate: FunctionComponent = () => {
-  const { name, label, disabled = false, required = false } = useContext(
-    InputContext
-  )
+  const {
+    name,
+    label,
+    disabled = false,
+    required = false
+  } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 

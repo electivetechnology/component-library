@@ -1,11 +1,5 @@
 import React, { Fragment } from 'react'
-import {
-  Form,
-  FormInfo,
-  FormInput,
-  FormRow,
-  FormTitle,
-} from 'organisms/Form'
+import { Form, FormInfo, FormInput, FormRow, FormTitle } from 'organisms/Form'
 import AddIcon from '@mui/icons-material/Add'
 
 const handleUpdate = () => {}
@@ -131,10 +125,10 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          prefix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+          prefix: true,
+          icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
         }}
       />
       <FormInput
@@ -142,24 +136,24 @@ Select.args = {
         name='select'
         value={status}
         type='select'
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+          suffix: true,
+          icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
         }}
-      />   
+      />
       <FormInput
         label='Form Select suffix'
         name='select'
         value={status}
         type='select'
         required={true}
-        options={{ 
+        options={{
           selectOptions: [{ value: '', label: '' }],
-          suffix: true, 
-          icon: <AddIcon style={{position: 'relative', top: '44px'}} />
+          suffix: true,
+          icon: <AddIcon style={{ position: 'relative', top: '44px' }} />
         }}
-      />   
+      />
       <FormInput
         label='Form Select suffix'
         name='select'

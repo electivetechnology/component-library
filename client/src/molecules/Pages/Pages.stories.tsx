@@ -23,7 +23,7 @@ Primary.args = {
   back: () => mockFunction,
   setBack: mockFunction,
   progress: 2,
-  helperText: "some helper text"
+  helperText: 'some helper text'
 }
 
 // NoSteps
@@ -32,9 +32,8 @@ export const NoSteps: any = PagesTemplate.bind({})
 NoSteps.args = {
   handleClose: mockFunction,
   next: mockFunction,
-  back: mockFunction,
+  back: mockFunction
 }
-
 
 export default {
   title: 'molecules/Pages',

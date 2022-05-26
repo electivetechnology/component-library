@@ -33,7 +33,7 @@ export const CheckboxWithStyled = {
   root: {
     '&:checked': {
       color: theme.primaryColor
-    },
+    }
   },
   checked: {}
 }

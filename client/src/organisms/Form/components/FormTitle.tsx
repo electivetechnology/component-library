@@ -12,7 +12,12 @@ const FormTitle: FunctionComponent<Props> = ({ label }) => {
   const { darkMode } = useContext(FormContext)
   return (
     <SectionTitleStyled data-testid='FormTitle'>
-      <Font variant='h6' uppercase fontWeight={500} color={darkMode ? theme.white : theme.secondary}>
+      <Font
+        variant='h6'
+        uppercase
+        fontWeight={500}
+        color={darkMode ? theme.white : theme.secondary}
+      >
         {label}
       </Font>
     </SectionTitleStyled>

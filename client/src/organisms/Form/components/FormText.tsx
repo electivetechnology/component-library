@@ -33,8 +33,7 @@ const FormText: FunctionComponent = () => {
     requiredError
   } = useContext(InputContext)
 
-  const { multiline, suffix, prefix, icon, copy } =
-    options || {}
+  const { multiline, suffix, prefix, icon, copy } = options || {}
 
   const { statusType } = status || {}
   const error = statusType === 'error' || requiredError

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import { theme } from 'styles/theme'
 
 export const useStyles = makeStyles({

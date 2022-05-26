@@ -31,24 +31,26 @@ const Template = (args: any) => {
   }
 
   return (
-      <div style={darkMode ? darkModeStyle : {}}>
-        <div style={{
+    <div style={darkMode ? darkModeStyle : {}}>
+      <div
+        style={{
           display: 'inline-flex',
           width: '100%',
           gridGap: '8px',
           height: '44px'
-        }}>
-          <div  style={{width: '100%'}}>
-            <Select {...args} onChange={handleChange} initialValue={value} >
-              <OptionHeader label='Option Header' />
-              <Option label={OPTION_1.label} value={OPTION_1.label}/>
-              <Option label={OPTION_2.label} value={OPTION_2.label}/>
-            </Select>
-          </div>
-          {/* <Button theme='primary' label={'reset'} onClick={handleReset} /> */}
+        }}
+      >
+        <div style={{ width: '100%' }}>
+          <Select {...args} onChange={handleChange} initialValue={value}>
+            <OptionHeader label='Option Header' />
+            <Option label={OPTION_1.label} value={OPTION_1.label} />
+            <Option label={OPTION_2.label} value={OPTION_2.label} />
+          </Select>
         </div>
+        {/* <Button theme='primary' label={'reset'} onClick={handleReset} /> */}
       </div>
-    )
+    </div>
+  )
 }
 
 // Single
@@ -66,7 +68,7 @@ export const Multi: any = Template.bind({})
 Multi.args = {
   multi: true,
   initialValue: [],
-  open: true,
+  open: true
 }
 
 // DarkMode

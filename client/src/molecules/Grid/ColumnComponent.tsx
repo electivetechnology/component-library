@@ -29,7 +29,7 @@ const ColumnComponent: React.FC<Props> = ({
   isColumnClosed,
   icon = true,
   label,
-  gridRow,
+  gridRow
 }) => {
   const isMobile = window.innerWidth < 750
 
@@ -38,7 +38,7 @@ const ColumnComponent: React.FC<Props> = ({
       return <UnfoldMore />
     } else if ((icon || !label) && !isColumnClosed && isMobile) {
       return <Arrow style={iconArrowStyle} />
-    } else if  ((icon || !label) && !isColumnClosed) {
+    } else if ((icon || !label) && !isColumnClosed) {
       return <UnfoldLess style={iconStyle} />
     } else {
       return <IconPlaceHolderStyled />
@@ -47,11 +47,11 @@ const ColumnComponent: React.FC<Props> = ({
   return (
     <ColumnParentStyled isColumnClosed={isColumnClosed} gridRow={gridRow}>
       <DividerStyled />
-      <ColumnContainerStyled
-        isColumnClosed={isColumnClosed}>
+      <ColumnContainerStyled isColumnClosed={isColumnClosed}>
         <ColumnHeaderStyled
           onClick={handleCloseColumn}
-          isColumnClosed={isColumnClosed}>
+          isColumnClosed={isColumnClosed}
+        >
           <ColumnFoldStyled isColumnClosed={isColumnClosed}>
             {renderIcon()}
           </ColumnFoldStyled>

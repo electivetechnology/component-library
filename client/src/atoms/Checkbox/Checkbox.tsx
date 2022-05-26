@@ -5,7 +5,7 @@ import React, {
   ChangeEvent
 } from 'react'
 import MaterialCheckbox, { CheckboxProps } from '@mui/material/Checkbox'
-import withStyles from '@mui/styles/withStyles';
+import withStyles from '@mui/styles/withStyles'
 import {
   CheckboxContainerStyled,
   CheckboxLabelStyled,
@@ -25,9 +25,9 @@ type Props = {
   required?: boolean
 }
 
-const CheckboxStyled = withStyles(
-  CheckboxWithStyled
-)((props: CheckboxProps) => <MaterialCheckbox color='default' {...props} />)
+const CheckboxStyled = withStyles(CheckboxWithStyled)(
+  (props: CheckboxProps) => <MaterialCheckbox color='default' {...props} />
+)
 
 const Checkbox: FunctionComponent<Props> = ({
   label,
@@ -56,7 +56,7 @@ const Checkbox: FunctionComponent<Props> = ({
       return theme.white
     } else if (!darkMode && !disabled && !isChecked) {
       return theme.grey
-    }  else if (disabled && isChecked) {
+    } else if (disabled && isChecked) {
       return theme.primaryColorLight
     } else if (disabled) {
       return theme.disabledButton
@@ -76,7 +76,7 @@ const Checkbox: FunctionComponent<Props> = ({
         }}
         onBlur={onBlur}
         disabled={disabled}
-        style={{color: handleCheckboxTheme()}}
+        style={{ color: handleCheckboxTheme() }}
       />
       <CheckboxLabelStyled disabled={disabled} darkMode={darkMode}>
         <label htmlFor={`label-${label}`} style={{ fontSize: fontSize }}>

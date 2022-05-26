@@ -43,16 +43,10 @@ const renderHorizontal = (divider: DividerType) => (
     <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon
-      name='Accepted'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon
-      name='Rejected'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>

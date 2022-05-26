@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 export const useStyles = makeStyles({
   component: (props: any) => ({
@@ -9,6 +9,6 @@ export const useStyles = makeStyles({
     whiteSpace: props.overflow ? 'nowrap' : 'initial',
     textOverflow:
       props.overflow || props.multilineOverflow ? 'ellipsis' : 'initial',
-    overflowWrap: props.wrap ? 'break-word' : 'unset',
+    overflowWrap: props.wrap ? 'break-word' : 'unset'
   })
 })

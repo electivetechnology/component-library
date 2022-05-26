@@ -1,9 +1,4 @@
-import React, {
-  FunctionComponent,
-  memo,
-  useState,
-  useEffect
-} from 'react'
+import React, { FunctionComponent, memo, useState, useEffect } from 'react'
 import { TextareaStyled } from 'organisms/Form/styles'
 
 type Props = {

@@ -1,5 +1,9 @@
 import React, { FunctionComponent } from 'react'
-import { InlineStyle, IconOutlineStyled, iconStyles } from 'molecules/Channels/styles'
+import {
+  InlineStyle,
+  IconOutlineStyled,
+  iconStyles
+} from 'molecules/Channels/styles'
 import TextSms from '@mui/icons-material/TextsmsOutlined'
 import Smartphone from '@mui/icons-material/SmartphoneOutlined'
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined'

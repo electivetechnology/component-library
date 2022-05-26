@@ -1,7 +1,7 @@
 import React, { useContext, useReducer, useState } from 'react'
 import { produce } from 'immer'
 import { useEffectAfterMount } from 'utils/base'
-import {FormContext, InputContext, StatusTypeType} from 'organisms/Form/base'
+import { FormContext, InputContext, StatusTypeType } from 'organisms/Form/base'
 import isEmpty from 'lodash/isEmpty'
 import isNull from 'lodash/isNull'
 
@@ -36,18 +36,14 @@ export const useFormItems = () => {
 
 export const useFormInput = () => {
   const { updateInput } = useContext(FormContext)
-  const {
-    name,
-    inputValue,
-    options,
-    handleInputChange
-  } = useContext(InputContext)
+  const { name, inputValue, options, handleInputChange } =
+    useContext(InputContext)
 
-  const {commaSeparated } =
-  options || {}
+  const { commaSeparated } = options || {}
 
   // handle commaSeparated values
-  const valueString = typeof inputValue === 'object' ? inputValue.join(',') : inputValue
+  const valueString =
+    typeof inputValue === 'object' ? inputValue.join(',') : inputValue
 
   const [value, setValue] = useState(valueString)
 
@@ -92,7 +88,7 @@ export const useFormStatus = () => {
             }
             break
           case StatusConst.REMOVE:
-            delete draftState[action.name];
+            delete draftState[action.name]
             break
           case StatusConst.CLEAR:
             return {}

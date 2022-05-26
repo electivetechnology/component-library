@@ -128,7 +128,11 @@ const TestForm: FC = () => {
       <FormInput label='Date' name='dateInput' value='some input' type='date' />
       <button onClick={handleHidden}>Trigger Ref</button>
       <FormHidden ref={hiddenRef} handleSave={handleSave} />
-      <FormSave label={'This is a very long button'} handleSave={handleSave} icon={<AddIcon />} />
+      <FormSave
+        label={'This is a very long button'}
+        handleSave={handleSave}
+        icon={<AddIcon />}
+      />
       <FormRow handleDelete={handleDelete}>
         <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
         <FormInput

@@ -16,7 +16,8 @@ export const PillStyled = styled.div<PillProp>`
       background-color: ${props.color};
     `};
   ${(props) =>
-    props.align && props.align === 'left' &&
+    props.align &&
+    props.align === 'left' &&
     `
       margin: 0;
       margin-left: unset;

@@ -1,8 +1,4 @@
-export type StatusType =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'failure'
+export type StatusType = 'primary' | 'secondary' | 'tertiary' | 'failure'
 
 export const renderStatus = (status: StatusType) => {
   switch (status) {

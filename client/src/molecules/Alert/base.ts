@@ -13,4 +13,6 @@ export interface AlertContextType {
   handleClose: any
 }
 
-export const AlertContext = createContext<AlertContextType>({} as AlertContextType)
+export const AlertContext = createContext<AlertContextType>(
+  {} as AlertContextType
+)

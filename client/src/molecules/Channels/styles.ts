@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import { theme } from 'styles/theme'
 import styled from 'styled-components'
 

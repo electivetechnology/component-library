@@ -13,11 +13,7 @@ interface Props {
   darkMode: boolean
   isHovered: boolean
 }
-const FormCopy: FunctionComponent<Props> = ({ 
-  value, 
-  darkMode,
-  isHovered
-}) => {
+const FormCopy: FunctionComponent<Props> = ({ value, darkMode, isHovered }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const handleCopy = () => {
@@ -44,7 +40,9 @@ const FormCopy: FunctionComponent<Props> = ({
           />
         </CopiedStyled>
       ) : (
-        <FileCopyOutlined style={{ height: '20px', color: darkMode ? theme.white : theme.grey }} />
+        <FileCopyOutlined
+          style={{ height: '20px', color: darkMode ? theme.white : theme.grey }}
+        />
       )}
     </CopyIconStyled>
   )

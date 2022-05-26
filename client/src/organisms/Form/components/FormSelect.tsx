@@ -24,7 +24,7 @@ const FormSelect: FunctionComponent = () => {
     outlined,
     required,
     status,
-    requiredError,
+    requiredError
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 

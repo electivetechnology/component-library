@@ -5,6 +5,8 @@ type Props = {
   padding?: boolean
 }
 
-const Divider: React.FC<Props> = ({ padding = false }) => <DividerStyled padding={padding} />
+const Divider: React.FC<Props> = ({ padding = false }) => (
+  <DividerStyled padding={padding} />
+)
 
 export default Divider

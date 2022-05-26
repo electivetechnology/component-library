@@ -37,20 +37,20 @@ const FormSelectField: FunctionComponent = () => {
     onBlur(name)
   }
 
-  const selectOptions = autoOptions?.selectOptions ? autoOptions.selectOptions : []
+  const selectOptions = autoOptions?.selectOptions
+    ? autoOptions.selectOptions
+    : []
 
-  const selected = autoOptions ? selectedOption(selectOptions, inputValue) : null
+  const selected = autoOptions
+    ? selectedOption(selectOptions, inputValue)
+    : null
 
   const handleChange = (event: any, newValue: any) => {
     valueRef.current = newValue
     updateInput(name, newValue ? newValue.value : null)
   }
 
-  const onInputChange = (
-    event: object,
-    newValue: string,
-    reason: string
-  ) => {
+  const onInputChange = (event: object, newValue: string, reason: string) => {
     handleInputChange && reason !== 'reset' && handleInputChange(newValue)
   }
 

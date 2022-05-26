@@ -6,7 +6,7 @@ const TooltipTemplate = (args: any) => {
   const onChange = () => {
     setIsToggled(!isToggle)
   }
-  return <Toggle {...args}  isActive={isToggle} onChange={onChange} />
+  return <Toggle {...args} isActive={isToggle} onChange={onChange} />
 }
 
 // Default

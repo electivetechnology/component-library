@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import CardComponent from 'atoms/Card/Card'
 import { Pill, Font } from 'atoms'
 import { renderStatus } from 'atoms/Pill/base'
 
 const CardTemplate = (args: any) => {
   return (
-    <div style={{width: '200px', height: '200px'}}>
+    <div style={{ width: '200px', height: '200px' }}>
       <CardComponent {...args} />
     </div>
   )
@@ -57,14 +57,14 @@ Status.args = {
   theme: 'primary',
   hover: false,
   footer: 'Footer',
-  headerContent: <div style={{width: '100%', display: 'inline-flex'}}>
-      <Font variant='h4'>
-        Label 
-      </Font>
+  headerContent: (
+    <div style={{ width: '100%', display: 'inline-flex' }}>
+      <Font variant='h4'>Label</Font>
       <Pill color={renderStatus('primary')} />
-    </div>,
+    </div>
+  ),
   fullWidth: true,
-  fullHeight: true,
+  fullHeight: true
 }
 
 export const Hover: any = CardTemplate.bind({})

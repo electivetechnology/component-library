@@ -1,3 +1,1 @@
-export type CardType =
-  | 'primary'
-  | 'secondary'
+export type CardType = 'primary' | 'secondary'

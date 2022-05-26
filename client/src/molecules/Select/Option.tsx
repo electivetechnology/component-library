@@ -18,10 +18,7 @@ const Option: FC<Props> = ({ label, value }) => {
   const isActive = selected === value && hasValue
 
   return (
-    <OptionStyled
-      onClick={onSelect}
-      isActive={isActive}
-      hasValue={hasValue}>
+    <OptionStyled onClick={onSelect} isActive={isActive} hasValue={hasValue}>
       {label}
     </OptionStyled>
   )

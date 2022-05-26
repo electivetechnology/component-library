@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import TextField from '@mui/material/TextField'
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 
 type Props = {
   id: string
@@ -104,7 +104,7 @@ const TextInput: FunctionComponent<Props> = ({
       onKeyPress={handleKeyPress}
       helperText={helperText}
     />
-  );
+  )
 }
 
 export default TextInput

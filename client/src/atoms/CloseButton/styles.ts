@@ -1,4 +1,4 @@
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from '@mui/styles/makeStyles'
 import styled from 'styled-components'
 
 export const CloseWrapper = styled.div`

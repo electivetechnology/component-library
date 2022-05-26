@@ -65,7 +65,7 @@ export const basicFormMock = {
 }
 
 export function selectedOption(options: any, value: any) {
-  const found = options.find(function(option: any) {
+  const found = options.find(function (option: any) {
     const selectedValue =
       typeof value === 'string' ? value.toLowerCase() : value
     const optionValue =
@@ -83,5 +83,5 @@ export const candidateStatusOptions = [
   { label: 'Available', value: 'available' },
   { label: 'Not looking', value: 'notLooking' },
   { label: 'Archive', value: 'archive' },
-  { label: 'Removed', value: 'removed' },
+  { label: 'Removed', value: 'removed' }
 ]

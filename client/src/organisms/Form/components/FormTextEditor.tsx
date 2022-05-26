@@ -3,7 +3,7 @@ import React, {
   memo,
   useContext,
   useState,
-  useRef,
+  useRef
 } from 'react'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import {

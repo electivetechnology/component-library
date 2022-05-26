@@ -18,7 +18,7 @@ export const iconMobileLeftStyle = {
   cursor: 'pointer',
   paddingLeft: '4px',
   fill: theme.secondary,
-  width: '22px',
+  width: '22px'
 }
 
 type ColumnsStyledProps = {

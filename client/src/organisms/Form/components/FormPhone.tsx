@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 const FormPhone: FunctionComponent = () => {
   const classes = useStyles()
 
-  const { name, label, disabled} = useContext(InputContext)
+  const { name, label, disabled } = useContext(InputContext)
 
   const { onBlur, darkMode } = useContext(FormContext)
 
@@ -53,7 +53,7 @@ const FormPhone: FunctionComponent = () => {
           margin: '13px 0 0'
         }}
       />
-      <FormStatus/>
+      <FormStatus />
     </FormPhoneStyled>
   )
 }

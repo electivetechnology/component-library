@@ -5,11 +5,7 @@ type Props = {
   label: string
 }
 const OptionHeader: FC<Props> = ({ label }) => {
-  return (
-    <OptionHeaderStyled>
-      {label}
-    </OptionHeaderStyled>
-  )
+  return <OptionHeaderStyled>{label}</OptionHeaderStyled>
 }
 
 export default OptionHeader

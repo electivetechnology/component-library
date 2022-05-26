@@ -10,7 +10,7 @@ function countryToFlag(isoCode: string) {
         .replace(/./g, (char) =>
           String.fromCodePoint(char.charCodeAt(0) + 127397)
         )
-    : isoCode;
+    : isoCode
 }
 
 const PhoneInput = () => {

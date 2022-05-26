@@ -69,7 +69,9 @@ const ComponentCard: React.FC<Props> = ({
           </CardHeaderStyled>
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
-      ) : ''}
+      ) : (
+        ''
+      )}
       {children}
       {footer && (
         <ComponentCardFooterStyled padding={padding}>
