@@ -1,10 +1,9 @@
 import React from 'react'
-import {
-  GridContainerStyled
-} from './styles'
+import { GridContainerStyled } from './styles'
 import { theme } from 'styles/theme'
 
 type Props = {
+  children: JSX.Element
   activeTransform: string
   backgroundColor?: string
   columnSize: string
@@ -25,21 +24,22 @@ const GridComponent: React.FC<Props> = ({
   columnsSize,
   expandMainColumn,
   isActive,
-  transform = "102%, -0.5%",
-  transition = "0.5s",
-  width = "100%",
-  height = "100vh"
+  transform = '102%, -0.5%',
+  transition = '0.5s',
+  width = '100%',
+  height = '100vh'
 }) => {
   return (
     <GridContainerStyled
-      grid={expandMainColumn ? columnSize: columnsSize}
+      grid={expandMainColumn ? columnSize : columnsSize}
       isActive={isActive}
       transition={transition}
       transform={transform}
       width={width}
       height={height}
       activeTransform={activeTransform}
-      backgroundColor={backgroundColor}>
+      backgroundColor={backgroundColor}
+    >
       {children}
     </GridContainerStyled>
   )

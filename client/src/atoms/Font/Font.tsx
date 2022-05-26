@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography'
 import { useStyles } from 'atoms/Font/styles'
 
 type Props = {
+  children: any
   variant: any
   component?: any
   gutterBottom?: boolean
@@ -28,7 +29,7 @@ const Font: FunctionComponent<Props> = ({
   fontWeight,
   uppercase = false,
   multilineOverflow,
-  wrap = false,
+  wrap = false
 }) => {
   const classes = useStyles({
     color,
@@ -36,18 +37,19 @@ const Font: FunctionComponent<Props> = ({
     overflow,
     fontWeight,
     multilineOverflow,
-    wrap,
+    wrap
   })
   return (
     <Typography
-      data-qa="font"
+      data-qa='font'
       data-testid='Font'
       variant={variant}
       component={component}
       gutterBottom={gutterBottom}
       align={align}
       inline={inline}
-      className={`${classes.component}`}>
+      className={`${classes.component}`}
+    >
       {children}
     </Typography>
   )

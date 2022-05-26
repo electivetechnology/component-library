@@ -1,7 +1,10 @@
 import React, { FC, useState } from 'react'
 import { AlertContext, AlertTypeType } from './base'
 
-const AlertContainer: FC = ({ children }) => {
+type Props = {
+  children: any
+}
+const AlertContainer: FC<Props> = ({ children }) => {
   const [alert, setAlert] = useState({
     alertType: '' as AlertTypeType,
     message: ''

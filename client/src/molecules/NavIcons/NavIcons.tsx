@@ -15,6 +15,7 @@ export const navContext = React.createContext({
 const { Provider } = navContext
 
 type Props = {
+  children?: JSX.Element | JSX.Element[]
   layout: LayoutType
   subMenu?: boolean
   subMenuContents?: any

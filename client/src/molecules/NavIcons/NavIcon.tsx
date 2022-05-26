@@ -9,7 +9,7 @@ import {
 import Tooltip from '@mui/material/Tooltip'
 
 type Props = {
-  children: any
+  children: JSX.Element
   name: string
   handleUpdate: Function
   roundIcon?: boolean
@@ -27,7 +27,7 @@ const NavIcon: FC<Props> = ({
   menuContent,
   roundIcon,
   setShowMenu,
-  showMenu,
+  showMenu
 }) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)

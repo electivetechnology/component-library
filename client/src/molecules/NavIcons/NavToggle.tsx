@@ -6,6 +6,7 @@ import { PositionType } from 'utils/types'
 const { Provider } = sectionContext
 
 type Props = {
+  children: React.ReactNode[]
   title?: string
   initial: string
   divider?: DividerType

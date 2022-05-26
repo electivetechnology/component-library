@@ -3,6 +3,7 @@ import { ColumnsStyled } from 'molecules/Columns/styles'
 import { useColumnsReducer, NavContext } from 'molecules/Columns/base'
 
 type Props = {
+  children: JSX.Element
   width: number
 }
 const Columns: React.FC<Props> = ({ children, width }) => {

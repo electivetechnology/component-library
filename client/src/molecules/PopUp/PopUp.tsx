@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment, useEffect, useState } from 'react'
+import React, { FC, Fragment, useEffect, useState } from 'react'
 import Portal from 'atoms/Portal/Portal'
 import PopUpClose from './PopUpClose'
 import {
@@ -9,17 +9,13 @@ import {
 } from './styles'
 
 type Props = {
+  children: JSX.Element
   open: boolean
   setOpen: Function
   isCloseable?: boolean
 }
 
-const PopUp: FunctionComponent<Props> = ({
-  children,
-  open,
-  setOpen,
-  isCloseable = false
-}) => {
+const PopUp: FC<Props> = ({ children, open, setOpen, isCloseable = false }) => {
   const [root, setRoot] = useState<any>(document.getElementById('pop-up'))
 
   const handleClose = () => {
@@ -30,27 +26,29 @@ const PopUp: FunctionComponent<Props> = ({
     setRoot(document.getElementById('pop-up'))
   }, [])
 
-  if(!root){
+  if (!root) {
     return null
   }
 
   return (
     <Portal root={root}>
-      {open && (
-        <Fragment>
-          <Overlay />
-          <PopUpWrapperStyled data-testid='PopUp'>
-            <PopupContainer>
-              {children}
-              {isCloseable && (
-                <PopupClosedStyled>
-                  <PopUpClose handleClose={handleClose} />
-                </PopupClosedStyled>
-              )}
-            </PopupContainer>
-          </PopUpWrapperStyled>
-        </Fragment>
-      )}
+      <Fragment>
+        {open && (
+          <Fragment>
+            <Overlay />
+            <PopUpWrapperStyled data-testid='PopUp'>
+              <PopupContainer>
+                {children}
+                {isCloseable && (
+                  <PopupClosedStyled>
+                    <PopUpClose handleClose={handleClose} />
+                  </PopupClosedStyled>
+                )}
+              </PopupContainer>
+            </PopUpWrapperStyled>
+          </Fragment>
+        )}
+      </Fragment>
     </Portal>
   )
 }

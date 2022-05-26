@@ -5,6 +5,7 @@ import Chip from '@mui/material/Chip'
 import { TabGroupContext, useTabGroup } from 'molecules/Tabs/base'
 
 type Props = {
+  children: JSX.Element
   title?: string
   colour?: string
   activeColour?: string

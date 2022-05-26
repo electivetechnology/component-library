@@ -19,6 +19,7 @@ export const sectionContext = React.createContext({
 })
 
 type Props = {
+  children: React.ReactNode[]
   title?: string
   divider?: DividerType
   position?: PositionType
