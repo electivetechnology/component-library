@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography'
 import { useStyles } from 'atoms/Font/styles'
 
 type Props = {
-  children: any
+  children?: any
   variant: any
   component?: any
   gutterBottom?: boolean

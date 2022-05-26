@@ -26,7 +26,7 @@ const PhoneInput = () => {
       }}
       autoHighlight
       getOptionLabel={(option) => option.label}
-      renderOption={(option) => (
+      renderOption={(option: any) => (
         <Fragment>
           <span>{countryToFlag(option.code)}</span>
           {option.label} ({option.code}) +{option.phone}

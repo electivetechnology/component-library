@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
+// import { Redirect } from 'react-router'
 import {
   Wrapper,
   Icon,
@@ -23,7 +24,7 @@ const Button: React.FC<Props> = ({
   const [redirect, setRedirect] = useState(false)
 
   if (redirect) {
-    return <Redirect to={{ pathname: href }} />
+    return <Navigate to={{ pathname: href }} />
   }
 
   const handleClick = (event: any) => {

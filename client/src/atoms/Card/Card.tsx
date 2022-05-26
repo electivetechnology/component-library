@@ -10,6 +10,7 @@ import Font from 'atoms/Font/Font'
 import { CardType } from 'atoms/Card/base'
 
 type Props = {
+  children: any
   theme: CardType
   hover?: boolean
   footer?: string

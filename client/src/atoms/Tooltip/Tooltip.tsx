@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { TooltipStyled, TooltipLabelStyled } from './styles'
 
 type Props = {
+  children?: any
   label?: string
   placement?: string
   labelSize?: string

@@ -4,6 +4,7 @@ import { theme } from 'styles/theme'
 import { useStyles } from 'atoms/Avatar/styles'
 
 type Props = {
+  children?: any
   color?: string
   fontWeight?: number
   height?: string

@@ -3,6 +3,7 @@ import { TabsStyled, TabScrollStyled } from 'molecules/Tabs/styles'
 import { TabContext } from 'molecules/Tabs/base'
 
 type Props = {
+  children?: any
   active?: string
 }
 

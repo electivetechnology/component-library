@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import CsvDownloader from 'react-csv-downloader'
 
 type Props = {
+  children?: any
   datas: Array<any>
   fileName: string
   columns: Array<any>

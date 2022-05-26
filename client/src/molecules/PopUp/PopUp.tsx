@@ -9,7 +9,7 @@ import {
 } from './styles'
 
 type Props = {
-  children: any
+  children?: any
   open: boolean
   setOpen: Function
   isCloseable?: boolean

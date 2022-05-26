@@ -16,6 +16,7 @@ import Arrow from '@mui/icons-material/ArrowBackOutlined'
 import { Font } from 'atoms'
 
 type Props = {
+  children?: any
   handleCloseColumn: any
   isColumnClosed: boolean
   icon?: boolean
