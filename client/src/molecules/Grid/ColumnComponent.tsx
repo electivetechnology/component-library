@@ -10,9 +10,9 @@ import {
   IconPlaceHolderStyled,
   iconArrowStyle
 } from './styles'
-import UnfoldLess from '@material-ui/icons/UnfoldLess'
-import UnfoldMore from '@material-ui/icons/UnfoldMore'
-import Arrow from '@material-ui/icons/ArrowBackOutlined'
+import UnfoldLess from '@mui/icons-material/UnfoldLess'
+import UnfoldMore from '@mui/icons-material/UnfoldMore'
+import Arrow from '@mui/icons-material/ArrowBackOutlined'
 import { Font } from 'atoms'
 
 type Props = {

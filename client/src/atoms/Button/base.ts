@@ -1,5 +1,5 @@
 import { ReactElement, MouseEventHandler } from 'react'
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
+import { SvgIconProps } from '@mui/material/SvgIcon'
 import { PositionType, ThemeType } from 'utils/types'
 
 export type Props = {

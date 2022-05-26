@@ -13,7 +13,7 @@ import {
   TextEditorStyled
 } from '../styles'
 import { Editor } from '@tinymce/tinymce-react'
-import WarningIcon from '@material-ui/icons/Warning'
+import WarningIcon from '@mui/icons-material/Warning'
 import { theme } from 'styles/theme'
 import { useEffectAfterMount } from 'utils/base'
 import FormStatus from 'organisms/Form/components/FormStatus'

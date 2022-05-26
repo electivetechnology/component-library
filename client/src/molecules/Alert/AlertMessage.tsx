@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useContext } from 'react'
-import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import ErrorIcon from '@material-ui/icons/Error'
-import InfoIcon from '@material-ui/icons/Info'
-import WarningIcon from '@material-ui/icons/Warning'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import ErrorIcon from '@mui/icons-material/Error'
+import InfoIcon from '@mui/icons-material/Info'
+import WarningIcon from '@mui/icons-material/Warning'
 import { useStyles } from 'molecules/Alert/styles'
 import { AlertContext } from 'molecules/Alert/base'
 

@@ -6,7 +6,7 @@ import {
   iconStyles,
   NavIconMenuStyled
 } from 'molecules/NavIcons/styles'
-import Tooltip from '@material-ui/core/Tooltip'
+import Tooltip from '@mui/material/Tooltip'
 
 type Props = {
   children: any

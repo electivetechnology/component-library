@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import MaterialFab from '@material-ui/core/Fab'
+import MaterialFab from '@mui/material/Fab'
 import { IconWrapper, useStyles } from 'atoms/Fab/styles'
 
 type Props = {

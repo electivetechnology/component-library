@@ -2,7 +2,7 @@ import React, { FC, useContext } from 'react'
 import Page from 'molecules/Pages/Page'
 import { PageContext } from './base'
 import { CloseIconStyled, PagesContainerStyled, ProgressContainerStyled, ProgressBarStyled, ProgressIndicatorStyled, HelperTextStyled, MobileProgressNavStyled } from 'molecules/Pages/styles'
-import CloseIcon from '@material-ui/icons/Close'
+import CloseIcon from '@mui/icons-material/Close'
 import Progress from 'atoms/Progress/Progress'
 import { theme } from 'styles/theme'
 

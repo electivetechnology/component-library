@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Form, FormInput } from 'organisms/Form'
-import AddIcon from '@material-ui/icons/Add'
+import AddIcon from '@mui/icons-material/Add'
 
 const handleUpdate = () => {}
 

@@ -11,9 +11,9 @@ import {
   MobileButtonLabelStyled,
   iconMobileLeftStyle
 } from 'molecules/Columns/styles'
-import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
 type Props = {
   isClosable?: boolean

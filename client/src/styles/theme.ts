@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
 
 export type ThemeType = { [k: string]: string }
 export const theme: ThemeType = {
@@ -121,7 +121,7 @@ export const zindex = {
   notificationWrapper: 12
 }
 
-export const appTheme = createMuiTheme({
+export const appTheme = createTheme(adaptV4Theme({
   typography: {
     h1: {
       fontSize: '24px'
@@ -155,7 +155,7 @@ export const appTheme = createMuiTheme({
       }
     }
   }
-})
+}))
 
 export const font = {
   primary: 'Roboto, Helvetica, Arial, sans-serif'

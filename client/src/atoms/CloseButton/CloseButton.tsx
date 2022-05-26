@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { CloseWrapper, useStyles } from 'atoms/CloseButton/styles'
-import CloseIcon from '@material-ui/icons/Close'
+import CloseIcon from '@mui/icons-material/Close'
 
 type Props = {
   handleClose: any
