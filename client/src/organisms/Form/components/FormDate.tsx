@@ -48,6 +48,7 @@ const FormDate: FunctionComponent = () => {
         handleChange={handleChange}
         darkMode={darkMode}
         disabled={disabled}
+        fullWidth={true}
       />
       <FormStatus />
     </DateWrapperStyled>
