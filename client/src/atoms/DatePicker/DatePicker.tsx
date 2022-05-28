@@ -6,7 +6,7 @@ import { DateType } from '@date-io/type'
 import TextField from '@mui/material/TextField'
 import { Dayjs } from 'dayjs'
 import { theme } from 'styles/theme'
-import { DateLabelStyled, useStyles } from './styles'
+import { DateLabelStyled } from './styles'
 
 type Props = {
   value: DateType | null

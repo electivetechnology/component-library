@@ -60,7 +60,7 @@ const ComponentCard: React.FC<Props> = ({
       scroll={scroll}
       height={height}
       width={width}
-      overflow={overflow}
+      showOverflow={overflow}
     >
       {header || headerContent ? (
         <ComponentCardHeaderStyled>
