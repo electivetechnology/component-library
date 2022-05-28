@@ -32,14 +32,10 @@ const DatePicker: FC<Props> = ({
   disableUnderline = false,
   fullWidth = false
 }) => {
-  const classes = useStyles({
-    fullWidth
-  })
   return (
     <div style={{ minWidth: '100%' }}>
       <LocalizationProvider dateAdapter={DateAdapter}>
         <DesktopDatePicker
-          className={classes.datepicker}
           readOnly={disabled}
           inputFormat='DD/MM/YYYY'
           label={
@@ -48,7 +44,7 @@ const DatePicker: FC<Props> = ({
             </DateLabelStyled>
           }
           renderInput={(params: any) => (
-            <TextField {...params} variant={'standard'} />
+            <TextField {...params} variant={'standard'} fullWidth={fullWidth} />
           )}
           value={value}
           onChange={handleChange}
@@ -56,7 +52,6 @@ const DatePicker: FC<Props> = ({
           InputProps={{
             disableUnderline,
             style: {
-              minWidth: '100%',
               fontSize: 14,
               color: darkMode ? theme.white : `${theme.shadow}`
             },

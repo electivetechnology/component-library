@@ -22,12 +22,3 @@ export const DateLabelStyled = styled.div<DateLabelProps>`
       color: ${theme.disabledButton};
     `}
 `
-
-import makeStyles from '@mui/styles/makeStyles'
-
-export const useStyles = makeStyles({
-  datepicker: (props: any) => ({
-    // width: props.fullWidth ? '100%' : '50%'
-    minWidth: '100%'
-  })
-})
