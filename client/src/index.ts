@@ -13,7 +13,8 @@ export {
   Font,
   Chart,
   Pill,
-  Divider
+  Divider,
+  DatePicker
 } from 'atoms'
 
 export { ActionBar } from 'atoms/ActionBar'

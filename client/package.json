@@ -1,8 +1,8 @@
 {
   "name": "electivegroup-component-library",
-  "version": "1.92.1",
+  "version": "1.100.0",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "description": "Common Components Library",
   "main": "dist/index.js",
@@ -34,6 +34,7 @@
     "@emotion/styled": "^11.8.x",
     "@mui/icons-material": "^5.6.x",
     "@mui/lab": "^5.0.0-alpha.x",
+    "@mui/x-date-pickers": "^5.0.0-alpha.x",
     "@mui/material": "^5.5.x",
     "@mui/styles": "^5.5.x",
     "@tinymce/tinymce-react": "^4.1.x",
@@ -58,6 +59,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.0",
     "@mui/lab": "^5.0.0-alpha.76",
+    "@mui/x-date-pickers": "^5.0.0-alpha.4",
     "@mui/material": "^5.6.0",
     "@mui/styles": "^5.5.1",
     "@rollup/plugin-commonjs": "^22.0.0",
