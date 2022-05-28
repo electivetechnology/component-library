@@ -9,18 +9,18 @@ export const CloseWrapper = styled.div`
 `
 
 export const useStyles = makeStyles({
-  success: {
-    backgroundColor: theme.accent2Secondary
-  },
-  error: {
-    backgroundColor: theme.primaryColor
-  },
-  info: {
-    backgroundColor: theme.secondaryGray
-  },
-  warning: {
-    backgroundColor: theme.warning
-  },
+  // success: {
+  //   backgroundColor: theme.accent2Secondary
+  // },
+  // error: {
+  //   backgroundColor: theme.primaryColor
+  // },
+  // info: {
+  //   backgroundColor: theme.secondaryGray
+  // },
+  // warning: {
+  //   backgroundColor: theme.warning
+  // },
   icon: {
     fontSize: 20
   },

@@ -1,14 +1,16 @@
 import React, { useContext } from 'react'
 import Snackbar from '@mui/material/Snackbar'
-import AlertContent from 'molecules/Alert/AlertContent'
-import { CloseWrapper } from 'molecules/Alert/styles'
+import { CloseWrapper, useStyles } from 'molecules/Alert/styles'
 import { AlertContext } from './base'
+import MuiAlert, { AlertColor } from '@mui/material/Alert'
 
 const Alert = () => {
   const {
-    alert: { alertType },
+    alert: { alertType, message },
     handleClose
   } = useContext(AlertContext)
+
+  const classes = useStyles()
 
   return (
     <Snackbar
@@ -21,7 +23,17 @@ const Alert = () => {
         'aria-describedby': 'message-id'
       }}
     >
-      {!!alertType ? <AlertContent /> : <CloseWrapper />}
+      {!!alertType ? (
+        <MuiAlert
+          onClose={handleClose}
+          severity={alertType}
+          sx={{ width: '100%' }}
+        >
+          {message}
+        </MuiAlert>
+      ) : (
+        <CloseWrapper />
+      )}
     </Snackbar>
   )
 }
