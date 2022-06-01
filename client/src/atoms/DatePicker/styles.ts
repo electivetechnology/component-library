@@ -9,7 +9,7 @@ type DateLabelProps = {
 export const DateLabelStyled = styled.div<DateLabelProps>`
   background-color: transparent;
   color: ${theme.shadow};
-  font-size: 12px;
+  font-size: 14px;
   font-family: ${font.primary};
   ${(props) =>
     props.darkMode &&
