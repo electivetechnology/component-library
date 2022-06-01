@@ -1,8 +1,10 @@
 import { createContext } from 'react'
 import { AlertColor } from '@mui/material/Alert'
 
+export type AlertTypeType = AlertColor | string
+
 export interface AlertType {
-  alertType: AlertColor
+  alertType: AlertTypeType
   message: string
 }
 
