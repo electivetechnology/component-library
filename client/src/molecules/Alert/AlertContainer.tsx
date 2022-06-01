@@ -12,7 +12,7 @@ const AlertContainer: FC<Props> = ({ children }) => {
 
   const handleClose = () => {
     setAlert({
-      alertType: '',
+      alertType: undefined,
       message: ''
     })
   }
