@@ -1,7 +1,7 @@
 import React, { FunctionComponent, memo, ReactElement, useContext } from 'react'
 import { ActionTextStyled } from 'organisms/Form/styles'
 import { Font } from 'atoms'
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
+import { SvgIconProps } from '@mui/material/SvgIcon'
 import { theme } from 'styles/theme'
 import { FormContext } from '../base'
 
@@ -19,7 +19,9 @@ const FormAction: FunctionComponent<Props> = ({
 
   return (
     <ActionTextStyled data-testid='FormAction' onClick={handleAction}>
-      <Font variant={'h6'} color={darkMode ? theme.white : theme.secondary}>{label}</Font>
+      <Font variant={'h6'} color={darkMode ? theme.white : theme.secondary}>
+        {label}
+      </Font>
       {icon && icon}
     </ActionTextStyled>
   )

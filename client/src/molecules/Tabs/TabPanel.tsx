@@ -3,6 +3,7 @@ import { TabPanelStyled } from 'molecules/Tabs/styles'
 import { TabContext } from 'molecules/Tabs/base'
 
 interface Props {
+  children: any
   name: string
 }
 

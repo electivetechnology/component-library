@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import List from './ListComponent'
-import AddIcon from '@material-ui/icons/Add'
+import AddIcon from '@mui/icons-material/Add'
 import { Button } from 'atoms'
 
 const Template = (args: any) => <List {...args} />
@@ -19,10 +19,10 @@ const paragraph = (
 
 Default.args = {
   additionalInformation: paragraph,
-  additionalInformationAlign: "right",
+  additionalInformationAlign: 'right',
   endIcon: false,
-  overline: "This is the header",
-  title: "This is the paragraph",
+  overline: 'This is the header',
+  title: 'This is the paragraph',
   startIcon: false,
   selected: false,
   onClick: handleOnClick,
@@ -33,41 +33,41 @@ Default.args = {
 export const StartIcon: any = Template.bind({})
 
 StartIcon.args = {
-  additionalInformation: "Additional information",
-  additionalInformationAlign: "left",
+  additionalInformation: 'Additional information',
+  additionalInformationAlign: 'left',
   endIcon: false,
-  overline: "List with start icon",
-  title: "This is the paragraph",
-  startIcon: <Button label="title" theme='primary' onClick={() => {}} />,
+  overline: 'List with start icon',
+  title: 'This is the paragraph',
+  startIcon: <Button label='title' theme='primary' onClick={() => {}} />,
   startIconCentreAlign: false,
-  selected: false,
+  selected: false
 }
 
 // EndIcon
 export const EndIcon: any = Template.bind({})
 
 EndIcon.args = {
-  additionalInformation: "Additional information",
-  additionalInformationAlign: "left",
+  additionalInformation: 'Additional information',
+  additionalInformationAlign: 'left',
   endIcon: <AddIcon />,
   endIconCentreAlign: false,
-  overline: "List with start and end icon",
-  title: "This is the title",
+  overline: 'List with start and end icon',
+  title: 'This is the title',
   startIcon: false,
   startIconCentreAlign: false,
-  selected: false,
+  selected: false
 }
 
 // NoClick
 export const NoClick: any = Template.bind({})
 
 NoClick.args = {
-  additionalInformation: "Additional information",
-  additionalInformationAlign: "left",
+  additionalInformation: 'Additional information',
+  additionalInformationAlign: 'left',
   endIcon: <AddIcon />,
   endIconCentreAlign: false,
-  overline: "List with start and end icon",
-  title: "This is the title",
+  overline: 'List with start and end icon',
+  title: 'This is the title',
   startIcon: false,
   startIconCentreAlign: false,
   selected: false,
@@ -78,4 +78,3 @@ export default {
   title: 'molecules/List',
   component: List
 }
-

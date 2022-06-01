@@ -40,33 +40,39 @@ const List: FunctionComponent<ListProp> = ({
       onClick={onClick}
       startIcon={startIcon}
       endIcon={endIcon}
-      selected={selected}>
-      {startIcon && 
-        <IconContainerStyled
-          iconCenterAlign={startIconCentreAlign}>
+      selected={selected}
+    >
+      {startIcon && (
+        <IconContainerStyled iconCenterAlign={startIconCentreAlign}>
           {startIcon}
-        </IconContainerStyled>}
+        </IconContainerStyled>
+      )}
       <MainContainerStyled>
         {/* update with own font component late */}
-        {overline && <ListFontStyled overline>
+        {overline && (
           <ListFontStyled overline>
-            {overline}
+            <ListFontStyled overline>{overline}</ListFontStyled>
           </ListFontStyled>
-        </ListFontStyled>}
+        )}
         <ListFontStyled>
-          <ListFontStyled header>
-            {title}
-          </ListFontStyled>
+          <ListFontStyled header>{title}</ListFontStyled>
         </ListFontStyled>
-        {additionalInformation && <ListFontStyled header additionalInformationAlign={additionalInformationAlign}>
-          <ListFontStyled additionalInformation>
-            {additionalInformation}
+        {additionalInformation && (
+          <ListFontStyled
+            header
+            additionalInformationAlign={additionalInformationAlign}
+          >
+            <ListFontStyled additionalInformation>
+              {additionalInformation}
+            </ListFontStyled>
           </ListFontStyled>
-        </ListFontStyled>}
+        )}
       </MainContainerStyled>
-      {endIcon && 
-        <IconContainerStyled
-          iconCenterAlign={endIconCentreAlign}>{endIcon}</IconContainerStyled>}
+      {endIcon && (
+        <IconContainerStyled iconCenterAlign={endIconCentreAlign}>
+          {endIcon}
+        </IconContainerStyled>
+      )}
     </ListContainerStyled>
   )
 }

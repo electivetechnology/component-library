@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Button from 'atoms/Button/Button'
-import AddIcon from '@material-ui/icons/Add'
-import SaveIcon from '@material-ui/icons/Save'
+import AddIcon from '@mui/icons-material/Add'
+import SaveIcon from '@mui/icons-material/Save'
 
 const Template = (args: any) => <Button {...args} />
 

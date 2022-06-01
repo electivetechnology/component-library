@@ -12,4 +12,3 @@ export { default as FormColourPicker } from 'organisms/Form/components/FormColou
 export { default as FormHidden } from 'organisms/Form/components/FormHidden'
 export { useFormStatus } from 'organisms/Form/hooks'
 export { useFormHidden } from 'organisms/Form/hooks'
-

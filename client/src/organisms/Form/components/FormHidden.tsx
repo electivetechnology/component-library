@@ -4,15 +4,16 @@ import { FormContext } from 'organisms/Form/base'
 import { Font } from 'atoms'
 import { theme } from 'styles/theme'
 
-type Props =  {
+type Props = {
   handleSave: Function
 }
 
 const FormHidden = forwardRef<any, Props>(({ handleSave }, ref) => {
   const { handleAction } = useFormSave(handleSave)
 
-  return <button ref={ref} onClick={handleAction} style={{ visibility: 'hidden' }}/>
+  return (
+    <button ref={ref} onClick={handleAction} style={{ visibility: 'hidden' }} />
+  )
 })
 
 export default FormHidden
-

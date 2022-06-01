@@ -7,7 +7,7 @@ type PageStyledProps = {
 }
 
 export const PageStyled = styled.div<PageStyledProps>`
-  ${props =>
+  ${(props) =>
     props.align &&
     `
       align: ${props.align};
@@ -31,12 +31,11 @@ type PagesContainerProp = {
 
 export const PagesContainerStyled = styled.div<PagesContainerProp>`
   background-color: ${theme.white};
-  ${props =>
+  ${(props) =>
     props.transparent &&
     `
       background-color: transparent;
-    `
-  }
+    `}
   padding: 8px 24px 24px;
   bottom: 0;
   position: absolute;
@@ -49,14 +48,13 @@ export const PagesContainerStyled = styled.div<PagesContainerProp>`
     position: relative;
     width: -webkit-fill-available;
     padding: 24px 24px 0;
-    ${props =>
+    ${(props) =>
       props.sticky &&
       `
         position: absolute;
         top: 0;
         height: 48px;
-      `
-    }
+      `}
   }
 `
 
@@ -81,7 +79,7 @@ export const ProgressBarStyled = styled.div<ProgressBarProps>`
   margin: auto;
   grid-gap: 12px;
   display: none;
-  ${props =>
+  ${(props) =>
     props.isMobile &&
     `
       padding: 0;
@@ -90,7 +88,7 @@ export const ProgressBarStyled = styled.div<ProgressBarProps>`
     `};
   @media screen and (min-width: 750px) {
     display: inline-flex;
-    ${props =>
+    ${(props) =>
       props.isMobile &&
       `
         display: none;

@@ -10,6 +10,7 @@ import Font from 'atoms/Font/Font'
 import { CardType } from 'atoms/Card/base'
 
 type Props = {
+  children: any
   theme: CardType
   hover?: boolean
   footer?: string
@@ -59,7 +60,7 @@ const ComponentCard: React.FC<Props> = ({
       scroll={scroll}
       height={height}
       width={width}
-      overflow={overflow}
+      showOverflow={overflow}
     >
       {header || headerContent ? (
         <ComponentCardHeaderStyled>
@@ -69,7 +70,9 @@ const ComponentCard: React.FC<Props> = ({
           </CardHeaderStyled>
           <CardBorderStyled />
         </ComponentCardHeaderStyled>
-      ) : ''}
+      ) : (
+        ''
+      )}
       {children}
       {footer && (
         <ComponentCardFooterStyled padding={padding}>

@@ -7,14 +7,25 @@ import React, {
   useEffect
 } from 'react'
 import { BlockPicker } from 'react-color'
-import { PickerStyled, ColorStyled, PickerLabelStyled, RequiredStyled } from 'organisms/Form/styles'
+import {
+  PickerStyled,
+  ColorStyled,
+  PickerLabelStyled,
+  RequiredStyled
+} from 'organisms/Form/styles'
 import { Font } from 'atoms'
 import { InputContext, FormContext, handleFormColor } from 'organisms/Form/base'
 import { theme } from 'styles/theme'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormColourPicker: FunctionComponent = () => {
-  const { inputValue, name, label, disabled = false, required = false} = useContext(InputContext)
+  const {
+    inputValue,
+    name,
+    label,
+    disabled = false,
+    required = false
+  } = useContext(InputContext)
 
   const { updateInput, onBlur, darkMode } = useContext(FormContext)
 
@@ -59,10 +70,20 @@ const FormColourPicker: FunctionComponent = () => {
             backgroundColor: colorValue
           }}
           disabled={disabled}
-          onClick={disabled ? undefined : handleOnClick} />
+          onClick={disabled ? undefined : handleOnClick}
+        />
         <PickerLabelStyled>
-          <Font variant='h5' color={handleFormColor(theme.secondary, darkMode, disabled)}>{label}</Font>
-          {required && <RequiredStyled disabled={disabled} fontSize="24">*</RequiredStyled>}
+          <Font
+            variant='h5'
+            color={handleFormColor(theme.secondary, darkMode, disabled)}
+          >
+            {label}
+          </Font>
+          {required && (
+            <RequiredStyled disabled={disabled} fontSize='24'>
+              *
+            </RequiredStyled>
+          )}
         </PickerLabelStyled>
       </PickerStyled>
       <FormStatus />

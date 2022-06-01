@@ -5,7 +5,7 @@ import {
   SubMenuStyled
 } from 'molecules/NavIcons/styles'
 import { LayoutType } from 'molecules/NavIcons/base'
-import MoreHoriz from '@material-ui/icons/MoreHoriz'
+import MoreHoriz from '@mui/icons-material/MoreHoriz'
 import { theme } from 'styles/theme'
 
 export const navContext = React.createContext({
@@ -15,6 +15,7 @@ export const navContext = React.createContext({
 const { Provider } = navContext
 
 type Props = {
+  children?: JSX.Element | JSX.Element[]
   layout: LayoutType
   subMenu?: boolean
   subMenuContents?: any

@@ -6,7 +6,7 @@ import {
   iconStyles,
   NavIconMenuStyled
 } from 'molecules/NavIcons/styles'
-import Tooltip from '@material-ui/core/Tooltip'
+import Tooltip from '@mui/material/Tooltip'
 
 type Props = {
   children: any
@@ -27,7 +27,7 @@ const NavIcon: FC<Props> = ({
   menuContent,
   roundIcon,
   setShowMenu,
-  showMenu,
+  showMenu
 }) => {
   const { activeName, activeNames, handleClick } = useContext(sectionContext)
   const { layout } = useContext(navContext)

@@ -20,36 +20,38 @@ export const GridContainerStyled = styled.div<GridContainerProps>`
   transform: translate(102%, -0.5%);
   transition: 0.5s;
   z-index: 100;
-  ${props =>
+  ${(props) =>
     props.width &&
     `
         width: ${props.width};
     `};
-  ${props =>
+  ${(props) =>
     props.height &&
     `
         height: ${props.height};
     `};
-  ${props =>
+  ${(props) =>
     props.backgroundColor &&
     `
         background-color: ${props.backgroundColor};
     `};
-  ${props =>
+  ${(props) =>
     props.transform &&
     `
         transform: translate(${props.transform});
         transition: ${props.transition};
     `};
-  ${props =>
+  ${(props) =>
     props.grid &&
     `
         grid-template-columns: ${props.grid};
         grid-gap: 8px;
     `};
-  ${props =>
-      props.isActive && props.transition && props.activeTransform &&
-      `
+  ${(props) =>
+    props.isActive &&
+    props.transition &&
+    props.activeTransform &&
+    `
           transform: translate(${props.activeTransform});
           transition: ${props.transition};
       `};
@@ -66,7 +68,7 @@ export const ColumnStyled = styled.div<ColumnProps>`
   display: inline-flex;
   width: 100%;
   height: inherit;
-  ${props =>
+  ${(props) =>
     props.display &&
     `
         display: none;
@@ -89,7 +91,7 @@ export const ColumnContentStyled = styled.div<ColumnContentProps>`
   overflow: -moz-scrollbars-none;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  ${props =>
+  ${(props) =>
     props.isClosable &&
     `
         padding-right: 0;
@@ -101,8 +103,8 @@ export const ColumnCloseStyled = styled.div`
 `
 
 export const CloseTextStyled = styled.div`
-  transform-origin:84px 70px;
-  transform:rotate(-90deg);
+  transform-origin: 84px 70px;
+  transform: rotate(-90deg);
   font-size: 12px;
   position: relative;
   bottom: 132px;

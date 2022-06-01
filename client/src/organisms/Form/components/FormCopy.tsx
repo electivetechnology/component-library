@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
-import FileCopyOutlined from '@material-ui/icons/FileCopyOutlined'
-import CheckCircleOutline from '@material-ui/icons/CheckCircleOutline'
+import FileCopyOutlined from '@mui/icons-material/FileCopyOutlined'
+import CheckCircleOutline from '@mui/icons-material/CheckCircleOutline'
 import {
   CopyIconStyled,
   ToastStyled,
@@ -13,11 +13,7 @@ interface Props {
   darkMode: boolean
   isHovered: boolean
 }
-const FormCopy: FunctionComponent<Props> = ({ 
-  value, 
-  darkMode,
-  isHovered
-}) => {
+const FormCopy: FunctionComponent<Props> = ({ value, darkMode, isHovered }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const handleCopy = () => {
@@ -44,7 +40,9 @@ const FormCopy: FunctionComponent<Props> = ({
           />
         </CopiedStyled>
       ) : (
-        <FileCopyOutlined style={{ height: '20px', color: darkMode ? theme.white : theme.grey }} />
+        <FileCopyOutlined
+          style={{ height: '20px', color: darkMode ? theme.white : theme.grey }}
+        />
       )}
     </CopyIconStyled>
   )

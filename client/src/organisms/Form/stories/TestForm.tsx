@@ -1,6 +1,6 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import { Form, FormSave, FormInput, FormRow } from 'organisms/Form'
-import AddIcon from '@material-ui/icons/Add'
+import AddIcon from '@mui/icons-material/Add'
 import { useFormStatus, useFormHidden } from 'organisms/Form/hooks'
 import FormHidden from 'organisms/Form/components/FormHidden'
 import { selectOptions } from './base'
@@ -128,7 +128,11 @@ const TestForm: FC = () => {
       <FormInput label='Date' name='dateInput' value='some input' type='date' />
       <button onClick={handleHidden}>Trigger Ref</button>
       <FormHidden ref={hiddenRef} handleSave={handleSave} />
-      <FormSave label={'This is a very long button'} handleSave={handleSave} icon={<AddIcon />} />
+      <FormSave
+        label={'This is a very long button'}
+        handleSave={handleSave}
+        icon={<AddIcon />}
+      />
       <FormRow handleDelete={handleDelete}>
         <FormSave label={'Save'} handleSave={handleSave} icon={<AddIcon />} />
         <FormInput

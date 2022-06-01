@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMoreOutlined'
-import ExpandLessIcon from '@material-ui/icons/ExpandLess'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMoreOutlined'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import {
   HeaderBorder,
   HeaderContentStyled,
   expandIconStyles,
   HeaderContent,
-  HeaderContainer,
+  HeaderContainer
 } from './styles'
 import Font from '../Font/Font'
 import { theme } from 'styles/theme'
 
 type Props = {
+  children: any
   title?: string
   headerTheme?: string
   noScroll?: boolean
@@ -30,8 +31,7 @@ const Header: React.FC<Props> = ({
     setShowSection(!showSection)
   }
 
-  const fontColor =
-    headerTheme === 'primary' ? theme.primaryColor : theme.grey
+  const fontColor = headerTheme === 'primary' ? theme.primaryColor : theme.grey
   return (
     <HeaderContainer noScroll={noScroll}>
       <HeaderBorder />
@@ -55,9 +55,7 @@ const Header: React.FC<Props> = ({
           )}
         </HeaderContentStyled>
       ) : null}
-      <HeaderContent showSection={showSection}>
-        {children}
-      </HeaderContent>
+      <HeaderContent showSection={showSection}>{children}</HeaderContent>
     </HeaderContainer>
   )
 }

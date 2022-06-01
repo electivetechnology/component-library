@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
 import { useStyles } from 'atoms/PhoneInput/styles'
 
 function countryToFlag(isoCode: string) {
@@ -26,7 +26,7 @@ const PhoneInput = () => {
       }}
       autoHighlight
       getOptionLabel={(option) => option.label}
-      renderOption={(option) => (
+      renderOption={(option: any) => (
         <Fragment>
           <span>{countryToFlag(option.code)}</span>
           {option.label} ({option.code}) +{option.phone}

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@mui/material/TextField'
+import makeStyles from '@mui/styles/makeStyles'
 
 type Props = {
   id: string
@@ -100,7 +100,7 @@ const TextInput: FunctionComponent<Props> = ({
           input: classes.input
         }
       }}
-      rowsMax='10'
+      maxRows='10'
       onKeyPress={handleKeyPress}
       helperText={helperText}
     />

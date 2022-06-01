@@ -1,11 +1,18 @@
-import React, { FunctionComponent, memo, useContext, useState, Fragment } from 'react'
+import React, {
+  FunctionComponent,
+  memo,
+  useContext,
+  useState,
+  Fragment
+} from 'react'
 import { Toggle } from 'atoms'
 import { FormContext, InputContext } from 'organisms/Form/base'
 import { useEffectAfterMount } from 'utils/base'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
 const FormToggle: FunctionComponent = () => {
-  const { inputValue, name, label, disabled, options, required } = useContext(InputContext)
+  const { inputValue, name, label, disabled, options, required } =
+    useContext(InputContext)
 
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 
@@ -34,7 +41,6 @@ const FormToggle: FunctionComponent = () => {
       />
       <FormStatus />
     </Fragment>
-
   )
 }
 

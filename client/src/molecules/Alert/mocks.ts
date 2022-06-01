@@ -12,7 +12,7 @@ const setAlert = () => {
 export const successContextMock = {
   alert: {
     alertType: 'success' as AlertTypeType,
-    message: 'Success Alert',
+    message: 'Success Alert'
   },
   setAlert,
   handleClose
@@ -21,7 +21,7 @@ export const successContextMock = {
 export const warningContextMock = {
   alert: {
     alertType: 'warning' as AlertTypeType,
-    message: 'Warning Alert',
+    message: 'Warning Alert'
   },
   setAlert,
   handleClose
@@ -30,7 +30,7 @@ export const warningContextMock = {
 export const infoContextMock = {
   alert: {
     alertType: 'info' as AlertTypeType,
-    message: 'Info Alert',
+    message: 'Info Alert'
   },
   setAlert,
   handleClose
@@ -39,7 +39,7 @@ export const infoContextMock = {
 export const errorContextMock = {
   alert: {
     alertType: 'error' as AlertTypeType,
-    message: 'Error Alert',
+    message: 'Error Alert'
   },
   setAlert,
   handleClose
@@ -48,7 +48,7 @@ export const errorContextMock = {
 export const emptyContextMock = {
   alert: {
     alertType: '' as AlertTypeType,
-    message: '',
+    message: ''
   },
   setAlert,
   handleClose

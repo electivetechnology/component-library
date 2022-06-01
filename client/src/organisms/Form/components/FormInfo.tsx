@@ -9,7 +9,11 @@ type Props = {
 const FormInfo: FunctionComponent<Props> = ({ info }) => {
   const { darkMode } = useContext(FormContext)
 
-  return <Font variant='h4' color={darkMode ? theme.white :  theme.grey}>{info}</Font>
+  return (
+    <Font variant='h4' color={darkMode ? theme.white : theme.grey}>
+      {info}
+    </Font>
+  )
 }
 
 export default memo(FormInfo)

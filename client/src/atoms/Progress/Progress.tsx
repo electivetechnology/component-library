@@ -15,10 +15,9 @@ const Progress: React.FC<Props> = ({
   progressFill = 'transparent',
   progressColor = theme.primaryColor
 }) => {
-
   return (
     <ProgressStyled borderColor={borderColor} fill={progressFill}>
-      <Font variant="body1" color={progressColor} align="center">
+      <Font variant='body1' color={progressColor} align='center'>
         {label}
       </Font>
     </ProgressStyled>

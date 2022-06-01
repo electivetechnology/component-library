@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo, useContext } from 'react'
-import CloudDownloadOutlinedIcon from '@material-ui/icons/CloudDownloadOutlined'
+import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined'
 import { ActionButtonStyled } from 'organisms/Form/styles'
 import { FormContext, handleFormComponentColor, InputContext } from '../base'
 import { theme } from 'styles/theme'
@@ -22,9 +22,13 @@ const FormDownload: FunctionComponent<Props> = ({ label, value }) => {
     element.click()
   }
   return (
-    <ActionButtonStyled data-testid="FormDownload" isActive>
-      <CloudDownloadOutlinedIcon onClick={onDownload} style={{
-        fill: handleFormComponentColor(theme.grey, darkMode, disabled) }} />
+    <ActionButtonStyled data-testid='FormDownload' isActive>
+      <CloudDownloadOutlinedIcon
+        onClick={onDownload}
+        style={{
+          fill: handleFormComponentColor(theme.grey, darkMode, disabled)
+        }}
+      />
     </ActionButtonStyled>
   )
 }

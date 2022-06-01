@@ -12,18 +12,20 @@ import { theme } from 'styles/theme'
 export const selectOptions = [
   { label: 'Yes', value: 'yes' },
   { label: 'No', value: 'no' },
-  { label: 'Maybe', value: 'maybe' },
+  { label: 'Maybe', value: 'maybe' }
 ]
 
 export const darkModeForm: any = (args: any, handleUpdate: any) => {
   return (
-    <div style={{
-      backgroundImage: `linear-gradient(
+    <div
+      style={{
+        backgroundImage: `linear-gradient(
         ${theme.accent1Secondary},
         ${theme.accent3Secondary}
       )`,
-      height: '500px'
-    }}>
+        height: '500px'
+      }}
+    >
       <Form {...args} handleUpdate={handleUpdate} />
     </div>
   )

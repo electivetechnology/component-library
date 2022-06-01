@@ -1,8 +1,16 @@
 import React, { FC, useContext } from 'react'
 import Page from 'molecules/Pages/Page'
 import { PageContext } from './base'
-import { CloseIconStyled, PagesContainerStyled, ProgressContainerStyled, ProgressBarStyled, ProgressIndicatorStyled, HelperTextStyled, MobileProgressNavStyled } from 'molecules/Pages/styles'
-import CloseIcon from '@material-ui/icons/Close'
+import {
+  CloseIconStyled,
+  PagesContainerStyled,
+  ProgressContainerStyled,
+  ProgressBarStyled,
+  ProgressIndicatorStyled,
+  HelperTextStyled,
+  MobileProgressNavStyled
+} from 'molecules/Pages/styles'
+import CloseIcon from '@mui/icons-material/Close'
 import Progress from 'atoms/Progress/Progress'
 import { theme } from 'styles/theme'
 
@@ -14,9 +22,15 @@ type PagesProps = {
 const Pages: FC<PagesProps> = ({ sticky = false, transparent = false }) => {
   const isMobile = window.innerWidth < 750
 
-  const { back, next, progress, handleClose, currentStep, finalStep, helperText } = useContext(
-    PageContext
-  )
+  const {
+    back,
+    next,
+    progress,
+    handleClose,
+    currentStep,
+    finalStep,
+    helperText
+  } = useContext(PageContext)
 
   const renderProgress: any = []
 
@@ -37,13 +51,15 @@ const Pages: FC<PagesProps> = ({ sticky = false, transparent = false }) => {
           progressColor={theme.primaryColor}
           borderColor={theme.primaryColor}
         />
-      ) : !isMobile && (
-        <Progress
-          key={startIncrement}
-          label={startIncrement.toString()}
-          progressColor={theme.grey}
-          borderColor={theme.grey}
-        />
+      ) : (
+        !isMobile && (
+          <Progress
+            key={startIncrement}
+            label={startIncrement.toString()}
+            progressColor={theme.grey}
+            borderColor={theme.grey}
+          />
+        )
       )
 
     renderProgress.push(star)
@@ -56,10 +72,10 @@ const Pages: FC<PagesProps> = ({ sticky = false, transparent = false }) => {
           <CloseIcon />
         </CloseIconStyled>
       )}
-      {back && <Page handleClick={back} label={'Back'} buttonTheme='secondary'/>}
-      <ProgressBarStyled isMobile>
-        {renderProgress}
-      </ProgressBarStyled>
+      {back && (
+        <Page handleClick={back} label={'Back'} buttonTheme='secondary' />
+      )}
+      <ProgressBarStyled isMobile>{renderProgress}</ProgressBarStyled>
       <MobileProgressNavStyled>
         {next && (
           <Page
@@ -70,9 +86,7 @@ const Pages: FC<PagesProps> = ({ sticky = false, transparent = false }) => {
       </MobileProgressNavStyled>
       <ProgressContainerStyled>
         <ProgressIndicatorStyled>
-          <ProgressBarStyled>
-            {renderProgress}
-          </ProgressBarStyled>
+          <ProgressBarStyled>{renderProgress}</ProgressBarStyled>
           {next && (
             <Page
               handleClick={next}
@@ -80,9 +94,7 @@ const Pages: FC<PagesProps> = ({ sticky = false, transparent = false }) => {
             />
           )}
         </ProgressIndicatorStyled>
-        <HelperTextStyled>
-          {helperText}
-        </HelperTextStyled>
+        <HelperTextStyled>{helperText}</HelperTextStyled>
       </ProgressContainerStyled>
     </PagesContainerStyled>
   )

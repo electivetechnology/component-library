@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react'
-import MaterialAvatar from '@material-ui/core/Avatar'
+import MaterialAvatar from '@mui/material/Avatar'
 import { theme } from 'styles/theme'
 import { useStyles } from 'atoms/Avatar/styles'
 
 type Props = {
+  children?: any
   color?: string
   fontWeight?: number
   height?: string

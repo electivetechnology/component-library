@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 import { font, theme } from 'styles/theme'
-import { makeStyles } from '@material-ui/core'
+import makeStyles from '@mui/styles/makeStyles'
 import { handleFormBorder } from './base'
 
 type FormTextStyledProps = {
@@ -618,31 +618,6 @@ export const DateWrapperStyled = styled.div`
   position: relative;
   margin-top: 24px;
   padding-top: 8px;
-`
-
-type DateLabelProps = {
-  darkMode?: boolean
-  disabled: boolean
-}
-
-export const DateLabelStyled = styled.div<DateLabelProps>`
-  position: absolute;
-  z-index: 0;
-  top: -2px;
-  background-color: transparent;
-  color: ${theme.shadow};
-  font-size: 12px;
-  font-family: ${font.primary};
-  ${(props) =>
-    props.darkMode &&
-    `
-      color: ${theme.white};
-    `}
-  ${(props) =>
-    props.disabled &&
-    `
-      color: ${theme.disabledButton};
-    `}
 `
 
 export const FormPhoneStyled = styled.div`

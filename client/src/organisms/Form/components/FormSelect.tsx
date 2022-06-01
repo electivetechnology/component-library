@@ -11,7 +11,7 @@ import { Select } from 'molecules/Select'
 import FormDelete from 'organisms/Form/components/FormDelete'
 import { SelectStyled } from 'organisms/Form/styles'
 import isNull from 'lodash/isNull'
-import WarningIcon from '@material-ui/icons/Warning'
+import WarningIcon from '@mui/icons-material/Warning'
 import { theme } from 'styles/theme'
 
 const FormSelect: FunctionComponent = () => {
@@ -24,7 +24,7 @@ const FormSelect: FunctionComponent = () => {
     outlined,
     required,
     status,
-    requiredError,
+    requiredError
   } = useContext(InputContext)
   const { onBlur, updateInput, darkMode } = useContext(FormContext)
 

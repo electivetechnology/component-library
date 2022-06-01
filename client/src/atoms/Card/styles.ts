@@ -13,7 +13,7 @@ type CardContainerProps = {
   scroll?: boolean
   width?: string
   height?: string
-  overflow: boolean
+  showOverflow: boolean
 }
 
 export const CardContainerStyled = styled.div<CardContainerProps>`
@@ -101,7 +101,7 @@ export const CardContainerStyled = styled.div<CardContainerProps>`
       width: ${props.width};
     `};
   ${(props) =>
-    props.overflow &&
+    props.showOverflow &&
     `
       overflow: visible;
     `};

@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import NavIcons from 'molecules/NavIcons/NavIcons'
 import NavIcon from 'molecules/NavIcons/NavIcon'
-import InboxIcon from '@material-ui/icons/Inbox'
-import CheckCircleIcon from '@material-ui/icons/CheckCircleOutline'
-import CancelIcon from '@material-ui/icons/CancelOutlined'
+import InboxIcon from '@mui/icons-material/Inbox'
+import CheckCircleIcon from '@mui/icons-material/CheckCircleOutline'
+import CancelIcon from '@mui/icons-material/CancelOutlined'
 import NavToggle from 'molecules/NavIcons/NavToggle'
 import NavMulti from 'molecules/NavIcons/NavMulti'
 import { DividerType } from 'molecules/NavIcons/base'
@@ -43,16 +43,10 @@ const renderHorizontal = (divider: DividerType) => (
     <NavIcon name='Inbox' handleUpdate={handleUpdate}>
       <InboxIcon />
     </NavIcon>
-    <NavIcon
-      name='Accepted'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Accepted' handleUpdate={handleUpdate}>
       <CheckCircleIcon />
     </NavIcon>
-    <NavIcon
-      name='Rejected'
-      handleUpdate={handleUpdate}
-    >
+    <NavIcon name='Rejected' handleUpdate={handleUpdate}>
       <CancelIcon />
     </NavIcon>
   </NavMulti>

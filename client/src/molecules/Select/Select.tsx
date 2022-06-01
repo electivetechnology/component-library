@@ -4,6 +4,7 @@ import { SelectContainerStyled } from 'molecules/Select/styles'
 import OptionsSingle from 'molecules/Select/OptionsSingle'
 
 type Props = {
+  children: any
   label: string
   initialValue: OptionType
   onChange: Function
@@ -44,7 +45,8 @@ const Select: FC<Props> = ({
         darkMode={darkMode}
         disabled={disabled}
         error={false}
-        data-testid='Select'>
+        data-testid='Select'
+      >
         <OptionsSingle />
       </SelectContainerStyled>
     </SelectContext.Provider>

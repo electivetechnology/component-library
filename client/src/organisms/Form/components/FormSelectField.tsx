@@ -10,7 +10,7 @@ import { FormContext, InputContext } from 'organisms/Form/base'
 import { selectedOption } from 'organisms/Form/mock'
 import { SelectField } from 'atoms'
 import { SelectStyled } from '../styles'
-import WarningIcon from '@material-ui/icons/Warning'
+import WarningIcon from '@mui/icons-material/Warning'
 import { theme } from 'styles/theme'
 import FormStatus from 'organisms/Form/components/FormStatus'
 
@@ -37,20 +37,20 @@ const FormSelectField: FunctionComponent = () => {
     onBlur(name)
   }
 
-  const selectOptions = autoOptions?.selectOptions ? autoOptions.selectOptions : []
+  const selectOptions = autoOptions?.selectOptions
+    ? autoOptions.selectOptions
+    : []
 
-  const selected = autoOptions ? selectedOption(selectOptions, inputValue) : null
+  const selected = autoOptions
+    ? selectedOption(selectOptions, inputValue)
+    : null
 
   const handleChange = (event: any, newValue: any) => {
     valueRef.current = newValue
     updateInput(name, newValue ? newValue.value : null)
   }
 
-  const onInputChange = (
-    event: object,
-    newValue: string,
-    reason: string
-  ) => {
+  const onInputChange = (event: object, newValue: string, reason: string) => {
     handleInputChange && reason !== 'reset' && handleInputChange(newValue)
   }
 

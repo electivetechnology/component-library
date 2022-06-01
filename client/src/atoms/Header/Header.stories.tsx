@@ -11,21 +11,23 @@ const content = () => (
 const HearderTemplate = (args: any) => <Header {...args} />
 
 const HearderRowTemplate = (args: any) => (
-  <div style={{
-    display: 'flex',
-    flexFlow: 'column',
-    width: '320px',
-    height: '40vh',
-    justifyContent: 'flex-start'
-  }}>
-    <Header title="Header 1" noScroll>
+  <div
+    style={{
+      display: 'flex',
+      flexFlow: 'column',
+      width: '320px',
+      height: '40vh',
+      justifyContent: 'flex-start'
+    }}
+  >
+    <Header title='Header 1' noScroll>
       {content()}
       {content()}
       {content()}
       {content()}
     </Header>
     <Header {...args} />
-</div>
+  </div>
 )
 
 // Primary

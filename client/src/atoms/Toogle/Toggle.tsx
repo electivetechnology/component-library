@@ -59,7 +59,9 @@ const Toggle: FunctionComponent<Props> = ({
   return (
     <ToggleContainerStyled>
       <ToggleLabelStyled>
-        <Font variant='body2' color={handleFormColor()}>{label}</Font>
+        <Font variant='body2' color={handleFormColor()}>
+          {label}
+        </Font>
         {required && <RequiredStyled disabled={disabled}>*</RequiredStyled>}
       </ToggleLabelStyled>
       <SwitchContainerStyled>

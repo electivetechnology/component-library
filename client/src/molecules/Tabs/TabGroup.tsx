@@ -1,10 +1,11 @@
 import React from 'react'
 import { TabGroupStyled, TabTitleStyled } from 'molecules/Tabs/styles'
 import { theme, ThemeType } from 'styles/theme'
-import Chip from '@material-ui/core/Chip'
+import Chip from '@mui/material/Chip'
 import { TabGroupContext, useTabGroup } from 'molecules/Tabs/base'
 
 type Props = {
+  children: any
   title?: string
   colour?: string
   activeColour?: string

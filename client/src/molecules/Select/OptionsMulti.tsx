@@ -1,16 +1,18 @@
-import React, { useContext, FC, useEffect, Fragment, Children, useState } from 'react'
+import React, {
+  useContext,
+  FC,
+  useEffect,
+  Fragment,
+  Children,
+  useState
+} from 'react'
 import { OptionType, SelectContext } from './base'
 import { SelectStyled, TagStyled } from 'molecules/Select/styles'
 import isEmpty from 'lodash/isEmpty'
 
 const OptionsMulti: FC = () => {
-  const {
-    initialValue,
-    onChange,
-    required,
-    children,
-    showOptions
-  } = useContext(SelectContext)
+  const { initialValue, onChange, required, children, showOptions } =
+    useContext(SelectContext)
 
   const [selectedMulti, setSelectedMulti] = useState(
     [] as Array<{ label: ''; value: '' }>

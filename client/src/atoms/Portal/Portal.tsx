@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { createPortal } from 'react-dom'
 
 type Props = {
+  children: any
   root: HTMLElement
 }
 class Portal extends Component<Props> {

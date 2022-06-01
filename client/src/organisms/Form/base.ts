@@ -68,6 +68,7 @@ export type HandleStatusType = (
 ) => void
 
 export type FormProps = {
+  children: any
   handleUpdate?: (key: string, value: string) => void
   handleUpdateAll?: (inputs: Array<{ key: string; value: string }>) => void
   statuses?: any

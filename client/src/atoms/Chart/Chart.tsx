@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  VictoryPie,
-  VictoryLegend,
-  VictoryTooltip,
-} from "victory"
+import { VictoryPie, VictoryLegend, VictoryTooltip } from 'victory'
 import { font, theme } from 'styles/theme'
 const { VictorySharedEvents } = require('victory')
 
@@ -28,7 +24,9 @@ const Chart: React.FC<Props> = ({
 
   const handleViewBoxSize = () => {
     if (isMobile) {
-      return `100 30 340 ${legendData.length*30 >= 140 ? legendData.length*30 : 140}`
+      return `100 30 340 ${
+        legendData.length * 30 >= 140 ? legendData.length * 30 : 140
+      }`
     } else if (window.innerWidth > 750 && window.innerWidth < 960) {
       return `80 30 400 ${viewHeight >= 140 ? viewHeight : 140}`
     } else {
@@ -36,26 +34,31 @@ const Chart: React.FC<Props> = ({
     }
   }
 
-  const translateTransform = isMobile ? "translate(50, 10)" : "translate(42, 10)"
+  const translateTransform = isMobile
+    ? 'translate(50, 10)'
+    : 'translate(42, 10)'
 
   return (
-    <div style={{height: 'auto', width: 'auto'}}>
+    <div style={{ height: 'auto', width: 'auto' }}>
       <svg viewBox={handleViewBoxSize()} width='100%' height='100%'>
         <VictorySharedEvents
-          events={[{
-            childName: ["pie", "legend"],
-            target: "data",
-            eventHandlers: {
-              onClick: onClick
+          events={[
+            {
+              childName: ['pie', 'legend'],
+              target: 'data',
+              eventHandlers: {
+                onClick: onClick
+              }
             }
-          }]}>
+          ]}
+        >
           <VictoryLegend
-            name="legend"
+            name='legend'
             x={230}
             y={50}
-            orientation="vertical"
+            orientation='vertical'
             standalone={false}
-            title=""
+            title=''
             centerTitle
             data={legendData}
             rowGutter={{ top: 0, bottom: 0 }}
@@ -63,21 +66,25 @@ const Chart: React.FC<Props> = ({
               labels: {
                 fontSize: 14,
                 padding: 0,
-                fill: (datum: any) => datum.datum.symbol.active ? theme.textBody : theme.labels,
+                fill: (datum: any) =>
+                  datum.datum.symbol.active ? theme.textBody : theme.labels,
                 fontFamily: font.primary,
-                fontWeight: (datum) => datum.datum.symbol.active ? 'bold' : 'unset'
+                fontWeight: (datum) =>
+                  datum.datum.symbol.active ? 'bold' : 'unset'
               },
               data: {
-                fillOpacity: (datum: any) => datum.datum.symbol.active ? 1 : 0.4,
+                fillOpacity: (datum: any) =>
+                  datum.datum.symbol.active ? 1 : 0.4,
                 strokeWidth: 6,
                 fontSize: 16,
-                strokeOpacity: (datum: any) => datum.datum.symbol.active ? 1 : 0.4
+                strokeOpacity: (datum: any) =>
+                  datum.datum.symbol.active ? 1 : 0.4
               }
             }}
           />
           <g transform={translateTransform}>
             <VictoryPie
-              name="pie"
+              name='pie'
               width={200}
               height={200}
               standalone={false}
@@ -86,18 +93,18 @@ const Chart: React.FC<Props> = ({
               style={{
                 labels: labelStyle,
                 data: {
-                  fillOpacity: (datum) => datum.datum.active ? 1 : 0.4, 
+                  fillOpacity: (datum) => (datum.datum.active ? 1 : 0.4),
                   stroke: theme.white,
                   strokeWidth: 1
                 }
               }}
               labelComponent={
                 <VictoryTooltip
-                  style={{ fill: "white", zIndex: 10000 }}
+                  style={{ fill: 'white', zIndex: 10000 }}
                   flyoutStyle={{
-                    stroke: "none",
-                    fill: "black",
-                    opacity: "80%"
+                    stroke: 'none',
+                    fill: 'black',
+                    opacity: '80%'
                   }}
                   constrainToVisibleArea={true}
                 />

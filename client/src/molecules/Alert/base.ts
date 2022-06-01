@@ -1,6 +1,7 @@
 import { createContext } from 'react'
+import { AlertColor } from '@mui/material/Alert'
 
-export type AlertTypeType = 'success' | 'warning' | 'info' | 'error' | ''
+export type AlertTypeType = AlertColor | undefined
 
 export interface AlertType {
   alertType: AlertTypeType
@@ -13,4 +14,6 @@ export interface AlertContextType {
   handleClose: any
 }
 
-export const AlertContext = createContext<AlertContextType>({} as AlertContextType)
+export const AlertContext = createContext<AlertContextType>(
+  {} as AlertContextType
+)

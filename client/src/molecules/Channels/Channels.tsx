@@ -1,8 +1,12 @@
 import React, { FunctionComponent } from 'react'
-import { InlineStyle, IconOutlineStyled, iconStyles } from 'molecules/Channels/styles'
-import TextSms from '@material-ui/icons/TextsmsOutlined'
-import Smartphone from '@material-ui/icons/SmartphoneOutlined'
-import PhoneOutlined from '@material-ui/icons/PhoneOutlined'
+import {
+  InlineStyle,
+  IconOutlineStyled,
+  iconStyles
+} from 'molecules/Channels/styles'
+import TextSms from '@mui/icons-material/TextsmsOutlined'
+import Smartphone from '@mui/icons-material/SmartphoneOutlined'
+import PhoneOutlined from '@mui/icons-material/PhoneOutlined'
 
 type Props = {
   sms: boolean

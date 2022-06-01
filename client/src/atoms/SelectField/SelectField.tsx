@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Autocomplete from '@material-ui/lab/Autocomplete'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
 import {
   useInputStyles,
   useLabelStyles,
@@ -14,9 +14,7 @@ type Props = {
   value?: { value: string; label: string } | Array<any>
   options: Array<{ value: string; label: string }>
   onChange?: (event: React.ChangeEvent<{}>, value: string) => void
-  onInputChange?: ( event: object,
-                    newValue: string,
-                    reason: string) => void
+  onInputChange?: (event: object, newValue: string, reason: string) => void
   noOptionsMessage?: string
   darkMode?: boolean
   outlined?: boolean
