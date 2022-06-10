@@ -53,7 +53,7 @@ const DatePicker: FC<Props> = ({
             disableUnderline,
             style: {
               fontSize: 14,
-              color: darkMode ? theme.white : `${theme.shadow}`
+              color: darkMode ? theme.white : `${theme.grey}`
             },
             'aria-label': label
           }}
