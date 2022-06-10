@@ -52,6 +52,9 @@ const FormPhone: FunctionComponent = () => {
         containerStyle={{
           margin: '13px 0 0'
         }}
+        inputExtraProps={{
+          variant: 'standard'
+        }}
       />
       <FormStatus />
     </FormPhoneStyled>
