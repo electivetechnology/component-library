@@ -1,6 +1,6 @@
 {
   "name": "electivegroup-component-library",
-  "version": "1.100.1",
+  "version": "1.100.2",
   "engines": {
     "node": ">=16"
   },
@@ -24,7 +24,7 @@
     "build:clean": "rm -rf ./dist/*",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --loglevel error",
-    "docker-test": "yarn jest --env=jest-environment-jsdom-sixteen --forceExit --colors --detectOpenHandles --runInBand --watchAll=false",
+    "docker-test": "yarn jest --forceExit --colors --detectOpenHandles --runInBand --watchAll=false",
     "format": "yarn run prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "chromatic": "chromatic --project-token 6vtzo56j0w --exit-zero-on-changes"
   },
@@ -98,7 +98,6 @@
     "identity-obj-proxy": "^3.0.0",
     "immer": "9.0.6",
     "jest": "^26.6.3",
-    "jest-environment-jsdom-sixteen": "^1.0.3",
     "lodash": "^4.17.21",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
