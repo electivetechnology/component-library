@@ -22,7 +22,7 @@ const handleMenu = () => {}
 
 const renderLabels = () => (
   <NavToggle initial='Shortlist' title='Labels:'>
-    <NavIcon name='Shortlist' handleUpdate={handleUpdate}>
+    <NavIcon name='Shortlist' handleUpdate={handleUpdate} roundIcon>
       <FolderSharedOutlined />
     </NavIcon>
     <NavIcon name='Meeting' handleUpdate={handleUpdate}>
@@ -50,7 +50,7 @@ const renderActions = () => (
 
 const renderHorizontal = (divider: DividerType) => (
   <NavMulti initial={['Inbox', 'Accepted']} divider={divider}>
-    <NavIcon name='Inbox' handleUpdate={handleMenu}>
+    <NavIcon name='Inbox' handleUpdate={handleMenu} roundIcon>
       <InboxIcon />
     </NavIcon>
     <NavIcon name='Accepted' handleUpdate={handleUpdate}>

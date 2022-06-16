@@ -50,7 +50,7 @@ const NavIcon: FC<Props> = ({
   return (
     <Fragment>
       <IconStyled
-        selected={!roundIcon && selected}
+        selected={selected}
         onClick={onClick}
         horizontal={horizontal}
         roundIcon={roundIcon}
