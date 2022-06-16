@@ -4,7 +4,7 @@ import makeStyles from '@mui/styles/makeStyles'
 
 export const iconStyles = makeStyles({
   Icon: (props: any) => ({
-    fill: props.selected && !props.roundIcon ? theme.white : theme.secondary,
+    fill: props.selected ? theme.white : theme.secondary,
     margin: props.horizontal ? 'unset' : 'auto',
     height: '24px',
     width: '24px'
