@@ -2,6 +2,7 @@ import { createContext } from 'react'
 
 export type AlignTypes = 'left' | 'right'
 export type PageContextType = {
+  steps: Array<string>
   currentStep: number
   finalStep: number
   handleClose?: () => void
