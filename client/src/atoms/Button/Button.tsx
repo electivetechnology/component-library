@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom'
-// import { Redirect } from 'react-router'
 import {
   Wrapper,
   Icon,
